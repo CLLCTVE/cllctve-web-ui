@@ -8,6 +8,21 @@ const initialState = {
   error: ''
 };
 
+export const pending = () => ({
+  type: GET_QUESTION_SETS_PENDING,
+});
+
+export const success = (payload) => ({
+  type: GET_QUESTION_SETS_SUCCESS,
+  payload,
+});
+
+export const failure = error => ({
+  type: GET_QUESTION_SETS_FAILURE,
+  payload: error,
+  error: true,
+});
+
 export default function questionSets(state=initialState, action) {
   switch (action.type) {
     case GET_QUESTION_SETS_PENDING:

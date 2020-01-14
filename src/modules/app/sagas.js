@@ -3,24 +3,7 @@ import {all, call, put} from 'redux-saga/effects';
 import {initStart, initFinish, initError} from './redux/index';
 
 import { fetchQuestionSets } from '../../api';
-import { GET_QUESTION_SETS_FAILURE, GET_QUESTION_SETS_PENDING, GET_QUESTION_SETS_SUCCESS } from "./redux/question-sets";
-
-
-
-const pending = () => ({
-  type: GET_QUESTION_SETS_PENDING,
-});
-
-const success = (payload) => ({
-  type: GET_QUESTION_SETS_SUCCESS,
-  payload,
-});
-
-const failure = error => ({
-  type: GET_QUESTION_SETS_FAILURE,
-  payload: error,
-  error: true,
-});
+import { pending, success, failure } from "./redux/question-sets";
 
 function* getQuestionSets() {
   yield put(pending());
