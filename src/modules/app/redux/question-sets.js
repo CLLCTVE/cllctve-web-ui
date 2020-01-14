@@ -35,3 +35,5 @@ export default function questionSets(state=initialState, action) {
       return state;
   }
 };
+
+export const findById = (list, id) => list.find(qs => qs.id === id);
