@@ -1,5 +1,4 @@
 import {combineReducers} from 'redux';
-import questionSets from "./question-sets";
 
 export const APP_INIT_START = 'app/init/START';
 export const APP_INIT_FINISHED = 'app/init/FINISHED';
@@ -23,22 +22,25 @@ const INITIAL_STATE = {
   error: null,
 };
 
-let session = (state = INITIAL_STATE, action) => {
+export default function(state = INITIAL_STATE, action) {
   switch (action.type) {
     case APP_INIT_START:
-      return {...state, isLoading: true};
+      return {
+        ...state,
+        isLoading: true
+      };
     case APP_INIT_FINISHED:
-      return {...state, isLoading: false, didInit: true};
+      return {
+        ...state,
+        isLoading: false
+      };
     case APP_INIT_ERROR:
-      return {...state, isLoading: false, error: action.payload};
+      return {
+        ...state,
+        isLoading: false,
+        error: action.payload
+      };
     default:
       return state;
   }
-};
-
-const appStore = combineReducers({
-  session,
-  questionSets
-});
-
-export default appStore;
+}

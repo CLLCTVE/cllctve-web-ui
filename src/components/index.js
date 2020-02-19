@@ -4,10 +4,8 @@ import { Layout } from "antd";
 
 import Header from './template/header';
 import HomePage from './homepage';
-import QuestionSetsPage from './question-sets/question-sets';
-import QuestionSetPage from './question-sets/question-set';
-import LoginPage from './loginpage';
-import SignUpPage from './signup-page';
+import LoginPage from './login/loginpage';
+import SignUpPage from './signup/signup-page';
 
 class Index extends Component {
   render() {
@@ -19,8 +17,6 @@ class Index extends Component {
           <Route exact path='/' component={HomePage} />
           <Route exact path='/login' component={LoginPage} />
           <Route exact path='/sign-up' component={SignUpPage} />
-          <Route exact path='/question-sets' component={QuestionSetsPage} />
-          <Route path='/question-sets/:questionSetId' component={QuestionSetPage} />
         </Switch>
         </Layout.Content>
       </Layout>
