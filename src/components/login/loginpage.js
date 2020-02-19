@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { Field, Form } from 'react-final-form';
 import MakeAsyncFunction from 'react-redux-promise-listener'
-import { LOGIN_FAILURE, LOGIN_REQUEST, LOGIN_SUCCESS, loginRequest } from '../../modules/auth/redux';
+import { LOGIN_FAILURE, LOGIN_REQUEST, LOGIN_SUCCESS, handleLoginRequest } from '../../modules/auth/redux';
 
 import {promiseListener} from '../../store';
 
@@ -67,13 +67,12 @@ class LoginPage extends Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    token: state.auth.user.token,
     authenticated: state.auth.authenticated,
   };
 }
 const mapDispatchToProps = (dispatch) => {
   return {
-    loginRequest: () => dispatch(loginRequest)
+    loginRequest: () => dispatch(handleLoginRequest)
   };
 }
 

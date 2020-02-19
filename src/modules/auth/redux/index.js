@@ -14,33 +14,44 @@ const INITIAL_STATE = user
   ? {
     authenticated: true,
     user: user,
+    token: null,
     isLoading: false,
     error: null,
   }
   : {
     user: null,
+    token: null,
     authenticated: false,
     isLoading: false,
     error: null,
   };
 
-export const loginRequest = ({email, password}) => ({
+export const handleLoginRequest = ({email, password}) => ({
   type: LOGIN_REQUEST,
   email,
   password
 });
 
-export const logoutRequest = () => ({
-  type: LOGOUT_REQUEST
-  
+export const handleLoginSuccess = (payload) => ({
+  type: LOGIN_SUCCESS,
+  payload
 });
 
-export default function(state = INITIAL_STATE, action) {
+export const logoutRequest = () => ({
+  type: LOGOUT_REQUEST,
+  user: null,
+  token: null
+});
+
+
+
+export default function auth(state = INITIAL_STATE, action) {
   switch (action.type) {
-    case LOGIN_REQUEST:
-      console.log(LOGIN_REQUEST);
-      return {...state, isLoading: true, authenticated: false};
+    // case LOGIN_REQUEST:
+    //   console.log(LOGIN_REQUEST);
+    //   return {...state, isLoading: true, authenticated: false};
     case LOGIN_SUCCESS:
+      console.log('#auth action.payload: ', action.payload);
       return {...state, isLoading: false, authenticated: true, user: action.payload};
     case LOGIN_FAILURE:
       return {...state, isLoading: false, authenticated: false, error: action.payload};
