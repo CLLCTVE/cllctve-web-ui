@@ -1,36 +1,48 @@
 import {v4} from 'uuid';
-import mockQuestionSets from './mock-question-sets';
+import mockUsers from './mock_users';
 
-let questionSets = [...mockQuestionSets];
+let users = [...mockUsers];
 
-// console.log('mockQuestionSets: ', questionSets);
+console.log('users: ', users);
 
 const fakeDatabase = {
-  questionSets: questionSets,
+  users
 };
 
 const delay = (ms) =>
   new Promise(resolve => setTimeout(resolve, ms));
 
-export const fetchQuestionSets = async () => {
-  console.log('#fetchQuestionSets, start');
+export const loginResponse = async ({email, password}) => {
+  console.log('API#loginRequest, start');
+  console.log(`email: ${email}, password: ${password}`);
   
+  const userInfo = fakeDatabase.users[0];
   return await delay(10).then(() => {
     let data =  {
       status: 'ok',
       statusCode: 200,
-      data: fakeDatabase.questionSets
+      token: userInfo.token,
+      user: userInfo.user
     };
-    console.log('#fetchQuestionSets, done');
+    console.log('API#loginRequest, done');
     return data;
   });
 };
 
-export const addQuestionSet = (qs) =>
-  delay(500).then(() => {
-    // TODO: Implement adding question set
-    console.log('API#addQuestionSet, qs: ', qs);
+export const signupResponse = async ({ firstName, lastName, creativeName, email, password }) => {
+  console.log('API#signupResponse, start');
+  console.log(`firstName: ${firstName}, lastName: ${lastName}, creativeName: ${creativeName}, email: ${email}, password: ${password}`);
+  
+  const userInfo = fakeDatabase.users[0];
+  return await delay(500).then(() => {
+    let data =  {
+      status: 'ok',
+      statusCode: 201,
+    };
+    console.log('API#signupResponse, done');
+    return data;
   });
+}
 
 export const okResponse = () =>
   delay(500).then(() => {

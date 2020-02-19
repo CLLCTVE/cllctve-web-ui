@@ -2,12 +2,14 @@ import axios from 'axios';
 import qs from 'qs';
 import { authHeader } from './auth_headers';
 
+import * as API from '../api';
+
 const API_URL = 'http://localhost:3001/api';
 
 export default {
   del: (url, data, origin) => makeRequest(url, 'delete', data, origin),
-  get: (url, data, origin) => makeRequest(url, 'get', data, origin),
-  post: (url, data, origin) => makeRequest(url, 'post', data, origin),
+  get: (url, data, origin) => mockRequest(url, 'get', data, origin),
+  post: (url, data, origin) => mockRequest(url, 'post', data, origin),
   put: (url, data, origin) => makeRequest(url, 'put', data, origin),
 };
 
@@ -43,5 +45,44 @@ const makeRequest = async (url, method, requestData, origin) => {
     console.error('Error: Failed to make request, err: ', err);
   }
 };
+
+const mockRequest = async (url, method, requestData, origin) => {
+  if (url.startsWith('/')) {
+    url = url.substr(1);
+  }
+  
+  let apiUrl = `${origin || API_URL}/${{url}}`;
+  let config = {
+    ...authHeader(),
+    method,
+    url: apiUrl,
+    paramsSerializer: params => {
+      return qs.stringify(params, { arrayFormat: 'brackets' });
+    },
+  };
+  
+  if (requestData) {
+    config = {
+      ...config,
+      ...requestData
+    }
+  }
+  
+  try {
+    console.log('#mockRequest, making request...');
+    console.log('#mockRequest, config: ', config);
+
+    switch (url) {
+      case '/login':
+        return API.loginResponse;
+      case '/signup':
+        return API.signupResponse;
+      default:
+        return API.okResponse;
+    }
+  } catch (err) {
+    console.error('Error: Failed to make request, err: ', err);
+  }
+}
 
 

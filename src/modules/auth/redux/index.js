@@ -1,8 +1,12 @@
 export const LOGIN_REQUEST = 'auth/login/LOGIN_REQUEST';
 export const LOGIN_FAILURE = 'auth/login/LOGIN_FAILURE';
 export const LOGIN_SUCCESS = 'auth/login/LOGIN_SUCCESS';
+
 export const AUTHENTICATED = 'auth/login/AUTHENTICATED';
 export const UNAUTHENTICATED = 'auth/login/UNAUTHENTICATED';
+
+export const LOGOUT_REQUEST = 'auth/logout/LOGOUT_REQUEST';
+export const LOGOUT_SUCCESS = 'auth/logout/LOGOUT_SUCCESS';
 
 let user = JSON.parse(localStorage.getItem('user'));
 
@@ -20,6 +24,17 @@ const INITIAL_STATE = user
     error: null,
   };
 
+export const loginRequest = ({email, password}) => ({
+  type: LOGIN_REQUEST,
+  email,
+  password
+});
+
+export const logoutRequest = () => ({
+  type: LOGOUT_REQUEST
+  
+});
+
 export default function(state = INITIAL_STATE, action) {
   switch (action.type) {
     case LOGIN_REQUEST:
@@ -29,6 +44,10 @@ export default function(state = INITIAL_STATE, action) {
       return {...state, isLoading: false, authenticated: true, user: action.payload};
     case LOGIN_FAILURE:
       return {...state, isLoading: false, authenticated: false, error: action.payload};
+    case LOGOUT_REQUEST:
+      return {...state, isLoading: true, authenticated: false};
+    case LOGOUT_SUCCESS:
+      return {...state, isLoading: false, authenticated: false};
     case AUTHENTICATED:
       return {...state, authenticated: true};
     case UNAUTHENTICATED:
