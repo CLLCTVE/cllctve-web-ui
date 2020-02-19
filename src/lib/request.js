@@ -73,7 +73,7 @@ const mockRequest = async (url, method, requestData, origin) => {
     console.log('#mockRequest, config: ', config);
 
     switch (url) {
-      case '/login':
+      case '/auth/login':
         return API.loginResponse;
       case '/signup':
         return API.signupResponse;

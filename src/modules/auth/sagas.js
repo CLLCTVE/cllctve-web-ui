@@ -4,10 +4,10 @@ import request from '../../lib/request';
 
 import { LOGIN_FAILURE, LOGIN_REQUEST, LOGOUT_REQUEST, handleLoginSuccess } from './redux';
 
-export function* authorize({email, password}) {
-  console.log(`#authorize, start, email: ${email}, password: ${password}`);
+export function* authorize(action) {
+  console.log('#authorize, action: ', action);
   try {
-    const response = yield call(request.post, '/login', { email, password });
+    const response = yield call(request.post, '/auth/login',);
     console.log('#authorize, response: ', response);
     
     if (response.status !== 200) {
@@ -35,18 +35,19 @@ function* loginFlow() {
     }
     
     console.log('#loginFlow, end of loop');
-    yield
   }
 }
 
 export function* watchLoginSaga() {
   console.log('#watchLoginSaga, start');
-  yield takeLatest(LOGIN_REQUEST, loginFlow)
+  yield takeLatest(LOGIN_REQUEST, function*(action) {
+    console.log('#watchLoginSaga, anonymous function, action: ', action);
+  });
 }
 
 export default function* sagas() {
-  yield all([
-    watchLoginSaga,
-    loginFlow
+  yield all ([
+    watchLoginSaga(),
+    loginFlow(),
   ]);
 }

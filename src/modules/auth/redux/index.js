@@ -26,10 +26,10 @@ const INITIAL_STATE = user
     error: null,
   };
 
-export const handleLoginRequest = ({email, password}) => ({
+export const handleLoginRequest = (payload) => ({
   type: LOGIN_REQUEST,
-  email,
-  password
+  payload,
+  isLoading: true,
 });
 
 export const handleLoginSuccess = (payload) => ({

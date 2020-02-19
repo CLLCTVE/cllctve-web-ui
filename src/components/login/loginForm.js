@@ -2,16 +2,9 @@ import React, {Component} from 'react';
 import { Field, Form } from 'react-final-form';
 import { LOGIN_FAILURE, LOGIN_REQUEST, LOGIN_SUCCESS, handleLoginRequest } from '../../modules/auth/redux';
 
-const sleep = ms => new Promise((resolve, reject) => setTimeout(resolve, ms));
-
-const onSubmit = async values => {
-  await sleep(300);
-  window.alert(JSON.stringify(values, 0, 2));
-};
-
-const LoginForm = () => (
+export const LoginForm = (props) => (
   <Form
-    onSubmit={onSubmit}
+    onSubmit={props.onSubmit}
     render={({ handleSubmit, submitting, pristine, values }) => (
       <form onSubmit={handleSubmit}>
         <div>
@@ -40,7 +33,5 @@ const LoginForm = () => (
         <pre>{JSON.stringify(values, 0, 2)}</pre>
       </form>
     )}
-  >
-  
-  </Form>
+  />
 )
