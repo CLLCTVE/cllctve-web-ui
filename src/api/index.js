@@ -12,19 +12,14 @@ const fakeDatabase = {
 const delay = (ms) =>
   new Promise(resolve => setTimeout(resolve, ms));
 
-export const loginResponse = async ({email, password}) => {
-  console.log('API#loginRequest, start');
-  console.log(`email: ${email}, password: ${password}`);
-  
-  const userInfo = fakeDatabase.users[0];
-  return await delay(10).then(() => {
+export const loginResponse = ({email, password}) => {
+  return delay(10).then(() => {
     let data =  {
       status: 'ok',
       statusCode: 200,
-      token: userInfo.token,
-      user: userInfo.user
+      token: fakeDatabase.users[0].token,
+      user: fakeDatabase.users[0].user
     };
-    console.log('API#loginRequest, done');
     return data;
   });
 };
@@ -44,11 +39,11 @@ export const signupResponse = async ({ firstName, lastName, creativeName, email,
   });
 }
 
-export const okResponse = () =>
+export const okResponse = () => (
   delay(500).then(() => {
     console.log('okResponse');
     return JSON.stringify({
       status: 'ok',
       statusCode: 200
     });
-  });
+  }));

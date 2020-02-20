@@ -69,16 +69,19 @@ const mockRequest = async (url, method, requestData, origin) => {
   }
   
   try {
-    console.log('#mockRequest, making request...');
-    console.log('#mockRequest, config: ', config);
-
     switch (url) {
-      case '/auth/login':
-        return API.loginResponse;
-      case '/signup':
-        return API.signupResponse;
+      case 'auth/login':
+        return await API.loginResponse({email: config.email, password: config.password});
+      case 'signup':
+        return await API.signupResponse({
+          firstName: config.firstName,
+          lastName: config.lastName,
+          creativeName: config.creativeName,
+          email: config.email,
+          password: config.password
+        });
       default:
-        return API.okResponse;
+        return await API.okResponse();
     }
   } catch (err) {
     console.error('Error: Failed to make request, err: ', err);
