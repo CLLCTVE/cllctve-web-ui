@@ -29,7 +29,7 @@ export function* authorize({email, password}) {
     window.location.href = `${CLIENT_ROOT_URL}/profile`;
   } catch (err) {
     console.error('#authorize, Error: ', err);
-    yield put(handleLoginFailed());
+    yield put(handleLoginFailed(err));
   } finally {
     if (yield cancelled()) {
       yield put(handleLoginCancelled())

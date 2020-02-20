@@ -47,13 +47,11 @@ export const handleLoginFailed = (payload) => ({
   payload
 });
 
-export const logoutRequest = () => ({
+export const handleLogoutRequest = () => ({
   type: LOGOUT_REQUEST,
   user: null,
   token: null
 });
-
-
 
 export default function auth(state = INITIAL_STATE, action) {
   switch (action.type) {

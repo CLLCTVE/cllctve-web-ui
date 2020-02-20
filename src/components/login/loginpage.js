@@ -22,6 +22,7 @@ const mapStateToProps = (state, ownProps) => {
     authenticated: state.auth.authenticated,
   };
 };
+
 const mapDispatchToProps = (dispatch) => {
   return {
     handleLoginRequest: (values) => dispatch(handleLoginRequest(values))
