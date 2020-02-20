@@ -1,16 +1,28 @@
-import React, {Component} from 'react';
+import React from 'react';
 import { Field, Form } from 'react-final-form';
+import { FORM_ERROR } from 'final-form'
+import { renderInput } from '../fields/renderFields';
 
 export const LoginForm = (props) => (
   <Form
     onSubmit={props.onSubmit}
-    render={({ handleSubmit, submitting, pristine, values }) => (
+    validate={values => {
+      const errors = {};
+      if (!values.email) {
+        errors.email = 'Required';
+      }
+      if (!values.password) {
+        errors.password = 'Required';
+      }
+      return errors;
+    }}
+    render={({ submitError, handleSubmit, submitting, pristine, values }) => (
       <form onSubmit={handleSubmit}>
         <div>
           <label>Email</label>
           <Field
             name="email"
-            component="input"
+            component={renderInput}
             type="text"
             placeholder="creative@cllctve.edu"
           />
@@ -19,7 +31,7 @@ export const LoginForm = (props) => (
           <label>Password</label>
           <Field
             name="password"
-            component="input"
+            component={renderInput}
             type="text"
             placeholder="password"
           />

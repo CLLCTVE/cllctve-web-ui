@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import { LoginForm } from './loginForm';
 import { handleLoginRequest } from '../../modules/auth/redux';
 
-const sleep = ms => new Promise((resolve, reject) => setTimeout(resolve, ms));
-
 class LoginPage extends Component {
   handleFormSubmit = async (values) => {
     this.props.handleLoginRequest(values);
