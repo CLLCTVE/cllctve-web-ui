@@ -1,28 +1,39 @@
-import { all, call, apply, cancel, put, fork, take, takeLatest } from 'redux-saga/effects';
+import { all, call, apply, cancel, cancelled, put, fork, take, takeLatest } from 'redux-saga/effects';
 
 import request from '../../lib/request';
 
-import { LOGIN_FAILURE, LOGIN_REQUEST, LOGOUT_REQUEST, handleLoginRequest, handleLoginSuccess } from './redux';
+import {
+  LOGIN_REQUEST,
+  LOGOUT_REQUEST,
+  LOGIN_FAILURE,
+  handleLoginRequest,
+  handleLoginSuccess,
+  handleLoginFailed,
+  handleLoginCancelled
+} from './redux';
+
+const CLIENT_ROOT_URL = 'http://localhost:3000';
 
 export function* authorize({email, password}) {
   console.log('#authorize, start');
   try {
     const response = yield call(request.post, '/auth/login', {email, password});
-    console.log('#authorize, response: ', response);
-    
-    const {user, token } = response;
     if (response.statusCode !== 200) {
       console.warn("#authorize, Received non-200 status");
     }
-  
-    console.log('setting token: ', token);
-    console.log('setting user: ', user);
-    localStorage.setItem('token', token);
-    localStorage.setItem('uid', user.id);
-    console.log('#authorize, done');
+    const {user, token } = response;
+    localStorage.setItem('token', JSON.stringify(token));
+    localStorage.setItem('uid', JSON.stringify(user.id));
+    localStorage.setItem('user', JSON.stringify(user));
     yield put(handleLoginSuccess(response));
+    window.location.href = `${CLIENT_ROOT_URL}/profile`;
   } catch (err) {
     console.error('#authorize, Error: ', err);
+    yield put(handleLoginFailed());
+  } finally {
+    if (yield cancelled()) {
+      yield put(handleLoginCancelled())
+    }
   }
 }
 

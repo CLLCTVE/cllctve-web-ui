@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import { Field, Form } from 'react-final-form';
-import { LOGIN_FAILURE, LOGIN_REQUEST, LOGIN_SUCCESS, handleLoginRequest } from '../../modules/auth/redux';
 
 export const LoginForm = (props) => (
   <Form
@@ -34,4 +33,4 @@ export const LoginForm = (props) => (
       </form>
     )}
   />
-)
+);

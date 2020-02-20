@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { LoginForm } from './loginForm';
-import { LOGIN_FAILURE, LOGIN_REQUEST, LOGIN_SUCCESS, handleLoginRequest } from '../../modules/auth/redux';
+import { handleLoginRequest } from '../../modules/auth/redux';
 
 const sleep = ms => new Promise((resolve, reject) => setTimeout(resolve, ms));
 
@@ -12,7 +12,7 @@ class LoginPage extends Component {
   
   render() {
     return (
-      <LoginForm onSubmit={this.handleFormSubmit}/>
+      <LoginForm onSubmit={this.handleFormSubmit} />
     );
   }
 }

@@ -1,6 +1,7 @@
 export const LOGIN_REQUEST = 'auth/login/LOGIN_REQUEST';
 export const LOGIN_FAILURE = 'auth/login/LOGIN_FAILURE';
 export const LOGIN_SUCCESS = 'auth/login/LOGIN_SUCCESS';
+export const LOGIN_CANCELLED = 'auth/login/LOGIN_CANCELLED';
 
 export const AUTHENTICATED = 'auth/login/AUTHENTICATED';
 export const UNAUTHENTICATED = 'auth/login/UNAUTHENTICATED';
@@ -37,6 +38,15 @@ export const handleLoginSuccess = (payload) => ({
   payload
 });
 
+export const handleLoginCancelled = () => ({
+  type: LOGIN_CANCELLED
+});
+
+export const handleLoginFailed = (payload) => ({
+  type: LOGIN_FAILURE,
+  payload
+});
+
 export const logoutRequest = () => ({
   type: LOGOUT_REQUEST,
   user: null,
@@ -51,7 +61,6 @@ export default function auth(state = INITIAL_STATE, action) {
     //   console.log(LOGIN_REQUEST);
     //   return {...state, isLoading: true, authenticated: false};
     case LOGIN_SUCCESS:
-      console.log('#auth action.payload: ', action.payload);
       return {...state, isLoading: false, authenticated: true, user: action.payload};
     case LOGIN_FAILURE:
       return {...state, isLoading: false, authenticated: false, error: action.payload};

@@ -13,6 +13,7 @@ const delay = (ms) =>
   new Promise(resolve => setTimeout(resolve, ms));
 
 export const loginResponse = ({email, password}) => {
+  console.log('#loginResponse, email: %s, password: %s', email, password);
   return delay(10).then(() => {
     let data =  {
       status: 'ok',
