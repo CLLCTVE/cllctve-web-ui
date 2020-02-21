@@ -6,7 +6,6 @@ const InputC = styled(Input)`
   border-top-width: 0px;
   border-left-width:0px;
   border-right-width:0px;
-  //border:none;
 `;
 
 export const renderInput = ({input, label, placeholder, type, meta: {touched, error, warning}}) => (

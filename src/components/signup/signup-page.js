@@ -2,45 +2,31 @@ import React, {Component} from 'react';
 import { Form, Field } from 'react-final-form';
 import { renderInputD } from '../fields/renderFields';
 import styled from 'styled-components';
-import { Input, Col, Row, Button, AutoComplete } from 'antd';
-
-const InputGroup = Input.Group;
+import { Input, Select, Col, Row, Button, AutoComplete } from 'antd';
 
 const Container = styled.div`
   max-width: 300px;
   display: inline-block;
 `;
 
-const AutoCompleteC = styled(AutoComplete)`
-  width: 200px;
-  border-top-width: 0 !important;
-  border-left-width: 0 !important;
-  border-right-width: 0 !important;
-`;
-
 const onSubmit = async values => {
   console.log('#onSumbit, values: ', values);
 };
 
-const onSelect = (value) => {
-  console.log('onSelect', value);
-};
+const OPTIONS = ['Software Development', 'Graphic Designer', 'Digital Illustrator'];
 
 class SignUpPage extends Component {
   state = {
-    value: '',
-    dataSource: [],
+    selectedItems: [],
   };
   
-  onSearch = searchText => {
-    console.log('SignUpPage#onSearch, searchText: ', searchText);
-    this.setState({
-      dataSource: !searchText ? [] : [searchText, searchText.repeat(2), searchText.repeat(3)],
-    });
+  handleChange = selectedItems => {
+    this.setState({ selectedItems });
   };
   
   render() {
-    const { dataSource, value } = this.state;
+    const { selectedItems } = this.state;
+    const filteredOptions = OPTIONS.filter(option => !selectedItems.includes(option));
     
     return (
       <Container>
@@ -73,12 +59,23 @@ class SignUpPage extends Component {
                 />
               </div>
               <div>
-                <AutoCompleteC
-                  dataSource={dataSource}
-                  onSelect={onSelect}
-                  onSearch={this.onSearch}
-                  placeholder="input here"
-                />
+                <Select
+                  style={{
+                    borderTopWidth: 0,
+                    borderLeftWidth: 0,
+                    borderRightWidth: 0
+                  }}
+                  mode="multiple"
+                  placeholder="Enter Skills"
+                  value={selectedItems}
+                  onChange={this.handleChange}
+                >
+                  {filteredOptions.map(item => (
+                    <Select.Option key={item} value={item}>
+                      {item}
+                    </Select.Option>
+                  ))}
+                </Select>
               </div>
               <Row gutter={8}>
                 <Col span={12}>
@@ -130,7 +127,7 @@ class SignUpPage extends Component {
                   Reset
                 </Button>
               </div>
-              <pre>{JSON.stringify(values, 0, 2)}</pre>
+              {/*<pre>{JSON.stringify(values, 0, 2)}</pre>*/}
             </form>
           )}
         />
