@@ -14,12 +14,14 @@ class Index extends Component {
       <Layout>
         <Header/>
         <Layout.Content style={{padding: '60px', height: '100%', minHeight: '100vh'}}>
-        <Switch>
-          <Route exact path='/' component={HomePage} />
-          <Route exact path='/login' component={LoginPage} />
-          <Route exact path='/sign-up' component={SignUpPage} />
-          <Route exact path='/profile' component={ProfilePage} />
-        </Switch>
+          <div style={{ padding: 24, background: '#fff', textAlign: 'center' }}>
+            <Switch>
+              <Route exact path='/' component={HomePage} />
+              <Route exact path='/login' component={LoginPage} />
+              <Route exact path='/sign-up' component={SignUpPage} />
+              <Route exact path='/profile' component={ProfilePage} />
+            </Switch>
+          </div>
         </Layout.Content>
       </Layout>
     )

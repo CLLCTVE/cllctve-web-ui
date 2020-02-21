@@ -1,4 +1,13 @@
 import React from 'react';
+import {Input} from "antd";
+import styled from "styled-components";
+
+const InputC = styled(Input)`
+  border-top-width: 0px;
+  border-left-width:0px;
+  border-right-width:0px;
+  //border:none;
+`;
 
 export const renderInput = ({input, label, placeholder, type, meta: {touched, error, warning}}) => (
   <div>
@@ -7,6 +16,16 @@ export const renderInput = ({input, label, placeholder, type, meta: {touched, er
       <input {...input} placeholder={placeholder || label} type={type} className={error ? 'error' : null} />
       {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
     </div>
+  </div>
+);
+
+export const renderInputD = ({ input, placeholder, label }) => (
+  <div>
+    <InputC
+      {...input}
+      placeholder={placeholder || label}
+      
+    />
   </div>
 );
 

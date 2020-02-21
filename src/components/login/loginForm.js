@@ -1,7 +1,8 @@
 import React from 'react';
 import { Field, Form } from 'react-final-form';
+import { Button } from 'antd';
 import { FORM_ERROR } from 'final-form'
-import { renderInput } from '../fields/renderFields';
+import { renderInputD } from '../fields/renderFields';
 
 export const LoginForm = (props) => (
   <Form
@@ -19,27 +20,35 @@ export const LoginForm = (props) => (
     render={({ submitError, handleSubmit, submitting, pristine, values }) => (
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Email</label>
           <Field
             name="email"
-            component={renderInput}
+            component={renderInputD}
             type="text"
             placeholder="creative@cllctve.edu"
           />
         </div>
         <div>
-          <label>Password</label>
           <Field
             name="password"
-            component={renderInput}
+            component={renderInputD}
             type="text"
             placeholder="password"
           />
         </div>
         <div className="buttons">
-          <button type="submit" disabled={submitting || pristine}>
-            Submit
-          </button>
+          <Button
+            shape="round"
+            type="button"
+            htmlType="submit"
+            disabled={submitting || pristine}
+          >
+            Login
+          </Button>
+        </div>
+        <div>
+          <a href="#">Forgot your password? Click Here</a>
+          <br/>
+          <a href="#">Not a member? Click here to create your account!</a>
         </div>
         <pre>{JSON.stringify(values, 0, 2)}</pre>
       </form>

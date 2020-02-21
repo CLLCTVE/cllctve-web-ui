@@ -38,7 +38,7 @@ class Header extends Component {
   
   render() {
     return (
-      <Layout.Header>
+      <Layout.Header style={{ background: '#fff', padding: 0 }}>
         <Menu mode="horizontal">
           {this.renderLinks()}
         </Menu>

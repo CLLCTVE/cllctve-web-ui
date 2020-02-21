@@ -2,6 +2,12 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { LoginForm } from './loginForm';
 import { handleLoginRequest } from '../../modules/auth/redux';
+import styled from 'styled-components';
+
+const Container = styled.div`
+  max-width: 300px;
+  display: inline-block;
+`;
 
 class LoginPage extends Component {
   handleFormSubmit = async (values) => {
@@ -10,7 +16,9 @@ class LoginPage extends Component {
   
   render() {
     return (
-      <LoginForm onSubmit={this.handleFormSubmit} />
+      <Container>
+        <LoginForm onSubmit={this.handleFormSubmit} />
+      </Container>
     );
   }
 }
