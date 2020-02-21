@@ -18,6 +18,11 @@ class LoginPage extends Component {
     return (
       <Container>
         <LoginForm onSubmit={this.handleFormSubmit} />
+        <div>
+          <a href="#">Forgot your password? Click Here</a>
+          <br/>
+          <a href="#">Not a member? Click here to create your account!</a>
+        </div>
       </Container>
     );
   }

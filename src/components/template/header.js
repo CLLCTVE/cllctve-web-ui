@@ -30,7 +30,7 @@ class Header extends Component {
           <Link to="/login">Log In</Link>
         </Menu.Item>,
         <Menu.Item key={`${1}header`}>
-          <Link to="/signup">Sign Up</Link>
+          <Link to="/sign-up">Sign Up</Link>
         </Menu.Item>,
       ];
     }

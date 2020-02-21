@@ -45,11 +45,6 @@ export const LoginForm = (props) => (
             Login
           </Button>
         </div>
-        <div>
-          <a href="#">Forgot your password? Click Here</a>
-          <br/>
-          <a href="#">Not a member? Click here to create your account!</a>
-        </div>
         <pre>{JSON.stringify(values, 0, 2)}</pre>
       </form>
     )}
