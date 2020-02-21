@@ -1,5 +1,5 @@
 import React from 'react';
-import {Input} from "antd";
+import { Input } from "antd";
 import styled from "styled-components";
 
 const InputC = styled(Input)`
