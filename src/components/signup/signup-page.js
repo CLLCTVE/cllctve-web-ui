@@ -1,8 +1,11 @@
 import React, {Component} from 'react';
 import { Form, Field } from 'react-final-form';
-import { renderInputD } from '../fields/renderFields';
+import { renderInputD, renderSelectD, renderSelectA } from '../fields/renderFields';
 import styled from 'styled-components';
-import { Input, Select, Col, Row, Button, AutoComplete } from 'antd';
+import { DatePicker, Select, Col, Row, Button } from 'antd';
+
+const {MonthPicker} = DatePicker;
+
 
 const Container = styled.div`
   max-width: 300px;
@@ -16,17 +19,10 @@ const onSubmit = async values => {
 const OPTIONS = ['Software Development', 'Graphic Designer', 'Digital Illustrator'];
 
 class SignUpPage extends Component {
-  state = {
-    selectedItems: [],
-  };
-  
-  handleChange = selectedItems => {
-    this.setState({ selectedItems });
-  };
   
   render() {
-    const { selectedItems } = this.state;
-    const filteredOptions = OPTIONS.filter(option => !selectedItems.includes(option));
+    // const { selectedItems } = this.state;
+    // const filteredOptions = OPTIONS.filter(option => !selectedItems.includes(option));
     
     return (
       <Container>
@@ -59,42 +55,17 @@ class SignUpPage extends Component {
                 />
               </div>
               <div>
-                <Select
-                  style={{
-                    borderTopWidth: 0,
-                    borderLeftWidth: 0,
-                    borderRightWidth: 0
-                  }}
+                <Field
+                  name="skills"
+                  component={renderSelectA}
+                  options={OPTIONS}
                   mode="multiple"
-                  placeholder="Enter Skills"
-                  value={selectedItems}
-                  onChange={this.handleChange}
-                >
-                  {filteredOptions.map(item => (
-                    <Select.Option key={item} value={item}>
-                      {item}
-                    </Select.Option>
-                  ))}
-                </Select>
+                  placeholder="Skills"
+                />
               </div>
-              <Row gutter={8}>
-                <Col span={12}>
-                  <Field
-                    name="gradMonth"
-                    component={renderInputD}
-                    type="text"
-                    placeholder="Grad Month"
-                  />
-                </Col>
-                <Col span={12}>
-                  <Field
-                    name="gradYear"
-                    component={renderInputD}
-                    type="text"
-                    placeholder="Grad Year"
-                  />
-                </Col>
-              </Row>
+              <div>
+                <MonthPicker/>
+              </div>
               <div>
                 <Field
                   name="email"
@@ -127,7 +98,7 @@ class SignUpPage extends Component {
                   Reset
                 </Button>
               </div>
-              {/*<pre>{JSON.stringify(values, 0, 2)}</pre>*/}
+              <pre>{JSON.stringify(values, 0, 2)}</pre>
             </form>
           )}
         />

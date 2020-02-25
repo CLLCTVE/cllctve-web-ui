@@ -45,7 +45,7 @@ export const LoginForm = (props) => (
             Login
           </Button>
         </div>
-        <pre>{JSON.stringify(values, 0, 2)}</pre>
+        {/*<pre>{JSON.stringify(values, 0, 2)}</pre>*/}
       </form>
     )}
   />

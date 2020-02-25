@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input } from "antd";
+import { Input, Select } from "antd";
 import styled from "styled-components";
 
 const InputC = styled(Input)`
@@ -49,6 +49,44 @@ export const renderSelect = ({
     </div>
   </div>
 );
+
+export const renderSelectA = ({input, options, mode, placeholder}) => {
+  return (
+    <Select
+      {...input}
+      mode={mode}
+      placeholder={placeholder}
+    >
+      {options.map((option, index) => (
+        <Select.Option key={index} value={option} >
+          {option}
+        </Select.Option>
+      ))}
+    </Select>
+  )
+}
+
+
+
+export const renderSelectD = function ({input, mode, selectedItems, selectOptions, handleChange, placeholder, label, value})  {
+  const filteredOptions = selectOptions.filter(option => !selectedItems.includes(option));
+  
+  return (
+    <Select
+      {...input}
+      mode={mode}
+      placeholder={placeholder}
+      value={selectedItems}
+      onChange={handleChange}
+    >
+      {filteredOptions.map((option, index) => (
+        <Select.Option key={index} value={option}>
+          {option}
+        </Select.Option>
+      ))}
+    </Select>
+  )
+}
 
 export const renderTextArea = ({
   input,
