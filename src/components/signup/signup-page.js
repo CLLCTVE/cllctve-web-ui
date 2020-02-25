@@ -21,8 +21,8 @@ const OPTIONS = ['Software Development', 'Graphic Designer', 'Digital Illustrato
 class SignUpPage extends Component {
   
   render() {
-    // const { selectedItems } = this.state;
-    // const filteredOptions = OPTIONS.filter(option => !selectedItems.includes(option));
+    const selectedItems = [];
+    const filteredOptions = OPTIONS.filter(option => !selectedItems.includes(option));
     
     return (
       <Container>
@@ -54,6 +54,7 @@ class SignUpPage extends Component {
                   placeholder="Creative Name"
                 />
               </div>
+              
               <div>
                 <Field
                   name="skills"
@@ -61,6 +62,8 @@ class SignUpPage extends Component {
                   options={OPTIONS}
                   mode="multiple"
                   placeholder="Skills"
+                  value={selectedItems}
+                  format={value => value || []}
                 />
               </div>
               <div>

@@ -57,11 +57,14 @@ export const renderSelectA = ({input, options, mode, placeholder}) => {
       mode={mode}
       placeholder={placeholder}
     >
-      {options.map((option, index) => (
-        <Select.Option key={index} value={option} >
-          {option}
-        </Select.Option>
-      ))}
+      {
+        options.filter(o => !input.value.includes(o))
+          .map((option, index) => (
+            <Select.Option key={index} value={option} >
+              {option}
+            </Select.Option>
+          ))
+      }
     </Select>
   )
 }
