@@ -1,6 +1,8 @@
 import React from 'react';
-import { Input, Select } from "antd";
+import { DatePicker, Input, Select } from "antd";
 import styled from "styled-components";
+
+const {MonthPicker} = DatePicker;
 
 const InputC = styled(Input)`
   border-top-width: 0px;
@@ -8,7 +10,7 @@ const InputC = styled(Input)`
   border-right-width:0px;
 `;
 
-export const renderInput = ({input, label, placeholder, type, meta: {touched, error, warning}}) => (
+export const _renderInput = ({input, label, placeholder, type, meta: {touched, error, warning}}) => (
   <div>
     <label>{label}</label>
     <div>
@@ -18,7 +20,7 @@ export const renderInput = ({input, label, placeholder, type, meta: {touched, er
   </div>
 );
 
-export const renderInputD = ({ input, placeholder, label }) => (
+export const renderInput = ({ input, placeholder, label }) => (
   <div>
     <InputC
       {...input}
@@ -28,7 +30,7 @@ export const renderInputD = ({ input, placeholder, label }) => (
   </div>
 );
 
-export const renderSelect = ({
+export const _renderSelect = ({
   input,
   label,
   type,
@@ -50,7 +52,7 @@ export const renderSelect = ({
   </div>
 );
 
-export const renderSelectA = ({input, options, mode, placeholder}) => {
+export const renderSelect = ({input, options, mode, placeholder}) => {
   return (
     <Select
       {...input}
@@ -67,29 +69,16 @@ export const renderSelectA = ({input, options, mode, placeholder}) => {
       }
     </Select>
   )
-}
+};
 
-
-
-export const renderSelectD = function ({input, mode, selectedItems, selectOptions, handleChange, placeholder, label, value})  {
-  const filteredOptions = selectOptions.filter(option => !selectedItems.includes(option));
-  
+export const renderMonthPicker = ({input, monthFormat}) => {
   return (
-    <Select
+    <MonthPicker
       {...input}
-      mode={mode}
-      placeholder={placeholder}
-      value={selectedItems}
-      onChange={handleChange}
-    >
-      {filteredOptions.map((option, index) => (
-        <Select.Option key={index} value={option}>
-          {option}
-        </Select.Option>
-      ))}
-    </Select>
+      format={monthFormat}
+    />
   )
-}
+};
 
 export const renderTextArea = ({
   input,

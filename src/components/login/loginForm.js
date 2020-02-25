@@ -2,7 +2,7 @@ import React from 'react';
 import { Field, Form } from 'react-final-form';
 import { Button } from 'antd';
 import { FORM_ERROR } from 'final-form'
-import { renderInputD } from '../fields/renderFields';
+import { renderInput } from '../fields/renderFields';
 
 export const LoginForm = (props) => (
   <Form
@@ -22,7 +22,7 @@ export const LoginForm = (props) => (
         <div>
           <Field
             name="email"
-            component={renderInputD}
+            component={renderInput}
             type="text"
             placeholder="creative@cllctve.edu"
           />
@@ -30,7 +30,7 @@ export const LoginForm = (props) => (
         <div>
           <Field
             name="password"
-            component={renderInputD}
+            component={renderInput}
             type="text"
             placeholder="password"
           />

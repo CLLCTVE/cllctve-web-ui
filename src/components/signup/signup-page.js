@@ -1,10 +1,13 @@
 import React, {Component} from 'react';
 import { Form, Field } from 'react-final-form';
-import { renderInputD, renderSelectD, renderSelectA } from '../fields/renderFields';
+import { renderInput, renderMonthPicker, renderSelect } from '../fields/renderFields';
 import styled from 'styled-components';
-import { DatePicker, Select, Col, Row, Button } from 'antd';
+import { Row, Button } from 'antd';
+import moment from "moment";
 
-const {MonthPicker} = DatePicker;
+const monthFormat = 'MM-YYYY';
+
+
 
 
 const Container = styled.div`
@@ -14,6 +17,7 @@ const Container = styled.div`
 
 const onSubmit = async values => {
   console.log('#onSumbit, values: ', values);
+  debugger;
 };
 
 const OPTIONS = ['Software Development', 'Graphic Designer', 'Digital Illustrator'];
@@ -21,8 +25,6 @@ const OPTIONS = ['Software Development', 'Graphic Designer', 'Digital Illustrato
 class SignUpPage extends Component {
   
   render() {
-    const selectedItems = [];
-    const filteredOptions = OPTIONS.filter(option => !selectedItems.includes(option));
     
     return (
       <Container>
@@ -33,7 +35,7 @@ class SignUpPage extends Component {
               <Row gutter={8}>
                 <Field
                   name="firstName"
-                  component={renderInputD}
+                  component={renderInput}
                   type="text"
                   placeholder="First Name"
                 />
@@ -41,7 +43,7 @@ class SignUpPage extends Component {
               <Row>
                 <Field
                   name="lastName"
-                  component={renderInputD}
+                  component={renderInput}
                   type="text"
                   placeholder="Last Name"
                 />
@@ -49,7 +51,7 @@ class SignUpPage extends Component {
               <div>
                 <Field
                   name="creativeName"
-                  component={renderInputD}
+                  component={renderInput}
                   type="text"
                   placeholder="Creative Name"
                 />
@@ -58,21 +60,27 @@ class SignUpPage extends Component {
               <div>
                 <Field
                   name="skills"
-                  component={renderSelectA}
+                  component={renderSelect}
                   options={OPTIONS}
                   mode="multiple"
                   placeholder="Skills"
-                  value={selectedItems}
+                  value={[]}
                   format={value => value || []}
                 />
               </div>
               <div>
-                <MonthPicker/>
+                <Field
+                  name="gradMonthYear"
+                  component={renderMonthPicker}
+                  monthFormat={monthFormat}
+                  parse={value => value || value.format(monthFormat)}
+                  format={value => value}
+                />
               </div>
               <div>
                 <Field
                   name="email"
-                  component={renderInputD}
+                  component={renderInput}
                   type="text"
                   placeholder="creative@cllctve.edu"
                 />
@@ -80,7 +88,7 @@ class SignUpPage extends Component {
               <div>
                 <Field
                   name="password"
-                  component={renderInputD}
+                  component={renderInput}
                   type="text"
                   placeholder="password"
                 />
