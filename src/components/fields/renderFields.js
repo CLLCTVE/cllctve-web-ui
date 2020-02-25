@@ -4,51 +4,32 @@ import styled from "styled-components";
 
 const {MonthPicker} = DatePicker;
 
-const InputC = styled(Input)`
+const StyledInput = styled(Input)`
   border-top-width: 0px;
   border-left-width:0px;
   border-right-width:0px;
 `;
 
-export const _renderInput = ({input, label, placeholder, type, meta: {touched, error, warning}}) => (
+export const renderInput = ({ input, placeholder, label, meta }) => (
   <div>
-    <label>{label}</label>
-    <div>
-      <input {...input} placeholder={placeholder || label} type={type} className={error ? 'error' : null} />
-      {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
-    </div>
-  </div>
-);
-
-export const renderInput = ({ input, placeholder, label }) => (
-  <div>
-    <InputC
+    <StyledInput
       {...input}
       placeholder={placeholder || label}
-      
     />
+    {(meta.error || meta.submitError) && meta.touched && (
+      <span className="error">{meta.error || meta.submitError}</span>
+    )}
   </div>
 );
 
-export const _renderSelect = ({
-  input,
-  label,
-  type,
-  meta: {touched, error, warning},
-  selectOptions,
-}) => (
+export const renderPasswordInput = ({ input, placeholder, label, meta }) => (
   <div>
-    <label>{label}</label>
-    <div>
-      <select {...input}>
-        {selectOptions.map((option, index) => (
-          <option value={option} key={index}>
-            {option}
-          </option>
-        ))}
-      </select>
-      {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
-    </div>
+    <Input.Password
+      {...input}
+      placeholder={placeholder}
+      label={label}
+    />
+    {meta.error && meta.touched && <span className="error">{meta.error}</span>}
   </div>
 );
 

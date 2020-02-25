@@ -17,7 +17,6 @@ const Container = styled.div`
 
 const onSubmit = async values => {
   console.log('#onSumbit, values: ', values);
-  debugger;
 };
 
 const OPTIONS = ['Software Development', 'Graphic Designer', 'Digital Illustrator'];
