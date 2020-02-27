@@ -10,6 +10,7 @@
     "axios": "^0.19.1",
     "bluebird": "^3.7.2",
     "connected-react-router": "^6.6.1",
+    "email-validator": "^2.0.4",
     "final-form": "^4.18.7",
     "history": "^4.10.1",
     "http-status-codes": "^1.4.0",

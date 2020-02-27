@@ -3,12 +3,9 @@ import { Form, Field } from 'react-final-form';
 import { renderInput, renderMonthPicker, renderSelect } from '../fields/renderFields';
 import styled from 'styled-components';
 import { Row, Button } from 'antd';
-import moment from "moment";
+import * as validations from '../../utils/validations';
 
 const monthFormat = 'MM-YYYY';
-
-
-
 
 const Container = styled.div`
   max-width: 300px;
@@ -35,24 +32,27 @@ class SignUpPage extends Component {
                 <Field
                   name="firstName"
                   component={renderInput}
+                  validate={validations.composeValidators(validations.required, validations.minLength(4), validations.maxLength(25))}
                   type="text"
-                  placeholder="First Name"
+                  placeholder="First Name*"
                 />
               </Row>
               <Row>
                 <Field
                   name="lastName"
                   component={renderInput}
+                  validate={validations.composeValidators(validations.required, validations.minLength(4), validations.maxLength(25))}
                   type="text"
-                  placeholder="Last Name"
+                  placeholder="Last Name*"
                 />
               </Row>
               <div>
                 <Field
                   name="creativeName"
                   component={renderInput}
+                  validate={validations.composeValidators(validations.required, validations.minLength(2), validations.maxLength(25))}
                   type="text"
-                  placeholder="Creative Name"
+                  placeholder="Creative Name*"
                 />
               </div>
               
@@ -62,7 +62,7 @@ class SignUpPage extends Component {
                   component={renderSelect}
                   options={OPTIONS}
                   mode="multiple"
-                  placeholder="Skills"
+                  placeholder="Skills*"
                   value={[]}
                   format={value => value || []}
                 />
@@ -80,6 +80,7 @@ class SignUpPage extends Component {
                 <Field
                   name="email"
                   component={renderInput}
+                  validate={validations.composeValidators(validations.required, validations.edu, validations.email)}
                   type="text"
                   placeholder="creative@cllctve.edu"
                 />
@@ -92,22 +93,15 @@ class SignUpPage extends Component {
                   placeholder="password"
                 />
               </div>
-              <div className="buttons">
-                <Button
-                  type="submit"
-                  disabled={submitting || pristine}
-                  htmlType="submit"
-                >
-                  Submit
-                </Button>
-                <Button
-                  type="button"
-                  onClick={form.reset}
-                  disabled={submitting || pristine}
-                >
-                  Reset
-                </Button>
-              </div>
+              <Button
+                disabled={submitting || pristine}
+                htmlType="submit"
+                type="primary"
+                shape="round"
+                size="large"
+              >
+                Submit
+              </Button>
               <pre>{JSON.stringify(values, 0, 2)}</pre>
             </form>
           )}
