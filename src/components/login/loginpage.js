@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { LoginForm } from './loginForm';
 import { handleLoginRequest } from '../../modules/auth/redux';
 import styled from 'styled-components';
-import { FORM_ERROR } from "final-form";
+import { FORM_ERROR } from 'final-form';
 
 const Container = styled.div`
   max-width: 300px;
@@ -37,9 +38,9 @@ class LoginPage extends Component {
       <Container>
         <LoginForm onSubmit={this.onSubmit} />
         <div>
-          <a href="#">Forgot your password? Click Here</a>
+          <Link to='#'>Forgot your password? Click Here</Link>
           <br/>
-          <a href="/sign-up">Not a member? Click here to create your account!</a>
+          <Link to='/sign-up'>Not a member? Click here to create your account!</Link>
         </div>
       </Container>
     );

@@ -1,4 +1,3 @@
-import {v4} from 'uuid';
 import mockUsers from './mock_users';
 
 let users = [...mockUsers];
@@ -34,6 +33,7 @@ export const signupResponse = async ({ firstName, lastName, creativeName, email,
     let data =  {
       status: 'ok',
       statusCode: 201,
+      data: userInfo
     };
     console.log('API#signupResponse, done');
     return data;

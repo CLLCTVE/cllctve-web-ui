@@ -1,5 +1,3 @@
-import {combineReducers} from 'redux';
-
 export const APP_INIT_START = 'app/init/START';
 export const APP_INIT_FINISHED = 'app/init/FINISHED';
 export const APP_INIT_ERROR = 'app/init/ERROR';

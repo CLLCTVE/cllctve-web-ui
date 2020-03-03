@@ -1,7 +1,6 @@
 import React from 'react';
 import { Field, Form } from 'react-final-form';
 import { Button } from 'antd';
-import { FORM_ERROR } from 'final-form'
 import { renderInput, renderPasswordInput } from '../fields/renderFields';
 
 export const LoginForm = (props) => (

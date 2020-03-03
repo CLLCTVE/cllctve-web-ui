@@ -1,4 +1,4 @@
-import { all, call, apply, cancel, cancelled, put, fork, take, takeLatest } from 'redux-saga/effects';
+import { all, call, cancel, cancelled, put, fork, take } from 'redux-saga/effects';
 
 import request from '../../lib/request';
 

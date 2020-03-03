@@ -13,8 +13,8 @@ class Index extends Component {
     return (
       <Layout>
         <Header/>
-        <Layout.Content style={{padding: '60px', height: '100%', minHeight: '100vh'}}>
-          <div style={{ padding: 24, background: '#fff', textAlign: 'center' }}>
+        <Layout.Content style={{padding: '60px', height: '100%', minHeight: '100vh', backgroundColor: 'yellow'}}>
+          <div style={{ padding: 24, textAlign: 'center', backgroundColor: 'pink' }}>
             <Switch>
               <Route exact path='/' component={HomePage} />
               <Route exact path='/login' component={LoginPage} />

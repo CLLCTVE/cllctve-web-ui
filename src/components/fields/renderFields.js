@@ -1,18 +1,11 @@
 import React from 'react';
 import { DatePicker, Input, Select } from "antd";
-import styled from "styled-components";
 
 const {MonthPicker} = DatePicker;
 
-const StyledInput = styled(Input)`
-  border-top-width: 0px;
-  border-left-width:0px;
-  border-right-width:0px;
-`;
-
 export const renderInput = ({ input, placeholder, label, meta }) => (
   <div>
-    <StyledInput
+    <Input
       {...input}
       placeholder={placeholder || label}
     />

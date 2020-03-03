@@ -3,6 +3,11 @@ import { connect } from 'react-redux';
 import { Layout, Menu } from "antd";
 import {NavLink as Link} from 'react-router-dom';
 import { handleLogoutRequest } from "../../modules/auth/redux";
+import styled from 'styled-components';
+
+const StyledMenu = styled(Menu)`
+  color: ${props => props.theme.primary};;
+`;
 
 class Header extends Component {
   handleLogout = () => {
@@ -20,7 +25,7 @@ class Header extends Component {
           <Link to="/#">Jobs</Link>
         </Menu.Item>,
         <Menu.Item key={`${2}header`}>
-          <a onClick={this.handleLogout}>Log Out</a>
+          <Link onClick={this.handleLogout}>Log Out</Link>
         </Menu.Item>,
       ];
     } else {
@@ -38,10 +43,10 @@ class Header extends Component {
   
   render() {
     return (
-      <Layout.Header style={{ background: '#fff', padding: 0 }}>
-        <Menu mode="horizontal">
+      <Layout.Header style={{ backgroundColor: 'blue', padding: 0 }}>
+        <StyledMenu mode="horizontal">
           {this.renderLinks()}
-        </Menu>
+        </StyledMenu>
       </Layout.Header>
     );
   }

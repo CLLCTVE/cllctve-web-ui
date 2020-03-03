@@ -1,10 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import 'antd/dist/antd.css';
-import './index.css';
 import Index from "./components";
 import {Provider} from 'react-redux';
 import {ConnectedRouter} from 'connected-react-router';
+
+import {ThemeProvider} from 'styled-components';
+
+import 'antd/dist/antd.css';
+import GlobalStyles, { theme } from './styles';
 
 import store, {history} from './store';
 
@@ -13,7 +16,10 @@ import * as serviceWorker from './serviceWorker';
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
-      <Index />
+      <GlobalStyles />
+      <ThemeProvider theme={theme}>
+        <Index />
+      </ThemeProvider>
     </ConnectedRouter>
   </Provider>,
   document.getElementById('root'));
