@@ -16,9 +16,9 @@ import * as serviceWorker from './serviceWorker';
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
-      <GlobalStyles />
       <ThemeProvider theme={theme}>
         <Index />
+        <GlobalStyles />
       </ThemeProvider>
     </ConnectedRouter>
   </Provider>,
