@@ -3,6 +3,7 @@ import {Route, Switch} from 'react-router-dom';
 import { Layout } from "antd";
 
 import Header from './template/header';
+import Navbar from './template/navbar'
 import HomePage from './homepage';
 import LoginPage from './login/loginpage';
 import SignUpPage from './signup/signup-page';
@@ -12,9 +13,9 @@ class Index extends Component {
   render() {
     return (
       <Layout>
-        <Header/>
+        <Navbar/>
         <Layout.Content style={{padding: '60px', height: '100%', minHeight: '100vh'}}>
-          <div style={{ padding: 24, textAlign: 'center', backgroundColor: 'pink' }}>
+          <div style={{ padding: 24, textAlign: 'center' }}>
             <Switch>
               <Route exact path='/' component={HomePage} />
               <Route exact path='/login' component={LoginPage} />

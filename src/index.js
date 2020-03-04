@@ -6,7 +6,8 @@ import {ConnectedRouter} from 'connected-react-router';
 
 import {ThemeProvider} from 'styled-components';
 
-import 'antd/dist/antd.css';
+// import 'antd/dist/antd.css';
+import './index.css';
 import GlobalStyles, { theme } from './styles';
 
 import store, {history} from './store';

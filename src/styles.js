@@ -6,8 +6,11 @@ export const theme = {
 };
 
 const GlobalStyles = createGlobalStyle`
-  body {
+  html, body {
+    font: Bold 20px/27px Open Sans;
     background-color: pink;
+    margin: 0;
+    padding: 0;
   }
 `;
 
