@@ -1,11 +1,68 @@
 import React from 'react';
 import { DatePicker, Input, Select } from "antd";
+import styled from 'styled-components';
 
 const {MonthPicker} = DatePicker;
 
+const StyledInput = styled(Input)`
+  background: none;
+  -webkit-appearance: none;
+   outline-color: transparent;
+  outline-style: none;
+
+  &.ant-input-affix-wrapper:hover,
+  &.ant-input-affix-wrapper-focused{
+    border-top-width: 0px;
+    border-left-width:0px;
+    border-right-width:0px !important;
+    border-color: #FF6633;
+  }
+  
+  &.ant-input, &.ant-input-focused {
+    border-top-width: 0px;
+    border-left-width:0px;
+    border-right-width:0px !important;
+    margin-bottom: 1em;
+
+    
+    &:hover, &:focus{
+    border-top-width: 0px;
+    border-left-width:0px;
+    border-right-width:0px !important;
+      border-color: #FF6633;
+    }
+  }
+`;
+
+const StyledPasswordInput = styled(Input.Password)`
+
+  &.ant-input-affix-wrapper:hover,
+  &.ant-input-affix-wrapper-focused{
+    border-top-width: 0px;
+    border-left-width:0px;
+    border-right-width:0px !important;
+    border-color: #FF6633;
+  }
+  
+  &.ant-input-password {
+    border-top-width: 0px;
+    border-left-width:0px;
+    border-right-width:0px;
+    margin-bottom: 1em;
+    background: none;
+  }
+  
+  &.ant-input {
+    border-top-width: 0px;
+    border-left-width:0px;
+    border-right-width:0px;
+    margin-bottom: 1em;
+  }
+`;
+
 export const renderInput = ({ input, placeholder, label, meta }) => (
   <div>
-    <Input
+    <StyledInput
       {...input}
       placeholder={placeholder || label}
     />
@@ -17,7 +74,7 @@ export const renderInput = ({ input, placeholder, label, meta }) => (
 
 export const renderPasswordInput = ({ input, placeholder, label, meta }) => (
   <div>
-    <Input.Password
+    <StyledPasswordInput
       {...input}
       placeholder={placeholder}
       label={label}

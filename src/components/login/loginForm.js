@@ -2,6 +2,15 @@ import React from 'react';
 import { Field, Form } from 'react-final-form';
 import { Button } from 'antd';
 import { renderInput, renderPasswordInput } from '../fields/renderFields';
+import styled from 'styled-components';
+
+const StyledButton = styled(Button)`
+  &.ant-btn{
+    color: #FFFFFF;
+    opacity: 0.8;
+    background: transparent linear-gradient(101deg, #E41E84 0%, #FF6633 100%) 0% 0% no-repeat padding-box;
+  }
+`;
 
 export const LoginForm = (props) => (
   <Form
@@ -36,14 +45,14 @@ export const LoginForm = (props) => (
           />
         </div>
         <div className="buttons">
-          <Button
+          <StyledButton
+            size="large"
             shape="round"
             type="button"
             htmlType="submit"
-            disabled={submitting || pristine}
           >
             Login
-          </Button>
+          </StyledButton>
         </div>
         <pre>{JSON.stringify(values, 0, 2)}</pre>
       </form>
