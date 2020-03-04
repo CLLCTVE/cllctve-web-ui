@@ -10,6 +10,11 @@ export const theme = {
 };
 
 const GlobalStyles = createGlobalStyle`
+  .ant-input {
+  background: none !important;
+  font-family: 'Hanson Bold';
+  font-weight: normal;
+  }
   @font-face {
     font-family: 'Hanson Bold';
     src: local('Hanson Bold'), local('HansonBold'), url(${HansonBold}) format('truetype');

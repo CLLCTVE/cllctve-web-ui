@@ -19,6 +19,7 @@ const StyledInput = styled(Input)`
   }
   
   &.ant-input, &.ant-input-focused {
+    background: none;
     border-top-width: 0px;
     border-left-width:0px;
     border-right-width:0px !important;
@@ -49,10 +50,11 @@ const StyledPasswordInput = styled(Input.Password)`
     border-left-width:0px;
     border-right-width:0px;
     margin-bottom: 1em;
-    background: none;
+    background: none !important;
   }
   
   &.ant-input {
+    background: none !important;
     border-top-width: 0px;
     border-left-width:0px;
     border-right-width:0px;
