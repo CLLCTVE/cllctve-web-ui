@@ -11,6 +11,16 @@ const Container = styled.div`
   display: inline-block;
 `;
 
+const StyledLink = styled(Link)`
+  color: #ffffff;
+  text-decoration: underline;
+  
+  &:hover {
+    color: #E41E84;
+    text-decoration: underline;
+  }
+`;
+
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
 
@@ -38,9 +48,9 @@ class LoginPage extends Component {
       <Container>
         <LoginForm onSubmit={this.onSubmit} />
         <div>
-          <Link to='#'>Forgot your password? Click Here</Link>
+          <StyledLink to='#'  >Forgot your password? Click Here</StyledLink>
           <br/>
-          <Link to='/sign-up'>Not a member? Click here to create your account!</Link>
+          <StyledLink to='/sign-up'>Not a member? Click here to create your account!</StyledLink>
         </div>
       </Container>
     );

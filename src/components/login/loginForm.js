@@ -6,9 +6,16 @@ import styled from 'styled-components';
 
 const StyledButton = styled(Button)`
   &.ant-btn{
+    border: none;
     color: #FFFFFF;
-    opacity: 0.8;
+    opacity: 1;
     background: transparent linear-gradient(101deg, #E41E84 0%, #FF6633 100%) 0% 0% no-repeat padding-box;
+    
+    &:hover{
+      color: #FFFFFF;
+      opacity: .8;
+      background: transparent linear-gradient(101deg, #FF6633 0%, #E41E84 100%) 0% 0% no-repeat padding-box;
+    }
   }
 `;
 

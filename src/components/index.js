@@ -12,7 +12,7 @@ import ProfilePage from './profile-page';
 class Index extends Component {
   render() {
     return (
-      <Layout>
+      <Layout >
         <Navbar/>
         <Layout.Content style={{padding: '60px', height: '100%', minHeight: '100vh'}}>
           <div style={{ padding: 24, textAlign: 'center' }}>

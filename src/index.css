@@ -1,11 +1,13 @@
 @import '~antd/dist/antd.css';
 
 .menuBar{
+    background: transparent linear-gradient(93deg, #121212 0%, #212121 76%, #323232 100%) 0% 0% no-repeat padding-box;
     padding: 0 20px;
-    border-bottom: solid 1px #e8e8e8;
+    border-bottom: solid 1px #f6f6f6;
     overflow: auto;
     box-shadow: 0 0 30px #f3f1f1;
 }
+
 .logo{
     width: 150px;
     float: left;
@@ -70,6 +72,11 @@
     top: auto;
     bottom: -6px;
 }
+
+.ant-layout-content {
+    background: #000000 0% 0% no-repeat padding-box;
+}
+
 .ant-drawer-body{
     padding: 0;
 }
@@ -93,9 +100,19 @@
     border-bottom: 2px solid #FF6633;
 }
 
+.ant-menu-horizontal > .ant-menu-item > a {
+    color: #ffffff;
+    font-family: 'Open Sans Bold';
+    font-weight: normal;
+}
+
 .ant-menu-vertical > .ant-menu-item > a:hover,
 .ant-menu-horizontal > .ant-menu-item > a:hover{
     color: #FF6633;
+}
+
+.ant-menu-horizontal {
+    background: none;
 }
 
 @media(max-width: 767px){
