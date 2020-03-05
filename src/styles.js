@@ -1,8 +1,8 @@
 import { createGlobalStyle } from 'styled-components';
 
-import HansonBold from './fonts/Hanson-Bold.ttf';
-import OpenSansBold from './fonts/OpenSans-Bold.ttf';
-import OpenSans from './fonts/OpenSans-Regular.ttf';
+import HansonBold from './styles/fonts/Hanson-Bold.ttf';
+import OpenSansBold from './styles/fonts/OpenSans-Bold.ttf';
+import OpenSans from './styles/fonts/OpenSans-Regular.ttf';
 
 export const theme = {
   primary: '#000000',

@@ -8,7 +8,8 @@ import {ThemeProvider} from 'styled-components';
 
 // import 'antd/dist/antd.css';
 import './index.css';
-import GlobalStyles, { theme } from './styles';
+import { theme } from './styles';
+import GlobalStyles from './styles';
 
 import store, {history} from './store';
 
