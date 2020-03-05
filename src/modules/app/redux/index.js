@@ -18,6 +18,7 @@ const INITIAL_STATE = {
   isLoading: false,
   didInit: false,
   error: null,
+  theme: 'dark',
 };
 
 export default function(state = INITIAL_STATE, action) {

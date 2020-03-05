@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import LeftMenu from './LeftMenu'
 import RightMenu from './RightMenu'
 import { Drawer, Button } from 'antd';
+import styled from 'styled-components';
 
 import logo from '../../../logo.png';
 

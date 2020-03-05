@@ -66,7 +66,7 @@ const GlobalStyles = createGlobalStyle`
     
   html, body {
   --antd-wave-shadow-color: #FF6633;
-    font-family: 'Open Sans', 'Open Sans Bold';
+    font-family: 'Open Sans', 'Open Sans Bold', 'Hanson Bold';
     background-color: pink;
     margin: 0;
     padding: 0;
@@ -81,5 +81,3 @@ const GlobalStyles = createGlobalStyle`
     font-weight: normal;
   }
 `;
-
-export default GlobalStyles;
