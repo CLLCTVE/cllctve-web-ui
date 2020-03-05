@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { Form, Field } from 'react-final-form';
-import { renderInput, renderMonthPicker, renderSelect } from '../fields/renderFields';
+import { renderInput, renderMonthPicker, renderPasswordInput, renderSelect } from '../fields/renderFields';
 import styled from 'styled-components';
 import { Row, Button } from 'antd';
 import * as validations from '../../utils/validations';
@@ -10,6 +10,21 @@ const monthFormat = 'MM-YYYY';
 const Container = styled.div`
   max-width: 300px;
   display: inline-block;
+`;
+
+const StyledButton = styled(Button)`
+  &.ant-btn{
+    border: none;
+    color: #FFFFFF;
+    opacity: 1;
+    background: transparent linear-gradient(101deg, #E41E84 0%, #FF6633 100%) 0% 0% no-repeat padding-box;
+    
+    &:hover{
+      color: #FFFFFF;
+      opacity: .8;
+      background: transparent linear-gradient(101deg, #FF6633 0%, #E41E84 100%) 0% 0% no-repeat padding-box;
+    }
+  }
 `;
 
 const onSubmit = async values => {
@@ -55,18 +70,6 @@ class SignUpPage extends Component {
                   placeholder="Creative Name*"
                 />
               </div>
-              
-              <div>
-                <Field
-                  name="skills"
-                  component={renderSelect}
-                  options={OPTIONS}
-                  mode="multiple"
-                  placeholder="Skills*"
-                  value={[]}
-                  format={value => value || []}
-                />
-              </div>
               <div>
                 <Field
                   name="gradMonthYear"
@@ -88,20 +91,19 @@ class SignUpPage extends Component {
               <div>
                 <Field
                   name="password"
-                  component={renderInput}
+                  component={renderPasswordInput}
                   type="text"
                   placeholder="password"
                 />
               </div>
-              <Button
-                disabled={submitting || pristine}
+              <StyledButton
                 htmlType="submit"
                 type="primary"
                 shape="round"
                 size="large"
               >
                 Submit
-              </Button>
+              </StyledButton>
               <pre>{JSON.stringify(values, 0, 2)}</pre>
             </form>
           )}

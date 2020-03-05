@@ -1,5 +1,5 @@
 import React from 'react';
-import { DatePicker, Input, Select } from "antd";
+import { DatePicker, Form, Input, Select } from "antd";
 import styled from 'styled-components';
 
 const {MonthPicker} = DatePicker;
@@ -19,6 +19,7 @@ const StyledInput = styled(Input)`
   }
   
   &.ant-input, &.ant-input-focused {
+    color: #ffffff;
     background: none;
     border-top-width: 0px;
     border-left-width:0px;
@@ -27,9 +28,10 @@ const StyledInput = styled(Input)`
 
     
     &:hover, &:focus{
-    border-top-width: 0px;
-    border-left-width:0px;
-    border-right-width:0px !important;
+      color: #ffffff;
+      border-top-width: 0px;
+      border-left-width:0px;
+      border-right-width:0px !important;
       border-color: #FF6633;
     }
   }
@@ -62,8 +64,36 @@ const StyledPasswordInput = styled(Input.Password)`
   }
 `;
 
+const StyledMonthPicker = styled(MonthPicker)`
+  background: none;
+  
+  &.ant-picker {
+    border-top-width: 0px;
+    border-left-width:0px;
+    border-right-width:0px;
+    margin-bottom: 1em;
+    background: none;
+  }
+  
+  &.ant-picker:hover,
+  &.ant-picker-focused{
+   border-top-width: 0px;
+    border-left-width:0px;
+    border-right-width:0px !important;
+    border-color: #FF6633;
+  }
+  
+  &.ant-picker-suffix {
+    color: #d9d9d9;
+  }
+  
+  &.ant-picker-input {
+  color: #ffffff;
+  }
+`;
+
 export const renderInput = ({ input, placeholder, label, meta }) => (
-  <div>
+  <>
     <StyledInput
       {...input}
       placeholder={placeholder || label}
@@ -71,7 +101,7 @@ export const renderInput = ({ input, placeholder, label, meta }) => (
     {(meta.error || meta.submitError) && meta.touched && (
       <span className="error">{meta.error || meta.submitError}</span>
     )}
-  </div>
+  </>
 );
 
 export const renderPasswordInput = ({ input, placeholder, label, meta }) => (
@@ -106,7 +136,8 @@ export const renderSelect = ({input, options, mode, placeholder}) => {
 
 export const renderMonthPicker = ({input, monthFormat}) => {
   return (
-    <MonthPicker
+    <StyledMonthPicker
+      size="large"
       {...input}
       format={monthFormat}
     />

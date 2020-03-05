@@ -10,7 +10,13 @@ export const theme = {
 };
 
 const GlobalStyles = createGlobalStyle`
-  .ant-input {
+  .error {
+    color: red;
+    font-family: 'Hanson Bold';
+    font-weight: normal;
+  }
+  
+  .ant-input, .ant-picker-input {
   background: none !important;
   font-family: 'Hanson Bold';
   font-weight: normal;
