@@ -16,10 +16,22 @@ const GlobalStyles = createGlobalStyle`
     font-weight: normal;
   }
   
+  .ant-picker-suffix{
+    color: #d9d9d9 !important;
+  }
+  
   .ant-input, .ant-picker-input {
-  background: none !important;
-  font-family: 'Hanson Bold';
-  font-weight: normal;
+    background: none !important;
+    font-family: 'Hanson Bold';
+    font-weight: normal;
+  }
+  
+  .ant-picker-input > input {
+    color: #ffffff !important;
+  }
+  
+  .ant-picker-cell-in-view.ant-picker-cell-selected .ant-picker-cell-inner {
+    background: #FF6633 !important;
   }
   @font-face {
     font-family: 'Hanson Bold';

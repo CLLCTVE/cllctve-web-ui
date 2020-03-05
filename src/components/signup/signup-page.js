@@ -77,6 +77,7 @@ class SignUpPage extends Component {
                   monthFormat={monthFormat}
                   parse={value => value || value.format(monthFormat)}
                   format={value => value}
+                  allowClear={false}
                 />
               </div>
               <div>

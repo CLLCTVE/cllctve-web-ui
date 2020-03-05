@@ -83,10 +83,6 @@ const StyledMonthPicker = styled(MonthPicker)`
     border-color: #FF6633;
   }
   
-  &.ant-picker-suffix {
-    color: #d9d9d9;
-  }
-  
   &.ant-picker-input {
   color: #ffffff;
   }
@@ -134,12 +130,13 @@ export const renderSelect = ({input, options, mode, placeholder}) => {
   )
 };
 
-export const renderMonthPicker = ({input, monthFormat}) => {
+export const renderMonthPicker = ({input, monthFormat, allowClear}) => {
   return (
     <StyledMonthPicker
       size="large"
       {...input}
       format={monthFormat}
+      allowClear={allowClear}
     />
   )
 };
