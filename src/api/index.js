@@ -28,12 +28,11 @@ export const signupResponse = async ({ firstName, lastName, creativeName, email,
   console.log('API#signupResponse, start');
   console.log(`firstName: ${firstName}, lastName: ${lastName}, creativeName: ${creativeName}, email: ${email}, password: ${password}`);
   
-  const userInfo = fakeDatabase.users[0];
+  const userInfo = fakeDatabase.users[0].user;
   return await delay(500).then(() => {
     let data =  {
       status: 'ok',
       statusCode: 201,
-      data: userInfo
     };
     console.log('API#signupResponse, done');
     return data;

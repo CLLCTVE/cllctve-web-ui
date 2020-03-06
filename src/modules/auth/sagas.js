@@ -11,6 +11,7 @@ import {
   handleLoginFailed,
   handleLoginCancelled
 } from './redux';
+import { FORM_ERROR } from 'final-form';
 
 const CLIENT_ROOT_URL = 'http://localhost:3000';
 
@@ -30,6 +31,7 @@ export function* authorize({email, password}) {
   } catch (err) {
     console.error('#authorize, Error: ', err);
     yield put(handleLoginFailed(err));
+    return { [FORM_ERROR]: 'Login Failed' }
   } finally {
     if (yield cancelled()) {
       yield put(handleLoginCancelled())

@@ -12,7 +12,7 @@ class NavBar extends Component {
 	state = {
     current: 'mail',
     visible: false
-  }
+  };
   showDrawer = () => {
     this.setState({
       visible: true,
@@ -34,7 +34,49 @@ class NavBar extends Component {
 					</div>
 				</>
 			]
-		} else if (this.props.location.pathname === '/') {
+		} else if (this.props.location.pathname === '/' && !this.props.authenticated) {
+			return [
+				<>
+					<div className='logo'>
+						<Link to='/'><img src={logo} alt='Logo'/></Link>
+					</div>
+					<div className='menuCon'>
+						<div className='rightMenu'>
+							<Menu mode="horizontal">
+								<Menu.Item key="0">
+									<Link to="/login">Login</Link>
+								</Menu.Item>
+								<Menu.Item key="1">
+									<Link to="/sign-up">Sign Up</Link>
+								</Menu.Item>
+							</Menu>
+						</div>
+						<Button className='barsMenu' type='primary' onClick={this.showDrawer}>
+							<span className='barsBtn'></span>
+						</Button>
+						<Drawer
+							title='Basic Drawer'
+							placement='right'
+							closable={false}
+							onClose={this.onClose}
+							visible={this.state.visible}
+						>
+							<Menu mode="horizontal">
+								<Menu.Item key="2">
+									<Link to="/login">Login</Link>
+								</Menu.Item>
+								<Menu.Item key="3">
+									<Link to="/sign-up">Sign Up</Link>
+								</Menu.Item>
+							</Menu>
+						</Drawer>
+					
+					</div>
+				</>
+			]
+		}
+		
+		else if (this.props.location.pathname === '/' && this.props.authenticated) {
 			return [
 				<>
 					<div className='logo'>
@@ -113,10 +155,10 @@ class NavBar extends Component {
 }
 
 
-function mapStateToProps(state) {
+const mapStateToProps = (state, ownProps) => {
 	return {
-		// authenticated:
+		authenticated: state.auth.authenticated,
 	};
-}
+};
 
 export default connect(mapStateToProps)(withRouter(NavBar));

@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { LoginForm } from './loginForm';
 import { handleLoginRequest } from '../../modules/auth/redux';
 import styled from 'styled-components';
-import { FORM_ERROR } from 'final-form';
 
 const Container = styled.div`
   max-width: 300px;
@@ -30,24 +29,10 @@ class LoginPage extends Component {
     this.props.handleLoginRequest(values);
   };
   
-  onSubmit = async values => {
-    await sleep(100);
-    console.log('LoginPage#onSubmit, values: ', values);
-    console.log('LoginPage#onSubmit, checking username');
-    if (values.email !== 'bailey1.brandon@gmail.edu') {
-      console.log('LoginPage#onSubmit, unknown email');
-      return { email: 'Unknown username' }
-    }
-    if (values.password !== 'abc123') {
-      return { [FORM_ERROR]: 'Login Failed' }
-    }
-    window.alert('LOGIN SUCCESS!')
-  };
-  
   render() {
     return (
       <Container>
-        <LoginForm onSubmit={this.onSubmit} />
+        <LoginForm onSubmit={this.handleFormSubmit} />
         <div>
           <StyledLink to='#'  >Forgot your password? Click Here</StyledLink>
           <br/>
