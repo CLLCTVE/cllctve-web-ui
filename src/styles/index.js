@@ -72,7 +72,6 @@ const GlobalStyles = createGlobalStyle`
   
   .ant-menu-horizontal > .ant-menu-item-selected {
     border-bottom: #FF6633 !important;
-    background: #FF6633 !important;
   }
   
   .ant-input-affix-wrapper > input.ant-input {
