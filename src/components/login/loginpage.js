@@ -26,7 +26,7 @@ const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 class LoginPage extends Component {
   handleFormSubmit = async (values) => {
-    this.props.handleLoginRequest(values);
+    return await this.props.handleLoginRequest(values);
   };
   
   render() {

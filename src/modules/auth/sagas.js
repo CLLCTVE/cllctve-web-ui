@@ -18,6 +18,13 @@ const CLIENT_ROOT_URL = 'http://localhost:3000';
 export function* authorize({email, password}) {
   console.log('#authorize, start');
   try {
+    if (email !== 'bailey1.brandon@gmail.edu') {
+      console.log('LoginPage#onSubmit, unknown email');
+      return { email: 'Unknown username' }
+    }
+    if (password !== 'abc123') {
+      return { [FORM_ERROR]: 'Login Failed' }
+    }
     const response = yield call(request.post, '/auth/login', {email, password});
     if (response.statusCode !== 200) {
       console.warn("#authorize, Received non-200 status");

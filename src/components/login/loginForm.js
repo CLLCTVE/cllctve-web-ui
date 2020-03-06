@@ -16,6 +16,10 @@ const StyledButton = styled(Button)`
       opacity: .8;
       background: transparent linear-gradient(101deg, #FF6633 0%, #E41E84 100%) 0% 0% no-repeat padding-box;
     }
+    
+    &:focus{
+      color: #E41E84;
+    }
   }
 `;
 
