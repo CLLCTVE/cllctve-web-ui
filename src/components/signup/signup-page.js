@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { Link } from 'react-router-dom';
 import { Form, Field } from 'react-final-form';
 import { renderInput, renderMonthPicker, renderPasswordInput, renderSelect } from '../fields/renderFields';
 import styled from 'styled-components';
@@ -13,6 +14,8 @@ const Container = styled.div`
 `;
 
 const StyledButton = styled(Button)`
+  font-family: 'Hanson Bold';
+  
   &.ant-btn{
     border: none;
     color: #FFFFFF;
@@ -24,6 +27,17 @@ const StyledButton = styled(Button)`
       opacity: .8;
       background: transparent linear-gradient(101deg, #FF6633 0%, #E41E84 100%) 0% 0% no-repeat padding-box;
     }
+  }
+`;
+
+const StyledLink = styled(Link)`
+  color: #ffffff;
+  text-decoration: underline;
+  font-family: 'Open Sans Bold';
+  
+  &:hover {
+    color: #E41E84;
+    text-decoration: underline;
   }
 `;
 
@@ -109,6 +123,9 @@ class SignUpPage extends Component {
             </form>
           )}
         />
+        <div>
+          <StyledLink to='/login'>Already a member? Click here to Log in!</StyledLink>
+        </div>
       </Container>
     );
   }

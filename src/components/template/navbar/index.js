@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import LeftMenu from './LeftMenu'
-import RightMenu from './RightMenu'
-import { Drawer, Button } from 'antd';
+import { connect } from 'react-redux';
+import LeftMenu from './LeftMenu';
+import RightMenu from './RightMenu';
+import { NavLink as Link, withRouter } from 'react-router-dom';
+import { Drawer, Button, Menu } from 'antd';
 import styled from 'styled-components';
 
 import logo from '../../../logo.png';
 
-class Navbar extends Component {
+class NavBar extends Component {
 	state = {
     current: 'mail',
     visible: false
@@ -22,34 +24,99 @@ class Navbar extends Component {
       visible: false,
     });
   };
+	
+	renderLinks() {
+		if (this.props.location.pathname === '/login' || this.props.location.pathname === '/sign-up') {
+			return [
+				<>
+					<div className='logo' style={{float: 'none', margin: 'auto'}}>
+						<Link to='/'><img src={logo} alt='Logo'/></Link>
+					</div>
+				</>
+			]
+		} else if (this.props.location.pathname === '/') {
+			return [
+				<>
+					<div className='logo'>
+						<Link to='/'><img src={logo} alt='Logo'/></Link>
+					</div>
+					<div className='menuCon'>
+						<div className='rightMenu'>
+							<Menu mode="horizontal">
+								<Menu.Item key="0">
+									<Link to="/login">Login</Link>
+								</Menu.Item>
+								<Menu.Item key="1">
+									<Link to="/sign-up">Sign Up</Link>
+								</Menu.Item>
+							</Menu>
+						</div>
+						<Button className='barsMenu' type='primary' onClick={this.showDrawer}>
+							<span className='barsBtn'></span>
+						</Button>
+						<Drawer
+							title='Basic Drawer'
+							placement='right'
+							closable={false}
+							onClose={this.onClose}
+							visible={this.state.visible}
+						>
+							<Menu mode="horizontal">
+								<Menu.Item key="2">
+									<Link to="/login">Login</Link>
+								</Menu.Item>
+								<Menu.Item key="3">
+									<Link to="/sign-up">Sign Up</Link>
+								</Menu.Item>
+							</Menu>
+						</Drawer>
+					
+					</div>
+				</>
+			]
+		} else {
+			return [
+					<>
+						<div className='logo'>
+							<Link to='/'><img src={logo} alt='Logo'/></Link>
+						</div>
+						<div className='menuCon'>
+							<div className='rightMenu'>
+								<RightMenu />
+							</div>
+							<Button className='barsMenu' type='primary' onClick={this.showDrawer}>
+								<span className='barsBtn'></span>
+							</Button>
+							<Drawer
+								title='Basic Drawer'
+								placement='right'
+								closable={false}
+								onClose={this.onClose}
+								visible={this.state.visible}
+							>
+								<RightMenu />
+							</Drawer>
+						
+						</div>
+					</>
+			]
+		}
+	}
 
   render() {
     return (
-        <nav className="menuBar">
-        	<div className="logo">
-        		<a href=""><img src={logo} alt="Logo"/></a>
-        	</div>
-        	<div className="menuCon">
-				    <div className="rightMenu">
-	        			<RightMenu />
-				    </div>
-				    <Button className="barsMenu" type="primary" onClick={this.showDrawer}>
-		          <span className="barsBtn"></span>
-		        </Button>
-				    <Drawer
-		          title="Basic Drawer"
-		          placement="right"
-		          closable={false}
-		          onClose={this.onClose}
-		          visible={this.state.visible}
-		        >
-		          <RightMenu />
-		        </Drawer>
-
-        	</div>
-        </nav>
+			<nav className='menuBar'>
+				{this.renderLinks()}
+			</nav>
     );
   }
 }
 
-export default Navbar;
+
+function mapStateToProps(state) {
+	return {
+		// authenticated:
+	};
+}
+
+export default connect(mapStateToProps)(withRouter(NavBar));

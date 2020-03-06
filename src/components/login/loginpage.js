@@ -14,6 +14,7 @@ const Container = styled.div`
 const StyledLink = styled(Link)`
   color: #ffffff;
   text-decoration: underline;
+  font-family: 'Open Sans Bold';
   
   &:hover {
     color: #E41E84;

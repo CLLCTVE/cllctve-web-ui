@@ -12,7 +12,7 @@ const GlobalStyles = createGlobalStyle`
     }
     
     @font-face {
-      font-family: 'Open Sans Bold';
+        font-family: 'Open Sans Bold';
       src: local('Open Sans Bold'), local('OpenSans Bold'), local('OpenSansBold'), url(${OpenSansBold}) format('truetype');
       font-weight: 200;
       font-style: normal;
@@ -24,9 +24,32 @@ const GlobalStyles = createGlobalStyle`
       font-weight: 200;
       font-style: normal;
     }
+    
+    pre{
+      color: #FFFFFF;
+    }
+    
+  .ant-picker-suffix{
+    color: #d9d9d9 !important;
+  }
+  
+  .ant-input, .ant-picker-input {
+    background: none !important;
+    font-family: 'Hanson Bold';
+    font-weight: normal;
+  }
+  
+  .ant-picker-input > input {
+    color: #ffffff !important;
+  }
+  
+  .ant-picker-cell-in-view.ant-picker-cell-selected .ant-picker-cell-inner {
+    background: #FF6633 !important;
+  }
   
   html, body {
-    font-family: 'Open Sans', 'Open Sans Bold', 'Hanson Bold', 'Helvetica Neue';
+    color: ${props => {return props.theme.color;}} !important;
+    font-family: 'Open Sans', 'Open Sans Bold', 'Hanson Bold', 'Helvetica Neue' !important;
     background-color: ${props => {return props.theme.background;}};
     margin: 0;
     padding: 0;
@@ -44,6 +67,10 @@ const GlobalStyles = createGlobalStyle`
   .ant-btn {
      font-family: 'Hanson Bold';
     }
+    
+  .error {
+    color: #FF0000;
+  }
 `;
 
 export default GlobalStyles;

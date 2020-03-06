@@ -1,26 +1,28 @@
 import React, { Component } from 'react';
+import { NavLink as Link } from 'react-router-dom';
 import { Menu, Icon } from 'antd';
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
 
 class RightMenu extends Component {
+  
   render() {
     return (
       <Menu mode="horizontal">
-        <Menu.Item key="mail">
-          <a href="">Home</a>
+        <Menu.Item key="0">
+          <Link to="/">Home</Link>
         </Menu.Item>
-        <Menu.Item key="network">
-          <a href="">Network</a>
+        <Menu.Item key="1">
+          <Link to="/network">Network</Link>
         </Menu.Item>
-        <Menu.Item key="jobs">
-          <a href="">Jobs</a>
+        <Menu.Item key="2">
+          <Link to="/jobs">Jobs</Link>
         </Menu.Item>
-        <Menu.Item key="messaging">
-          <a href="">Messaging</a>
+        <Menu.Item key="3">
+          <Link to="/messaging">Messaging</Link>
         </Menu.Item>
-        <Menu.Item key="alipay">
-          <a href="">Contact Us</a>
+        <Menu.Item key="4">
+          <Link to="/contact">Contact Us</Link>
         </Menu.Item>
       </Menu>
     );
