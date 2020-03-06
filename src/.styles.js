@@ -4,11 +4,6 @@ import HansonBold from './styles/fonts/Hanson-Bold.ttf';
 import OpenSansBold from './styles/fonts/OpenSans-Bold.ttf';
 import OpenSans from './styles/fonts/OpenSans-Regular.ttf';
 
-export const theme = {
-  primary: '#000000',
-  primaryLight: '#EFEFEF',
-};
-
 const GlobalStyles = createGlobalStyle`
   .error {
     color: red;

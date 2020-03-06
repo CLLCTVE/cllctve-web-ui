@@ -39,6 +39,11 @@ const GlobalStyles = createGlobalStyle`
 
   max-width: 100vw;
   }
+  
+  h1,h2,h3,h4,h5,
+  .ant-btn {
+     font-family: 'Hanson Bold';
+    }
 `;
 
 export default GlobalStyles;
