@@ -68,10 +68,15 @@ const GlobalStyles = createGlobalStyle`
   h1,h2,h3,h4,h5,
   .ant-btn {
      font-family: 'Hanson Bold';
-    }
-    
+  }
+  
+  .ant-menu-horizontal > .ant-menu-item-selected {
+    border-bottom: #FF6633 !important;
+    background: #FF6633 !important;
+  }
+  
   .ant-input-affix-wrapper > input.ant-input {
-      color: ${props => {return props.theme.color;}};
+    color: ${props => {return props.theme.color;}};
   }
   
   .error {
