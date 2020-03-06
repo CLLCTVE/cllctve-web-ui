@@ -1,10 +1,13 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import { Form, Field } from 'react-final-form';
 import { renderInput, renderMonthPicker, renderPasswordInput, renderSelect } from '../fields/renderFields';
 import styled from 'styled-components';
 import { Row, Button } from 'antd';
 import * as validations from '../../utils/validations';
+import { handleLoginRequest } from '../../modules/auth/redux';
+import { FORM_ERROR } from 'final-form';
 
 const monthFormat = 'MM-YYYY';
 
@@ -41,20 +44,24 @@ const StyledLink = styled(Link)`
   }
 `;
 
-const onSubmit = async values => {
-  console.log('#onSumbit, values: ', values);
-};
+const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 const OPTIONS = ['Software Development', 'Graphic Designer', 'Digital Illustrator'];
 
 class SignUpPage extends Component {
+  
+  onSubmit = async values => {
+    await sleep(100);
+    console.log('SignUpPage#onSumbit, values: ', values);
+    console.log('SignUpPage#onSubmit, checking username');
+  };
   
   render() {
     
     return (
       <Container>
         <Form
-          onSubmit={onSubmit}
+          onSubmit={this.onSubmit}
           render={({ handleSubmit, form, submitting, pristine, values }) => (
             <form onSubmit={handleSubmit}>
               <Row gutter={8}>
@@ -131,5 +138,17 @@ class SignUpPage extends Component {
   }
 }
 
-export default SignUpPage;
+const mapStateToProps = (state) => {
+  return {
+    authenticated: state.auth.authenticated,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onHandleSignupRequest: (values) => dispatch(handleLoginRequest(values))
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignUpPage);
 

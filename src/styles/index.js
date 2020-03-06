@@ -28,7 +28,9 @@ const GlobalStyles = createGlobalStyle`
     pre{
       color: #FFFFFF;
     }
-    
+  
+  .ant-input-password-icon,
+  .ant-input-suffix,
   .ant-picker-suffix{
     color: #d9d9d9 !important;
   }
@@ -48,7 +50,7 @@ const GlobalStyles = createGlobalStyle`
   }
   
   html, body {
-    color: ${props => {return props.theme.color;}} !important;
+    color: ${props => {return props.theme.color;}};
     font-family: 'Open Sans', 'Open Sans Bold', 'Hanson Bold', 'Helvetica Neue' !important;
     background-color: ${props => {return props.theme.background;}};
     margin: 0;
@@ -68,6 +70,10 @@ const GlobalStyles = createGlobalStyle`
      font-family: 'Hanson Bold';
     }
     
+  .ant-input-affix-wrapper > input.ant-input {
+      color: ${props => {return props.theme.color;}};
+  }
+  
   .error {
     color: #FF0000;
   }

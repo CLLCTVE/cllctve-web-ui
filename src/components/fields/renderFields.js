@@ -38,6 +38,7 @@ const StyledInput = styled(Input)`
 `;
 
 const StyledPasswordInput = styled(Input.Password)`
+  color: white;
 
   &.ant-input-affix-wrapper:hover,
   &.ant-input-affix-wrapper-focused{
@@ -48,6 +49,7 @@ const StyledPasswordInput = styled(Input.Password)`
   }
   
   &.ant-input-password {
+    color: white;
     border-top-width: 0px;
     border-left-width:0px;
     border-right-width:0px;
@@ -56,6 +58,7 @@ const StyledPasswordInput = styled(Input.Password)`
   }
   
   &.ant-input {
+  color: white;
     background: none !important;
     border-top-width: 0px;
     border-left-width:0px;

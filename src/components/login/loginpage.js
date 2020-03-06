@@ -23,7 +23,7 @@ const StyledLink = styled(Link)`
 `;
 
 
-const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
+const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 class LoginPage extends Component {
   handleFormSubmit = async (values) => {
@@ -34,15 +34,15 @@ class LoginPage extends Component {
     await sleep(100);
     console.log('LoginPage#onSubmit, values: ', values);
     console.log('LoginPage#onSubmit, checking username');
-    if (values.email !== 'bailey1.brandon@gmail.com') {
+    if (values.email !== 'bailey1.brandon@gmail.edu') {
       console.log('LoginPage#onSubmit, unknown email');
       return { email: 'Unknown username' }
     }
-    if (values.password !== 'finalformrocks') {
+    if (values.password !== 'abc123') {
       return { [FORM_ERROR]: 'Login Failed' }
     }
     window.alert('LOGIN SUCCESS!')
-  }
+  };
   
   render() {
     return (
