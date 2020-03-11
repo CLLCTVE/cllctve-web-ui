@@ -5,6 +5,7 @@ import request from '../../lib/request';
 import {
   LOGIN_REQUEST,
   LOGOUT_REQUEST,
+  LOGIN_SUCCESS,
   LOGIN_FAILURE,
   handleLoginRequest,
   handleLoginSuccess,
@@ -15,19 +16,36 @@ import { FORM_ERROR } from 'final-form';
 
 const CLIENT_ROOT_URL = 'http://localhost:3000';
 
+const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
+
+const submit = async ({email, password}) => {
+  console.log('#submit, email: %s, password: %s', email, password);
+  await sleep(200);
+  // if (email !== 'bailey1.brandon@gmail.edu') {
+  //   console.log('LoginPage#onSubmit, unknown email');
+  //   return { email: 'Unknown username' }
+  // }
+  // if (password !== 'abc123') {
+  //   return { [FORM_ERROR]: 'Login Failed' }
+  // }
+  if (email === 'bailey1.brandon@gmail.edu') {
+    console.log('no bailey1.brandon@gmail.edu allowed');
+    throw Error({ email: "No bailey1.brandon@gmail.edu's Allowed!" })
+  }
+  console.log('success!');
+  window.location.href = `${CLIENT_ROOT_URL}/dashboard`;
+}
+
 export function* authorize({email, password}) {
   console.log('#authorize, start');
   try {
-    if (email !== 'bailey1.brandon@gmail.edu') {
-      console.log('LoginPage#onSubmit, unknown email');
-      return { email: 'Unknown username' }
-    }
-    if (password !== 'abc123') {
-      return { [FORM_ERROR]: 'Login Failed' }
-    }
+    // const response = yield call(submit, {email, password});
+    console.log('success?!');
     const response = yield call(request.post, '/auth/login', {email, password});
     if (response.statusCode !== 200) {
       console.warn("#authorize, Received non-200 status");
+  
+      return { email: "Unknown email", [FORM_ERROR]: "failed to login" };
     }
     const {user, token } = response;
     localStorage.setItem('token', JSON.stringify(token));
@@ -36,10 +54,12 @@ export function* authorize({email, password}) {
     yield put(handleLoginSuccess(response));
     window.location.href = `${CLIENT_ROOT_URL}/profile`;
   } catch (err) {
-    console.error('#authorize, Error: ', err);
-    yield put(handleLoginFailed(err));
-    return { [FORM_ERROR]: 'Login Failed' }
+    console.error('#authorize, Error');
+    // yield put(handleLoginFailed(err));
+    yield put({ type: LOGIN_SUCCESS, payload: err})
+    
   } finally {
+    console.log('Finally block');
     if (yield cancelled()) {
       yield put(handleLoginCancelled())
     }

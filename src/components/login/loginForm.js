@@ -3,6 +3,14 @@ import { Field, Form } from 'react-final-form';
 import { Button } from 'antd';
 import { renderInput, renderPasswordInput } from '../fields/renderFields';
 import styled from 'styled-components';
+import MakeAsyncFunction from 'react-redux-promise-listener'
+import { promiseListener } from '../../store';
+import LoadingSpinner from '../../lib/components/loadingSpinner';
+import {
+  LOGIN_REQUEST,
+  LOGIN_SUCCESS,
+  LOGIN_FAILURE
+} from '../../modules/auth/redux';
 
 const StyledButton = styled(Button)`
   &.ant-btn{
@@ -37,31 +45,89 @@ export const LoginForm = (props) => (
       return errors;
     }}
     
-    render={({ submitError, handleSubmit, submitting, pristine, values }) => (
+    render={({submitError, handleSubmit, submitting, pristine, values}) => (
       <form onSubmit={handleSubmit}>
         {submitError && <div className="error">{submitError}</div>}
-          <Field
-            name="email"
-            component={renderInput}
-            type="text"
-            placeholder="creative@cllctve.edu"
-          />
-          <Field
-            name="password"
-            component={renderPasswordInput}
-            type="text"
-            placeholder="password"
-          />
-          <StyledButton
-            size="large"
-            shape="round"
-            type="button"
-            htmlType="submit"
-          >
-            Login
-          </StyledButton>
+        <Field
+          name="email"
+          component={renderInput}
+          type="text"
+          placeholder="creative@cllctve.edu"
+        />
+        <Field
+          name="password"
+          component={renderPasswordInput}
+          type="text"
+          placeholder="password"
+        />
+        <StyledButton
+          size="large"
+          shape="round"
+          type="button"
+          htmlType="submit"
+        >
+          Login
+        </StyledButton>
         <pre>{JSON.stringify(values, 0, 2)}</pre>
       </form>
     )}
   />
 );
+
+const SubmitError = ({name}) => (
+  <Field
+    name={name}
+    subscription={{submitError: true, dirtySinceLastSubmit: true}}
+  >
+    {({meta: {submitError, dirtySinceLastSubmit}}) =>
+      submitError && !dirtySinceLastSubmit ? <span>{submitError}</span> : null
+    }
+  </Field>
+)
+
+export const AsyncLoginForm = (props) => (
+  <MakeAsyncFunction
+    listener={promiseListener}
+    start={LOGIN_REQUEST}
+    resolve={LOGIN_SUCCESS}
+    reject={LOGIN_FAILURE}
+  >
+    {onSubmit => (
+      <Form
+        onSubmit={onSubmit}
+        render={({submitError, handleSubmit, validating, values}) => (
+          <form onSubmit={handleSubmit}>
+            <div>
+              <Field
+                name="email"
+                component={renderInput}
+                type="text"
+                placeholder="creative@cllctve.edu"
+              />
+              <SubmitError name="email"/>
+            </div>
+            <div>
+              <Field
+                name="password"
+                component={renderPasswordInput}
+                type="text"
+                placeholder="password"
+              />
+            </div>
+            {submitError && <div className="error">{submitError}</div>}
+  
+            <StyledButton
+              size="large"
+              shape="round"
+              type="button"
+              htmlType="submit"
+            >
+              Login
+            </StyledButton>
+            <pre>{JSON.stringify(values, 0, 2)}</pre>
+          </form>
+        )}
+      />
+    )}
+  </MakeAsyncFunction>
+)

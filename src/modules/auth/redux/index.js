@@ -61,6 +61,7 @@ export default function auth(state = INITIAL_STATE, action) {
     case LOGIN_SUCCESS:
       return {...state, isLoading: false, authenticated: true, user: action.payload};
     case LOGIN_FAILURE:
+      console.log('fucking login failure');
       return {...state, isLoading: false, authenticated: false, error: action.payload};
     case LOGOUT_REQUEST:
       return {...state, isLoading: true, authenticated: false};

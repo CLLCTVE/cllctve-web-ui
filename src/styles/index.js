@@ -28,6 +28,10 @@ const GlobalStyles = createGlobalStyle`
     pre{
       color: #FFFFFF;
     }
+    
+    .ant-layout * {
+      color: #ffffff;
+    }
   
   .ant-input-password-icon,
   .ant-input-suffix,

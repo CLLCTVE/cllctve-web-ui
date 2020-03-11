@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { LoginForm } from './loginForm';
+import { AsyncLoginForm, LoginForm } from './loginForm';
 import { handleLoginRequest } from '../../modules/auth/redux';
 import styled from 'styled-components';
 
@@ -21,18 +21,16 @@ const StyledLink = styled(Link)`
   }
 `;
 
-
-const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
-
 class LoginPage extends Component {
-  handleFormSubmit = async (values) => {
-    return await this.props.handleLoginRequest(values);
+  handleFormSubmit = (values) => {
+    console.log('#handleFormSubmit');
+    return this.props.handleLoginRequest(values);
   };
   
   render() {
     return (
       <Container>
-        <LoginForm onSubmit={this.handleFormSubmit} />
+        <AsyncLoginForm />
         <div>
           <StyledLink to='#'  >Forgot your password? Click Here</StyledLink>
           <br/>

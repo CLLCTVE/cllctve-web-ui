@@ -17,7 +17,12 @@ let basename = '/';
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 export let history = createBrowserHistory({basename});
-let middleware = [routerMiddleware(history), sagaMiddleware, reduxThunk, reduxPromiseListener.middleware];
+let middleware = [
+  routerMiddleware(history),
+  reduxPromiseListener.middleware,
+  sagaMiddleware,
+  reduxThunk,
+];
 
 if (process.env.NODE_ENV !== 'production') {
   middleware.push(createLogger());
