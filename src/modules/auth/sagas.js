@@ -14,7 +14,7 @@ import {
 } from './redux';
 import { FORM_ERROR } from 'final-form';
 
-const CLIENT_ROOT_URL = 'http://localhost:3000';
+const CLIENT_ROOT_URL = window.location.origin;
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
 
