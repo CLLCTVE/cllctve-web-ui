@@ -32,50 +32,6 @@ const StyledButton = styled(Button)`
   }
 `;
 
-export const LoginForm = (props) => (
-  <Form
-    onSubmit={props.onSubmit}
-    validate={values => {
-      const errors = {};
-      if (!values.email) {
-        errors.email = 'Required';
-      }
-      if (!values.password) {
-        errors.password = 'Required';
-      }
-      return errors;
-    }}
-    
-    render={({submitError, handleSubmit, submitting, pristine, values}) => (
-      <form onSubmit={handleSubmit}>
-        test{submitError && <div className="error">{submitError}</div>}
-        <Field
-          name="email"
-          component={renderInput}
-          type="text"
-          placeholder="creative@cllctve.edu"
-        />
-        <Field
-          name="password"
-          component={renderPasswordInput}
-          type="text"
-          placeholder="password"
-        />
-        <StyledButton
-          size="large"
-          shape="round"
-          type="button"
-          htmlType="submit"
-        >
-          Login
-        </StyledButton>
-        {submitError && <div className="error">{submitError}</div>}
-        <pre>{JSON.stringify(values, 0, 2)}</pre>
-      </form>
-    )}
-  />
-);
-
 export const AsyncLoginForm = () => (
   <MakeAsyncFunction
     listener={promiseListener}

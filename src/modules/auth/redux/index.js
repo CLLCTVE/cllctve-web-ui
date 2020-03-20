@@ -55,13 +55,16 @@ export const handleLogoutRequest = () => ({
 
 export default function auth(state = INITIAL_STATE, action) {
   switch (action.type) {
-    // case LOGIN_REQUEST:
-    //   console.log(LOGIN_REQUEST);
-    //   return {...state, isLoading: true, authenticated: false};
+    case LOGIN_REQUEST:
+      console.log('fucking login request!');
+      console.log(LOGIN_REQUEST);
+      return {...state, isLoading: true, authenticated: false};
     case LOGIN_SUCCESS:
+      console.log('fucking login success!, state: ', state);
+      console.log('fucking login success!, action: ', action);
       return {...state, isLoading: false, authenticated: true, user: action.payload};
     case LOGIN_FAILURE:
-      console.log('fucking login failure');
+      console.log('fucking login failure!');
       return {...state, isLoading: false, authenticated: false, error: action.payload};
     case LOGOUT_REQUEST:
       return {...state, isLoading: true, authenticated: false};

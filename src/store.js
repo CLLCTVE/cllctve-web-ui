@@ -1,8 +1,9 @@
 import { createStore, applyMiddleware, compose } from 'redux'
 import createSagaMiddleware from 'redux-saga';
 import { createBrowserHistory } from 'history';
+import { syncHistoryWithStore } from 'react-router-redux'
 import reduxThunk from 'redux-thunk';
-import {createLogger} from 'redux-logger';
+import { createLogger } from 'redux-logger';
 import { routerMiddleware } from 'react-router-redux';
 import createReduxPromiseListener from 'redux-promise-listener';
 
@@ -19,27 +20,35 @@ const composeEnhancers =  (typeof window !== 'undefined' &&
 
 export let history = createBrowserHistory({basename});
 let middleware = [
-  routerMiddleware(history),
+  reduxPromiseListener.middleware,
   sagaMiddleware,
   reduxThunk,
+  routerMiddleware(history),
 ];
 
-if (process.env.NODE_ENV !== 'production') {
-  middleware.push(createLogger());
+if (process.env.NODE_ENV === 'development') {
+  console.log('development env, adding logger...');
+  const level = 'console';
+  const collapsed =  true;
+  const logger = {};
+  middleware.push(createLogger({
+    level,
+    collapsed,
+    logger
+  }));
 }
 
 let store = createStore(
   rootReducer(history),
   /* preloadedState, */ composeEnhancers(
     applyMiddleware(
-      reduxPromiseListener.middleware,
       ...middleware
     )
   ));
 /* eslint-enable */
 
-sagaMiddleware.run(sagas);
-
 export const promiseListener = reduxPromiseListener // <---- ⚠️ IMPORTANT ⚠️
+
+sagaMiddleware.run(sagas);
 
 export default store;

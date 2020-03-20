@@ -18,11 +18,10 @@ export const loginResponse = async ({email, password}) => {
   return await delay(500).then(() => {
     let data;
     if (email === 'bailey1.brandon@gmail.edu') {
-      console.log('no bailey1.brandon@gmail.edu allowed');
+      console.log('no bailey1.brandon@gmail.edu found');
       data = {
         status: 'failed login',
-        statusCode: 401,
-        [FORM_ERROR]: 'Login Failed'
+        statusCode: 404,
       };
     } else {
       console.log('login successful');
