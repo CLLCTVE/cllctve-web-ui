@@ -12,6 +12,7 @@ import {
   LOGIN_FAILURE
 } from '../../modules/auth/redux';
 
+
 const StyledButton = styled(Button)`
   &.ant-btn{
     border: none;
@@ -47,7 +48,7 @@ export const LoginForm = (props) => (
     
     render={({submitError, handleSubmit, submitting, pristine, values}) => (
       <form onSubmit={handleSubmit}>
-        {submitError && <div className="error">{submitError}</div>}
+        test{submitError && <div className="error">{submitError}</div>}
         <Field
           name="email"
           component={renderInput}
@@ -68,24 +69,14 @@ export const LoginForm = (props) => (
         >
           Login
         </StyledButton>
+        {submitError && <div className="error">{submitError}</div>}
         <pre>{JSON.stringify(values, 0, 2)}</pre>
       </form>
     )}
   />
 );
 
-const SubmitError = ({name}) => (
-  <Field
-    name={name}
-    subscription={{submitError: true, dirtySinceLastSubmit: true}}
-  >
-    {({meta: {submitError, dirtySinceLastSubmit}}) =>
-      submitError && !dirtySinceLastSubmit ? <span>{submitError}</span> : null
-    }
-  </Field>
-)
-
-export const AsyncLoginForm = (props) => (
+export const AsyncLoginForm = () => (
   <MakeAsyncFunction
     listener={promiseListener}
     start={LOGIN_REQUEST}
@@ -95,37 +86,39 @@ export const AsyncLoginForm = (props) => (
     {onSubmit => (
       <Form
         onSubmit={onSubmit}
-        render={({submitError, handleSubmit, validating, values}) => (
-          <form onSubmit={handleSubmit}>
-            <div>
-              <Field
-                name="email"
-                component={renderInput}
-                type="text"
-                placeholder="creative@cllctve.edu"
-              />
-              <SubmitError name="email"/>
-            </div>
-            <div>
-              <Field
-                name="password"
-                component={renderPasswordInput}
-                type="text"
-                placeholder="password"
-              />
-            </div>
+        render={({ submitError, handleSubmit, submitting, pristine, values }) => (
+          <>
             {submitError && <div className="error">{submitError}</div>}
-  
-            <StyledButton
-              size="large"
-              shape="round"
-              type="button"
-              htmlType="submit"
-            >
-              Login
-            </StyledButton>
-            <pre>{JSON.stringify(values, 0, 2)}</pre>
-          </form>
+            <form onSubmit={handleSubmit}>
+              <div>
+                <Field
+                  name="email"
+                  component={renderInput}
+                  type="text"
+                  placeholder="creative@cllctve.edu"
+                />
+              </div>
+              <div>
+                <Field
+                  name="password"
+                  component={renderPasswordInput}
+                  type="text"
+                  placeholder="password"
+                />
+              </div>
+    
+              <StyledButton
+                size="large"
+                shape="round"
+                type="button"
+                htmlType="submit"
+                disabled={submitting}
+              >
+                Login
+              </StyledButton>
+              <pre>{JSON.stringify(values, 0, 2)}</pre>
+            </form>
+          </>
         )}
       />
     )}

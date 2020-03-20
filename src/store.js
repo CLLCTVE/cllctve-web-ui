@@ -14,12 +14,12 @@ const sagaMiddleware = createSagaMiddleware();
 
 let basename = '/';
 /* eslint-disable no-underscore-dangle */
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const composeEnhancers =  (typeof window !== 'undefined' &&
+  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
 
 export let history = createBrowserHistory({basename});
 let middleware = [
   routerMiddleware(history),
-  reduxPromiseListener.middleware,
   sagaMiddleware,
   reduxThunk,
 ];
@@ -31,12 +31,15 @@ if (process.env.NODE_ENV !== 'production') {
 let store = createStore(
   rootReducer(history),
   /* preloadedState, */ composeEnhancers(
-    applyMiddleware(...middleware)
+    applyMiddleware(
+      reduxPromiseListener.middleware,
+      ...middleware
+    )
   ));
 /* eslint-enable */
 
-export const promiseListener = reduxPromiseListener // <---- ⚠️ IMPORTANT ⚠️
-
 sagaMiddleware.run(sagas);
+
+export const promiseListener = reduxPromiseListener // <---- ⚠️ IMPORTANT ⚠️
 
 export default store;

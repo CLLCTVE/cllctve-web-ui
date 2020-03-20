@@ -1,5 +1,6 @@
 export function authHeader() {
   // return authorization header with jwt token
+  debugger;
   let token = JSON.parse(localStorage.getItem('token'));
   let uid = JSON.parse(localStorage.getItem('uid'));
   

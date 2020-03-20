@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import LeftMenu from './LeftMenu';
 import RightMenu from './RightMenu';
 import { NavLink as Link, withRouter } from 'react-router-dom';
-import { Drawer, Button, Menu } from 'antd';
+import { Avatar, Drawer, Button, Menu } from 'antd';
+import { UserOutlined } from '@ant-design/icons';
 import styled from 'styled-components';
 
 import logo from '../../../logo.png';
@@ -83,6 +84,7 @@ class NavBar extends Component {
 						<div className='menuCon'>
 							<div className='rightMenu'>
 								<RightMenu />
+								{/*<Avatar size={58} icon={<UserOutlined  />} />*/}
 							</div>
 							<Button className='barsMenu' type='primary' onClick={this.showDrawer}>
 								<span className='barsBtn'></span>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { NavLink as Link } from 'react-router-dom';
-import { Menu, Icon } from 'antd';
+import { Menu } from 'antd';
+
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
 
@@ -22,7 +23,7 @@ class RightMenu extends Component {
           <Link to="/messaging">Messaging</Link>
         </Menu.Item>
         <Menu.Item key="4">
-          <Link to="/contact">Contact Us</Link>
+          <Link to="/notifications">Notifications</Link>
         </Menu.Item>
       </Menu>
     );

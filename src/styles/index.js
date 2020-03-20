@@ -53,6 +53,10 @@ const GlobalStyles = createGlobalStyle`
     background: #FF6633 !important;
   }
   
+  .ant-menu-horizontal > .ant-menu-item-selected .active {
+    color: #FF6633 !important;
+  }
+  
   html, body {
     color: ${props => {return props.theme.color;}};
     font-family: 'Open Sans', 'Open Sans Bold', 'Hanson Bold', 'Helvetica Neue' !important;

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { AsyncLoginForm, LoginForm } from './loginForm';
+import { AsyncLoginForm } from './loginForm';
 import { handleLoginRequest } from '../../modules/auth/redux';
 import styled from 'styled-components';
 
@@ -22,10 +22,6 @@ const StyledLink = styled(Link)`
 `;
 
 class LoginPage extends Component {
-  handleFormSubmit = (values) => {
-    console.log('#handleFormSubmit');
-    return this.props.handleLoginRequest(values);
-  };
   
   render() {
     return (
@@ -47,10 +43,4 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    handleLoginRequest: (values) => dispatch(handleLoginRequest(values))
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);
+export default connect(mapStateToProps, {})(LoginPage);
