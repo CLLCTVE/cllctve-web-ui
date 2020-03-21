@@ -8,6 +8,7 @@ import HomePage from './homepage';
 import LoginPage from './login/loginpage';
 import SignUpPage from './signup/signup-page';
 import ProfilePage from './profile-page';
+import NotFoundPage from './pages/notFoundPage';
 
 import RequireAuth from './require_auth';
 
@@ -23,6 +24,7 @@ class Index extends Component {
               <Route exact path='/login' component={LoginPage} />
               <Route exact path='/sign-up' component={SignUpPage} />
               <Route exact path='/profile' component={RequireAuth(ProfilePage)} />
+              <Route path="*" component={NotFoundPage} />
             </Switch>
           </div>
         </Layout.Content>
