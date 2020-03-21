@@ -1,3 +1,7 @@
+import { all, call, put, takeLatest } from 'redux-saga/effects';
+import { push } from 'connected-react-router';
+import request from '../../../lib/request';
+
 export const LOGIN_REQUEST = 'auth/login/LOGIN_REQUEST';
 export const LOGIN_FAILURE = 'auth/login/LOGIN_FAILURE';
 export const LOGIN_SUCCESS = 'auth/login/LOGIN_SUCCESS';
@@ -6,10 +10,13 @@ export const LOGIN_CANCELLED = 'auth/login/LOGIN_CANCELLED';
 export const AUTHENTICATED = 'auth/login/AUTHENTICATED';
 export const UNAUTHENTICATED = 'auth/login/UNAUTHENTICATED';
 
+export const SET_TOKEN = 'auth/login/SET_TOKEN';
+export const UNSET_TOKEN = 'auth/login/UNSET_TOKEN';
+
 export const LOGOUT_REQUEST = 'auth/logout/LOGOUT_REQUEST';
 export const LOGOUT_SUCCESS = 'auth/logout/LOGOUT_SUCCESS';
 
-let user = JSON.parse(localStorage.getItem('user'));
+let user = localStorage.getItem('user') === 'undefined' ? null : JSON.parse(localStorage.getItem('user'));
 
 const INITIAL_STATE = user
   ? {
@@ -53,19 +60,35 @@ export const handleLogoutRequest = () => ({
   token: null
 });
 
+export function* onHandleLoginRequest({email, password}) {
+  console.log('#onHandleLoginRequest, email: %s, password: %s', email, password);
+  
+  try {
+    console.log('#onHandleLoginRequest, try block');
+    const response = yield call(request.get, '/auth/login');
+    console.log('#loginFlow, response: ', response);
+    
+    yield all([
+      put(handleLoginSuccess(response)),
+      put(push('/profile'))
+    ]);
+  } catch (err) {
+    console.error('#onHandleLoginRequest, try block');
+  }
+}
+
 export default function auth(state = INITIAL_STATE, action) {
   switch (action.type) {
     case LOGIN_REQUEST:
-      console.log('fucking login request!');
-      console.log(LOGIN_REQUEST);
       return {...state, isLoading: true, authenticated: false};
     case LOGIN_SUCCESS:
-      console.log('fucking login success!, state: ', state);
-      console.log('fucking login success!, action: ', action);
       return {...state, isLoading: false, authenticated: true, user: action.payload};
     case LOGIN_FAILURE:
-      console.log('fucking login failure!');
       return {...state, isLoading: false, authenticated: false, error: action.payload};
+    case SET_TOKEN:
+      return {...state, token: action.payload};
+    case UNSET_TOKEN:
+      return {...state, token: action.payload};
     case LOGOUT_REQUEST:
       return {...state, isLoading: true, authenticated: false};
     case LOGOUT_SUCCESS:
