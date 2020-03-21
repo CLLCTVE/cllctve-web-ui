@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { AsyncLoginForm } from './loginForm';
-import { handleLoginRequest } from '../../modules/auth/redux';
 import styled from 'styled-components';
 
 const Container = styled.div`

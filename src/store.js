@@ -1,7 +1,6 @@
 import { createStore, applyMiddleware, compose } from 'redux'
 import createSagaMiddleware from 'redux-saga';
 import { createBrowserHistory } from 'history';
-import { syncHistoryWithStore } from 'react-router-redux'
 import reduxThunk from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 import { routerMiddleware } from 'react-router-redux';
@@ -26,16 +25,8 @@ let middleware = [
   routerMiddleware(history),
 ];
 
-if (process.env.NODE_ENV === 'development') {
-  console.log('development env, adding logger...');
-  const level = 'console';
-  const collapsed =  true;
-  const logger = {};
-  middleware.push(createLogger({
-    level,
-    collapsed,
-    logger
-  }));
+if (process.env.NODE_ENV !== 'production') {
+  middleware.push(createLogger());
 }
 
 let store = createStore(

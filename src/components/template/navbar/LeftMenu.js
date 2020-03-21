@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { Menu } from 'antd';
-const SubMenu = Menu.SubMenu;
-const MenuItemGroup = Menu.ItemGroup;
 
 class AuthMenu extends Component {
   render() {

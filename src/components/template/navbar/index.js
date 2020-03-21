@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import LeftMenu from './LeftMenu';
 import RightMenu from './RightMenu';
 import { NavLink as Link, withRouter } from 'react-router-dom';
 import { Avatar, Drawer, Button, Menu } from 'antd';
-import { UserOutlined } from '@ant-design/icons';
-import styled from 'styled-components';
+// import { UserOutlined } from '@ant-design/icons';
+// import styled from 'styled-components';
 
 import logo from '../../../logo.png';
 
@@ -44,10 +43,10 @@ class NavBar extends Component {
 					<div className='menuCon'>
 						<div className='rightMenu'>
 							<Menu mode="horizontal">
-								<Menu.Item key="0">
+								<Menu.Item key="login">
 									<Link to="/login">Login</Link>
 								</Menu.Item>
-								<Menu.Item key="1">
+								<Menu.Item key="sign-up">
 									<Link to="/sign-up">Sign Up</Link>
 								</Menu.Item>
 							</Menu>
@@ -63,10 +62,10 @@ class NavBar extends Component {
 							visible={this.state.visible}
 						>
 							<Menu mode="horizontal">
-								<Menu.Item key="2">
+								<Menu.Item key="login-mobile">
 									<Link to="/login">Login</Link>
 								</Menu.Item>
-								<Menu.Item key="3">
+								<Menu.Item key="sign-up-mobile">
 									<Link to="/sign-up">Sign Up</Link>
 								</Menu.Item>
 							</Menu>
