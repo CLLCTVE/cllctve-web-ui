@@ -30,14 +30,14 @@ function* loginFlow({ email, password }) {
     ]);
     
   } catch(err) {
-    const errors = {};
-    
     if (err.message === 'Network Error') {
-      yield put({ type: LOGIN_FAILURE, payload: { [FORM_ERROR]: 'Its not you, its us. Please try again later.' } })
+      yield put({ type: LOGIN_SUCCESS, payload: { [FORM_ERROR]: 'Check your connection and please try again later.' }})
     } else {
       console.error('#loginFlow catch block, err: ', err);
       yield put({type: LOGIN_SUCCESS, payload: { [FORM_ERROR]: 'Login Failed' }})
     }
+    console.error('#loginFlow catch block, err: ', err);
+    yield put({type: LOGIN_SUCCESS, payload: { [FORM_ERROR]: 'Login Failed' }})
   }
 }
 
