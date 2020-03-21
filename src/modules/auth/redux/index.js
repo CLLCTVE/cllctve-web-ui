@@ -16,7 +16,7 @@ export const UNSET_TOKEN = 'auth/login/UNSET_TOKEN';
 export const LOGOUT_REQUEST = 'auth/logout/LOGOUT_REQUEST';
 export const LOGOUT_SUCCESS = 'auth/logout/LOGOUT_SUCCESS';
 
-let user = localStorage.getItem('user') === 'undefined' ? null : JSON.parse(localStorage.getItem('user'));
+let user = localStorage.getItem('user') !== 'undefined' ?  JSON.parse(localStorage.getItem('user')) : '';
 
 const INITIAL_STATE = user
   ? {

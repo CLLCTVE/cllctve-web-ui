@@ -12,7 +12,6 @@ import {
   LOGIN_FAILURE
 } from '../../modules/auth/redux';
 
-
 const StyledButton = styled(Button)`
   &.ant-btn{
     border: none;
@@ -42,7 +41,7 @@ export const AsyncLoginForm = () => (
     {onSubmit => (
       <Form
         onSubmit={onSubmit}
-        render={({ submitError, handleSubmit, submitting, pristine, values }) => (
+        render={({ submitError, handleSubmit, form, submitting, pristine, values }) => (
           <>
             {submitError && <div className="error">{submitError}</div>}
             <form onSubmit={handleSubmit}>
@@ -73,6 +72,8 @@ export const AsyncLoginForm = () => (
                 Login
               </StyledButton>
               <pre>{JSON.stringify(values, 0, 2)}</pre>
+              <pre>{JSON.stringify(form, 0, 2)}</pre>
+              <pre>{JSON.stringify(submitError, 0, 2)}</pre>
             </form>
           </>
         )}

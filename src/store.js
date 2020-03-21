@@ -7,7 +7,7 @@ import { routerMiddleware } from 'react-router-redux';
 import createReduxPromiseListener from 'redux-promise-listener';
 
 import rootReducer from './modules/rootReducer';
-import sagas from './modules/rootSagas';
+import sagas, { logActions } from './modules/rootSagas';
 
 const reduxPromiseListener = createReduxPromiseListener();
 const sagaMiddleware = createSagaMiddleware();
@@ -19,9 +19,9 @@ const composeEnhancers =  (typeof window !== 'undefined' &&
 
 export let history = createBrowserHistory({basename});
 let middleware = [
-  reduxPromiseListener.middleware,
   sagaMiddleware,
   reduxThunk,
+  reduxPromiseListener.middleware,
   routerMiddleware(history),
 ];
 
@@ -40,6 +40,7 @@ let store = createStore(
 
 export const promiseListener = reduxPromiseListener // <---- ⚠️ IMPORTANT ⚠️
 
+sagaMiddleware.run(logActions);
 sagaMiddleware.run(sagas);
 
 export default store;
