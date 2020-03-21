@@ -7,6 +7,11 @@ import {
 } from './redux';
 
 import { FORM_ERROR } from 'final-form';
+import axios from 'axios';
+
+const API_URL = 'http://localhost:3001/api';
+
+const apiCall = ({email, password}) => axios.post(`${API_URL}/login`, {email, password});
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -34,7 +39,7 @@ function* loginFlow(action) {
   console.log('#loginFlow, action: ', action);
   try {
     console.log('#loginFlow try block');
-    const response = yield call(submit, action.payload);
+    const response = yield call(apiCall, action.payload);
     console.log('#loginFlow, response: ', response)
     localStorage.setItem('token', JSON.stringify(response.token));
     localStorage.setItem('user', JSON.stringify(response.user));
@@ -45,7 +50,7 @@ function* loginFlow(action) {
     
   } catch(err) {
     console.error('#loginFlow catch block, err: ', err);
-    yield put({type: LOGIN_SUCCESS, payload: err})
+    yield put({type: LOGIN_SUCCESS, payload: { [FORM_ERROR]: 'Login Failed' }})
   }
 }
 
