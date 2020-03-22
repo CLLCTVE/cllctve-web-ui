@@ -4,7 +4,7 @@ import {
   SIGNUP_REQUEST,
   SIGNUP_SUCCESS,
   SIGNUP_FAILURE,
-  onHandleSignupRequest
+  onHandleSignUpRequest
 } from './redux';
 
 function* watchCreativeSignUp() {
@@ -13,7 +13,7 @@ function* watchCreativeSignUp() {
   while(true) {
     console.log('#watchCreativeSignUp while loop');
     const { payload } = yield take(SIGNUP_REQUEST);
-    const task = yield fork(onHandleSignupRequest, payload);
+    const task = yield fork(onHandleSignUpRequest, payload);
     console.log('#watchCreativeSignUp, task: ', task);
   }
 }
