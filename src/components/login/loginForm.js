@@ -73,7 +73,6 @@ export const AsyncLoginForm = () => (
               </StyledButton>
               <pre>{JSON.stringify(values, 0, 2)}</pre>
               <pre>{JSON.stringify(form, 0, 2)}</pre>
-              <pre>{JSON.stringify(submitError, 0, 2)}</pre>
             </form>
           </>
         )}

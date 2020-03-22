@@ -1,7 +1,7 @@
 import React from 'react';
 import { Field, Form } from 'react-final-form';
 import { Button } from 'antd';
-import { renderInput, renderMonthPicker, renderPasswordInput } from '../fields/renderFields';
+import { renderInput, renderMonthPicker, renderPasswordInput, normalizePhone, capitalize } from '../fields/renderFields';
 import styled from 'styled-components';
 import MakeAsyncFunction from 'react-redux-promise-listener'
 import { promiseListener } from '../../store';
@@ -34,7 +34,7 @@ const StyledButton = styled(Button)`
   }
 `;
 
-export const AsyncSignupForm = () => (
+export const AsyncSignUpForm = () => (
   <MakeAsyncFunction
     listener={promiseListener}
     start={SIGNUP_REQUEST}
@@ -53,6 +53,8 @@ export const AsyncSignupForm = () => (
                   name="firstName"
                   component={renderInput}
                   validate={validations.composeValidators(validations.required, validations.minLength(4), validations.maxLength(25))}
+                  parse={value => value && value.toLowerCase()}
+                  format={capitalize}
                   type="text"
                   placeholder="First Name*"
                 />
@@ -62,6 +64,8 @@ export const AsyncSignupForm = () => (
                   name="lastName"
                   component={renderInput}
                   validate={validations.composeValidators(validations.required, validations.minLength(4), validations.maxLength(25))}
+                  parse={value => value && value.toLowerCase()}
+                  format={capitalize}
                   type="text"
                   placeholder="Last Name*"
                 />
@@ -91,6 +95,7 @@ export const AsyncSignupForm = () => (
                   component={renderInput}
                   type="text"
                   placeholder="555-555-5555"
+                  parse={normalizePhone}
                 />
               </div>
               <div>
@@ -102,13 +107,16 @@ export const AsyncSignupForm = () => (
                 />
               </div>
               <StyledButton
-                htmlType="submit"
-                shape="round"
                 size="large"
+                shape="round"
+                type="button"
+                htmlType="submit"
+                disabled={submitting}
               >
                 Submit
               </StyledButton>
               <pre>{JSON.stringify(values, 0, 2)}</pre>
+              <pre>{JSON.stringify(form, 0, 2)}</pre>
             </form>
           </>
         )}

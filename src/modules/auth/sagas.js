@@ -1,5 +1,4 @@
 import { all, call, put, fork, take, takeLatest } from 'redux-saga/effects';
-import { push } from 'connected-react-router';
 
 import {
   LOGIN_REQUEST,

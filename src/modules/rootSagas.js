@@ -1,5 +1,6 @@
 import {take, all} from 'redux-saga/effects';
 import auth from './auth/sagas';
+import signup from './signup/sagas';
 
 export function* logActions() {
   while (true) {
@@ -9,5 +10,8 @@ export function* logActions() {
 }
 
 export default function* rootSaga() {
-  yield all([auth()]);
+  yield all([
+    auth(),
+    signup()
+  ]);
 }

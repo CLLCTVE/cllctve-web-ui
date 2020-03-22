@@ -6,7 +6,7 @@ import { renderInput, renderMonthPicker, renderPasswordInput, renderSelect } fro
 import styled from 'styled-components';
 import { Row, Button } from 'antd';
 import * as validations from '../../utils/validations';
-import { AsyncSignupForm } from './signupForm';
+import { AsyncSignUpForm } from './signupForm';
 
 // const monthFormat = 'MM-YYYY';
 
@@ -56,7 +56,7 @@ class SignupPage extends Component {
   render() {
     return (
       <Container>
-        <AsyncSignupForm />
+        <AsyncSignUpForm />
         <div>
           <StyledLink to='/login'>Already a member? Click here to Log in!</StyledLink>
         </div>

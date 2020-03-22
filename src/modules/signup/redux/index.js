@@ -25,8 +25,8 @@ export const handleSignupFailed = (payload) => ({
   isLoading: false,
 });
 
-export function* onHandleSignupRequest({}) {
-  console.log('#onHandleSignupRequest');
+export function* onHandleSignupRequest({firstName, lastName, email, gradMonthYear, phoneNumber, password}) {
+  console.log('#onHandleSignupRequest, firstName: %s, lastName: %s, email: %s, gradMonthYear: %s, phoneNumber: %s, password: %s', firstName, lastName, email, gradMonthYear, phoneNumber, password);
 }
 
 export default function signup(state = {}, action) {
