@@ -32,13 +32,12 @@ const makeRequest = async (url, method, requestData, origin) => {
   if (requestData) {
     config = {
       ...config,
-      ...requestData
+      data: requestData
     }
   }
   
-  return axios(config)
-    .then(res => res)
-    .catch(err => err);
+  const req = await axios(config);
+  return req;
 };
 
 const mockRequest = async (url, method, requestData, origin) => {

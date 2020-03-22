@@ -11,6 +11,7 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAILURE
 } from '../../modules/auth/redux';
+import * as validations from '../../utils/validations';
 
 const StyledButton = styled(Button)`
   &.ant-btn{
@@ -51,6 +52,7 @@ export const AsyncLoginForm = () => (
                   component={renderInput}
                   type="text"
                   placeholder="creative@cllctve.edu"
+                  validate={validations.required}
                 />
               </div>
               <div>
@@ -59,6 +61,7 @@ export const AsyncLoginForm = () => (
                   component={renderPasswordInput}
                   type="text"
                   placeholder="password"
+                  validate={validations.required}
                 />
               </div>
     

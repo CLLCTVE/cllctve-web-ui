@@ -72,21 +72,19 @@ export const handleLogoutRequest = () => ({
 });
 
 export function* onHandleLoginRequest({email, password}) {
-  console.log('#onHandleLoginRequest, email: %s, password: %s', email, password);
   
   try {
-    console.log('#onHandleLoginRequest, try block');
     const response = yield call(request.post, '/login', {email, password});
-    debugger;
-    console.log('#onHandleLoginRequest, response: ', response);
+    
+    localStorage.setItem('token', JSON.stringify(response.data.token));
+    localStorage.setItem('user', JSON.stringify(response.data.user));
     yield all([
-      put(handleLoginSuccess(response)),
-      put(setAuthToken(response)),
+      put(handleLoginSuccess(response.data.user)),
+      put(setAuthToken(response.data.token)),
       put(push('/profile'))
     ]);
   } catch (err) {
     console.error('#onHandleLoginRequest, catch block, err: ', err);
-    debugger;
     if (err.message === 'Network Error') {
       yield put({ type: LOGIN_SUCCESS, payload: { [FORM_ERROR]: 'Check your connection and please try again later.' }})
     } else {
