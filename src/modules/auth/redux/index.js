@@ -1,6 +1,7 @@
 import { all, call, put, takeLatest } from 'redux-saga/effects';
 import { push } from 'connected-react-router';
 import request from '../../../lib/request';
+import { FORM_ERROR } from 'final-form';
 
 export const LOGIN_REQUEST = 'auth/login/LOGIN_REQUEST';
 export const LOGIN_FAILURE = 'auth/login/LOGIN_FAILURE';
@@ -45,6 +46,16 @@ export const handleLoginSuccess = (payload) => ({
   payload
 });
 
+export const setAuthToken = (payload) => ({
+  type: SET_TOKEN,
+  payload
+});
+
+export const unsetAuthToken = (payload) => ({
+  type: UNSET_TOKEN,
+  payload
+});
+
 export const handleLoginCancelled = () => ({
   type: LOGIN_CANCELLED
 });
@@ -65,15 +76,25 @@ export function* onHandleLoginRequest({email, password}) {
   
   try {
     console.log('#onHandleLoginRequest, try block');
-    const response = yield call(request.get, '/auth/login');
-    console.log('#loginFlow, response: ', response);
-    
+    const response = yield call(request.post, '/login', {email, password});
+    debugger;
+    console.log('#onHandleLoginRequest, response: ', response);
     yield all([
       put(handleLoginSuccess(response)),
+      put(setAuthToken(response)),
       put(push('/profile'))
     ]);
   } catch (err) {
-    console.error('#onHandleLoginRequest, try block');
+    console.error('#onHandleLoginRequest, catch block, err: ', err);
+    debugger;
+    if (err.message === 'Network Error') {
+      yield put({ type: LOGIN_SUCCESS, payload: { [FORM_ERROR]: 'Check your connection and please try again later.' }})
+    } else {
+      console.error('#onHandleLoginRequest catch block, err: ', err);
+      yield put({type: LOGIN_SUCCESS, payload: { [FORM_ERROR]: 'Login Failed' }})
+    }
+    console.error('#onHandleLoginRequest catch block, err: ', err);
+    yield put({type: LOGIN_SUCCESS, payload: { [FORM_ERROR]: 'Login Failed' }})
   }
 }
 

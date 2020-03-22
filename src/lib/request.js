@@ -8,18 +8,18 @@ const API_URL = 'http://localhost:3001/api';
 
 export default {
   del: (url, data, origin) => makeRequest(url, 'delete', data, origin),
-  get: (url, data, origin) => mockRequest(url, 'get', data, origin),
-  post: (url, data, origin) => mockRequest(url, 'post', data, origin),
+  get: (url, data, origin) => makeRequest(url, 'get', data, origin),
+  post: (url, data, origin) => makeRequest(url, 'post', data, origin),
   put: (url, data, origin) => makeRequest(url, 'put', data, origin),
 };
 
 const makeRequest = async (url, method, requestData, origin) => {
-  // Remove leading slash if it's present
+  // Remove leading slash if present
   if (url.startsWith('/')) {
     url = url.substr(1);
   }
   
-  let apiUrl = `${origin || API_URL}/${{url}}`;
+  let apiUrl = `${origin || API_URL}/${url}`;
   let config = {
     ...authHeader(),
     method,
@@ -36,17 +36,13 @@ const makeRequest = async (url, method, requestData, origin) => {
     }
   }
   
-  try {
-    console.log('#request, making request...');
-    const res = await axios(config);
-    console.log('#request, data: ', res.data);
-    return res.data;
-  } catch (err) {
-    console.error('Error: Failed to make request, err: ', err);
-  }
+  return axios(config)
+    .then(res => res)
+    .catch(err => err);
 };
 
 const mockRequest = async (url, method, requestData, origin) => {
+  console.log('#mockRequest');
   if (url.startsWith('/')) {
     url = url.substr(1);
   }
