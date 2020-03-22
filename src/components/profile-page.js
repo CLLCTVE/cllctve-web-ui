@@ -1,9 +1,23 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
 
 class ProfilePage extends Component {
+  
   render() {
-    return <div>Profile Page</div>;
+    const { user } = this.props;
+    
+    return (
+    <div>
+      <h2>Hello {user.firstName}</h2>
+      Profile Page
+    </div>);
   }
 }
 
-export default ProfilePage;
+const mapStateToProps = (state, ownProps) => {
+  return {
+    user: state.auth.user,
+  };
+};
+
+export default connect(mapStateToProps, {})(ProfilePage);
