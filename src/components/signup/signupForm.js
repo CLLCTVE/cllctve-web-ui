@@ -78,6 +78,7 @@ export const AsyncSignUpForm = () => (
                   parse={value => value || value.format(monthFormat)}
                   format={value => value}
                   allowClear={false}
+                  validate={validations.required}
                 />
               </div>
               <div>
@@ -95,7 +96,8 @@ export const AsyncSignUpForm = () => (
                   component={renderInput}
                   type="text"
                   placeholder="555-555-5555"
-                  parse={normalizePhone}
+                  format={normalizePhone}
+                  parse={value => value}
                 />
               </div>
               <div>
@@ -115,8 +117,6 @@ export const AsyncSignUpForm = () => (
               >
                 Submit
               </StyledButton>
-              <pre>{JSON.stringify(values, 0, 2)}</pre>
-              <pre>{JSON.stringify(form, 0, 2)}</pre>
             </form>
           </>
         )}

@@ -74,7 +74,11 @@ export const handleLogoutRequest = () => ({
 export function* onHandleLoginRequest({email, password}) {
   
   try {
-    const response = yield call(request.post, '/login', {email, password});
+    const response = yield call(
+      request.post,
+      '/login',
+      {email, password}
+    );
     
     localStorage.setItem('token', JSON.stringify(response.data.token));
     localStorage.setItem('user', JSON.stringify(response.data.user));

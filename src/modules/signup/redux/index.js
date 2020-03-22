@@ -34,14 +34,15 @@ export function* onHandleSignUpRequest({firstName, lastName, email, gradMonthYea
       request.post,
       '/users/signup',
       {firstName, lastName, email, gradMonthYear, phone: phoneNumber, password}
-      );
-    console.log('#onHandleSignupRequest, response: ', response);
+    );
+    console.log('#onHandleSignupRequest, response: ', response.data);
     yield all([
-      put(handleSignUpSuccess(response)),
+      put(handleSignUpSuccess(response.data)),
       put(setAuthToken(response)),
       put(push('/onboarding'))
     ]);
   } catch (err) {
+    debugger;
     console.error('#onHandleSignupRequest, catch block, err: ', err);
     yield put(handleSignUpFailed(err));
   }
