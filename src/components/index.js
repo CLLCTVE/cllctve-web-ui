@@ -6,7 +6,7 @@ import Header from './template/header';
 import NavBar from './template/navbar'
 import HomePage from './homepage';
 import LoginPage from './login/loginpage';
-import SignUpPage from './signup/signup-page';
+import SignUpPage from './signup/signuppage';
 import ProfilePage from './profile-page';
 import NotFoundPage from './pages/notFoundPage';
 
