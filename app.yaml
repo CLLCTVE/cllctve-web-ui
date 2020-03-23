@@ -1,4 +1,6 @@
 runtime: nodejs10
+env: flex
+service: dev-cllctive-frontend
 handlers:
   # Serve all static files with urls ending with a file extension
   - url: /(.*\..+)$
@@ -11,3 +13,4 @@ handlers:
 
 
 
+# staging.alpha-247519.appspot.com

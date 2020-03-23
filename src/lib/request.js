@@ -1,10 +1,11 @@
 import axios from 'axios';
 import qs from 'qs';
 import { authHeader } from './auth_headers';
+import env from './env';
 
 import * as API from '../api';
 
-const API_URL = 'http://localhost:3001/api';
+const API_URL = env.REACT_APP_CLLCTVE_API_ORIGIN;
 
 export default {
   del: (url, data, origin) => makeRequest(url, 'delete', data, origin),
