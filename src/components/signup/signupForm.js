@@ -37,6 +37,16 @@ const StyledButton = styled(Button)`
   }
 `;
 
+const Error = ({ name }) => (
+  <Field
+    name={name}
+    subscribe={{ touched: true, error: true }}
+    render={({ meta: { touched, error } }) =>
+      touched && error ? <span>{error}</span> : null
+    }
+  />
+);
+
 export const AsyncSignUpForm = () => (
   <MakeAsyncFunction
     listener={promiseListener}
@@ -65,6 +75,7 @@ export const AsyncSignUpForm = () => (
                   type="text"
                   placeholder="First Name*"
                 />
+                <Error name="firstName" />
               </div>
               <div>
                 <Field
@@ -80,6 +91,7 @@ export const AsyncSignUpForm = () => (
                   type="text"
                   placeholder="Last Name*"
                 />
+                <Error name="lastName" />
               </div>
               <div>
                 <Field
@@ -91,6 +103,7 @@ export const AsyncSignUpForm = () => (
                   allowClear={false}
                   validate={validations.required}
                 />
+                <Error name="gradMonthYear" />
               </div>
               <div>
                 <Field
@@ -104,6 +117,7 @@ export const AsyncSignUpForm = () => (
                   type="text"
                   placeholder="creative@cllctve.edu"
                 />
+                <Error name="email" />
               </div>
               <div>
                 <Field
@@ -114,6 +128,7 @@ export const AsyncSignUpForm = () => (
                   format={normalizePhone}
                   parse={value => value}
                 />
+                <Error name="phoneNumber" />
               </div>
               <div>
                 <Field
@@ -122,6 +137,7 @@ export const AsyncSignUpForm = () => (
                   type="text"
                   placeholder="password"
                 />
+                <Error name="password" />
               </div>
               <StyledButton
                 size="large"

@@ -56,8 +56,6 @@ const StyledLink = styled(Link)`
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
-const OPTIONS = ['Software Development', 'Graphic Designer', 'Digital Illustrator'];
-
 class SignupPage extends Component {
   render() {
     return (
