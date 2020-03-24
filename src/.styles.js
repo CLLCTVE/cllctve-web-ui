@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import {createGlobalStyle} from 'styled-components';
 
 import HansonBold from './styles/fonts/Hanson-Bold.ttf';
 import OpenSansBold from './styles/fonts/OpenSans-Bold.ttf';

@@ -1,16 +1,16 @@
 import React, {Component} from 'react';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 
 class ProfilePage extends Component {
-  
   render() {
-    const { user } = this.props;
-    
+    const {user} = this.props;
+
     return (
-    <div>
-      <h2>Hello {user.firstName}</h2>
-      Profile Page
-    </div>);
+      <div>
+        <h2>Hello {user.firstName}</h2>
+        Profile Page
+      </div>
+    );
   }
 }
 

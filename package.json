@@ -42,7 +42,9 @@
     "start": "BROWSER='google chrome canary' react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "format": "./node_modules/.bin/prettier --write \"src/**/*.js?(x)\"",
+    "format:dry": "./node_modules/.bin/prettier -l \"src/**/*.js?(x)\""
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -62,5 +64,11 @@
   "devDependencies": {
     "eslint-plugin-react": "^7.17.0",
     "prettier": "^1.19.1"
+  },
+  "prettier": {
+    "bracketSpacing": false,
+    "printWidth": 100,
+    "singleQuote": true,
+    "trailingComma": "es5"
   }
 }

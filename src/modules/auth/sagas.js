@@ -1,4 +1,4 @@
-import { all, call, put, fork, take, takeLatest } from 'redux-saga/effects';
+import {all, call, put, fork, take, takeLatest} from 'redux-saga/effects';
 
 import {
   LOGIN_REQUEST,
@@ -6,24 +6,22 @@ import {
   LOGIN_FAILURE,
   SET_TOKEN,
   UNSET_TOKEN,
-  onHandleLoginRequest
+  onHandleLoginRequest,
 } from './redux';
 
 function* watchUserAuthentication() {
   console.log('#watchUserAuthentication');
-  
-  while(true) {
+
+  while (true) {
     console.log('#watchUserAuthentication while loop');
-    const { payload } = yield take(LOGIN_REQUEST);
+    const {payload} = yield take(LOGIN_REQUEST);
     const task = yield fork(onHandleLoginRequest, payload);
-    const action = yield take (LOGIN_FAILURE);
-    
+    const action = yield take(LOGIN_FAILURE);
+
     console.log('maybe a login failure happened, not sure... action: ', action);
   }
 }
 
 export default function* sagas() {
-  yield all ([
-    watchUserAuthentication(),
-  ]);
+  yield all([watchUserAuthentication()]);
 }

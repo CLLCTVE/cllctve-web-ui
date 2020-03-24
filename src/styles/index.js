@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import {createGlobalStyle} from 'styled-components';
 import HansonBold from './fonts/Hanson-Bold.ttf';
 import OpenSansBold from './fonts/OpenSans-Bold.ttf';
 import OpenSans from './fonts/OpenSans-Regular.ttf';
@@ -58,9 +58,13 @@ const GlobalStyles = createGlobalStyle`
   }
   
   html, body {
-    color: ${props => {return props.theme.color;}};
+    color: ${props => {
+      return props.theme.color;
+    }};
     font-family: 'Open Sans', 'Open Sans Bold', 'Hanson Bold', 'Helvetica Neue' !important;
-    background-color: ${props => {return props.theme.background;}};
+    background-color: ${props => {
+      return props.theme.background;
+    }};
     margin: 0;
     padding: 0;
     display: flex;
@@ -83,7 +87,9 @@ const GlobalStyles = createGlobalStyle`
   }
   
   .ant-input-affix-wrapper > input.ant-input {
-    color: ${props => {return props.theme.color;}};
+    color: ${props => {
+      return props.theme.color;
+    }};
   }
   
   .error {

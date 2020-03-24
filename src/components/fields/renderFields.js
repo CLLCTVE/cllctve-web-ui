@@ -1,5 +1,5 @@
 import React from 'react';
-import { DatePicker, Input, Select } from "antd";
+import {DatePicker, Input, Select} from 'antd';
 import styled from 'styled-components';
 
 const {MonthPicker} = DatePicker;
@@ -7,32 +7,33 @@ const {MonthPicker} = DatePicker;
 const StyledInput = styled(Input)`
   background: none;
   -webkit-appearance: none;
-   outline-color: transparent;
+  outline-color: transparent;
   outline-style: none;
 
   &.ant-input-affix-wrapper:hover,
-  &.ant-input-affix-wrapper-focused{
+  &.ant-input-affix-wrapper-focused {
     border-top-width: 0px;
-    border-left-width:0px;
-    border-right-width:0px !important;
-    border-color: #FF6633;
+    border-left-width: 0px;
+    border-right-width: 0px !important;
+    border-color: #ff6633;
   }
-  
-  &.ant-input, &.ant-input-focused {
+
+  &.ant-input,
+  &.ant-input-focused {
     color: #ffffff;
     background: none;
     border-top-width: 0px;
-    border-left-width:0px;
-    border-right-width:0px !important;
+    border-left-width: 0px;
+    border-right-width: 0px !important;
     margin-bottom: 1em;
 
-    
-    &:hover, &:focus{
+    &:hover,
+    &:focus {
       color: #ffffff;
       border-top-width: 0px;
-      border-left-width:0px;
-      border-right-width:0px !important;
-      border-color: #FF6633;
+      border-left-width: 0px;
+      border-right-width: 0px !important;
+      border-color: #ff6633;
     }
   }
 `;
@@ -41,107 +42,88 @@ const StyledPasswordInput = styled(Input.Password)`
   color: white;
 
   &.ant-input-affix-wrapper:hover,
-  &.ant-input-affix-wrapper-focused{
+  &.ant-input-affix-wrapper-focused {
     border-top-width: 0px;
-    border-left-width:0px;
-    border-right-width:0px !important;
-    border-color: #FF6633;
+    border-left-width: 0px;
+    border-right-width: 0px !important;
+    border-color: #ff6633;
   }
-  
+
   &.ant-input-password {
     color: white;
     border-top-width: 0px;
-    border-left-width:0px;
-    border-right-width:0px;
+    border-left-width: 0px;
+    border-right-width: 0px;
     margin-bottom: 1em;
     background: none !important;
   }
-  
+
   &.ant-input {
-  color: white;
+    color: white;
     background: none !important;
     border-top-width: 0px;
-    border-left-width:0px;
-    border-right-width:0px;
+    border-left-width: 0px;
+    border-right-width: 0px;
     margin-bottom: 1em;
   }
 `;
 
 const StyledMonthPicker = styled(MonthPicker)`
   background: none;
-  
+
   &.ant-picker {
     border-top-width: 0px;
-    border-left-width:0px;
-    border-right-width:0px;
+    border-left-width: 0px;
+    border-right-width: 0px;
     margin-bottom: 1em;
     background: none;
   }
-  
+
   &.ant-picker:hover,
-  &.ant-picker-focused{
-   border-top-width: 0px;
-    border-left-width:0px;
-    border-right-width:0px !important;
-    border-color: #FF6633;
+  &.ant-picker-focused {
+    border-top-width: 0px;
+    border-left-width: 0px;
+    border-right-width: 0px !important;
+    border-color: #ff6633;
   }
-  
+
   &.ant-picker-input {
-  color: #ffffff;
+    color: #ffffff;
   }
 `;
 
-export const renderInput = ({ input, placeholder, label, meta }) => (
+export const renderInput = ({input, placeholder, label, meta}) => (
   <>
-    <StyledInput
-      {...input}
-      placeholder={placeholder || label}
-    />
+    <StyledInput {...input} placeholder={placeholder || label} />
     {(meta.error || meta.submitError) && meta.touched && (
       <span className="error">{meta.error || meta.submitError}</span>
     )}
   </>
 );
 
-export const renderPasswordInput = ({ input, placeholder, label, meta }) => (
+export const renderPasswordInput = ({input, placeholder, label, meta}) => (
   <div>
-    <StyledPasswordInput
-      {...input}
-      placeholder={placeholder}
-      label={label}
-    />
+    <StyledPasswordInput {...input} placeholder={placeholder} label={label} />
     {meta.error && meta.touched && <span className="error">{meta.error}</span>}
   </div>
 );
 
 export const renderSelect = ({input, options, mode, placeholder}) => {
   return (
-    <Select
-      {...input}
-      mode={mode}
-      placeholder={placeholder}
-    >
-      {
-        options.filter(o => !input.value.includes(o))
-          .map((option, index) => (
-            <Select.Option key={index} value={option} >
-              {option}
-            </Select.Option>
-          ))
-      }
+    <Select {...input} mode={mode} placeholder={placeholder}>
+      {options
+        .filter(o => !input.value.includes(o))
+        .map((option, index) => (
+          <Select.Option key={index} value={option}>
+            {option}
+          </Select.Option>
+        ))}
     </Select>
-  )
+  );
 };
 
 export const renderMonthPicker = ({input, monthFormat, allowClear}) => {
-  return (
-    <StyledMonthPicker
-      size="large"
-      {...input}
-      format={monthFormat}
-      allowClear={allowClear}
-    />
-  )
+  return <StyledMonthPicker size="large" {...input} format={monthFormat} allowClear={allowClear} />;
 };
 
 export const normalizePhone = value => {
@@ -155,17 +137,14 @@ export const normalizePhone = value => {
   if (onlyNums.length <= 7) {
     return `(${onlyNums.slice(0, 3)}) ${onlyNums.slice(3, 7)}`;
   }
-  
-  return `(${onlyNums.slice(0, 3)}) ${onlyNums.slice(3, 6)}-${onlyNums.slice(
-    6,
-    10
-  )}`;
+
+  return `(${onlyNums.slice(0, 3)}) ${onlyNums.slice(3, 6)}-${onlyNums.slice(6, 10)}`;
 };
 
-export const capitalize = (value) => {
-  if (typeof value !== 'string') return ''
-  return value.charAt(0).toUpperCase() + value.slice(1)
-}
+export const capitalize = value => {
+  if (typeof value !== 'string') return '';
+  return value.charAt(0).toUpperCase() + value.slice(1);
+};
 
 export const renderTextArea = ({
   input,
@@ -185,8 +164,6 @@ export const renderTextArea = ({
   </div>
 );
 
-export const renderError = ({ meta: { touched, error } }) => (
-    <div>
-        { touched && error ? <span>{error}</span> : false }
-    </div>
+export const renderError = ({meta: {touched, error}}) => (
+  <div>{touched && error ? <span>{error}</span> : false}</div>
 );

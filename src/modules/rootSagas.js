@@ -10,8 +10,5 @@ export function* logActions() {
 }
 
 export default function* rootSaga() {
-  yield all([
-    auth(),
-    signup()
-  ]);
+  yield all([auth(), signup()]);
 }

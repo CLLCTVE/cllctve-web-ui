@@ -8,7 +8,7 @@ export const initStart = () => ({
 export const initFinish = () => ({
   type: APP_INIT_FINISHED,
 });
-export const initError = (error) => ({
+export const initError = error => ({
   type: APP_INIT_ERROR,
   payload: error,
   error: true,
@@ -26,18 +26,18 @@ export default function(state = INITIAL_STATE, action) {
     case APP_INIT_START:
       return {
         ...state,
-        isLoading: true
+        isLoading: true,
       };
     case APP_INIT_FINISHED:
       return {
         ...state,
-        isLoading: false
+        isLoading: false,
       };
     case APP_INIT_ERROR:
       return {
         ...state,
         isLoading: false,
-        error: action.payload
+        error: action.payload,
       };
     default:
       return state;

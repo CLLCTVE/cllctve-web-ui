@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Layout, Menu } from "antd";
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {Layout, Menu} from 'antd';
 import {NavLink as Link} from 'react-router-dom';
-import { handleLogoutRequest } from "../../modules/auth/redux";
+import {handleLogoutRequest} from '../../modules/auth/redux';
 import styled from 'styled-components';
 
 const StyledMenu = styled(Menu)`
-  color: ${props => props.theme.primary};;
+  color: ${props => props.theme.primary};
 `;
 
 class Header extends Component {
@@ -14,7 +14,7 @@ class Header extends Component {
     console.log('#handleLogout');
     this.props.handleLogoutRequest();
   };
-  
+
   renderLinks() {
     if (this.props.authenticated) {
       return [
@@ -40,13 +40,11 @@ class Header extends Component {
       ];
     }
   }
-  
+
   render() {
     return (
-      <Layout.Header style={{ backgroundColor: 'blue', padding: 0 }}>
-        <StyledMenu mode="horizontal">
-          {this.renderLinks()}
-        </StyledMenu>
+      <Layout.Header style={{backgroundColor: 'blue', padding: 0}}>
+        <StyledMenu mode="horizontal">{this.renderLinks()}</StyledMenu>
       </Layout.Header>
     );
   }
@@ -58,9 +56,9 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
-    handleLogoutRequest: () => dispatch(handleLogoutRequest())
+    handleLogoutRequest: () => dispatch(handleLogoutRequest()),
   };
 };
 

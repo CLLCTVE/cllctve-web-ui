@@ -1,11 +1,11 @@
 import axios from 'axios';
 import qs from 'qs';
-import { authHeader } from './auth_headers';
+import {authHeader} from './auth_headers';
 import env from './env';
 
 import * as API from '../api';
 
-const API_URL = env.REACT_APP_CLLCTVE_API_ORIGIN;
+const API_URL = `${env.REACT_APP_CLLCTVE_API_ORIGIN}/api`;
 
 export default {
   del: (url, data, origin) => makeRequest(url, 'delete', data, origin),
@@ -19,24 +19,24 @@ const makeRequest = async (url, method, requestData, origin) => {
   if (url.startsWith('/')) {
     url = url.substr(1);
   }
-  
+
   let apiUrl = `${origin || API_URL}/${url}`;
   let config = {
     ...authHeader(),
     method,
     url: apiUrl,
     paramsSerializer: params => {
-      return qs.stringify(params, { arrayFormat: 'brackets' });
+      return qs.stringify(params, {arrayFormat: 'brackets'});
     },
   };
-  
+
   if (requestData) {
     config = {
       ...config,
-      data: requestData
-    }
+      data: requestData,
+    };
   }
-  
+
   const req = await axios(config);
   return req;
 };
@@ -46,24 +46,24 @@ const mockRequest = async (url, method, requestData, origin) => {
   if (url.startsWith('/')) {
     url = url.substr(1);
   }
-  
+
   let apiUrl = `${origin || API_URL}/${{url}}`;
   let config = {
     ...authHeader(),
     method,
     url: apiUrl,
     paramsSerializer: params => {
-      return qs.stringify(params, { arrayFormat: 'brackets' });
+      return qs.stringify(params, {arrayFormat: 'brackets'});
     },
   };
-  
+
   if (requestData) {
     config = {
       ...config,
-      ...requestData
-    }
+      ...requestData,
+    };
   }
-  
+
   try {
     switch (url) {
       case 'auth/login':
@@ -74,7 +74,7 @@ const mockRequest = async (url, method, requestData, origin) => {
           lastName: config.lastName,
           creativeName: config.creativeName,
           email: config.email,
-          password: config.password
+          password: config.password,
         });
       default:
         return await API.okResponse();
@@ -82,6 +82,4 @@ const mockRequest = async (url, method, requestData, origin) => {
   } catch (err) {
     console.error('Error: Failed to make request, err: ', err);
   }
-}
-
-
+};

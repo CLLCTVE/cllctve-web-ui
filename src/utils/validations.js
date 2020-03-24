@@ -5,7 +5,7 @@ export const email = value => {
 };
 
 export const edu = value => {
-  return value && !(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.+-]+\.edu$/.test(value))
+  return value && !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.+-]+\.edu$/.test(value)
     ? 'You must be actively enrolled in a College or University.'
     : undefined;
 };
@@ -58,18 +58,21 @@ export const phoneNumber = value => {
     : undefined;
 };
 
-export const composeValidators = (...validators) => (value,  allValues, fieldState) => {
-  return validators.reduce((error, validator) => error || validator(value, allValues, fieldState), undefined);
+export const composeValidators = (...validators) => (value, allValues, fieldState) => {
+  return validators.reduce(
+    (error, validator) => error || validator(value, allValues, fieldState),
+    undefined
+  );
 };
 
 export const simpleMemoize = fn => {
-  let lastArg
-  let lastResult
+  let lastArg;
+  let lastResult;
   return arg => {
     if (arg !== lastArg) {
-      lastArg = arg
-      lastResult = fn(arg)
+      lastArg = arg;
+      lastResult = fn(arg);
     }
-    return lastResult
-  }
+    return lastResult;
+  };
 };

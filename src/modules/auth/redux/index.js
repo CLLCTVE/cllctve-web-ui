@@ -1,7 +1,7 @@
-import { all, call, put, takeLatest } from 'redux-saga/effects';
-import { push } from 'connected-react-router';
+import {all, call, put, takeLatest} from 'redux-saga/effects';
+import {push} from 'connected-react-router';
 import request from '../../../lib/request';
-import { FORM_ERROR } from 'final-form';
+import {FORM_ERROR} from 'final-form';
 
 export const LOGIN_REQUEST = 'auth/login/LOGIN_REQUEST';
 export const LOGIN_FAILURE = 'auth/login/LOGIN_FAILURE';
@@ -17,86 +17,85 @@ export const UNSET_TOKEN = 'auth/login/UNSET_TOKEN';
 export const LOGOUT_REQUEST = 'auth/logout/LOGOUT_REQUEST';
 export const LOGOUT_SUCCESS = 'auth/logout/LOGOUT_SUCCESS';
 
-let user = localStorage.getItem('user') !== 'undefined' ?  JSON.parse(localStorage.getItem('user')) : '';
+let user =
+  localStorage.getItem('user') !== 'undefined' ? JSON.parse(localStorage.getItem('user')) : '';
 
 const INITIAL_STATE = user
   ? {
-    authenticated: true,
-    user: user,
-    token: null,
-    isLoading: false,
-    error: null,
-  }
+      authenticated: true,
+      user: user,
+      token: null,
+      isLoading: false,
+      error: null,
+    }
   : {
-    user: null,
-    token: null,
-    authenticated: false,
-    isLoading: false,
-    error: null,
-  };
+      user: null,
+      token: null,
+      authenticated: false,
+      isLoading: false,
+      error: null,
+    };
 
-export const handleLoginRequest = (payload) => ({
+export const handleLoginRequest = payload => ({
   type: LOGIN_REQUEST,
   payload,
   isLoading: true,
 });
 
-export const handleLoginSuccess = (payload) => ({
+export const handleLoginSuccess = payload => ({
   type: LOGIN_SUCCESS,
-  payload
+  payload,
 });
 
-export const setAuthToken = (payload) => ({
+export const setAuthToken = payload => ({
   type: SET_TOKEN,
-  payload
+  payload,
 });
 
-export const unsetAuthToken = (payload) => ({
+export const unsetAuthToken = payload => ({
   type: UNSET_TOKEN,
-  payload
+  payload,
 });
 
 export const handleLoginCancelled = () => ({
-  type: LOGIN_CANCELLED
+  type: LOGIN_CANCELLED,
 });
 
-export const handleLoginFailed = (payload) => ({
+export const handleLoginFailed = payload => ({
   type: LOGIN_FAILURE,
-  payload
+  payload,
 });
 
 export const handleLogoutRequest = () => ({
   type: LOGOUT_REQUEST,
   user: null,
-  token: null
+  token: null,
 });
 
 export function* onHandleLoginRequest({email, password}) {
-  
   try {
-    const response = yield call(
-      request.post,
-      '/login',
-      {email, password}
-    );
-    
+    const response = yield call(request.post, '/login', {email, password});
+
     localStorage.setItem('token', JSON.stringify(response.data.token));
     localStorage.setItem('user', JSON.stringify(response.data.user));
     yield all([
       put(handleLoginSuccess(response.data.user)),
       put(setAuthToken(response.data.token)),
-      put(push('/profile'))
+      put(push('/profile')),
     ]);
   } catch (err) {
     console.error('#onHandleLoginRequest, catch block, err: ', err);
     if (err.message === 'Network Error') {
-      yield put({ type: LOGIN_SUCCESS, payload: { [FORM_ERROR]: 'Check your connection and please try again later.' }})
+      yield put({
+        type: LOGIN_SUCCESS,
+        payload: {[FORM_ERROR]: 'Check your connection and please try again later.'},
+      });
     } else {
       console.error('#onHandleLoginRequest catch block, err: ', err);
-      yield put({type: LOGIN_SUCCESS, payload: { [FORM_ERROR]: 'Login Failed' }})
+      yield put({type: LOGIN_SUCCESS, payload: {[FORM_ERROR]: 'Login Failed'}});
     }
     console.error('#onHandleLoginRequest catch block, err: ', err);
-    yield put({type: LOGIN_SUCCESS, payload: { [FORM_ERROR]: 'Login Failed' }})
+    yield put({type: LOGIN_SUCCESS, payload: {[FORM_ERROR]: 'Login Failed'}});
   }
 }
 

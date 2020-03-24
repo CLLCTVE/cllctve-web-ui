@@ -1,12 +1,11 @@
-import React, { Component } from 'react';
-import { NavLink as Link } from 'react-router-dom';
-import { Menu } from 'antd';
+import React, {Component} from 'react';
+import {NavLink as Link} from 'react-router-dom';
+import {Menu} from 'antd';
 
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
 
 class RightMenu extends Component {
-  
   render() {
     return (
       <Menu mode="horizontal">

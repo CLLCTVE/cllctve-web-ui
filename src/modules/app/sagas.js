@@ -5,7 +5,7 @@ import {initStart, initFinish, initError} from './redux/index';
 function* watchAppInit() {
   yield put(initStart());
   console.log('#watchAppInit, start');
-  
+
   try {
     yield put(initFinish());
     console.log('#watchAppInit, finish');
@@ -17,4 +17,4 @@ function* watchAppInit() {
 
 export default function* sagas() {
   yield all([watchAppInit()]);
-};
+}

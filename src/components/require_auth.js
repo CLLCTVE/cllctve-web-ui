@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import {history} from '../store';
 
-export default function (ComposedComponent) {
+export default function(ComposedComponent) {
   class Authentication extends Component {
     UNSAFE_componentWillMount() {
       if (!this.props.authenticated) {
@@ -22,8 +22,8 @@ export default function (ComposedComponent) {
   }
 
   function mapStateToProps(state) {
-    console.log("mapStateToProps, state: ", state);
-    return { authenticated: state.auth.authenticated };
+    console.log('mapStateToProps, state: ', state);
+    return {authenticated: state.auth.authenticated};
   }
 
   return connect(mapStateToProps)(Authentication);
