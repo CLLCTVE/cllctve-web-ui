@@ -1,6 +1,7 @@
 import React from 'react';
 import { DatePicker, Input, Select, Checkbox, Button } from 'antd';
 import styled from 'styled-components';
+import { Field } from 'react-final-form';
 const { TextArea } = Input;
 
 const {MonthPicker} = DatePicker;
@@ -203,6 +204,12 @@ export const renderCheckbox = ({input, label, type}) => {
     </Checkbox>
   )
 };
+
+export const ConditionalRender = ({ when, is, children }) => (
+  <Field name={when} subscription={{ value: true }}>
+    {({ input: { value } }) => (value === is ? children : null)}
+  </Field>
+)
 
 export const renderError = ({meta: {touched, error}}) => (
   <div>{touched && error ? <span>{error}</span> : false}</div>
