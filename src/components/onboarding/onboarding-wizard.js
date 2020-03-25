@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { Form } from 'react-final-form'
 import {withRouter, Redirect} from 'react-router-dom';
 import {StyledButton} from '../fields/renderFields';
-import {ONBOARDING_ENTRY_MAP_BY_NAME} from '../../lib/util';
+import { ONBOARDING_ENTRY_MAP_BY_NAME } from '../../lib/util';
 
 class OnBoardingWizard extends Component {
   
@@ -32,6 +32,10 @@ class OnBoardingWizard extends Component {
     this.props.history.push(`/on-boarding/${this.state.page - 1}`);
   }
   
+  displayText = (step)  => {
+    return ONBOARDING_ENTRY_MAP_BY_NAME[Object.keys(ONBOARDING_ENTRY_MAP_BY_NAME)[step]].title;
+  };
+  
   /**
    * NOTE: Both validate and handleSubmit switching are implemented
    * here because 🏁 Redux Final Form does not accept changes to those
@@ -57,7 +61,7 @@ class OnBoardingWizard extends Component {
   }
   
   render() {
-    const { children } = this.props
+    const { children, match } = this.props
     const { page, values } = this.state
     const activePage = React.Children.toArray(children)[page]
     const isLastPage = page === React.Children.count(children) - 1
@@ -72,20 +76,24 @@ class OnBoardingWizard extends Component {
             {activePage}
             <div className="buttons">
               {page > 0 && (
-                <button type="button" onClick={this.previous}>
-                  « Previous
-                </button>
+                <StyledButton
+                  size="large"
+                  shape="round"
+                  onClick={this.previous}
+                >
+                  {this.displayText(Number(match.params.step) -1)}
+                </StyledButton>
               )}
-              {!isLastPage &&
+              {!isLastPage && (
                 <StyledButton
                   size="large"
                   shape="round"
                   type="submit"
                   htmlType="submit"
-                  >
-                  Add
+                >
+                  Add {this.displayText(match.params.step)}
                 </StyledButton>
-              }
+              )}
               {isLastPage && (
                 <StyledButton
                 size="large"
