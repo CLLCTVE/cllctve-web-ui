@@ -12,10 +12,10 @@ class OnBoardingWizard extends Component {
       page: 0,
       values: props.initialValues || {}
     }
+    this.props.history.push(`/on-boarding/${this.state.page}`);
   }
   next = values =>{
     this.props.history.push(`/on-boarding/${this.state.page + 1}`);
-    console.log('Next called, page: ', this.state.page + 1);
     this.setState(state => ({
       page: Math.min(state.page + 1, this.props.children.length - 1),
       values
@@ -27,7 +27,6 @@ class OnBoardingWizard extends Component {
     this.setState(state => ({
       page: Math.max(state.page - 1, 0)
     }))
-    console.log('previous called, page: ', this.state.page - 1);
     this.props.history.push(`/on-boarding/${this.state.page - 1}`);
   }
   
