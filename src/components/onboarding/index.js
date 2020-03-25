@@ -12,10 +12,13 @@ import {
   capitalize,
 } from '../fields/renderFields';
 import OnBoardingWizard from './onboarding-wizard';
-import {EducationForm} from './EducationForm';
+import {
+  EducationForm,
+  SkillsForm,
+  ExperienceForm,
+  HonorsAwardsForm
+} from './EducationForm';
 import * as validations from '../../utils/validations';
-
-import {SKILLS} from '../../lib/util';
 
 const monthFormat = 'MM-YYYY';
 
@@ -48,35 +51,24 @@ class OnBoardingPage extends Component {
           initialValues={{
             education: {
               isStudent: false,
+            },
+            experience: {
+              isEmployed: true,
             }
           }}
           onSubmit={onSubmit}
         >
           <OnBoardingWizard.Page>
-            <div>
-              <Field
-                name="skills"
-                component={renderSelect}
-                options={SKILLS}
-                mode="multiple"
-                placeholder="Skills"
-                size="large"
-                value={[]}
-                format={value => value || []}
-              />
-            </div>
-          </OnBoardingWizard.Page>
-          <OnBoardingWizard.Page>
             <EducationForm />
           </OnBoardingWizard.Page>
           <OnBoardingWizard.Page>
-            <Field
-              name="schoolName"
-              component="input"
-              type="text"
-              placeholder="school Name"
-            />
-            <Error name="schoolName" />
+            <SkillsForm />
+          </OnBoardingWizard.Page>
+          <OnBoardingWizard.Page>
+            <ExperienceForm />
+          </OnBoardingWizard.Page>
+          <OnBoardingWizard.Page>
+            <HonorsAwardsForm />
           </OnBoardingWizard.Page>
         </OnBoardingWizard>
       </>

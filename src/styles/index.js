@@ -53,7 +53,7 @@ const GlobalStyles = createGlobalStyle`
   .ant-picker-input > input {
     color: #ffffff !important;
   }
-  
+
   .ant-picker-cell-in-view.ant-picker-cell-selected .ant-picker-cell-inner {
     background: #FF6633 !important;
   }

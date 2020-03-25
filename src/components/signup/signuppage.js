@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
+
 import {connect} from 'react-redux';
 import {Form, Field} from 'react-final-form';
 import {
@@ -7,6 +7,7 @@ import {
   renderMonthPicker,
   renderPasswordInput,
   renderSelect,
+  StyledLink
 } from '../fields/renderFields';
 import styled from 'styled-components';
 import {Row, Button} from 'antd';
@@ -43,16 +44,7 @@ const StyledButton = styled(Button)`
   }
 `;
 
-const StyledLink = styled(Link)`
-  color: #ffffff;
-  text-decoration: underline;
-  font-family: 'Open Sans Bold';
 
-  &:hover {
-    color: #e41e84;
-    text-decoration: underline;
-  }
-`;
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 

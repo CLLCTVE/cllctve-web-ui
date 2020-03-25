@@ -1,5 +1,6 @@
 import React from 'react';
 import { DatePicker, Input, Select, Checkbox, Button } from 'antd';
+import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 import { Field } from 'react-final-form';
 const { TextArea } = Input;
@@ -59,6 +60,17 @@ const StyledTextArea = styled(TextArea)`
   }
 `;
 
+export const StyledLink = styled(Link)`
+  color: #ffffff;
+  text-decoration: underline;
+  font-family: 'Open Sans Bold';
+
+  &:hover {
+    color: #e41e84;
+    text-decoration: underline;
+  }
+`;
+
 export const StyledButton = styled(Button)`
   &.ant-btn {
     border: none;
@@ -92,7 +104,7 @@ const StyledPasswordInput = styled(Input.Password)`
   }
 
   &.ant-input-password {
-    color: white;
+    color: #ffffff;
     border-top-width: 0px;
     border-left-width: 0px;
     border-right-width: 0px;
@@ -135,21 +147,29 @@ const StyledMonthPicker = styled(MonthPicker)`
 `;
 
 const StyledMultiSelect = styled(Select)`
+  &.ant-select {
+    margin-bottom: 1em;
+  }
   
+  &.ant-select-focused {
+    border-color: #ff6633;;
+  }
 
-  & .ant-select-selector, .ant-select-multiple .ant-select-selector {
+  &.ant-select-multiple .ant-select-selection-item {
+    background: #FF6633;
+  }
+  &.ant-select-multiple .ant-select-selector {
     border-top-width: 0px;
     border-left-width: 0px;
     border-right-width: 0px;
-    border-color: #ff6633;
-    background: none !important;
+    background: none;
     
-  }
-  
-  & .ant-select-multiple .ant-select-selection-placeholder {
-  -webkit-appearance: none;
-  outline-color: transparent;
-  outline-style: none;
+    &:hover {
+    border-top-width: 0px;
+    border-left-width: 0px;
+    border-right-width: 0px !important;
+    border-color: #ff6633;
+    }
   }
 `;
 
@@ -216,9 +236,9 @@ export const renderTextArea = ({input, label, placeholder}) => (
   </>
 );
 
-export const renderCheckbox = ({input, label, type}) => {
+export const renderCheckbox = ({input, label, type, defaultValue}) => {
   return (
-    <Checkbox {...input} type={type}>
+    <Checkbox {...input} type={type} defaultChecked={defaultValue}>
       {label}
     </Checkbox>
   )
