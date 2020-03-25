@@ -39,11 +39,16 @@ const GlobalStyles = createGlobalStyle`
     color: #d9d9d9 !important;
   }
   
-  .ant-input, .ant-picker-input {
+  .ant-input,
+  .ant-picker-input,
+  .ant-select-multiple,
+   .ant-select {
     background: none !important;
     font-family: 'Hanson Bold';
     font-weight: normal;
   }
+  
+  
   
   .ant-picker-input > input {
     color: #ffffff !important;

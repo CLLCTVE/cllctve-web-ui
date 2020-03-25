@@ -20,3 +20,13 @@ export const ONBOARDING_ENTRY_MAP_BY_NAME = {
     text: 'Add your Honors And Awards'
   }
 };
+
+export const SKILLS = [
+  'Video Editing',
+  'Videography',
+  'Photography',
+  'Writing',
+  'Web Development',
+  'Graphic Design',
+  'Animation'
+];

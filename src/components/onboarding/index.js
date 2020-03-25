@@ -4,7 +4,7 @@ import {withRouter} from 'react-router-dom';
 import { Field } from 'react-final-form'
 import {Button, Row, Col, Checkbox} from 'antd';
 import {
-  renderInput,
+  renderSelect,
   renderMonthPicker,
   renderCheckbox,
   renderTextArea,
@@ -15,15 +15,7 @@ import OnBoardingWizard from './onboarding-wizard';
 import {EducationForm} from './EducationForm';
 import * as validations from '../../utils/validations';
 
-const SKILLS = [
-  'Video Editing',
-  'Videography',
-  'Photography',
-  'Writing',
-  'Web Development',
-  'Graphic Design',
-  'Animation'
-];
+import {SKILLS} from '../../lib/util';
 
 const monthFormat = 'MM-YYYY';
 
@@ -61,19 +53,21 @@ class OnBoardingPage extends Component {
           onSubmit={onSubmit}
         >
           <OnBoardingWizard.Page>
-            <EducationForm />
+            <div>
+              <Field
+                name="skills"
+                component={renderSelect}
+                options={SKILLS}
+                mode="multiple"
+                placeholder="Skills"
+                size="large"
+                value={[]}
+                format={value => value || []}
+              />
+            </div>
           </OnBoardingWizard.Page>
           <OnBoardingWizard.Page>
-            <div>
-              <label>First Name</label>
-              <Field
-                name="middleName"
-                component="input"
-                type="text"
-                placeholder="Middle Name"
-              />
-              <Error name="middleName" />
-            </div>
+            <EducationForm />
           </OnBoardingWizard.Page>
           <OnBoardingWizard.Page>
             <Field

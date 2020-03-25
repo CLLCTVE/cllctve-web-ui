@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { Field } from 'react-final-form';
 const { TextArea } = Input;
 
-const {MonthPicker} = DatePicker;
+const { MonthPicker } = DatePicker;
 
 const StyledInput = styled(Input)`
   background: none;
@@ -81,7 +81,7 @@ export const StyledButton = styled(Button)`
 `;
 
 const StyledPasswordInput = styled(Input.Password)`
-  color: white;
+  color: #ffffff;
 
   &.ant-input-affix-wrapper:hover,
   &.ant-input-affix-wrapper-focused {
@@ -101,7 +101,7 @@ const StyledPasswordInput = styled(Input.Password)`
   }
 
   &.ant-input {
-    color: white;
+    color: #ffffff;
     background: none !important;
     border-top-width: 0px;
     border-left-width: 0px;
@@ -134,6 +134,25 @@ const StyledMonthPicker = styled(MonthPicker)`
   }
 `;
 
+const StyledMultiSelect = styled(Select)`
+  
+
+  & .ant-select-selector, .ant-select-multiple .ant-select-selector {
+    border-top-width: 0px;
+    border-left-width: 0px;
+    border-right-width: 0px;
+    border-color: #ff6633;
+    background: none !important;
+    
+  }
+  
+  & .ant-select-multiple .ant-select-selection-placeholder {
+  -webkit-appearance: none;
+  outline-color: transparent;
+  outline-style: none;
+  }
+`;
+
 export const renderInput = ({input, placeholder, label, meta}) => (
   <>
     <StyledInput {...input} placeholder={placeholder || label} />
@@ -150,9 +169,9 @@ export const renderPasswordInput = ({input, placeholder, label, meta}) => (
   </div>
 );
 
-export const renderSelect = ({input, options, mode, placeholder}) => {
+export const renderSelect = ({input, options, mode, placeholder, size}) => {
   return (
-    <Select {...input} mode={mode} placeholder={placeholder}>
+    <StyledMultiSelect {...input} mode={mode} placeholder={placeholder} size={size} style={{width: 200}}>
       {options
         .filter(o => !input.value.includes(o))
         .map((option, index) => (
@@ -160,7 +179,7 @@ export const renderSelect = ({input, options, mode, placeholder}) => {
             {option}
           </Select.Option>
         ))}
-    </Select>
+    </StyledMultiSelect>
   );
 };
 
