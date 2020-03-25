@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import { Field } from 'react-final-form'
 import {Button, Row, Col, Checkbox} from 'antd';
+import styled from 'styled-components';
 import {
   renderSelect,
   renderMonthPicker,
@@ -13,14 +14,19 @@ import {
 } from '../fields/renderFields';
 import OnBoardingWizard from './onboarding-wizard';
 import {
-  EducationForm,
+  OnboardingForms,
   SkillsForm,
   ExperienceForm,
   HonorsAwardsForm
-} from './EducationForm';
+} from './OnboardingForms';
 import * as validations from '../../utils/validations';
 
 const monthFormat = 'MM-YYYY';
+
+const Container = styled.div`
+  max-width: 100%;
+  display: inline-block;
+`;
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
 
@@ -39,6 +45,7 @@ const Error = ({ name }) => (
   />
 )
 
+
 const required = value => (value ? undefined : 'Required')
 
 class OnBoardingPage extends Component {
@@ -46,7 +53,7 @@ class OnBoardingPage extends Component {
   render() {
     const { match } = this.props;
     return (
-      <>
+      <Container>
         <OnBoardingWizard
           initialValues={{
             education: {
@@ -59,7 +66,7 @@ class OnBoardingPage extends Component {
           onSubmit={onSubmit}
         >
           <OnBoardingWizard.Page>
-            <EducationForm />
+            <OnboardingForms />
           </OnBoardingWizard.Page>
           <OnBoardingWizard.Page>
             <SkillsForm />
@@ -71,7 +78,7 @@ class OnBoardingPage extends Component {
             <HonorsAwardsForm />
           </OnBoardingWizard.Page>
         </OnBoardingWizard>
-      </>
+      </Container>
     );
   }
 }

@@ -15,7 +15,7 @@ import { SKILLS } from '../../lib/util';
 const monthFormat = 'MM-YYYY';
 const required = value => (value ? undefined : 'Required')
 
-export const EducationForm = () => (
+export const OnboardingForms = () => (
   <>
     <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
       <Col span={18}>

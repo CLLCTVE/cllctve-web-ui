@@ -57,7 +57,7 @@ export function* onHandleSignUpRequest({
     yield all([
       put(handleSignUpSuccess(response.data)),
       put(setAuthToken(response)),
-      put(push('/onboarding')),
+      put(push('/onboarding/0')),
     ]);
   } catch (err) {
     debugger;
