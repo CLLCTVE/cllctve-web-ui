@@ -2,7 +2,17 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import { Field } from 'react-final-form'
+import {Button, Row, Col, Checkbox} from 'antd';
+import {
+  renderInput,
+  renderMonthPicker,
+  renderCheckbox,
+  renderTextArea,
+  normalizePhone,
+  capitalize,
+} from '../fields/renderFields';
 import OnBoardingWizard from './onboarding-wizard';
+import * as validations from '../../utils/validations';
 
 const SKILLS = [
   'Video Editing',
@@ -13,6 +23,8 @@ const SKILLS = [
   'Graphic Design',
   'Animation'
 ];
+
+const monthFormat = 'MM-YYYY';
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
 
@@ -31,6 +43,12 @@ const Error = ({ name }) => (
   />
 )
 
+const Condition = ({ when, is, children }) => (
+  <Field name={when} subscription={{ value: true }}>
+    {({ input: { value } }) => (value === is ? children : null)}
+  </Field>
+)
+
 const required = value => (value ? undefined : 'Required')
 
 class OnBoardingPage extends Component {
@@ -39,30 +57,123 @@ class OnBoardingPage extends Component {
     const { match } = this.props;
     return (
       <>
-        <OnBoardingWizard onSubmit={onSubmit}>
+        <OnBoardingWizard
+          initialValues={{
+            education: {
+              isStudent: false,
+            }
+          }}
+          onSubmit={onSubmit}
+        >
           <OnBoardingWizard.Page>
-            <div>
-              <label>First Name</label>
-              <Field
-                name="firstName"
-                component="input"
-                type="text"
-                placeholder="First Name"
-                validate={required}
-              />
-              <Error name="firstName" />
-            </div>
-            <div>
-              <label>Last Name</label>
-              <Field
-                name="lastName"
-                component="input"
-                type="text"
-                placeholder="Last Name"
-                validate={required}
-              />
-              <Error name="lastName" />
-            </div>
+            <>
+              <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
+                <Col span={18}>
+                  <Field
+                    name="education.school"
+                    component={renderInput}
+                    type="text"
+                    placeholder="School*"
+                    validate={required}
+                  />
+                </Col>
+              </Row>
+              <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
+                <Col span={9}>
+                  <Field
+                    name="education.degreeType"
+                    component={renderInput}
+                    type="text"
+                    placeholder="Degree Type"
+                    validate={required}
+                  />
+                </Col>
+                <Col span={9}>
+                  <Field
+                    name="education.major"
+                    component={renderInput}
+                    type="text"
+                    placeholder="Major"
+                    validate={required}
+                  />
+                </Col>
+              </Row>
+              <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
+                <Col span={5}>
+                  <Field
+                    name="education.city"
+                    component={renderInput}
+                    type="text"
+                    placeholder="City"
+                    validate={required}
+                  />
+                </Col>
+                <Col span={5}>
+                  <Field
+                    name="education.state"
+                    component={renderInput}
+                    type="text"
+                    placeholder="State"
+                    validate={required}
+                  />
+                </Col>
+                <Col span={4}>
+                  <Field
+                    name="education.startMonthYear"
+                    placeholder="Start Date"
+                    component={renderMonthPicker}
+                    monthFormat={monthFormat}
+                    parse={value => value || value.format(monthFormat)}
+                    format={value => value}
+                    allowClear={false}
+                    validate={validations.required}
+                  />
+                </Col>
+                <Col span={4}>
+                  <Condition when="education.isStudent" is={false}>
+                    <Field
+                      name="education.endMonthYear"
+                      placeholder="End Date"
+                      component={renderMonthPicker}
+                      monthFormat={monthFormat}
+                      parse={value => value || value.format(monthFormat)}
+                      format={value => value}
+                      allowClear={false}
+                      validate={validations.required}
+                    />
+                  </Condition>
+                  
+                  <Field
+                    name="education.isStudent"
+                    component={renderCheckbox}
+                    type="checkbox"
+                    label="Still in School?"
+                  />
+                </Col>
+              </Row>
+              <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
+                <Col span={18}>
+                  <Field
+                    name="links"
+                    component={renderInput}
+                    type="text"
+                    placeholder="Links"
+                    validate={required}
+                  />
+                </Col>
+              </Row>
+              <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
+                <Col span={18}>
+                  <Field
+                    name="description"
+                    component={renderTextArea}
+                    type="text"
+                    placeholder="Description"
+                    label="Description"
+                  />
+                </Col>
+              </Row>
+            </>
           </OnBoardingWizard.Page>
           <OnBoardingWizard.Page>
             <div>

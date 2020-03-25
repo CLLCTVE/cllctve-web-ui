@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import { Form } from 'react-final-form'
 import {withRouter, Redirect} from 'react-router-dom';
+import {StyledButton} from '../fields/renderFields';
+import {ONBOARDING_ENTRY_MAP_BY_NAME} from '../../lib/util';
 
 class OnBoardingWizard extends Component {
   
@@ -74,11 +76,26 @@ class OnBoardingWizard extends Component {
                   « Previous
                 </button>
               )}
-              {!isLastPage && <button type="submit">Next »</button>}
+              {!isLastPage &&
+                <StyledButton
+                  size="large"
+                  shape="round"
+                  type="submit"
+                  htmlType="submit"
+                  >
+                  Add
+                </StyledButton>
+              }
               {isLastPage && (
-                <button type="submit" disabled={submitting}>
+                <StyledButton
+                size="large"
+                shape="round"
+                type="submit"
+                htmlType="submit"
+                disabled={submitting}
+                >
                   Submit
-                </button>
+                </StyledButton>
               )}
             </div>
             

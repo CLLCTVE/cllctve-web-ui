@@ -1,6 +1,7 @@
 import React from 'react';
-import {DatePicker, Input, Select} from 'antd';
+import { DatePicker, Input, Select, Checkbox, Button } from 'antd';
 import styled from 'styled-components';
+const { TextArea } = Input;
 
 const {MonthPicker} = DatePicker;
 
@@ -34,6 +35,46 @@ const StyledInput = styled(Input)`
       border-left-width: 0px;
       border-right-width: 0px !important;
       border-color: #ff6633;
+    }
+  }
+`;
+
+const StyledTextArea = styled(TextArea)`
+  &.ant-input,
+  &.ant-input-focused {
+    color: #ffffff;
+    background: none;
+    
+    &:hover,
+    &:focus {
+      color: #ffffff;
+      border-color: #ff6633;
+    }
+  }
+  
+  &.ant-input-affix-wrapper:hover,
+  &.ant-input-affix-wrapper-focused {
+    border-color: #ff6633;
+  }
+`;
+
+export const StyledButton = styled(Button)`
+  &.ant-btn {
+    border: none;
+    color: #ffffff;
+    opacity: 1;
+    background: transparent linear-gradient(101deg, #e41e84 0%, #ff6633 100%) 0% 0% no-repeat
+      padding-box;
+
+    &:hover {
+      color: #ffffff;
+      opacity: 0.8;
+      background: transparent linear-gradient(101deg, #ff6633 0%, #e41e84 100%) 0% 0% no-repeat
+        padding-box;
+    }
+
+    &:focus {
+      color: #e41e84;
     }
   }
 `;
@@ -146,23 +187,22 @@ export const capitalize = value => {
   return value.charAt(0).toUpperCase() + value.slice(1);
 };
 
-export const renderTextArea = ({
-  input,
-  label,
-  placeholder,
-  type,
-  meta: {touched, error, warning},
-  rows,
-  col,
-}) => (
-  <div>
-    <label>{label}</label>
-    <div>
-      <textarea {...input} placeholder={placeholder} rows={rows} col={col} />
-      {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
-    </div>
-  </div>
+export const renderTextArea = ({input, label, placeholder}) => (
+  <>
+    <StyledTextArea
+      {...input}
+      placeholder={placeholder}
+    />
+  </>
 );
+
+export const renderCheckbox = ({input, label, type}) => {
+  return (
+    <Checkbox {...input} type={type}>
+      {label}
+    </Checkbox>
+  )
+};
 
 export const renderError = ({meta: {touched, error}}) => (
   <div>{touched && error ? <span>{error}</span> : false}</div>

@@ -5,6 +5,7 @@ import {
   renderInput,
   renderMonthPicker,
   renderPasswordInput,
+  renderStyledButton,
   normalizePhone,
   capitalize,
 } from '../fields/renderFields';
