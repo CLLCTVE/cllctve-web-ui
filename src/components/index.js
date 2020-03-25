@@ -8,6 +8,8 @@ import HomePage from './homepage';
 import LoginPage from './login/loginpage';
 import SignUpPage from './signup/signuppage';
 import ProfilePage from './profile-page';
+import OnBoardingPage from './onboarding';
+import OnBoardingStep from './onboarding/onboarding-step'
 import NotFoundPage from './pages/notFoundPage';
 
 import RequireAuth from './require_auth';
@@ -24,6 +26,15 @@ class Index extends Component {
               <Route exact path="/login" component={LoginPage} />
               <Route exact path="/sign-up" component={SignUpPage} />
               <Route exact path="/profile" component={RequireAuth(ProfilePage)} />
+              
+              <Route path="/on-boarding/:step" render={() => {
+                return (
+                  <div>
+                    <OnBoardingStep />
+                    <OnBoardingPage />
+                  </div>
+                  )
+              }} />
               <Route path="*" component={NotFoundPage} />
             </Switch>
           </div>
