@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Route, Switch} from 'react-router-dom';
-import {Layout} from 'antd';
+import {Layout, Button} from 'antd';
 
 import Header from './template/header';
 import NavBar from './template/navbar';

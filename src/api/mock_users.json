@@ -1,5 +1,14 @@
 [
     {
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlODI1ODg3OTM1YWZlMDAwOGRkNTQxMyIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE1ODU2MDA2NDd9.6VI0gv1yvOXrHGTuhidJ4Xu2v8McL713YEZvj5q3WiI",
+        "user": {
+            "firstName": "brandon",
+            "lastName": "bailey",
+            "email": "bailey1.brandon@gmail.edu",
+            "phone": "3014041730"
+        }
+    },
+    {
         "user": {
             "id": "5db7c3f20c0c7a2dd982256e",
             "firstName": "Brandon",

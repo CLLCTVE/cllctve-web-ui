@@ -38,17 +38,7 @@ const StyledButton = styled(Button)`
   }
 `;
 
-const Error = ({ name }) => (
-  <Field
-    name={name}
-    subscribe={{ touched: true, error: true }}
-    render={({ meta: { touched, error } }) =>
-      touched && error ? <span>{error}</span> : null
-    }
-  />
-);
-
-export const AsyncSignUpForm = () => (
+export const AsyncSignUpForm = ({isLoading}) => (
   <MakeAsyncFunction
     listener={promiseListener}
     start={SIGNUP_REQUEST}
@@ -60,6 +50,7 @@ export const AsyncSignUpForm = () => (
         onSubmit={onSubmit}
         render={({submitError, handleSubmit, form, submitting, pristine, values}) => (
           <>
+            {isLoading && <div>Loading...</div>}
             {submitError && <div className="error">{submitError}</div>}
             <form onSubmit={handleSubmit}>
               <div>
@@ -76,7 +67,6 @@ export const AsyncSignUpForm = () => (
                   type="text"
                   placeholder="First Name*"
                 />
-                <Error name="firstName" />
               </div>
               <div>
                 <Field
@@ -92,7 +82,6 @@ export const AsyncSignUpForm = () => (
                   type="text"
                   placeholder="Last Name*"
                 />
-                <Error name="lastName" />
               </div>
               <div>
                 <Field
@@ -104,7 +93,6 @@ export const AsyncSignUpForm = () => (
                   allowClear={false}
                   validate={validations.required}
                 />
-                <Error name="gradMonthYear" />
               </div>
               <div>
                 <Field
@@ -118,7 +106,6 @@ export const AsyncSignUpForm = () => (
                   type="text"
                   placeholder="creative@cllctve.edu"
                 />
-                <Error name="email" />
               </div>
               <div>
                 <Field
@@ -129,7 +116,6 @@ export const AsyncSignUpForm = () => (
                   format={normalizePhone}
                   parse={value => value}
                 />
-                <Error name="phoneNumber" />
               </div>
               <div>
                 <Field
@@ -138,7 +124,6 @@ export const AsyncSignUpForm = () => (
                   type="text"
                   placeholder="password"
                 />
-                <Error name="password" />
               </div>
               <StyledButton
                 size="large"

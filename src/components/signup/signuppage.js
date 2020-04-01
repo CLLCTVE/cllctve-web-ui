@@ -44,15 +44,12 @@ const StyledButton = styled(Button)`
   }
 `;
 
-
-
-const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
-
-class SignupPage extends Component {
+class SignUpPage extends Component {
   render() {
+    const {isLoading} = this.props;
     return (
       <Container>
-        <AsyncSignUpForm />
+        <AsyncSignUpForm isLoading={isLoading} />
         <div>
           <StyledLink to="/login">Already a member? Click here to Log in!</StyledLink>
         </div>
@@ -63,8 +60,8 @@ class SignupPage extends Component {
 
 const mapStateToProps = state => {
   return {
-    authenticated: state.auth.authenticated,
+    isLoading: state.signUp.isLoading,
   };
 };
 
-export default connect(mapStateToProps, {})(SignupPage);
+export default connect(mapStateToProps, {})(SignUpPage);

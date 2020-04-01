@@ -10,7 +10,7 @@ const API_URL = `${env.REACT_APP_CLLCTVE_API_ORIGIN}/api`;
 export default {
   del: (url, data, origin) => makeRequest(url, 'delete', data, origin),
   get: (url, data, origin) => makeRequest(url, 'get', data, origin),
-  post: (url, data, origin) => makeRequest(url, 'post', data, origin),
+  post: (url, data, origin) => mockRequest(url, 'post', data, origin),
   put: (url, data, origin) => makeRequest(url, 'put', data, origin),
 };
 
@@ -60,7 +60,7 @@ const mockRequest = async (url, method, requestData, origin) => {
   if (requestData) {
     config = {
       ...config,
-      ...requestData,
+      data: requestData,
     };
   }
 
@@ -68,13 +68,13 @@ const mockRequest = async (url, method, requestData, origin) => {
     switch (url) {
       case 'auth/login':
         return await API.loginResponse({email: config.email, password: config.password});
-      case 'signup':
-        return await API.signupResponse({
-          firstName: config.firstName,
-          lastName: config.lastName,
-          creativeName: config.creativeName,
-          email: config.email,
-          password: config.password,
+      case 'users/signup':
+        return await API.signUpResponse({
+          firstName: config.data.firstName,
+          lastName: config.data.lastName,
+          gradMonthYear: config.data.gradMonthYear,
+          email: config.data.email,
+          password: config.data.password,
         });
       default:
         return await API.okResponse();

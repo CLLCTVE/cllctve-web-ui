@@ -72,6 +72,14 @@ export const handleLogoutRequest = () => ({
   token: null,
 });
 
+export const handleAuthenticated = () => ({
+  type: AUTHENTICATED,
+});
+
+export const handleUnAuthenticated = () => ({
+  type: UNAUTHENTICATED,
+});
+
 export function* onHandleLoginRequest({email, password}) {
   try {
     const response = yield call(request.post, '/login', {email, password});

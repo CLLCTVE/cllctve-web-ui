@@ -1,5 +1,6 @@
 import mockUsers from './mock_users';
 import {FORM_ERROR} from 'final-form';
+import { renderMonthPicker } from '../components/fields/renderFields';
 
 let users = [...mockUsers];
 
@@ -36,20 +37,24 @@ export const loginResponse = async ({email, password}) => {
   });
 };
 
-export const signupResponse = async ({firstName, lastName, creativeName, email, password}) => {
+export const signUpResponse = async ({firstName, lastName, gradMonthYear, email, password}) => {
   console.log('API#signupResponse, start');
   console.log(
-    `firstName: ${firstName}, lastName: ${lastName}, creativeName: ${creativeName}, email: ${email}, password: ${password}`
+    `firstName: ${firstName}, lastName: ${lastName}, gradMonthYear: ${gradMonthYear}, email: ${email}, password: ${password}`
   );
 
-  const userInfo = fakeDatabase.users[0].user;
+  const userInfo = fakeDatabase.users[0];
   return await delay(500).then(() => {
-    let data = {
-      status: 'ok',
+    let res = {
+      status: 'created',
       statusCode: 201,
+      data: {
+        user: userInfo.user,
+        token: userInfo.token
+      }
     };
-    console.log('API#signupResponse, done');
-    return data;
+    console.log('API#signupResponse, done, res: ', res);
+    return res;
   });
 };
 

@@ -183,10 +183,12 @@ export const renderInput = ({input, placeholder, label, meta}) => (
 );
 
 export const renderPasswordInput = ({input, placeholder, label, meta}) => (
-  <div>
+  <>
     <StyledPasswordInput {...input} placeholder={placeholder} label={label} />
-    {meta.error && meta.touched && <span className="error">{meta.error}</span>}
-  </div>
+    {(meta.error || meta.submitError) && meta.touched && (
+      <span className="error">{meta.error || meta.submitError}</span>
+    )}
+  </>
 );
 
 export const renderSelect = ({input, options, mode, placeholder, size}) => {

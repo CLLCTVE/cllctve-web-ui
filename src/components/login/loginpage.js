@@ -5,8 +5,8 @@ import {AsyncLoginForm} from './loginForm';
 import styled from 'styled-components';
 
 const Container = styled.div`
-  max-width: 300px;
   display: inline-block;
+  max-width: 300px;
 `;
 
 const StyledLink = styled(Link)`

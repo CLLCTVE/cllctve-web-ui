@@ -72,7 +72,7 @@ export const AsyncLoginForm = () => (
               >
                 Login
               </StyledButton>
-            </form>
+              </form>
           </>
         )}
       />
