@@ -1,8 +1,11 @@
 import React, {Component} from 'react';
-import { Form } from 'react-final-form'
+import { Form } from 'react-final-form';
+import arrayMutators from 'final-form-arrays';
 import {withRouter, Redirect} from 'react-router-dom';
 import {StyledButton} from '../fields/renderFields';
 import { ONBOARDING_ENTRY_MAP_BY_NAME } from '../../lib/util';
+import { Form as AntForm, Input, Button, Col, Row } from "antd";
+import { MinusCircleOutlined, PlusOutlined } from "@ant-design/icons";
 
 class OnBoardingWizard extends Component {
   
@@ -22,19 +25,22 @@ class OnBoardingWizard extends Component {
       page: Math.min(state.page + 1, this.props.children.length - 1),
       values
     }))
-    
-  }
+  };
   
   previous = () => {
     this.setState(state => ({
       page: Math.max(state.page - 1, 0)
     }))
     this.props.history.push(`/on-boarding/${this.state.page - 1}`);
-  }
+  };
   
-  displayText = (step)  => {
+  displayStepText = (step)  => {
     return ONBOARDING_ENTRY_MAP_BY_NAME[Object.keys(ONBOARDING_ENTRY_MAP_BY_NAME)[step]].title;
   };
+  
+  getStepKey = (step) => {
+    return Object.keys(ONBOARDING_ENTRY_MAP_BY_NAME)[step];
+  }
   
   /**
    * NOTE: Both validate and handleSubmit switching are implemented
@@ -69,9 +75,12 @@ class OnBoardingWizard extends Component {
       <Form
         initialValues={values}
         validate={this.validate}
+        mutators={{
+          ...arrayMutators
+        }}
         onSubmit={this.handleSubmit}
       >
-        {({ handleSubmit, submitting, values }) => (
+        {({ handleSubmit, form: {mutators: { push, pop }}, pristine, form, submitting, values }) => (
           <form onSubmit={handleSubmit}>
             {activePage}
             <div className="buttons">
@@ -81,18 +90,21 @@ class OnBoardingWizard extends Component {
                   shape="round"
                   onClick={this.previous}
                 >
-                  {this.displayText(Number(match.params.step) -1)}
+                  {this.displayStepText(Number(match.params.step) -1)}
                 </StyledButton>
               )}
               {!isLastPage && (
-                <StyledButton
-                  size="large"
-                  shape="round"
-                  type="submit"
-                  htmlType="submit"
-                >
-                  Add {this.displayText(match.params.step)}
-                </StyledButton>
+                <>
+                  <StyledButton
+                    size="large"
+                    shape="round"
+                    type="submit"
+                    htmlType="submit"
+                  >
+                    Add {this.displayStepText(match.params.step)}
+                  </StyledButton>
+                  <a onClick={() => push(this.getStepKey(match.params.step), undefined)}>Add More</a>
+                </>
               )}
               {isLastPage && (
                 <StyledButton

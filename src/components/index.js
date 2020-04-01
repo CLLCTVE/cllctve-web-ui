@@ -6,6 +6,7 @@ import Header from './template/header';
 import NavBar from './template/navbar';
 import HomePage from './homepage';
 import LoginPage from './login/loginpage';
+import AntLoginPage from './antd-final-form/antLoginPage';
 import SignUpPage from './signup/signuppage';
 import ProfilePage from './profile-page';
 import OnBoardingPage from './onboarding';
@@ -24,6 +25,7 @@ class Index extends Component {
             <Switch>
               <Route exact path="/" component={HomePage} />
               <Route exact path="/login" component={LoginPage} />
+              <Route exact path="/ant-login" component={AntLoginPage} />
               <Route exact path="/sign-up" component={SignUpPage} />
               <Route exact path="/profile" component={RequireAuth(ProfilePage)} />
               

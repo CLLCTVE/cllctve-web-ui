@@ -14,11 +14,12 @@ import {
 } from '../fields/renderFields';
 import OnBoardingWizard from './onboarding-wizard';
 import {
-  OnboardingForms,
+  EducationForm,
   SkillsForm,
   ExperienceForm,
   HonorsAwardsForm
 } from './OnboardingForms';
+import {EducationFieldArrayForm} from './EducationForm';
 import * as validations from '../../utils/validations';
 
 const monthFormat = 'MM-YYYY';
@@ -56,17 +57,14 @@ class OnBoardingPage extends Component {
       <Container>
         <OnBoardingWizard
           initialValues={{
-            education: {
-              isStudent: false,
-            },
-            experience: {
-              isEmployed: true,
-            }
+            education: [],
+            experience: []
           }}
           onSubmit={onSubmit}
         >
           <OnBoardingWizard.Page>
-            <OnboardingForms />
+            <EducationForm  />
+            <EducationFieldArrayForm />
           </OnBoardingWizard.Page>
           <OnBoardingWizard.Page>
             <SkillsForm />

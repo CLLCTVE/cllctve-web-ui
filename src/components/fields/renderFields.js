@@ -1,5 +1,5 @@
 import React from 'react';
-import { DatePicker, Input, Select, Checkbox, Button } from 'antd';
+import { DatePicker, Form, Input, Select, Checkbox, Button } from 'antd';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 import { Field } from 'react-final-form';
@@ -172,6 +172,17 @@ const StyledMultiSelect = styled(Select)`
     }
   }
 `;
+
+export const renderAntInput = ({input, placeholder, label, meta}) => (
+  <Form.Item name={label}
+             validateStatus={(meta.error || meta.submitError) && meta.touched ? 'error' : ''}
+             help={(meta.error || meta.submitError) && meta.touched && (
+               <span className="error">{meta.error || meta.submitError}</span>
+             )}
+  >
+    <StyledInput {...input} placeholder={placeholder || label} />
+  </Form.Item>
+);
 
 export const renderInput = ({input, placeholder, label, meta}) => (
   <>

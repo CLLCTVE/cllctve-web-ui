@@ -13,14 +13,14 @@ import * as validations from '../../utils/validations';
 import React from 'react';
 import { SKILLS } from '../../lib/util';
 const monthFormat = 'MM-YYYY';
-const required = value => (value ? undefined : 'Required')
+const required = value => (value ? undefined : 'Required');
 
-export const OnboardingForms = () => (
+export const EducationForm = (name, index) => (
   <>
     <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
       <Col span={18}>
         <Field
-          name="education.school"
+          name={`${name}.school`}
           component={renderInput}
           type="text"
           placeholder="School*"
@@ -31,7 +31,7 @@ export const OnboardingForms = () => (
     <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
       <Col span={9}>
         <Field
-          name="education.degreeType"
+          name={`${name}.degree`}
           component={renderInput}
           type="text"
           placeholder="Degree Type"
@@ -40,7 +40,7 @@ export const OnboardingForms = () => (
       </Col>
       <Col span={9}>
         <Field
-          name="education.major"
+          name={`${name}.major`}
           component={renderInput}
           type="text"
           placeholder="Major"
@@ -51,7 +51,7 @@ export const OnboardingForms = () => (
     <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
       <Col span={5}>
         <Field
-          name="education.city"
+          name={`${name}.city`}
           component={renderInput}
           type="text"
           placeholder="City"
@@ -60,7 +60,7 @@ export const OnboardingForms = () => (
       </Col>
       <Col span={5}>
         <Field
-          name="education.state"
+          name={`${name}.state`}
           component={renderInput}
           type="text"
           placeholder="State"
@@ -69,7 +69,7 @@ export const OnboardingForms = () => (
       </Col>
       <Col span={4}>
         <Field
-          name="education.startMonthYear"
+          name={`${name}.startMonthYear`}
           placeholder="Start Date"
           component={renderMonthPicker}
           monthFormat={monthFormat}
@@ -82,7 +82,7 @@ export const OnboardingForms = () => (
       <Col span={4}>
         <ConditionalRender when="education.isStudent" is={false}>
           <Field
-            name="education.endMonthYear"
+            name={`${name}.endMonthYear`}
             placeholder="End Date"
             component={renderMonthPicker}
             monthFormat={monthFormat}
@@ -94,7 +94,7 @@ export const OnboardingForms = () => (
         </ConditionalRender>
         
         <Field
-          name="education.isStudent"
+          name={`${name}.isStudent`}
           component={renderCheckbox}
           type="checkbox"
           label="Still in School?"
@@ -104,7 +104,7 @@ export const OnboardingForms = () => (
     <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
       <Col span={18}>
         <Field
-          name="education.links"
+          name={`${name}.links`}
           component={renderInput}
           type="text"
           placeholder="Links"
@@ -115,7 +115,7 @@ export const OnboardingForms = () => (
     <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
       <Col span={18}>
         <Field
-          name="education.description"
+          name={`${name}.description`}
           component={renderTextArea}
           type="text"
           placeholder="Description"
