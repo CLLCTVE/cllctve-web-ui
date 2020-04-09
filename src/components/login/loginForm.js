@@ -1,7 +1,8 @@
 import React from 'react';
-import {Field, Form} from 'react-final-form';
-import {Button} from 'antd';
-import {renderInput, renderPasswordInput} from '../fields/renderFields';
+import {Field as FField, Form as FForm} from 'react-final-form';
+import {Form, Input, Button} from 'antd';
+import { UserOutlined, LockOutlined } from '@ant-design/icons';
+import {renderAntInput, renderAntPasswordInput} from '../fields/renderFields';
 import styled from 'styled-components';
 import MakeAsyncFunction from 'react-redux-promise-listener';
 import {promiseListener} from '../../store';
@@ -30,7 +31,7 @@ const StyledButton = styled(Button)`
   }
 `;
 
-export const AsyncLoginForm = () => (
+export const AsyncLoginForm = ({isLoading}) => (
   <MakeAsyncFunction
     listener={promiseListener}
     start={LOGIN_REQUEST}
@@ -38,41 +39,46 @@ export const AsyncLoginForm = () => (
     reject={LOGIN_FAILURE}
   >
     {onSubmit => (
-      <Form
+      <FForm
         onSubmit={onSubmit}
         render={({submitError, handleSubmit, form, submitting, pristine, values}) => (
           <>
+            {isLoading && <div>Loading...</div>}
             {submitError && <div className="error">{submitError}</div>}
             <form onSubmit={handleSubmit}>
-              <div>
-                <Field
-                  name="email"
-                  component={renderInput}
-                  type="text"
-                  placeholder="creative@cllctve.edu"
-                  validate={validations.required}
-                />
-              </div>
-              <div>
-                <Field
-                  name="password"
-                  component={renderPasswordInput}
-                  type="text"
-                  placeholder="password"
-                  validate={validations.required}
-                />
-              </div>
-
-              <StyledButton
-                size="large"
-                shape="round"
-                type="button"
-                htmlType="submit"
-                disabled={submitting}
-              >
-                Login
-              </StyledButton>
-              </form>
+              <Form onFinish={handleSubmit}>
+                <div>
+                  <FField
+                    name="email"
+                    component={renderAntInput}
+                    type="text"
+                    placeholder="creative@cllctve.edu*"
+                    validate={validations.required}
+                  />
+                </div>
+                <div>
+                  <FField
+                    name="password"
+                    component={renderAntPasswordInput}
+                    type="text"
+                    placeholder="password*"
+                    validate={validations.required}
+                  />
+                </div>
+  
+                <StyledButton
+                  size="large"
+                  shape="round"
+                  type="button"
+                  htmlType="submit"
+                  disabled={submitting}
+                  loading={isLoading || submitting}
+                >
+                  Login
+                </StyledButton>
+              </Form>
+              <pre>{JSON.stringify(values, 0, 2)}</pre>
+            </form>
           </>
         )}
       />

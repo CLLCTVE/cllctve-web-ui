@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {AsyncAntLoginForm} from './antLoginForm';
+import {AsyncLoginForm} from './loginForm';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -20,12 +20,12 @@ const StyledLink = styled(Link)`
   }
 `;
 
-class AntLoginPage extends Component {
+class LoginPage extends Component {
   render() {
     const {isLoading} = this.props;
     return (
       <Container>
-        <AsyncAntLoginForm isLoading={isLoading} />
+        <AsyncLoginForm isLoading={isLoading} />
         <div>
           <StyledLink to="#">Forgot your password? Click Here</StyledLink>
           <br />
@@ -42,4 +42,4 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-export default connect(mapStateToProps, {})(AntLoginPage);
+export default connect(mapStateToProps, {})(LoginPage);

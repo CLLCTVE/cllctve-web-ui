@@ -98,6 +98,15 @@ export function* onHandleLoginRequest({email, password}) {
     console.error('#onHandleLoginRequest, catch block, err: ', err);
   
     debugger;
+    if (err.response && err.response.status === 401) {
+      yield put({
+        type: LOGIN_SUCCESS,
+        payload: {[FORM_ERROR]: err.response.data.message,
+          ...err.response.data.errors
+        },
+      });
+    }
+    
     if (err.response && err.response.status === 422) {
       yield put({
         type: LOGIN_SUCCESS,
