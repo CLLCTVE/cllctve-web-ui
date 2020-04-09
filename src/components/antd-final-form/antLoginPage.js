@@ -22,9 +22,10 @@ const StyledLink = styled(Link)`
 
 class AntLoginPage extends Component {
   render() {
+    const {isLoading} = this.props;
     return (
       <Container>
-        <AsyncAntLoginForm />
+        <AsyncAntLoginForm isLoading={isLoading} />
         <div>
           <StyledLink to="#">Forgot your password? Click Here</StyledLink>
           <br />
@@ -37,7 +38,7 @@ class AntLoginPage extends Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    authenticated: state.auth.authenticated,
+    isLoading: state.auth.isLoading,
   };
 };
 

@@ -10,7 +10,7 @@ const API_URL = `${env.REACT_APP_CLLCTVE_API_ORIGIN}/api`;
 export default {
   del: (url, data, origin) => makeRequest(url, 'delete', data, origin),
   get: (url, data, origin) => makeRequest(url, 'get', data, origin),
-  post: (url, data, origin) => mockRequest(url, 'post', data, origin),
+  post: (url, data, origin) => makeRequest(url, 'post', data, origin),
   put: (url, data, origin) => makeRequest(url, 'put', data, origin),
 };
 

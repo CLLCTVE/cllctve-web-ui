@@ -2,6 +2,7 @@ import {all, call, put, takeLatest} from 'redux-saga/effects';
 import {push} from 'connected-react-router';
 import request from '../../../lib/request';
 import {FORM_ERROR} from 'final-form';
+import { SIGNUP_FAILURE, SIGNUP_SUCCESS } from '../../signup/redux';
 
 export const LOGIN_REQUEST = 'auth/login/LOGIN_REQUEST';
 export const LOGIN_FAILURE = 'auth/login/LOGIN_FAILURE';
@@ -81,9 +82,11 @@ export const handleUnAuthenticated = () => ({
 });
 
 export function* onHandleLoginRequest({email, password}) {
+  console.error('#onHandleLoginRequest');
   try {
+    console.error('#onHandleLoginRequest, try block');
     const response = yield call(request.post, '/login', {email, password});
-
+    
     localStorage.setItem('token', JSON.stringify(response.data.token));
     localStorage.setItem('user', JSON.stringify(response.data.user));
     yield all([
@@ -93,17 +96,31 @@ export function* onHandleLoginRequest({email, password}) {
     ]);
   } catch (err) {
     console.error('#onHandleLoginRequest, catch block, err: ', err);
+  
+    debugger;
+    if (err.response && err.response.status === 422) {
+      yield put({
+        type: LOGIN_SUCCESS,
+        payload: {[FORM_ERROR]: err.response.data.message,
+          ...err.response.data.errors
+        },
+      });
+    }
+  
     if (err.message === 'Network Error') {
       yield put({
         type: LOGIN_SUCCESS,
         payload: {[FORM_ERROR]: 'Check your connection and please try again later.'},
       });
-    } else {
-      console.error('#onHandleLoginRequest catch block, err: ', err);
-      yield put({type: LOGIN_SUCCESS, payload: {[FORM_ERROR]: 'Login Failed'}});
     }
-    console.error('#onHandleLoginRequest catch block, err: ', err);
-    yield put({type: LOGIN_SUCCESS, payload: {[FORM_ERROR]: 'Login Failed'}});
+  
+    if (err.response.status === 500) {
+      yield put({
+        type: LOGIN_SUCCESS,
+        payload: {[FORM_ERROR]: 'Its not you, its us....... Please try again later.'},
+      });
+    }
+  
   }
 }
 

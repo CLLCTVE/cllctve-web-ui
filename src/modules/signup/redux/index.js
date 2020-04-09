@@ -58,10 +58,9 @@ export function* onHandleSignUpRequest({
       put(push('/on-boarding/0')),
     ]);
   } catch (err) {
-    debugger;
     console.error('#onHandleSignupRequest, catch block, err: ', err);
   
-    if (err.response.status === 422) {
+    if (err.response && err.response.status === 422) {
       yield put({
         type: SIGNUP_SUCCESS,
         payload: {[FORM_ERROR]: err.response.data.message,

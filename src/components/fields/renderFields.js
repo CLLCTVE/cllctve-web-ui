@@ -184,6 +184,17 @@ export const renderAntInput = ({input, placeholder, label, meta}) => (
   </Form.Item>
 );
 
+export const renderAntPasswordInput = ({input, placeholder, label, meta}) => (
+  <Form.Item name={label}
+             validateStatus={(meta.error || meta.submitError) && meta.touched ? 'error' : ''}
+             help={(meta.error || meta.submitError) && meta.touched && (
+               <span className="error">{meta.error || meta.submitError}</span>
+             )}
+  >
+    <StyledPasswordInput {...input} placeholder={placeholder} label={label} />
+  </Form.Item>
+);
+
 export const renderInput = ({input, placeholder, label, meta}) => (
   <>
     <StyledInput {...input} placeholder={placeholder || label} />
