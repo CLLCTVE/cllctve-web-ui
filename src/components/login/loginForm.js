@@ -1,6 +1,6 @@
 import React from 'react';
 import {Field as FField, Form as FForm} from 'react-final-form';
-import {Form, Input, Button} from 'antd';
+import {Form, Button} from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import {renderAntInput, renderAntPasswordInput} from '../fields/renderFields';
 import styled from 'styled-components';

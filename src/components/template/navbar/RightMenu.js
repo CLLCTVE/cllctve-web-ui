@@ -9,20 +9,23 @@ class RightMenu extends Component {
   render() {
     return (
       <Menu mode="horizontal">
-        <Menu.Item key="0">
+        <Menu.Item key="home">
           <Link to="/">Home</Link>
         </Menu.Item>
-        <Menu.Item key="1">
+        <Menu.Item key="network">
           <Link to="/network">Network</Link>
         </Menu.Item>
-        <Menu.Item key="2">
+        <Menu.Item key="jobs">
           <Link to="/jobs">Jobs</Link>
         </Menu.Item>
-        <Menu.Item key="3">
+        <Menu.Item key="messaging">
           <Link to="/messaging">Messaging</Link>
         </Menu.Item>
-        <Menu.Item key="4">
+        <Menu.Item key="notifications">
           <Link to="/notifications">Notifications</Link>
+        </Menu.Item>
+        <Menu.Item key="logout">
+          <Link to="/home">Logout</Link>
         </Menu.Item>
       </Menu>
     );

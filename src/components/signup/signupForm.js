@@ -1,13 +1,14 @@
 import React from 'react';
-import {Field, Form} from 'react-final-form';
-import {Button} from 'antd';
+import {Field as FField, Form as FForm} from 'react-final-form';
+import {Form, Button} from 'antd';
 import {
   renderInput,
+  renderAntInput,
   renderMonthPicker,
   renderPasswordInput,
   renderStyledButton,
   normalizePhone,
-  capitalize,
+  capitalize, renderAntPasswordInput,
 } from '../fields/renderFields';
 import styled from 'styled-components';
 import MakeAsyncFunction from 'react-redux-promise-listener';
@@ -46,7 +47,7 @@ export const AsyncSignUpForm = ({isLoading}) => (
     reject={SIGNUP_FAILURE}
   >
     {onSubmit => (
-      <Form
+      <FForm
         onSubmit={onSubmit}
         render={({submitError, handleSubmit, form, submitting, pristine, values}) => (
           <>
@@ -54,9 +55,9 @@ export const AsyncSignUpForm = ({isLoading}) => (
             {submitError && <div className="error">{submitError}</div>}
             <form onSubmit={handleSubmit}>
               <div>
-                <Field
+                <FField
                   name="firstName"
-                  component={renderInput}
+                  component={renderAntInput}
                   validate={validations.composeValidators(
                     validations.required,
                     validations.minLength(4),
@@ -69,9 +70,9 @@ export const AsyncSignUpForm = ({isLoading}) => (
                 />
               </div>
               <div>
-                <Field
+                <FField
                   name="lastName"
-                  component={renderInput}
+                  component={renderAntInput}
                   validate={validations.composeValidators(
                     validations.required,
                     validations.minLength(4),
@@ -84,7 +85,7 @@ export const AsyncSignUpForm = ({isLoading}) => (
                 />
               </div>
               <div>
-                <Field
+                <FField
                   name="gradMonthYear"
                   component={renderMonthPicker}
                   monthFormat={monthFormat}
@@ -95,9 +96,9 @@ export const AsyncSignUpForm = ({isLoading}) => (
                 />
               </div>
               <div>
-                <Field
+                <FField
                   name="email"
-                  component={renderInput}
+                  component={renderAntInput}
                   validate={validations.composeValidators(
                     validations.required,
                     validations.edu,
@@ -108,9 +109,9 @@ export const AsyncSignUpForm = ({isLoading}) => (
                 />
               </div>
               <div>
-                <Field
+                <FField
                   name="phoneNumber"
-                  component={renderInput}
+                  component={renderAntInput}
                   type="text"
                   placeholder="555-555-5555"
                   format={normalizePhone}
@@ -118,9 +119,9 @@ export const AsyncSignUpForm = ({isLoading}) => (
                 />
               </div>
               <div>
-                <Field
+                <FField
                   name="password"
-                  component={renderPasswordInput}
+                  component={renderAntPasswordInput}
                   type="text"
                   placeholder="password"
                 />
@@ -131,6 +132,7 @@ export const AsyncSignUpForm = ({isLoading}) => (
                 type="button"
                 htmlType="submit"
                 disabled={submitting}
+                loading={isLoading || submitting}
               >
                 Submit
               </StyledButton>
