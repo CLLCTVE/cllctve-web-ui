@@ -82,9 +82,9 @@ export const handleUnAuthenticated = () => ({
 });
 
 export function* onHandleLoginRequest({email, password}) {
-  console.error('#onHandleLoginRequest');
+  console.log('#onHandleLoginRequest');
   try {
-    console.error('#onHandleLoginRequest, try block');
+    console.log('#onHandleLoginRequest, try block');
     const response = yield call(request.post, '/login', {email, password});
     
     localStorage.setItem('token', JSON.stringify(response.data.token));
@@ -96,8 +96,7 @@ export function* onHandleLoginRequest({email, password}) {
     ]);
   } catch (err) {
     console.error('#onHandleLoginRequest, catch block, err: ', err);
-  
-    debugger;
+    
     if (err.response && err.response.status === 401) {
       yield put({
         type: LOGIN_SUCCESS,
