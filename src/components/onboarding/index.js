@@ -63,7 +63,7 @@ class OnBoardingPage extends Component {
           onSubmit={onSubmit}
         >
           <OnBoardingWizard.Page>
-            <EducationForm  />
+            <EducationForm   />
             <EducationFieldArrayForm />
           </OnBoardingWizard.Page>
           <OnBoardingWizard.Page>

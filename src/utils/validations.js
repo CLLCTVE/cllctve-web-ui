@@ -52,6 +52,18 @@ export const passwordsMustMatch = (value, allValues) => {
   return value !== allValues.password ? 'Passwords do not match' : undefined;
 };
 
+export const getValidator = isRequired => (
+  isRequired ? value => (value ? undefined : 'Required') : () => {}
+);
+
+export const conditionalRequired = (value, allValues, when, is) => {
+  console.log('value: ', value);
+  console.log('allValues: ', allValues);
+  console.log('when: %s, is: %s', when, is);
+  
+  return value || typeof value === 'number' ? undefined : 'Required';
+};
+
 export const phoneNumber = value => {
   return value && !/^(0|[1-9][0-9]{9})$/i.test(value)
     ? 'Invalid phone number, must be 10 digits'

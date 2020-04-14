@@ -31,7 +31,7 @@ export const EducationForm = (name, index) => (
     <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
       <Col span={9}>
         <Field
-          name={`${name}.degree`}
+          name={`${name}.degreeType`}
           component={renderInput}
           type="text"
           placeholder="Degree Type"
@@ -49,25 +49,7 @@ export const EducationForm = (name, index) => (
       </Col>
     </Row>
     <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
-      <Col span={5}>
-        <Field
-          name={`${name}.city`}
-          component={renderInput}
-          type="text"
-          placeholder="City"
-          validate={required}
-        />
-      </Col>
-      <Col span={5}>
-        <Field
-          name={`${name}.state`}
-          component={renderInput}
-          type="text"
-          placeholder="State"
-          validate={required}
-        />
-      </Col>
-      <Col span={4}>
+      <Col span={9}>
         <Field
           name={`${name}.startMonthYear`}
           placeholder="Start Date"
@@ -79,8 +61,8 @@ export const EducationForm = (name, index) => (
           validate={validations.required}
         />
       </Col>
-      <Col span={4}>
-        <ConditionalRender when="education.isStudent" is={false}>
+      <Col span={9}>
+        <ConditionalRender when="education.isEnrolled" is={true}>
           <Field
             name={`${name}.endMonthYear`}
             placeholder="End Date"
@@ -94,10 +76,10 @@ export const EducationForm = (name, index) => (
         </ConditionalRender>
         
         <Field
-          name={`${name}.isStudent`}
+          name={`${name}.isEnrolled`}
           component={renderCheckbox}
           type="checkbox"
-          label="Still in School?"
+          label="Currently Enrolled as a Student?"
         />
       </Col>
     </Row>

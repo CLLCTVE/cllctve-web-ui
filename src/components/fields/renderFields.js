@@ -227,8 +227,19 @@ export const renderSelect = ({input, options, mode, placeholder, size}) => {
   );
 };
 
-export const renderMonthPicker = ({input, monthFormat, allowClear}) => {
-  return <StyledMonthPicker size="large" {...input} format={monthFormat} allowClear={allowClear} />;
+export const renderAntMonthPicker = ({input, placeholder, meta, label, size, monthFormat, allowClear}) =>(
+  <Form.Item name={label}
+             validateStatus={(meta.error || meta.submitError) && meta.touched ? 'error' : ''}
+             help={(meta.error || meta.submitError) && meta.touched && (
+               <span className="error">{meta.error || meta.submitError}</span>
+             )}
+  >
+    <StyledMonthPicker size={size} {...input} placeholder={placeholder} format={monthFormat} allowClear={allowClear} />
+  </Form.Item>
+);
+
+export const renderMonthPicker = ({input, placeholder, monthFormat, allowClear}) => {
+  return <StyledMonthPicker size="large" {...input} placeholder={placeholder} format={monthFormat} allowClear={allowClear} />;
 };
 
 export const normalizePhone = value => {
@@ -272,7 +283,7 @@ export const ConditionalRender = ({ when, is, children }) => (
   <Field name={when} subscription={{ value: true }}>
     {({ input: { value } }) => (value === is ? children : null)}
   </Field>
-)
+);
 
 export const renderError = ({meta: {touched, error}}) => (
   <div>{touched && error ? <span>{error}</span> : false}</div>
