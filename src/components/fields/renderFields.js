@@ -71,27 +71,6 @@ export const StyledLink = styled(Link)`
   }
 `;
 
-export const StyledButton = styled(Button)`
-  &.ant-btn {
-    border: none;
-    color: #ffffff;
-    opacity: 1;
-    background: transparent linear-gradient(101deg, #e41e84 0%, #ff6633 100%) 0% 0% no-repeat
-      padding-box;
-
-    &:hover {
-      color: #ffffff;
-      opacity: 0.8;
-      background: transparent linear-gradient(101deg, #ff6633 0%, #e41e84 100%) 0% 0% no-repeat
-        padding-box;
-    }
-
-    &:focus {
-      color: #e41e84;
-    }
-  }
-`;
-
 const StyledPasswordInput = styled(Input.Password)`
   color: #ffffff;
 
@@ -169,6 +148,27 @@ const StyledMultiSelect = styled(Select)`
     border-left-width: 0px;
     border-right-width: 0px !important;
     border-color: #ff6633;
+    }
+  }
+`;
+
+export const StyledButton = styled(Button)`
+  &.ant-btn {
+    border: none;
+    color: #ffffff;
+    opacity: 1;
+    background: transparent linear-gradient(101deg, #e41e84 0%, #ff6633 100%) 0% 0% no-repeat
+      padding-box;
+
+    &:hover {
+      color: #ffffff;
+      opacity: 0.8;
+      background: transparent linear-gradient(101deg, #ff6633 0%, #e41e84 100%) 0% 0% no-repeat
+        padding-box;
+    }
+
+    &:focus {
+      color: #e41e84;
     }
   }
 `;

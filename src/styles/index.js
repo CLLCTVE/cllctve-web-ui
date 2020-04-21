@@ -85,6 +85,7 @@ const GlobalStyles = createGlobalStyle`
   h1,h2,h3,h4,h5,
   .ant-btn {
      font-family: 'Hanson Bold';
+     color: #ffffff !important;
   }
   
   .ant-menu-horizontal > .ant-menu-item-selected {
