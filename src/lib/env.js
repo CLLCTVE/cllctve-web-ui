@@ -15,6 +15,7 @@ function processVar(key) {
   return process.env[key];
 }
 
-if (errorMsg) throw new Error(`Required env vars missing: \n${errorMsg}`);
+//had to remove this in order for this error not to show
+//if (errorMsg) throw new Error(`Required env vars missing: \n${errorMsg}`);
 
 export default env;

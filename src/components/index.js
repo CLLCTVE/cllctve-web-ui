@@ -11,6 +11,7 @@ import ProfilePage from './profile-page';
 import OnBoardingPage from './onboarding';
 import OnBoardingStep from './onboarding/onboarding-step'
 import NotFoundPage from './pages/notFoundPage';
+import LandingPage from './Landing/LandingPage.js'
 
 import RequireAuth from './require_auth';
 
@@ -23,6 +24,9 @@ class Index extends Component {
           <div style={{padding: 24, textAlign: 'center'}}>
             <Switch>
               <Route exact path="/" component={HomePage} />
+              
+              <Route exact path="/landing" component= {LandingPage} />
+              
               <Route exact path="/login" component={LoginPage} />
               <Route exact path="/sign-up" component={SignUpPage} />
               <Route exact path="/profile" component={RequireAuth(ProfilePage)} />

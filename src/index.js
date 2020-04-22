@@ -14,8 +14,10 @@ import GlobalStyles from './styles';
 import store, {history} from './store';
 
 import * as serviceWorker from './serviceWorker';
+// element = <h1>Hello, {name}</h1>;
 
 ReactDOM.render(
+  ///element,
   <Provider store={store}>
     <ConnectedRouter history={history}>
       <ThemeProvider theme={getTheme(BASE)}>

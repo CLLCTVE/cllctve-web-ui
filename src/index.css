@@ -8,6 +8,87 @@
     box-shadow: 0 0 30px #f3f1f1;
 }
 
+/* test*/
+
+
+
+/*if i do .container instead it turns all class="container" to this style*/
+/*new goal: landing page is all containers, so find a way to scope it even more*/
+
+.body.landing article:first-of-type form#mainemail{
+  position: absolute;
+  bottom: 2rem;
+  left: 1rem;
+  width: calc(100vw - 2rem);
+  background: white;
+  display: flex;
+  height: 2.5rem;
+  border-radius: 6px;
+  overflow: hidden;
+  /*
+  .input{
+    flex: 100%;
+    padding-left: 1.5rem;
+    font-family: "hansonbold";
+    text-transform: uppercase;
+    font-size: .75rem;
+    border: 0;
+  }
+  .button{
+    margin: 0;
+    border-radius: 6px;
+    padding-top: unset;
+    padding-bottom: unset;
+    padding: auto 2rem;
+    color: white;
+    background: $orange;
+    position: absolute;
+    height: 100%;
+    right: 0;
+  }
+  */
+}
+
+
+body.landing form#mainemail{
+  position: absolute;
+  bottom: 2rem;
+  left: 1rem;
+  width: calc(100vw - 2rem);
+  background: white;
+  display: flex;
+  height: 2.5rem;
+  border-radius: 6px;
+  overflow: hidden;
+  /*
+  .input{
+    flex: 100%;
+    padding-left: 1.5rem;
+    font-family: "hansonbold";
+    text-transform: uppercase;
+    font-size: .75rem;
+    border: 0;
+  }
+  .button{
+    margin: 0;
+    border-radius: 6px;
+    padding-top: unset;
+    padding-bottom: unset;
+    padding: auto 2rem;
+    color: white;
+    background: $orange;
+    position: absolute;
+    height: 100%;
+    right: 0;
+  }
+  */
+}
+
+
+
+
+
+/*test*/
 .logo{
     width: 150px;
     float: left;
@@ -132,3 +213,4 @@
         padding: 10px 20px;
     }
 }
+
