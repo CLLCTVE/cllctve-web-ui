@@ -1,5 +1,7 @@
 <!DOCTYPE html>
+
 <html lang="en">
+ 
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
@@ -24,9 +26,20 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
+    
+    
+    
+
+    <base href="/">
+	  <meta charset="UTF-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	  <title>CLLCTVE</title>
+    <link rel="stylesheet" type="text/css" href="/src/styles/fonts/fonts.css">
+    <link rel="stylesheet" type="text/css" href="/src/index.css">
   </head>
   <body>
+    
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <!--
@@ -39,5 +52,223 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+
+    <!-- wonder if this actully helps for the program -->
+
+    <!--BIG COMMENT
+      <div id="modal" 
+      ng-if="home.modalOpen == true"
+	ng-click="home.modalOpen = false">
+	<div>
+		<a href="#mainform" ng-click="home.form.email = home.app.email">Creatives</a>
+		<a ui-sref="brands" ng-click="home.app.fromHomeToBrands = true">Brands</a>
+	</div>
+</div>
+
+<article>
+	<div
+		id="mainimg">
+	</div>
+	<form
+		id="mainemail"
+		class="container"
+		ng-submit="home.submitEmail(home.app.email)">
+		<input type="text" 
+			name="email" 
+			placeholder="Email"
+			ng-model="home.app.email"
+			ng-required="true">
+		<button 
+			type="submit">
+			Enter
+		</button>
+	</form>
+</article>
+
+<article
+	id="news">
+	<div class="container">
+		<h1 ui-sref="news">Latest News Stories</h1>
+		<div
+			class="newsinstance"
+			ng-repeat="x in home.news | limitTo:4"
+			ui-sref="newsstory({story: x.slug})">
+			<h3 ng-bind-html="x.title"></h3>
+			<div
+				style="background-image: url({{x.image}})">
+			</div>
+		</div>
+	</div>
+</article>
+
+
+<- Brands page stuff is below ->
+
+
+<XX <article
+	id="testimonials">
+	<div class="container">
+		<section
+			class="testimonial"
+			ng-repeat="x in home.testimonials">
+			<a
+				href="{{x.link}}"
+				class="desktopflex">
+				<p>{{x.testimony}}</p>
+				<div>
+					<img src="{{x.logo_white}}" alt="">
+				</div>
+			</a>
+		</section>
+	</div>
+</article> XX>
+
+
+<XX Creatives page stuff is below XX>
+
+
+<article
+	id="about">
+	<div class="container">
+		<section>
+			<h1
+				ng-bind-html="home.about">
+			</h1>
+		</section>
+		<div class="desktopflex">
+			<section>
+				<iframe src="https://www.youtube.com/embed/KNU8vKGu_Kg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			</section>
+			<section>
+				<p
+					ng-bind-html="home.aboutP">
+				</p>
+			</section>
+		</div>
+	</div>
+</article>
+
+<XX <article
+	id="profile">
+	<div class="container desktopflex"
+		ng-bind-html="home.profile">
+	</div>
+</article> XX>
+
+<article
+	id="profile">
+	<div class="container">
+		<XX <section>
+		</section> XX>
+		<div class="desktopflex">
+			<section class="desktopflexbigger">
+				<h1 ng-bind-html="home.profile"></h1>
+				<p ng-bind-html="home.profileText"></p>
+			</section>
+			<section id="homeProfileImg">
+				<img src="{{home.profileImg}}">
+			</section>
+		</div>
+	</div>
+</article>
+
+<article
+	id="connect">
+	<div class="container desktopflex">
+		<div>
+			<h1
+				ng-bind-html="home.connect">
+			</h1>
+			<section>
+				<div
+					class="othercreative"
+					ng-repeat="x in home.otherCreatives">
+					<XX <img src="{{x.image}}" alt=""> XX>
+					<div
+						class="creativeimage"
+						style="background-image: url({{x.image}})">
+					</div>
+					<div>
+						<h3>{{x.name}}</h3>
+						<p>{{x.school}}</p>
+					</div>
+				</div>	
+			</section>
+		</div>
+		<div>
+			<img src="{{home.connectImage}}" alt="">
+		</div>
+	</div>
+</article>
+
+<article
+	id="skills">
+	<XX <div
+		class="container"
+		ng-bind-html="home.skills">
+	</div> XX>
+	<section>
+		<div class="container">
+			<div ng-bind-html="home.skills"></div>
+			<img src="{{home.skillsImg}}" alt="">
+		</div>
+	</section>
+</article>
+
+<article>
+	<div class="container desktopflex">
+		<div class="formtext">
+			<div 
+				class="checkmark"
+				ng-hide="brands.app.viewtype == 'xs' || brands.app.viewtype == 'sm'"
+				style="background-image: url('assets/images/check_white.png')">
+			</div>
+			<h1>Stay Updated</h1>
+		</div>
+		<form
+			id="mainform"
+			name="home.myform" 
+			ng-submit="home.register(creatives.form)" 
+			novalidate>
+			<fieldset>
+				<XX <h3>Personal Information</h3> XX>
+				<input type="text" 
+					name="firstname" 
+					placeholder="First Name"
+					ng-model="home.form.firstname"
+					ng-required="true">
+				<input type="text" 
+					name="lastname" 
+					placeholder="Last Name"
+					ng-model="home.form.lastname"
+					ng-required="true">
+				<input type="text" 
+					name="email" 
+					placeholder="Email"
+					ng-model="home.form.email"
+					ng-required="true">
+
+				<input type="text" 
+					name="major" 
+					placeholder="Major"
+					ng-model="home.form.major"
+					ng-required="true">
+
+				<XX <h3>List your Skills (Separated by a comma)</h3> XX>
+				<input type="text" 
+					name="skills" 
+					placeholder="List your skills (separated by a comma)"
+					ng-model="home.form.skills"
+					ng-required="true">
+			</fieldset>
+
+			<button type="submit"
+				ng-click="home.submit()">
+				Join the Waitlist
+			</button>
+		</form>
+	</div>
+</article>
+-->
   </body>
 </html>

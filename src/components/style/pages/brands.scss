@@ -1,0 +1,104 @@
+body.brands{
+	navigation{
+		background: linear-gradient(to bottom right, black, mgray);
+	}
+	article{
+	&:nth-child(odd){
+		background: lgray;
+	}
+	&:first-child{
+		background: linear-gradient(to bottom right, pink, orange);
+		color: white;
+	}
+		section.testimonial{
+			cursor: pointer;
+			text-align: center;
+			a{
+				text-decoration: none;
+				color: black;
+				img{
+					margin-top: 1rem;
+					width: auto;
+					height: 2rem;
+					margin: 1rem auto;
+				}
+			}
+	// "syracuse" testimonial
+		&:nth-child(2){
+			a{
+				flex-direction: row-reverse;
+				img{
+					width: 100%;
+					height: auto;
+				}
+			}
+		}}
+	}
+	article#team{
+		background: linear-gradient(to bottom right, pink, orange);
+		color: white;
+		// color: red;
+		section{
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			// background: green;
+			.teammember-image{
+				width: 7rem;
+				height: 7rem;
+				border-radius: 7rem;
+				background-size: cover;
+				margin: 1rem 0 .75rem 0;
+				background-position: center;
+			}
+			h3{
+				// backgrouind: red;
+			}
+		}
+	}
+	article#form{
+		background: black;
+		color: white;
+		input{
+			color: white!important;
+			border-bottom: 2px solid white!important;
+		}
+		::placeholder{
+			color: white!important;
+		}
+		button{
+			background: orange;
+			color: white;
+			width: 100%;
+		}
+	}
+	footer{
+		background: dgray!important;
+		color: white;
+  }
+  /*
+@include breakpoint(md){
+	article#testimonials{
+		section.testimonial{
+		&:nth-child(2){
+			a{
+				p{
+					margin: 0 0 0 3rem;
+				}
+			}
+    }}
+    
+	}
+	article#team{
+		text-align:center;
+		section{
+			display: inline-block;
+			text-align: center;
+			width: 400px;
+			div.teammember-image{
+				margin-left: auto;
+				margin-right: auto;
+			}
+		}
+	}
+}*/}

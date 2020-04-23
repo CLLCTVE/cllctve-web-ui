@@ -1,0 +1,187 @@
+body.home{
+	background: black;
+	color: white;
+	#modal{
+		z-index: 900;
+		position: fixed;
+		background: rgba(0, 0, 0, .85);
+		width: 100vw;
+		height: 100vh;
+		display: flex;
+		
+		div{
+			// background: green;
+			display: flex;
+			flex-direction: column;
+			margin: auto auto;
+			text-align: center;
+			*{
+				padding: .75rem 1rem;
+				border-radius: 6px;
+				background: orange;
+				font-family: "hansonbold";
+				text-transform: uppercase;
+				text-decoration: none;
+				color: white;
+			&:last-of-type{
+				margin-top: 2rem;
+				background: pink;
+			}}
+		}
+	}
+	article:first-of-type{
+		padding: 0!important;
+		div#mainimg{
+			width: 100vw;
+			height: 100vh;
+			background-size: cover;
+			background-position: 50%;
+			background-image: url("/assets/images/mobile-slideshow.gif");
+		}
+		form#mainemail{
+			position: absolute;
+			bottom: 2rem;
+			left: 1rem;
+			width: calc(100vw - 2rem);
+			background: white;
+			display: flex;
+			height: 2.5rem;
+			border-radius: 6px;
+			overflow: hidden;
+			input{
+				flex: 100%;
+				padding-left: 1.5rem;
+				font-family: "hansonbold";
+				text-transform: uppercase;
+				font-size: .75rem;
+				border: 0;
+			}
+			button{
+				margin: 0;
+				border-radius: 6px;
+				padding-top: unset;
+				padding-bottom: unset;
+				padding: auto 2rem;
+				color: white;
+				background: orange;
+				position: absolute;
+				height: 100%;
+				right: 0;
+			}
+		}
+		// div#mainchoice{
+		// 	position: absolute;
+		// 	bottom: 2rem;
+		// 	left: calc(1rem);
+		// 	display: flex;
+		// 	flex-direction: row;
+		// 	overflow: hidden;
+		// 	width: calc(100vw - 2rem);
+		// 	justify-content: space-between;
+		// 	h3{
+		// 		border-radius: 6px;
+		// 		padding: .75rem 1rem;
+		// 		background: $orange;
+		// 	&:first-child{
+		// 		background: $pink;
+		// 	}}
+		// }
+
+	}
+	article#news{
+		h1{
+			text-transform: uppercase;
+			text-align: center;
+			cursor: pointer;
+		}
+	}
+	article#about{
+		background: linear-gradient(to bottom right, pink, orange);
+	}
+	// article#testimonials{
+	// 	section.testimonial{
+	// 		cursor: pointer;
+	// 		text-align: center;
+	// 		a{
+	// 			text-decoration: none;
+	// 			color: $white;
+	// 			img{
+	// 				margin-top: 1rem;
+	// 				width: auto;
+	// 				height: 2rem;
+	// 				margin: 1rem auto;
+	// 			}
+	// 		}
+	// // "syracuse" testimonial
+	// 	&:nth-child(2){
+	// 		a{
+	// 			flex-direction: row-reverse;
+	// 			div{
+	// 				img{
+	// 					width: 100%;
+	// 					height: auto;
+	// 				}
+	// 			}
+	// 			p{
+	// 			}
+	// 		}
+	// 	}}
+	// }
+
+	form#mainform{
+		button{
+			background: orange;
+			width: 100%;
+		}
+	}
+/*
+@include breakpoint(sm){
+	article:first-of-type{
+		div#mainchoice{
+			left: calc(1.5rem);
+			width: calc(100vw - 3rem);
+		}
+	}
+}
+@include breakpoint(md){
+	article:first-of-type{
+		div#mainimg{
+			background-image: url("/assets/images/desktop_slideshow.gif");
+		}
+		form#mainemail{
+			// background: purple;
+			left: halfcontainerwidth;
+			width: containerwidth;
+		}
+		// div#mainchoice{
+		// 	// background: purple;
+		// 	left: $halfcontainerwidth;
+		// 	width: $containerwidth;
+		// }
+	}
+	article#testimonials{
+		section.testimonial{
+		&:nth-child(2){
+			a{
+				p{
+					margin: 0 0 0 3rem;
+				}
+			}
+		}}
+	}
+	article#profile{
+		h1{
+			flex: 100%;
+		}
+		section#homeProfileImg{
+			height: 400px;
+			img{
+				display: block;
+				width: unset;
+				height: 100%;
+				margin-left: auto;
+				margin-right: auto;
+			}
+		}
+	}
+}*/}

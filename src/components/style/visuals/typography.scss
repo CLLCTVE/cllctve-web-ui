@@ -1,0 +1,34 @@
+body {
+	*{
+		font-family: "open_sansregular";
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	button{
+		font-family: "hansonbold";
+		text-transform: uppercase;
+	}
+		h1{
+			font-size: 1rem;
+			margin-bottom: .75rem;
+		}
+		h3,
+		button{
+			text-transform: uppercase;
+			font-size: .75rem;
+		}
+
+	p,
+	.container span{
+		font-size: .75rem;
+		line-height: 1.25rem;
+  }
+  /*
+@include breakpoint(md){
+	h1{
+		font-size: 1.5rem;
+	}
+}*/}

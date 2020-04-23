@@ -1,6 +1,31 @@
 import React, {Component} from 'react';
-import './landing.css';
-//I import './landing.scss';
+//import './style/landing.css';
+
+import '../style/components/button.scss'
+import '../style/components/footer.scss'
+import '../style/components/form.scss'
+import '../style/components/form.scss'
+import '../style/components/nav.scss'
+
+import '../style/pages/brands.scss'
+import '../style/pages/creatives.scss'
+import '../style/pages/home.scss'
+import '../style/pages/news.scss'
+import '../style/pages/newsstory.scss'
+
+import '../style/styles/breakpoints.scss'
+import '../style/styles/normalize.scss'
+
+import '../style/visuals/colors.scss'
+import '../style/visuals/typography.scss'
+
+
+
+
+
+//import './main.scss';
+
+//import './style/landing.scss';
 
 //using asyn way 
 /*
@@ -37,6 +62,14 @@ class LandingPage extends Component{
       'creatives':[],
       'news':[],
       'otherCreatives':[],
+      'picture url':[
+        "https://cllctvewp.cecildunston.com/wp-content/uploads/2020/03/vicko-mozara-m82uh_vamhg-unsplash.jpg",
+        "https://cllctvewp.cecildunston.com/wp-content/uploads/2020/03/union-jack.png",
+        "https://cllctvewp.cecildunston.com/wp-content/uploads/2020/03/negative-space-woman-writing-notepad.jpg",
+        "https://cllctvewp.cecildunston.com/wp-content/uploads/2020/02/NY-BHM-Creatives-2020.jpg)",
+      ]
+    
+			
     }
   }
   
@@ -108,26 +141,14 @@ render() {
       </form>
     </article>
 
-    <article
-      id="news">
+    <article id="news">
       <div class="container">
         <h1 ui-sref="news">Latest News Stories</h1>
-        <div>
-          {/* only display 4 stories */}
-          {this.state.news.slice(0,4).map(story =>{
-            return(
-              <div 
-                class="newsinstance"
-                ui-sref="newsstory({story: story.slug})">
-                <h3>{story.title.rendered}</h3>
-                {/* need to figure out how to get pictures! */}
-                {/*<div style="background-image: url({story.acf.image})"></div> */}
-              </div>
-            )
-            }
-          )}
+        <div class="newsinstance"  ui-sref="newsstory({story: x.slug})">
+          <h3 ng-bind-html="x.title" class="ng-binding">The British Invasion: The Growing Crossover Between Content in the US &amp; UK</h3>
         </div>
-      </div>
+        <div id="mainimg"></div>
+        </div>
     </article>
 
     <article id="about">
@@ -174,16 +195,18 @@ render() {
     <article id="profile">
       <div class="container">
         <div class="desktopflex">
+          
           {this.state.creatives.map(function(item,index){
             return(
               <div key={index}>
                   {index==2 &&
                   <>
                     <section class="desktopflexbigger">
-                      {/* home.profile, not very sure what syntax is required for this(its not showing up)*/}
-                      <h1 ng-bind-html="{item.content.rendered}"></h1>
-                      {/* home.profileText */}
-                      <p ng-bind-html="{item.acf.title}"></p>
+                      <h1 ng-bind-html="profile" class="ng-binding">
+                        <h1>Create a profile, and share your interactive portfolio</h1>
+                      </h1>
+                      <p ng-bind-html="profileText" class="ng-binding">During the Spring 2020 semester, CLLCTVE is launching a private beta for college creatives where students will be able to register for an account, create an interactive portfolio, publish new content and job experiences, as well as connect with other creatives directly on the platform.
+                      </p>
                     </section>
                     
                     <section id="homeProfileImg">

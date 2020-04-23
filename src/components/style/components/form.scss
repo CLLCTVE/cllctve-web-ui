@@ -1,0 +1,29 @@
+::placeholder{
+	color: black;
+	font-weight: bold;
+}
+form{
+	fieldset{
+		border: 0;
+		input{
+			margin-bottom: .5rem;
+			height: 1.5rem;
+			border: 0;
+			width: 100%;
+			background: none;
+			border-bottom: 2px solid black!important;
+			padding-left: .5rem;
+			font-weight: bold;
+			opacity: .75;
+		&:focus{
+			opacity: 1;
+		}
+		}
+		h3{
+			margin: 2rem 0 1rem 0;
+		&:first-of-type{
+			margin-top: 0;
+		}
+		}
+	}
+}
