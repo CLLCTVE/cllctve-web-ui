@@ -1,61 +1,14 @@
 import React, {Component} from 'react';
 
-//import './style/landing.css';
-
-
-
-
-
-//import './main.scss';
-
-//import './style/landing.scss';
-
-//using asyn way 
-/*
-class LandingPage extends Component{
-  state= {
-    posts:null,
-    brands: null,
-    testimonials: null,
-    creatives: {
-      about: creatives[0].content.rendered
-    
-    },
-    othercreatives: null,
-    team:null,
-  };
-  
- async componentDidMount(){
-   //get creatives
-    const url ="https://cllctvewp.cecildunston.com/wp-json/wp/v2/creatives"
-    const response = await fetch(url);
-    const data = await response.json();
-    this.setState({creatives:data})
-    //console.log(data)
- }
- */
 
 class LandingPage extends Component{
   
   constructor(props){
     super(props);
-    
-    //each of these will hold the data for all the wpdata
-    this.state={
-      'creatives':[],
-      'news':[],
-      'otherCreatives':[],
-      'picture url':[
-        "https://cllctvewp.cecildunston.com/wp-content/uploads/2020/03/vicko-mozara-m82uh_vamhg-unsplash.jpg",
-        "https://cllctvewp.cecildunston.com/wp-content/uploads/2020/03/union-jack.png",
-        "https://cllctvewp.cecildunston.com/wp-content/uploads/2020/03/negative-space-woman-writing-notepad.jpg",
-        "https://cllctvewp.cecildunston.com/wp-content/uploads/2020/02/NY-BHM-Creatives-2020.jpg)",
-      ]
-    
-			
-    }
   }
   
+/* -----------------------------
+  FOR API CALLS
   componentDidMount(){
     this.getCreatives();
     this.getPost();
@@ -63,7 +16,7 @@ class LandingPage extends Component{
   }
 
   
-  /*
+  
   //trying to make it more simialr to the home.js in landing pagge(for ex: home.about or home.profile)
   getcreatives(){
     
@@ -73,7 +26,7 @@ class LandingPage extends Component{
       }
     }
   }
-  */
+  
   //from wpdata.js from landing-page--api call
   getCreatives(){
     
@@ -109,8 +62,8 @@ class LandingPage extends Component{
 
   }
   
+----------------------*/
 
-//had to do index==0, couldnt find any other way, been looking forever
 render() {
   return(
   
