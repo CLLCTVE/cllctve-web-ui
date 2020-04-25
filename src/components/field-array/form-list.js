@@ -22,7 +22,7 @@ export const FormListForm  = ({educationsList = []}) => (
     mutators={{
       ...arrayMutators
     }}
-    initialValues={{ education: [] }}
+    initialValues={{ educations: [] }}
     render={({
                handleSubmit,
                form: {
@@ -35,76 +35,72 @@ export const FormListForm  = ({educationsList = []}) => (
     }) => (
       <>
         <Form onFinish={onSubmit}>
+          <Row key="form-list">
+            <Col>
+              <FField
+                name="schoolName"
+                component={renderAntInput}
+                type="text"
+                placeholder="School Name"
+                validate={validations.required}
+              />
+            </Col>
+            <Col>
+              <FField
+                name="degreeType"
+                component={renderAntInput}
+                type="text"
+                placeholder="Degree Type"
+                validate={validations.required}
+              />
+            </Col>
+          </Row>
           <FFieldArray name='educations'>
             {({fields, meta}) => {
               console.log('come thru fields: ', fields);
               console.log('come thru meta: ', meta);
-              debugger;
+              
               /**
                * `fields` internal fill with `name`, `key`, `fieldKey` props.
                * You can extends this into sub field to support multiple dynamic fields.
                */
               return (
                 <div>
-                  <Row key="form-list">
-                    <Col>
-                      <FField
-                        name="educations[0].schoolName"
-                        component={renderAntInput}
-                        type="text"
-                        placeholder="School Name"
-                        validate={validations.required}
-                      />
-                    </Col>
-                    <Col>
-                      <FField
-                        name="educations[0].degreeType"
-                        component={renderAntInput}
-                        type="text"
-                        placeholder="Degree Type"
-                        validate={validations.required}
-                      />
-                    </Col>
-                    <Col flex="none">
-                      <MinusCircleOutlined
-                        className="dynamic-delete-button"
-                        onClick={() => {
-                          debugger;
-                        }}
-                      />
-                    </Col>
-                  </Row>
-                  {fields.map((field, index) => (
-                    <Row key={field.key}>
-                      <Col>
-                        <FField
-                          name={field.name}
-                          component={renderAntInput}
-                          type="text"
-                          placeholder="School Name"
-                          validate={validations.required}
-                        />
-                      </Col>
-                      <Col>
-                        <FField
-                          name={`degreeType`}
-                          component={renderAntInput}
-                          type="text"
-                          placeholder={`Degree Type + ${index +1}`}
-                          validate={validations.required}
-                        />
-                      </Col>
-                      <Col flex="none">
-                        <MinusCircleOutlined
-                          className="dynamic-delete-button"
-                          onClick={() => {
-                            console.log('dynamic delete handled');
-                            pop(field.key);
-                          }}
-                        />
-                      </Col>
-                    </Row>
-                  ))}
+                  {fields.map((name, index) => {
+                    console.log('field: ', name);
+                    console.log('index: ', index);
+                    return (
+                      <Row key={name.key}>
+                        <Col>
+                          <FField
+                            name={`${name}.schoolName`}
+                            component={renderAntInput}
+                            type="text"
+                            placeholder="School Name"
+                            validate={validations.required}
+                          />
+                        </Col>
+                        <Col>
+                          <FField
+                            name={`${name}.degreeType`}
+                            component={renderAntInput}
+                            type="text"
+                            placeholder={`Degree Type + ${index +1}`}
+                            validate={validations.required}
+                          />
+                        </Col>
+                        <Col flex="none">
+                          <MinusCircleOutlined
+                            className="dynamic-delete-button"
+                            onClick={() => {
+                              console.log('dynamic delete handled');
+                              pop(name.key);
+                            }}
+                          />
+                        </Col>
+                      </Row>
+                    )
+                  })}
                   <Form.Item>
                     <StyledButton
                       type="dashed"
