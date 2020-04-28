@@ -21,25 +21,23 @@ class Index extends Component {
       <Layout>
         <NavBar />
         <Layout.Content style={{padding: '60px', height: '100%', minHeight: '100vh'}}>
-          <div style={{padding: 24, textAlign: 'center'}}>
-            <Switch>
-              <Route exact path="/" component={HomePage} />
-              <Route exact path="/login" component={LoginPage} />
-              <Route exact path="/sign-up" component={SignUpPage} />
-              <Route exact path="/profile" component={RequireAuth(ProfilePage)} />
-              <Route exact path="/array-form" component={FieldArrayPage} />
-              
-              <Route path="/on-boarding/:step" render={() => {
-                return (
-                  <div>
-                    <OnBoardingStep />
-                    <OnBoardingPage />
-                  </div>
-                  )
-              }} />
-              <Route path="*" component={NotFoundPage} />
-            </Switch>
-          </div>
+          <Switch>
+            <Route exact path="/" component={HomePage} />
+            <Route exact path="/login" component={LoginPage} />
+            <Route exact path="/sign-up" component={SignUpPage} />
+            <Route exact path="/profile" component={RequireAuth(ProfilePage)} />
+            <Route exact path="/array-form" component={FieldArrayPage} />
+            
+            <Route path="/on-boarding/:step" render={() => {
+              return (
+                <div>
+                  <OnBoardingStep />
+                  <OnBoardingPage />
+                </div>
+                )
+            }} />
+            <Route path="*" component={NotFoundPage} />
+          </Switch>
         </Layout.Content>
       </Layout>
     );

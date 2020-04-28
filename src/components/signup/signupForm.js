@@ -5,6 +5,7 @@ import {
   renderInput,
   renderAntInput,
   renderMonthPicker,
+  renderAntMonthPicker,
   renderPasswordInput,
   renderStyledButton,
   normalizePhone,
@@ -49,10 +50,11 @@ export const AsyncSignUpForm = ({isLoading}) => (
     {onSubmit => (
       <FForm
         onSubmit={onSubmit}
-        render={({submitError, handleSubmit, form, submitting, pristine, values}) => (
+        render={({submitError, handleSubmit, form, submitting, errors, pristine, values}) => (
           <>
             {isLoading && <div>Loading...</div>}
             {submitError && <div className="error">{submitError}</div>}
+            {errors && <div className="error">{errors}</div>}
             <form onSubmit={handleSubmit}>
               <div>
                 <FField
@@ -60,7 +62,7 @@ export const AsyncSignUpForm = ({isLoading}) => (
                   component={renderAntInput}
                   validate={validations.composeValidators(
                     validations.required,
-                    validations.minLength(4),
+                    validations.minLength(5),
                     validations.maxLength(25)
                   )}
                   parse={value => value && value.toLowerCase()}
@@ -87,7 +89,8 @@ export const AsyncSignUpForm = ({isLoading}) => (
               <div>
                 <FField
                   name="gradMonthYear"
-                  component={renderMonthPicker}
+                  placeholder="Graduation Date MM-YY"
+                  component={renderAntMonthPicker}
                   monthFormat={monthFormat}
                   parse={value => value || value.format(monthFormat)}
                   format={value => value}

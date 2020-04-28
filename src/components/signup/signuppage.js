@@ -17,31 +17,9 @@ import {AsyncSignUpForm} from './signupForm';
 // const monthFormat = 'MM-YYYY';
 
 const Container = styled.div`
-  max-width: 300px;
-  display: inline-block;
-`;
-
-const StyledButton = styled(Button)`
-  font-family: 'Hanson Bold';
-
-  &.ant-btn {
-    border: none;
-    color: #ffffff;
-    opacity: 1;
-    background: transparent linear-gradient(101deg, #e41e84 0%, #ff6633 100%) 0% 0% no-repeat
-      padding-box;
-
-    &:hover {
-      color: #ffffff;
-      opacity: 0.8;
-      background: transparent linear-gradient(101deg, #ff6633 0%, #e41e84 100%) 0% 0% no-repeat
-        padding-box;
-    }
-
-    &:focus {
-      color: #e41e84;
-    }
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 class SignUpPage extends Component {
@@ -49,9 +27,11 @@ class SignUpPage extends Component {
     const {isLoading} = this.props;
     return (
       <Container>
-        <AsyncSignUpForm isLoading={isLoading} />
-        <div>
-          <StyledLink to="/login">Already a member? Click here to Log in!</StyledLink>
+        <div style={{padding: 24, textAlign: 'center'}}>
+          <AsyncSignUpForm isLoading={isLoading} />
+          <div>
+            <StyledLink to="/login">Already a member? Click here to Log in!</StyledLink>
+          </div>
         </div>
       </Container>
     );

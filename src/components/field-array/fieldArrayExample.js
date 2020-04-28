@@ -2,12 +2,9 @@ import React, {Component} from 'react';
 import {FieldArrayForm} from './arrayForm';
 import {EducationsList} from './educationsList'
 import {FormListForm} from './form-list';
-import styled from 'styled-components';
+import {CenteredContainer as Container} from '../fields/renderFields';
 
-const Container = styled.div`
-  display: inline-block;
-  max-width: 300px;
-`;
+
 const educationsList = [
   {
     schoolName: 'FAMU',
@@ -31,8 +28,9 @@ class FieldArrayPage extends Component {
   render() {
     return (
       <Container>
-        <FormListForm educationsList={educationsList}/>
-        
+        <div style={{padding: 24, textAlign: 'center', width: '75%'}}>
+          <FormListForm educationsList={educationsList}/>
+        </div>
       </Container>
     );
   }

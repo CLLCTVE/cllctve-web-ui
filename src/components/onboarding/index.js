@@ -11,6 +11,7 @@ import {
   renderTextArea,
   normalizePhone,
   capitalize,
+  CenteredContainer as Container
 } from '../fields/renderFields';
 import OnBoardingWizard from './onboarding-wizard';
 import {
@@ -23,11 +24,6 @@ import {EducationFieldArrayForm} from './EducationForm';
 import * as validations from '../../utils/validations';
 
 const monthFormat = 'MM-YYYY';
-
-const Container = styled.div`
-  max-width: 100%;
-  display: inline-block;
-`;
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
 

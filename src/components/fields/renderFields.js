@@ -1,5 +1,5 @@
 import React from 'react';
-import { DatePicker, Form, Input, Select, Checkbox, Button } from 'antd';
+import { DatePicker, Form, Input, Select, Checkbox, Button, Divider } from 'antd';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 import { Field } from 'react-final-form';
@@ -101,10 +101,17 @@ const StyledPasswordInput = styled(Input.Password)`
   }
 `;
 
+export const CenteredContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 const StyledMonthPicker = styled(MonthPicker)`
   background: none;
 
   &.ant-picker {
+    display: flex;
     border-top-width: 0px;
     border-left-width: 0px;
     border-right-width: 0px;
@@ -167,9 +174,25 @@ export const StyledButton = styled(Button)`
         padding-box;
     }
 
-    &:focus {
-      color: #e41e84;
+    &:focus > span,
+    &:active > span {
+      color: #e41e84 !important;
     }
+    
+    &:active {
+       span {
+        color: #e41e84 !important;
+       }
+    }
+    
+   
+  }
+`;
+
+export const StyledDivider = styled(Divider)`
+  &.ant-divider {
+    background: transparent linear-gradient(101deg, #e41e84 0%, #ff6633 100%) 0% 0% no-repeat
+      padding-box;
   }
 `;
 
