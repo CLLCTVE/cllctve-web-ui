@@ -9,14 +9,14 @@ import { MinusCircleOutlined, PlusOutlined } from "@ant-design/icons";
 
 class OnBoardingWizard extends Component {
   
-  static Page = ({ children }) => children
+  static Page = ({ children }) => children;
   
   constructor(props) {
     super(props)
     this.state = {
       page: 0,
       values: props.initialValues || {}
-    }
+    };
     this.props.history.push(`/on-boarding/${this.state.page}`);
   }
   next = values =>{
@@ -24,13 +24,13 @@ class OnBoardingWizard extends Component {
     this.setState(state => ({
       page: Math.min(state.page + 1, this.props.children.length - 1),
       values
-    }))
+    }));
   };
   
   previous = () => {
     this.setState(state => ({
       page: Math.max(state.page - 1, 0)
-    }))
+    }));
     this.props.history.push(`/on-boarding/${this.state.page - 1}`);
   };
   
@@ -40,7 +40,7 @@ class OnBoardingWizard extends Component {
   
   getStepKey = (step) => {
     return Object.keys(ONBOARDING_ENTRY_MAP_BY_NAME)[step];
-  }
+  };
   
   /**
    * NOTE: Both validate and handleSubmit switching are implemented
@@ -51,26 +51,26 @@ class OnBoardingWizard extends Component {
   validate = values => {
     const activePage = React.Children.toArray(this.props.children)[
       this.state.page
-      ]
+      ];
     return activePage.props.validate ? activePage.props.validate(values) : {}
-  }
+  };
   
   handleSubmit = values => {
-    const { children, onSubmit } = this.props
-    const { page } = this.state
-    const isLastPage = page === React.Children.count(children) - 1
+    const { children, onSubmit } = this.props;
+    const { page } = this.state;
+    const isLastPage = page === React.Children.count(children) - 1;
     if (isLastPage) {
       return onSubmit(values)
     } else {
       this.next(values)
     }
-  }
+  };
   
   render() {
-    const { children, match } = this.props
-    const { page, values } = this.state
-    const activePage = React.Children.toArray(children)[page]
-    const isLastPage = page === React.Children.count(children) - 1
+    const { children, match } = this.props;
+    const { page, values } = this.state;
+    const activePage = React.Children.toArray(children)[page];
+    const isLastPage = page === React.Children.count(children) - 1;
     return (
       <Form
         initialValues={values}

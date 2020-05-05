@@ -104,7 +104,6 @@ export const AsyncSignUpForm = ({isLoading}) => (
                   component={renderAntInput}
                   validate={validations.composeValidators(
                     validations.required,
-                    validations.edu,
                     validations.email
                   )}
                   type="text"

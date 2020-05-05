@@ -9,7 +9,7 @@ const OnBoardingStep = ({match}) => {
   };
   
   return (
-    <div>
+    <div style={{padding: 24, textAlign: 'center'}}>
       <h3>
         Set Up Your Account
       </h3>

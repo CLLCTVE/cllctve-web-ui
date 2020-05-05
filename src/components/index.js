@@ -9,6 +9,8 @@ import LoginPage from './login/loginPage';
 import SignUpPage from './signup/signuppage';
 import ProfilePage from './profile-page';
 import OnBoardingPage from './onboarding';
+import OnBoardingFlowPage from './onboarding-flow';
+import OnBoardingFlowStep from './onboarding-flow/onboarding-flow-step';
 import OnBoardingStep from './onboarding/onboarding-step'
 import NotFoundPage from './pages/notFoundPage';
 import FieldArrayPage from './field-array/fieldArrayExample';
@@ -28,9 +30,17 @@ class Index extends Component {
             <Route exact path="/profile" component={RequireAuth(ProfilePage)} />
             <Route exact path="/array-form" component={FieldArrayPage} />
             
-            <Route path="/on-boarding/:step" render={() => {
+            <Route path="/on-boarding-flow/:step" render={() => {
               return (
                 <div>
+                  <OnBoardingFlowPage />
+                </div>
+              )
+            }} />
+            
+            <Route path="/on-boarding/:step" render={() => {
+              return (
+                <div style={{padding: 24, textAlign: 'center', width: '75%'}}>
                   <OnBoardingStep />
                   <OnBoardingPage />
                 </div>
