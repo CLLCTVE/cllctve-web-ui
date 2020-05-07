@@ -23,6 +23,11 @@ class OnBoardingFlowPage extends Component {
     return (
       <Container>
         <Wizard
+          initialValues={{
+            education: {
+              isEnrolled: false
+            }
+          }}
           onSubmit={onSubmit}
         >
           <Wizard.Page>

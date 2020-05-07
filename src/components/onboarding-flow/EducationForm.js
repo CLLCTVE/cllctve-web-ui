@@ -15,11 +15,11 @@ import React from 'react';
 const monthFormat = 'MM-YYYY';
 
 export const EducationForm = ({remove, push}) => (
-  <>
+  <div style={{vWidth: '70'}}>
     <Row gutter={[16, 16]}>
       <Col span={24}>
         <FField
-          name="schoolName"
+          name="education.schoolName"
           component={renderAntInput}
           type="text"
           placeholder="School Name*"
@@ -30,7 +30,7 @@ export const EducationForm = ({remove, push}) => (
     <Row gutter={[16, 16]}>
       <Col span={8}>
         <FField
-          name="degreeType"
+          name="education.degreeType"
           component={renderAntInput}
           type="text"
           placeholder="Degree Type*"
@@ -39,7 +39,7 @@ export const EducationForm = ({remove, push}) => (
       </Col>
       <Col span={16}>
         <FField
-          name="major"
+          name="education.major"
           component={renderAntInput}
           type="text"
           placeholder="Declared Major*"
@@ -50,7 +50,7 @@ export const EducationForm = ({remove, push}) => (
     <Row gutter={[16, 16]}>
       <Col span={8}>
         <FField
-          name="city"
+          name="education.city"
           component={renderAntInput}
           type="text"
           placeholder="City*"
@@ -59,7 +59,7 @@ export const EducationForm = ({remove, push}) => (
       </Col>
       <Col span={4}>
         <FField
-          name="state"
+          name="education.state"
           component={renderAntInput}
           type="text"
           placeholder="State*"
@@ -68,7 +68,7 @@ export const EducationForm = ({remove, push}) => (
       </Col>
       <Col span={6}>
         <FField
-          name="startMonthYear"
+          name="education.startMonthYear"
           placeholder="Start Date MM-YY*"
           component={renderAntMonthPicker}
           monthFormat={monthFormat}
@@ -79,9 +79,9 @@ export const EducationForm = ({remove, push}) => (
         />
       </Col>
       <Col span={6}>
-        <ConditionalRender when="isEnrolled" is={false}>
+        <ConditionalRender when="education.isEnrolled" is={false}>
           <FField
-            name="gradMonthYear"
+            name="education.gradMonthYear"
             placeholder="Graduation Date MM-YY*"
             component={renderAntMonthPicker}
             monthFormat={monthFormat}
@@ -93,7 +93,7 @@ export const EducationForm = ({remove, push}) => (
         </ConditionalRender>
         
         <FField
-          name="isEnrolled"
+          name="education.isEnrolled"
           component={renderCheckbox}
           type="checkbox"
           label="Currently Enrolled as a Student?"
@@ -103,7 +103,7 @@ export const EducationForm = ({remove, push}) => (
     <Row gutter={[16, 16]}>
       <Col span={24}>
         <FField
-          name="description"
+          name="education.description"
           component={renderTextArea}
           type="text"
           placeholder="Description"
@@ -236,7 +236,7 @@ export const EducationForm = ({remove, push}) => (
                     onClick={(e) => {
                       e.preventDefault();
                       e.stopPropagation();
-                      push('educations', undefined);
+                      fields.push()
                     }}
                   >
                     <PlusOutlined/> Add More
@@ -248,5 +248,5 @@ export const EducationForm = ({remove, push}) => (
         )
       }}
     </FFieldArray>
-  </>
+  </div>
 );
