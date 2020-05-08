@@ -8,7 +8,8 @@ import {
   renderAntMonthPicker,
   renderPasswordInput,
   renderStyledButton,
-  normalizePhone,
+  parsePhone,
+  formatPhone,
   capitalize, renderAntPasswordInput,
 } from '../fields/renderFields';
 import styled from 'styled-components';
@@ -112,12 +113,12 @@ export const AsyncSignUpForm = ({isLoading}) => (
               </div>
               <div>
                 <FField
-                  name="phoneNumber"
+                  name="phone"
                   component={renderAntInput}
                   type="text"
                   placeholder="555-555-5555"
-                  format={normalizePhone}
-                  parse={value => value}
+                  parse={parsePhone}
+                  format={formatPhone}
                 />
               </div>
               <div>
@@ -139,6 +140,7 @@ export const AsyncSignUpForm = ({isLoading}) => (
                 Submit
               </StyledButton>
             </form>
+            <pre>{JSON.stringify(values, 0, 2)}</pre>
           </>
         )}
       />

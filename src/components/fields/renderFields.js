@@ -291,7 +291,9 @@ export const renderMonthPicker = ({input, placeholder, monthFormat, allowClear})
                             allowClear={allowClear}/>;
 };
 
-export const normalizePhone = value => {
+export const parsePhone = (value) => !value ? value : value.replace(/[^\d]/g, '');
+
+export const formatPhone = value => {
   if (!value) {
     return value;
   }

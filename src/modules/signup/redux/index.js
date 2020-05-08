@@ -51,22 +51,22 @@ export function* onHandleSignUpRequest({
   lastName,
   email,
   gradMonthYear,
-  phoneNumber,
+  phone,
   password,
 }) {
   console.log(
-    '#onHandleSignupRequest, firstName: %s, lastName: %s, email: %s, gradMonthYear: %s, phoneNumber: %s, password: %s',
+    '#onHandleSignupRequest, firstName: %s, lastName: %s, email: %s, gradMonthYear: %s, phone: %s, password: %s',
     firstName,
     lastName,
     email,
     gradMonthYear,
-    phoneNumber,
+    phone,
     password
   );
 
   try {
     console.log('#onHandleSignupRequest, try block');
-    const response = yield call(request.post, '/users/signup', {firstName, lastName, email, gradMonthYear, phone: phoneNumber, password});
+    const response = yield call(request.post, '/users/signup', {firstName, lastName, email, gradMonthYear, phone, password});
     
     localStorage.setItem('token', JSON.stringify(response.data.token));
     localStorage.setItem('user', JSON.stringify(response.data.user));
@@ -80,13 +80,17 @@ export function* onHandleSignUpRequest({
     ]);
   } catch (err) {
     console.error('#onHandleSignupRequest, catch block, err: ', err);
-  
+    
+    
+    let payload = {
+      [FORM_ERROR]: 'Errors in form',
+      ...err.response.data.errors
+    };
+    debugger;
     if (err.response && err.response.status === 422) {
       yield put({
         type: SIGNUP_SUCCESS,
-        payload: {[FORM_ERROR]: err.response.data.message,
-          ...err.response.data.errors
-        },
+        payload: payload,
       });
     }
   
