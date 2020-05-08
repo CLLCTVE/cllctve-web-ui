@@ -14,7 +14,7 @@ import React from 'react';
 
 const monthFormat = 'MM-YYYY';
 
-export const LicensesCertsForm = ({remove, push}) => (
+export const LicensesCertsForm = () => (
   <>
     <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
       <Col span={24}>
@@ -22,12 +22,20 @@ export const LicensesCertsForm = ({remove, push}) => (
           name="licensesCert.title"
           component={renderInput}
           type="text"
-          placeholder="Title"
+          placeholder="Name of Cert"
         />
       </Col>
     </Row>
     <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
-      <Col span={24}>
+      <Col span={12}>
+        <FField
+          name="licensesCert.organization"
+          component={renderInput}
+          type="text"
+          placeholder="Associated With"
+        />
+      </Col>
+      <Col span={12}>
         <FField
           name="licensesCert.organization"
           component={renderInput}
@@ -40,6 +48,7 @@ export const LicensesCertsForm = ({remove, push}) => (
       <Col span={12}>
         <FField
           name="licensesCert.issuedMonthYear"
+          placeholder="Issued Date"
           component={renderMonthPicker}
           monthFormat={monthFormat}
           parse={value => value || value.format(monthFormat)}
@@ -48,11 +57,11 @@ export const LicensesCertsForm = ({remove, push}) => (
           // validate={validations.required}
         />
       </Col>
-      <Col span={6}>
-        <ConditionalRender when="licensesCert.canExpire" is={false}>
+      <Col span={12}>
+        <ConditionalRender when="licensesCert.canExpire" is={true}>
           <FField
-            name="licensesCert.gradMonthYear"
-            placeholder="Graduation Date MM-YY*"
+            name="licensesCert.expMonthYear"
+            placeholder="Expiration Date*"
             component={renderAntMonthPicker}
             monthFormat={monthFormat}
             disabledDate={(val, val2) => {console.log('val: ', val); console.log('val2', val2);}}
@@ -73,7 +82,7 @@ export const LicensesCertsForm = ({remove, push}) => (
     <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
       <Col span={24}>
         <FField
-          name="honorsAward.links"
+          name="licensesCert.links"
           component={renderInput}
           type="text"
           placeholder="Links"
@@ -105,7 +114,7 @@ export const LicensesCertsForm = ({remove, push}) => (
                         name={`${name}.title`}
                         component={renderInput}
                         type="text"
-                        placeholder="Title"
+                        placeholder="Name of Cert"
                         validate={validations.required}
                       />
                     </Col>

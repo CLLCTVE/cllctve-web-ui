@@ -19,18 +19,6 @@ class OnBoardingFlowWizard extends Component {
     this.props.history.push(`/on-boarding-flow/${this.state.page}`);
   }
   
-  push = (par1, par2) => {
-    console.log('OnBoardingFlowWizard#push, par1: ', par1);
-    console.log('OnBoardingFlowWizard#push, par2: ', par2);
-    debugger;
-  };
-  
-  remove = (par1, par2) => {
-    console.log('OnBoardingFlowWizard#remove, par1: ', par1);
-    console.log('OnBoardingFlowWizard#remove, par2: ', par2);
-    debugger;
-  };
-  
   next = values => {
     console.log('OnBoardingFlowWizard#next');
     this.props.history.push(`/on-boarding-flow/${this.state.page + 1}`);
@@ -98,6 +86,7 @@ class OnBoardingFlowWizard extends Component {
           submitting,
           values
         }) => {
+          console.log('isLastPage: ', isLastPage);
           return (
             <form onSubmit={handleSubmit}>
               {activePage}
@@ -110,7 +99,7 @@ class OnBoardingFlowWizard extends Component {
                     shape="round"
                     onClick={this.previous}
                   >
-                    Back to {this.displayStepTitle(Number(match.params.step) -1)}
+                    Back to {this.displayStepTitle(Number(match.params.step) - 1)}
                   </StyledButton>
                 )}
                 {!isLastPage && (
@@ -121,7 +110,7 @@ class OnBoardingFlowWizard extends Component {
                       type="submit"
                       htmlType="submit"
                     >
-                      Add your {this.displayStepTitle(match.params.step)}
+                      Add {this.displayStepTitle(match.params.step)}
                     </StyledButton>
                   </>
                 )}

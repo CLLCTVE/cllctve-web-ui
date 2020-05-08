@@ -33,6 +33,9 @@ class OnBoardingFlowPage extends Component {
                   },
                   experience: {
                     currentEmployer: false
+                  },
+                  licensesCert: {
+                    canExpire: false
                   }
                 }}
                 onSubmit={onSubmit}
@@ -47,10 +50,10 @@ class OnBoardingFlowPage extends Component {
                   <ExperienceForm />
                 </Wizard.Page>
                 <Wizard.Page>
-                  <HonorsAwardsForm />
+                  <LicensesCertsForm />
                 </Wizard.Page>
                 <Wizard.Page>
-                  <LicensesCertsForm />
+                  <HonorsAwardsForm />
                 </Wizard.Page>
               </Wizard>
             )}

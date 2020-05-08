@@ -24,7 +24,7 @@ const OnBoardingFlowStep = ({match}) => {
         <Col span={24}>
           <Title level={2}>Set Up Your Account</Title>
   
-          <Title level={4}>{displayText(match.params.step)}</Title>
+          <Title level={4}>Add Your {displayTitle(match.params.step)}</Title>
         </Col>
       </Row>
     </Container>

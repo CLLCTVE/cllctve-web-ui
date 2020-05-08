@@ -2,27 +2,27 @@ export const ONBOARDING_ENTRY_MAP_BY_NAME = {
   education: {
     id: 0,
     title: 'Education',
-    text: 'Add your Education'
+    text: 'Education'
   },
   skills: {
     id: 1,
     title: 'Skills',
-    text: 'Add your Skills'
+    text: 'Skills'
   },
   experience: {
     id: 2,
     title: 'Experience',
-    text: 'Add your Experience'
-  },
-  honorsAwards: {
-    id: 3,
-    title: 'Honors and Awards',
-    text: 'Add your Honors And Awards'
+    text: 'Experience'
   },
   licensesCerts: {
     id: 4,
     title: 'Licenses and Certifications',
-    text: 'Add your Licenses and Certs'
+    text: 'Certs'
+  },
+  honorsAwards: {
+    id: 3,
+    title: 'Honors and Awards',
+    text: 'Honors'
   }
 };
 

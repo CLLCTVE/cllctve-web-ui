@@ -127,13 +127,6 @@ export const EducationForm = () => (
     </Row>
     <FFieldArray name='educations'>
       {({fields, meta}) => {
-        console.log('come thru fields: ', fields);
-        console.log('come thru meta: ', meta);
-        
-        /**
-         * `fields` internal fill with `name`, `key`, `fieldKey` props.
-         * You can extends this into sub field to support multiple dynamic fields.
-         */
         return (
           <Space direction="vertical">
             {fields.map((name, index) => {
