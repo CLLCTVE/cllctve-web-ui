@@ -14,12 +14,12 @@ import React from 'react';
 
 const monthFormat = 'MM-YYYY';
 
-export const HonorsAwardsForm = ({remove, push}) => (
+export const LicensesCertsForm = ({remove, push}) => (
   <>
     <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
       <Col span={24}>
         <FField
-          name="honorsAward.title"
+          name="licensesCert.title"
           component={renderInput}
           type="text"
           placeholder="Title"
@@ -27,34 +27,46 @@ export const HonorsAwardsForm = ({remove, push}) => (
       </Col>
     </Row>
     <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
-      <Col span={12}>
+      <Col span={24}>
         <FField
-          name="honorsAward.associatedWith"
+          name="licensesCert.organization"
           component={renderInput}
           type="text"
-          placeholder="Associated With"
-        />
-      </Col>
-      <Col span={12}>
-        <FField
-          name="honorsAward.issuer"
-          component={renderInput}
-          type="text"
-          placeholder="Issuer"
+          placeholder="Issuing Organization"
         />
       </Col>
     </Row>
     <Row>
       <Col span={12}>
         <FField
-          name="honorsAward.issuedMonthYear"
-          placeholder="Issued Date"
+          name="licensesCert.issuedMonthYear"
           component={renderMonthPicker}
           monthFormat={monthFormat}
           parse={value => value || value.format(monthFormat)}
           format={value => value}
           allowClear={false}
-          validate={validations.required}
+          // validate={validations.required}
+        />
+      </Col>
+      <Col span={6}>
+        <ConditionalRender when="licensesCert.canExpire" is={false}>
+          <FField
+            name="licensesCert.gradMonthYear"
+            placeholder="Graduation Date MM-YY*"
+            component={renderAntMonthPicker}
+            monthFormat={monthFormat}
+            disabledDate={(val, val2) => {console.log('val: ', val); console.log('val2', val2);}}
+            parse={value => value || value.format(monthFormat)}
+            format={value => value}
+            allowClear={false}
+            // validate={validations.required}
+          />
+        </ConditionalRender>
+        <FField
+          name="licensesCert.canExpire"
+          component={renderCheckbox}
+          type="checkbox"
+          label="This credential will expire"
         />
       </Col>
     </Row>
@@ -68,26 +80,8 @@ export const HonorsAwardsForm = ({remove, push}) => (
         />
       </Col>
     </Row>
-    <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
-      <Col span={24}>
-        <FField
-          name="honorsAward.description"
-          component={renderTextArea}
-          type="text"
-          placeholder="Description"
-          label="Description"
-        />
-      </Col>
-    </Row>
-    <FFieldArray name='honorsAwards'>
+    <FFieldArray name='licensesCerts'>
       {({fields, meta}) => {
-        console.log('come thru fields: ', fields);
-        console.log('come thru meta: ', meta);
-        
-        /**
-         * `fields` internal fill with `name`, `key`, `fieldKey` props.
-         * You can extends this into sub field to support multiple dynamic fields.
-         */
         return (
           <Space direction="vertical">
             {fields.map((name, index) => {
@@ -105,7 +99,7 @@ export const HonorsAwardsForm = ({remove, push}) => (
                         }}
                       />
                     </Col>
-  
+                    
                     <Col span={24}>
                       <FField
                         name={`${name}.title`}
@@ -117,20 +111,12 @@ export const HonorsAwardsForm = ({remove, push}) => (
                     </Col>
                   </Row>
                   <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
-                    <Col span={12}>
+                    <Col span={24}>
                       <FField
-                        name={`${name}.associatedWith`}
+                        name={`${name}.organization`}
                         component={renderInput}
                         type="text"
-                        placeholder="Associated With"
-                      />
-                    </Col>
-                    <Col span={12}>
-                      <FField
-                        name={`${name}.issuer`}
-                        component={renderInput}
-                        type="text"
-                        placeholder="Issuer"
+                        placeholder="Issuing Organization"
                       />
                     </Col>
                   </Row>
@@ -155,17 +141,6 @@ export const HonorsAwardsForm = ({remove, push}) => (
                         component={renderInput}
                         type="text"
                         placeholder="Links"
-                      />
-                    </Col>
-                  </Row>
-                  <Row gutter={[{ xs: 8, sm: 16, md: 24, lg: 32 }, 16]}>
-                    <Col span={24}>
-                      <FField
-                        name={`${name}.description`}
-                        component={renderTextArea}
-                        type="text"
-                        placeholder="Description"
-                        label="Description"
                       />
                     </Col>
                   </Row>

@@ -129,7 +129,6 @@ class OnBoardingFlowWizard extends Component {
                   <StyledButton
                     size="large"
                     shape="round"
-                    type="submit"
                     htmlType="submit"
                     disabled={submitting}
                   >

@@ -8,6 +8,10 @@ export const SIGNUP_REQUEST = 'creative/signup/SIGNUP_REQUEST';
 export const SIGNUP_FAILURE = 'creative/signup/SIGNUP_FAILURE';
 export const SIGNUP_SUCCESS = 'creative/signup/SIGNUP_SUCCESS';
 
+export const ONBOARDING_REQUEST = 'creative/onboarding/ONBOARDING_REQUEST';
+export const ONBOARDING_FAILURE = 'creative/onboarding/ONBOARDING_FAILURE';
+export const ONBOARDING_SUCCESS = 'creative/onboarding/ONBOARDING_SUCCESS';
+
 export const handleSignUpRequest = () => ({
   type: SIGNUP_REQUEST,
   isLoading: true,
@@ -24,6 +28,10 @@ export const handleSignUpFailed = payload => ({
   payload,
   isLoading: false,
 });
+
+export function* onHandleOnBoardingRequest(values) {
+  console.log('#onHandleOnBoardingRequest, values: ', values);
+}
 
 export function* onHandleSignUpRequest({
   firstName,

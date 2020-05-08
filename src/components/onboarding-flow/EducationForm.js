@@ -72,7 +72,7 @@ export const EducationForm = () => (
       <Col span={6}>
         <FField
           name="education.startMonthYear"
-          placeholder="Start Date MM-YY*"
+          placeholder="Start Date*"
           component={renderAntMonthPicker}
           monthFormat={monthFormat}
           parse={value => value || value.format(monthFormat)}
@@ -85,7 +85,7 @@ export const EducationForm = () => (
         <ConditionalRender when="education.isEnrolled" is={false}>
           <FField
             name="education.gradMonthYear"
-            placeholder="Graduation Date MM-YY*"
+            placeholder="Grad Date*"
             component={renderAntMonthPicker}
             monthFormat={monthFormat}
             disabledDate={(val, val2) => {console.log('val: ', val); console.log('val2', val2);}}
@@ -204,7 +204,7 @@ export const EducationForm = () => (
                       <FField
                         
                         name={`${name}.startMonthYear`}
-                        placeholder="Start Date MM-YY"
+                        placeholder="Start Date"
                         component={renderAntMonthPicker}
                         monthFormat={monthFormat}
                         parse={value => value || value.format(monthFormat)}
@@ -216,7 +216,7 @@ export const EducationForm = () => (
                     <Col span={6}>
                       <FField
                         name={`${name}.gradMonthYear`}
-                        placeholder="Graduation Date MM-YY"
+                        placeholder="Grad Date"
                         component={renderAntMonthPicker}
                         monthFormat={monthFormat}
                         disabledDate={disabledDate}

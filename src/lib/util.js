@@ -18,6 +18,11 @@ export const ONBOARDING_ENTRY_MAP_BY_NAME = {
     id: 3,
     title: 'Honors and Awards',
     text: 'Add your Honors And Awards'
+  },
+  licensesCerts: {
+    id: 4,
+    title: 'Licenses and Certifications',
+    text: 'Add your Licenses and Certs'
   }
 };
 

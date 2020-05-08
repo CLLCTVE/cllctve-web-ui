@@ -1,6 +1,12 @@
 import {all, call, put, fork, take, takeLatest} from 'redux-saga/effects';
 
-import {SIGNUP_REQUEST, SIGNUP_SUCCESS, SIGNUP_FAILURE, onHandleSignUpRequest} from './redux';
+import {SIGNUP_REQUEST, SIGNUP_SUCCESS, SIGNUP_FAILURE, ONBOARDING_REQUEST, onHandleSignUpRequest, onHandleOnBoardingRequest} from './redux';
+
+
+function* watchOnBoardingFlow() {
+  console.log('#watchOnBoardingFlow');
+  yield takeLatest(ONBOARDING_REQUEST, onHandleOnBoardingRequest);
+}
 
 function* watchCreativeSignUp() {
   console.log('#watchCreativeSignUp');
@@ -14,5 +20,5 @@ function* watchCreativeSignUp() {
 }
 
 export default function* sagas() {
-  yield all([watchCreativeSignUp()]);
+  yield all([watchCreativeSignUp(), watchOnBoardingFlow()]);
 }

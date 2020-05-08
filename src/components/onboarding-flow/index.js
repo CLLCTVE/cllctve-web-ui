@@ -1,19 +1,15 @@
 import React, {Component} from 'react';
 import {withRouter} from 'react-router-dom';
-import { Field as FField, Form as FForm } from 'react-final-form';
+import MakeAsyncFunction from 'react-redux-promise-listener';
+import {promiseListener} from '../../store';
 import Wizard from './onboarding-flow-wizard';
 import {EducationForm} from './EducationForm';
 import {ExperienceForm} from './ExperienceForm';
 import {SkillsForm} from './SkillsForm';
 import {HonorsAwardsForm} from './HonorsAwardsForm';
+import {LicensesCertsForm} from './LicensesCertsForm';
 import {CenteredContainer as Container} from '../fields/renderFields';
-
-const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
-
-const onSubmit = async values => {
-  await sleep(300);
-  window.alert(JSON.stringify(values, 0, 2));
-};
+import { ONBOARDING_FAILURE, ONBOARDING_REQUEST, ONBOARDING_SUCCESS } from '../../modules/signup/redux';
 
 class OnBoardingFlowPage extends Component {
  
@@ -23,36 +19,42 @@ class OnBoardingFlowPage extends Component {
     return (
       <Container>
         <div style={{padding: 24, textAlign: 'center', width: '60vw'}}>
-          <Wizard
-            initialValues={{
-              education: {
-                isEnrolled: false
-              },
-              experience: {
-                currentlyWorking: false
-              }
-            }}
-            onSubmit={onSubmit}
+          <MakeAsyncFunction
+            listener={promiseListener}
+            start={ONBOARDING_REQUEST}
+            resolve={ONBOARDING_SUCCESS}
+            reject={ONBOARDING_FAILURE}
           >
-            <Wizard.Page>
-              <EducationForm />
-            </Wizard.Page>
-            <Wizard.Page>
-              <div>
-                <SkillsForm />
-              </div>
-            </Wizard.Page>
-            <Wizard.Page>
-              <div>
-                <ExperienceForm />
-              </div>
-            </Wizard.Page>
-            <Wizard.Page>
-              <div>
-                <HonorsAwardsForm />
-              </div>
-            </Wizard.Page>
-          </Wizard>
+            {onSubmit => (
+              <Wizard
+                initialValues={{
+                  education: {
+                    isEnrolled: false
+                  },
+                  experience: {
+                    currentEmployer: false
+                  }
+                }}
+                onSubmit={onSubmit}
+              >
+                <Wizard.Page>
+                  <EducationForm />
+                </Wizard.Page>
+                <Wizard.Page>
+                  <SkillsForm />
+                </Wizard.Page>
+                <Wizard.Page>
+                  <ExperienceForm />
+                </Wizard.Page>
+                <Wizard.Page>
+                  <HonorsAwardsForm />
+                </Wizard.Page>
+                <Wizard.Page>
+                  <LicensesCertsForm />
+                </Wizard.Page>
+              </Wizard>
+            )}
+          </MakeAsyncFunction>
         </div>
       </Container>
     )

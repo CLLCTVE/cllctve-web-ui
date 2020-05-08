@@ -25,7 +25,7 @@ export const ExperienceForm = () => (
           component={renderAntInput}
           type="text"
           placeholder="Position*"
-          validate={validations.required}
+          // validate={validations.required}
         />
       </Col>
     </Row>
@@ -36,7 +36,7 @@ export const ExperienceForm = () => (
           component={renderAntInput}
           type="text"
           placeholder="Company Name/Project Title*"
-          validate={validations.required}
+          // validate={validations.required}
         />
       </Col>
     </Row>
@@ -47,7 +47,7 @@ export const ExperienceForm = () => (
           component={renderAntInput}
           type="text"
           placeholder="City*"
-          validate={validations.required}
+          // validate={validations.required}
         />
       </Col>
       <Col span={4}>
@@ -56,7 +56,7 @@ export const ExperienceForm = () => (
           component={renderAntInput}
           type="text"
           placeholder="State*"
-          validate={validations.required}
+          // validate={validations.required}
         />
       </Col>
       <Col span={6}>
@@ -68,11 +68,11 @@ export const ExperienceForm = () => (
           parse={value => value || value.format(monthFormat)}
           format={value => value}
           allowClear={false}
-          validate={validations.required}
+          // validate={validations.required}
         />
       </Col>
       <Col span={6}>
-        <ConditionalRender when="experience.currentlyWorking" is={false}>
+        <ConditionalRender when="experience.currentEmployer" is={false}>
           <FField
             name="experience.endDate"
             placeholder="End Date*"
@@ -82,15 +82,15 @@ export const ExperienceForm = () => (
             parse={value => value || value.format(monthFormat)}
             format={value => value}
             allowClear={false}
-            validate={validations.required}
+            // validate={validations.required}
           />
         </ConditionalRender>
       
         <FField
-          name="experience.currentlyWorking"
+          name="experience.currentEmployer"
           component={renderCheckbox}
           type="checkbox"
-          label="Currently Employed here?"
+          label="Current Employer?"
         />
       </Col>
     </Row>
@@ -131,7 +131,7 @@ export const ExperienceForm = () => (
                         component={renderAntInput}
                         type="text"
                         placeholder="Position*"
-                        validate={validations.required}
+                        // validate={validations.required}
                       />
                     </Col>
                   </Row>
@@ -142,7 +142,7 @@ export const ExperienceForm = () => (
                         component={renderAntInput}
                         type="text"
                         placeholder="Company Name/Project Title*"
-                        validate={validations.required}
+                        // validate={validations.required}
                       />
                     </Col>
                   </Row>
@@ -153,7 +153,7 @@ export const ExperienceForm = () => (
                         component={renderAntInput}
                         type="text"
                         placeholder="City*"
-                        validate={validations.required}
+                        // validate={validations.required}
                       />
                     </Col>
                     <Col span={4}>
@@ -162,7 +162,7 @@ export const ExperienceForm = () => (
                         component={renderAntInput}
                         type="text"
                         placeholder="State*"
-                        validate={validations.required}
+                        // validate={validations.required}
                       />
                     </Col>
                     <Col span={6}>
@@ -174,7 +174,7 @@ export const ExperienceForm = () => (
                         parse={value => value || value.format(monthFormat)}
                         format={value => value}
                         allowClear={false}
-                        validate={validations.required}
+                        // validate={validations.required}
                       />
                     </Col>
                     <Col span={6}>
@@ -187,7 +187,7 @@ export const ExperienceForm = () => (
                         parse={value => value || value.format(monthFormat)}
                         format={value => value}
                         allowClear={false}
-                        validate={validations.required}
+                        // validate={validations.required}
                       />
                     </Col>
                   </Row>
