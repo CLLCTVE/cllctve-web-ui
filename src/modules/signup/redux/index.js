@@ -29,8 +29,21 @@ export const handleSignUpFailed = payload => ({
   isLoading: false,
 });
 
+const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+
+const onSubmit = async values => {
+  await sleep(300);
+  return true;
+};
+
 export function* onHandleOnBoardingRequest(values) {
   console.log('#onHandleOnBoardingRequest, values: ', values);
+  
+  onSubmit(values);
+  
+  yield all([
+    put(push('/profile')),
+  ]);
 }
 
 export function* onHandleSignUpRequest({
@@ -63,7 +76,7 @@ export function* onHandleSignUpRequest({
       put(handleLoginSuccess(response.data.user)),
       put(setAuthToken(response.data.token)),
       put(handleAuthenticated()),
-      put(push('/on-boarding/0')),
+      put(push('/on-boarding-flow/0')),
     ]);
   } catch (err) {
     console.error('#onHandleSignupRequest, catch block, err: ', err);

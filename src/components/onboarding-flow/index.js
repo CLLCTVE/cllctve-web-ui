@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 import {withRouter} from 'react-router-dom';
+import {connect} from 'react-redux';
+import MakeAsyncFunction from 'react-redux-promise-listener';
+import {promiseListener} from '../../store';
 import Wizard from './onboarding-flow-wizard';
 import {EducationForm} from './EducationForm';
 import {ExperienceForm} from './ExperienceForm';
@@ -7,6 +10,7 @@ import {SkillsForm} from './SkillsForm';
 import {HonorsAwardsForm} from './HonorsAwardsForm';
 import {LicensesCertsForm} from './LicensesCertsForm';
 import {CenteredContainer as Container} from '../fields/renderFields';
+import {ONBOARDING_REQUEST, ONBOARDING_SUCCESS, ONBOARDING_FAILURE} from '../../modules/signup/redux';
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -21,8 +25,15 @@ class OnBoardingFlowPage extends Component {
     const {isLoading} = this.props;
     
     return (
-      <Container>
-        <div style={{padding: 24, textAlign: 'center', width: '60vw'}}>
+      <MakeAsyncFunction
+        listener={promiseListener}
+        start={ONBOARDING_REQUEST}
+        resolve={ONBOARDING_SUCCESS}
+        reject={ONBOARDING_FAILURE}
+      >
+        {onSubmit => (
+          <Container>
+            <div style={{padding: 24, textAlign: 'center', width: '60vw'}}>
               <Wizard
                 isLoading={isLoading}
                 initialValues={{
@@ -36,6 +47,7 @@ class OnBoardingFlowPage extends Component {
                     canExpire: false
                   }
                 }}
+                onSubmit={onSubmit}
               >
                 <Wizard.Page>
                   <EducationForm />
@@ -53,11 +65,19 @@ class OnBoardingFlowPage extends Component {
                   <HonorsAwardsForm />
                 </Wizard.Page>
               </Wizard>
-            )}
-        </div>
-      </Container>
+              )}
+            </div>
+          </Container>
+        )}
+      </MakeAsyncFunction>
     )
   }
 }
 
-export default withRouter(OnBoardingFlowPage);
+const mapStateToProps = (state, ownProps) => {
+  return {
+    isLoading: state.auth.isLoading,
+  };
+};
+
+export default withRouter(connect(mapStateToProps, {})(OnBoardingFlowPage));

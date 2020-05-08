@@ -7,7 +7,7 @@ class ProfilePage extends Component {
 
     return (
       <div>
-        <h2>Hello {user.firstName}</h2>
+        <h2>Hello Brandon</h2>
         Profile Page
       </div>
     );

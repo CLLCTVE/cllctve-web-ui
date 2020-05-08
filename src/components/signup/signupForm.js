@@ -54,7 +54,7 @@ export const AsyncSignUpForm = ({isLoading}) => (
           <>
             {isLoading && <div>Loading...</div>}
             {submitError && <div className="error">{submitError}</div>}
-            {errors && <div className="error">{errors}</div>}
+            {/*{errors && <div className="error">{errors}</div>}*/}
             <form onSubmit={handleSubmit}>
               <div>
                 <FField

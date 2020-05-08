@@ -53,7 +53,6 @@ class OnBoardingFlowWizard extends Component {
   };
   
   handleSubmit = values => {
-    console.log('OnBoardingFlowWizard#handleSubmit, values: ', values);
     const { children, onSubmit } = this.props;
     const { page } = this.state;
     const isLastPage = page === React.Children.count(children) - 1;
@@ -86,7 +85,6 @@ class OnBoardingFlowWizard extends Component {
           submitting,
           values
         }) => {
-          console.log('isLastPage: ', isLastPage);
           return (
             <form onSubmit={handleSubmit}>
               {activePage}
@@ -99,7 +97,7 @@ class OnBoardingFlowWizard extends Component {
                     shape="round"
                     onClick={this.previous}
                   >
-                    Back to {this.displayStepTitle(Number(match.params.step) - 1)}
+                    Back to {this.displayStepText(Number(match.params.step) - 1)}
                   </StyledButton>
                 )}
                 {!isLastPage && (

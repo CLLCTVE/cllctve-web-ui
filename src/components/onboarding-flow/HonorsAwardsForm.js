@@ -14,9 +14,9 @@ import React from 'react';
 
 const monthFormat = 'MM-YYYY';
 
-export const HonorsAwardsForm = ({remove, push}) => (
-  <>
-    <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
+export const HonorsAwardsForm = () => (
+  <div style={{}}>
+    <Row gutter={[{ xs: 8, sm: 16, md: 24, lg: 32 }, 16]}>
       <Col span={24}>
         <FField
           name="honorsAward.title"
@@ -44,7 +44,7 @@ export const HonorsAwardsForm = ({remove, push}) => (
         />
       </Col>
     </Row>
-    <Row>
+    <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
       <Col span={12}>
         <FField
           name="honorsAward.issuedMonthYear"
@@ -54,7 +54,7 @@ export const HonorsAwardsForm = ({remove, push}) => (
           parse={value => value || value.format(monthFormat)}
           format={value => value}
           allowClear={false}
-          validate={validations.required}
+          // validate={validations.required}
         />
       </Col>
     </Row>
@@ -81,13 +81,7 @@ export const HonorsAwardsForm = ({remove, push}) => (
     </Row>
     <FFieldArray name='honorsAwards'>
       {({fields, meta}) => {
-        console.log('come thru fields: ', fields);
-        console.log('come thru meta: ', meta);
-        
-        /**
-         * `fields` internal fill with `name`, `key`, `fieldKey` props.
-         * You can extends this into sub field to support multiple dynamic fields.
-         */
+      
         return (
           <Space direction="vertical">
             {fields.map((name, index) => {
@@ -105,14 +99,14 @@ export const HonorsAwardsForm = ({remove, push}) => (
                         }}
                       />
                     </Col>
-  
+                  
                     <Col span={24}>
                       <FField
                         name={`${name}.title`}
                         component={renderInput}
                         type="text"
                         placeholder="Title"
-                        validate={validations.required}
+                        // validate={validations.required}
                       />
                     </Col>
                   </Row>
@@ -144,7 +138,7 @@ export const HonorsAwardsForm = ({remove, push}) => (
                         parse={value => value || value.format(monthFormat)}
                         format={value => value}
                         allowClear={false}
-                        validate={validations.required}
+                        // validate={validations.required}
                       />
                     </Col>
                   </Row>
@@ -192,5 +186,5 @@ export const HonorsAwardsForm = ({remove, push}) => (
         )
       }}
     </FFieldArray>
-  </>
+  </div>
 );
