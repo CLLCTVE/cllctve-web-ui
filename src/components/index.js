@@ -41,7 +41,7 @@ class Index extends Component {
             
             <Route path="/on-boarding/:step" render={() => {
               return (
-                <div style={{padding: 24, textAlign: 'center', width: '75%'}}>
+                <div style={{padding: 24, textAlign: 'center'}}>
                   <OnBoardingStep />
                   <OnBoardingPage />
                 </div>

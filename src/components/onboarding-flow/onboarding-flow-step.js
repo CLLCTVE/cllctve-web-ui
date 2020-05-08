@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {withRouter} from 'react-router-dom';
-import { Typography, Steps } from 'antd';
+import { Typography, Steps, Row, Col } from 'antd';
 import {ONBOARDING_ENTRY_MAP_BY_NAME} from '../../lib/util';
+import { CenteredContainer as Container } from '../fields/renderFields';
 
 const { Step } = Steps;
 const { Title } = Typography;
@@ -18,12 +19,15 @@ const OnBoardingFlowStep = ({match}) => {
   };
   
   return (
-    <div style={{padding: 24, textAlign: 'center'}}>
-      <Title>Set Up Your Account</Title>
-      <Title level={2}>{displayText(match.params.step)}</Title>
-      <div>
-      </div>
-    </div>
+    <Container>
+      <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }} justify="center" style={{textAlign: 'center'}}>
+        <Col span={24}>
+          <Title level={2}>Set Up Your Account</Title>
+  
+          <Title level={4}>{displayText(match.params.step)}</Title>
+        </Col>
+      </Row>
+    </Container>
   )
 };
 

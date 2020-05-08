@@ -1,6 +1,7 @@
 import { Button, Col, Form, Row, Space } from 'antd';
 import moment from 'moment';
 import { Field as FField } from 'react-final-form';
+import createDecorator from 'final-form-calculate';
 import {
   ConditionalRender,
   renderAntInput,
@@ -87,7 +88,7 @@ export const EducationForm = () => (
             placeholder="Graduation Date MM-YY*"
             component={renderAntMonthPicker}
             monthFormat={monthFormat}
-            disabledDate={disabledDate}
+            disabledDate={(val, val2) => {console.log('val: ', val); console.log('val2', val2);}}
             parse={value => value || value.format(monthFormat)}
             format={value => value}
             allowClear={false}
