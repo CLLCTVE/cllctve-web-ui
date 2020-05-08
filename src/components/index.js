@@ -33,6 +33,7 @@ class Index extends Component {
             <Route path="/on-boarding-flow/:step" render={() => {
               return (
                 <div>
+                  <OnBoardingFlowStep />
                   <OnBoardingFlowPage />
                 </div>
               )

@@ -1,9 +1,11 @@
 import { Button, Col, Form, Row, Space } from 'antd';
+import moment from 'moment';
 import { Field as FField } from 'react-final-form';
 import {
   ConditionalRender,
   renderAntInput,
   renderAntMonthPicker,
+  disabledDate,
   renderCheckbox, renderInput,
   renderTextArea, StyledButton, StyledDivider
 } from '../fields/renderFields';
@@ -85,6 +87,7 @@ export const EducationForm = () => (
             placeholder="Graduation Date MM-YY*"
             component={renderAntMonthPicker}
             monthFormat={monthFormat}
+            disabledDate={disabledDate}
             parse={value => value || value.format(monthFormat)}
             format={value => value}
             allowClear={false}
@@ -215,6 +218,7 @@ export const EducationForm = () => (
                         placeholder="Graduation Date MM-YY"
                         component={renderAntMonthPicker}
                         monthFormat={monthFormat}
+                        disabledDate={disabledDate}
                         parse={value => value || value.format(monthFormat)}
                         format={value => value}
                         allowClear={false}

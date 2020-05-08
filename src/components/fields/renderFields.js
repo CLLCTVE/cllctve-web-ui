@@ -3,6 +3,7 @@ import { DatePicker, Form, Input, Select, Checkbox, Button, Divider } from 'antd
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { Field } from 'react-final-form';
+import moment from 'moment';
 
 const {TextArea} = Input;
 
@@ -153,6 +154,11 @@ export const CenteredContainer = styled.div`
   justify-content: center;
 `;
 
+export const disabledDate = (current) => {
+  // Can not select days before today and today
+  return current && current < moment().endOf('day');
+};
+
 const StyledMonthPicker = styled(MonthPicker)`
   background: none;
 
@@ -269,14 +275,14 @@ export const renderSelect = ({input, options, mode, placeholder, size}) => {
   );
 };
 
-export const renderAntMonthPicker = ({input, placeholder, meta, label, size, monthFormat, allowClear}) => (
+export const renderAntMonthPicker = ({input, placeholder, meta, label, size, monthFormat, disabledDate, allowClear}) => (
   <Form.Item name={label}
              validateStatus={(meta.error || meta.submitError) && meta.touched ? 'error' : ''}
              help={(meta.error || meta.submitError) && meta.touched && (
                <span className="error">{meta.error || meta.submitError}</span>
              )}
   >
-    <StyledMonthPicker size={size} {...input} placeholder={placeholder} format={monthFormat} allowClear={allowClear}/>
+    <StyledMonthPicker size={size} {...input} placeholder={placeholder} disabledDate={disabledDate} format={monthFormat} allowClear={allowClear}/>
   </Form.Item>
 );
 

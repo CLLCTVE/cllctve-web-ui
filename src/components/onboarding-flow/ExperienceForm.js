@@ -4,7 +4,9 @@ import {
   ConditionalRender,
   renderAntInput,
   renderAntMonthPicker,
-  renderCheckbox, renderInput,
+  renderCheckbox,
+  renderInput,
+  disabledDate,
   renderTextArea, StyledButton, StyledDivider
 } from '../fields/renderFields';
 import * as validations from '../../utils/validations';
@@ -76,6 +78,7 @@ export const ExperienceForm = () => (
             placeholder="End Date*"
             component={renderAntMonthPicker}
             monthFormat={monthFormat}
+            disabledDate={disabledDate}
             parse={value => value || value.format(monthFormat)}
             format={value => value}
             allowClear={false}
@@ -180,6 +183,7 @@ export const ExperienceForm = () => (
                         placeholder="End Date*"
                         component={renderAntMonthPicker}
                         monthFormat={monthFormat}
+                        disabledDate={disabledDate}
                         parse={value => value || value.format(monthFormat)}
                         format={value => value}
                         allowClear={false}
