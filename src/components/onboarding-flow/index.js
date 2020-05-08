@@ -22,33 +22,38 @@ class OnBoardingFlowPage extends Component {
     
     return (
       <Container>
-        <Wizard
-          initialValues={{
-            education: {
-              isEnrolled: false
-            }
-          }}
-          onSubmit={onSubmit}
-        >
-          <Wizard.Page>
-            <EducationForm />
-          </Wizard.Page>
-          <Wizard.Page>
-            <div>
-              <SkillsForm />
-            </div>
-          </Wizard.Page>
-          <Wizard.Page>
-            <div>
-              <ExperienceForm />
-            </div>
-          </Wizard.Page>
-          <Wizard.Page>
-            <div>
-              <HonorsAwardsForm />
-            </div>
-          </Wizard.Page>
-        </Wizard>
+        <div style={{padding: 24, textAlign: 'center', width: '60vw'}}>
+          <Wizard
+            initialValues={{
+              education: {
+                isEnrolled: false
+              },
+              experience: {
+                currentlyWorking: false
+              }
+            }}
+            onSubmit={onSubmit}
+          >
+            <Wizard.Page>
+              <EducationForm />
+            </Wizard.Page>
+            <Wizard.Page>
+              <div>
+                <SkillsForm />
+              </div>
+            </Wizard.Page>
+            <Wizard.Page>
+              <div>
+                <ExperienceForm />
+              </div>
+            </Wizard.Page>
+            <Wizard.Page>
+              <div>
+                <HonorsAwardsForm />
+              </div>
+            </Wizard.Page>
+          </Wizard>
+        </div>
       </Container>
     )
   }

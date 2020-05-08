@@ -1,11 +1,12 @@
 import React from 'react';
 import { DatePicker, Form, Input, Select, Checkbox, Button, Divider } from 'antd';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { Field } from 'react-final-form';
-const { TextArea } = Input;
 
-const { MonthPicker } = DatePicker;
+const {TextArea} = Input;
+
+const {MonthPicker} = DatePicker;
 
 const StyledInput = styled(Input)`
   background: none;
@@ -37,6 +38,51 @@ const StyledInput = styled(Input)`
       border-left-width: 0px;
       border-right-width: 0px !important;
       border-color: #ff6633;
+    }
+  }
+`;
+
+const StyledMultiSelect = styled(Select)`
+  &.ant-select {
+    color: #ffffff;
+    background: none;
+    
+    &.ant-select-focused,
+    &.ant-select-selector {
+      border-color: #ff6633 !important;
+    }
+    
+    &.ant-select-multiple .ant-select-selector {
+    color: #ffffff;
+    background: none;
+    border-top-width: 0px;
+    border-left-width: 0px;
+    border-right-width: 0px !important;
+    margin-bottom: 1em;
+    
+      &:hover,
+      &:focus {
+        color: #ffffff !important;
+        border-color: #ff6633 !important;
+      }
+    }
+    
+    &.ant-select-multiple .ant-select-selection-item {
+      background: #FF6633;
+      
+      &:hover {
+        border-color: #ff6633;
+      }
+    }
+    
+    &:hover,
+    &:focus {
+      color: #ffffff !important;
+      border-color: #ff6633 !important;
+    }
+    
+    &.ant-select-item .ant-select-item-option .ant-select-item-option-active {
+      color: #FF6633 !important;
     }
   }
 `;
@@ -132,33 +178,6 @@ const StyledMonthPicker = styled(MonthPicker)`
   }
 `;
 
-const StyledMultiSelect = styled(Select)`
-  &.ant-select {
-    margin-bottom: 1em;
-  }
-  
-  &.ant-select-focused {
-    border-color: #ff6633;;
-  }
-
-  &.ant-select-multiple .ant-select-selection-item {
-    background: #FF6633;
-  }
-  &.ant-select-multiple .ant-select-selector {
-    border-top-width: 0px;
-    border-left-width: 0px;
-    border-right-width: 0px;
-    background: none;
-    
-    &:hover {
-    border-top-width: 0px;
-    border-left-width: 0px;
-    border-right-width: 0px !important;
-    border-color: #ff6633;
-    }
-  }
-`;
-
 export const StyledButton = styled(Button)`
   &.ant-btn {
     border: none;
@@ -203,7 +222,7 @@ export const renderAntInput = ({input, placeholder, label, meta}) => (
                <span className="error">{meta.error || meta.submitError}</span>
              )}
   >
-    <StyledInput {...input} placeholder={placeholder || label} />
+    <StyledInput {...input} placeholder={placeholder || label}/>
   </Form.Item>
 );
 
@@ -214,13 +233,13 @@ export const renderAntPasswordInput = ({input, placeholder, label, meta}) => (
                <span className="error">{meta.error || meta.submitError}</span>
              )}
   >
-    <StyledPasswordInput {...input} placeholder={placeholder} label={label} />
+    <StyledPasswordInput {...input} placeholder={placeholder} label={label}/>
   </Form.Item>
 );
 
 export const renderInput = ({input, placeholder, label, meta}) => (
   <>
-    <StyledInput {...input} placeholder={placeholder || label} />
+    <StyledInput {...input} placeholder={placeholder || label}/>
     {(meta.error || meta.submitError) && meta.touched && (
       <span className="error">{meta.error || meta.submitError}</span>
     )}
@@ -229,7 +248,7 @@ export const renderInput = ({input, placeholder, label, meta}) => (
 
 export const renderPasswordInput = ({input, placeholder, label, meta}) => (
   <>
-    <StyledPasswordInput {...input} placeholder={placeholder} label={label} />
+    <StyledPasswordInput {...input} placeholder={placeholder} label={label}/>
     {(meta.error || meta.submitError) && meta.touched && (
       <span className="error">{meta.error || meta.submitError}</span>
     )}
@@ -238,7 +257,7 @@ export const renderPasswordInput = ({input, placeholder, label, meta}) => (
 
 export const renderSelect = ({input, options, mode, placeholder, size}) => {
   return (
-    <StyledMultiSelect {...input} mode={mode} placeholder={placeholder} size={size} style={{width: 200}}>
+    <StyledMultiSelect {...input} mode={mode} placeholder={placeholder} size={size} style={{width: 250}}>
       {options
         .filter(o => !input.value.includes(o))
         .map((option, index) => (
@@ -250,19 +269,20 @@ export const renderSelect = ({input, options, mode, placeholder, size}) => {
   );
 };
 
-export const renderAntMonthPicker = ({input, placeholder, meta, label, size, monthFormat, allowClear}) =>(
+export const renderAntMonthPicker = ({input, placeholder, meta, label, size, monthFormat, allowClear}) => (
   <Form.Item name={label}
              validateStatus={(meta.error || meta.submitError) && meta.touched ? 'error' : ''}
              help={(meta.error || meta.submitError) && meta.touched && (
                <span className="error">{meta.error || meta.submitError}</span>
              )}
   >
-    <StyledMonthPicker size={size} {...input} placeholder={placeholder} format={monthFormat} allowClear={allowClear} />
+    <StyledMonthPicker size={size} {...input} placeholder={placeholder} format={monthFormat} allowClear={allowClear}/>
   </Form.Item>
 );
 
 export const renderMonthPicker = ({input, placeholder, monthFormat, allowClear}) => {
-  return <StyledMonthPicker size="large" {...input} placeholder={placeholder} format={monthFormat} allowClear={allowClear} />;
+  return <StyledMonthPicker size="large" {...input} placeholder={placeholder} format={monthFormat}
+                            allowClear={allowClear}/>;
 };
 
 export const normalizePhone = value => {
@@ -276,7 +296,7 @@ export const normalizePhone = value => {
   if (onlyNums.length <= 7) {
     return `(${onlyNums.slice(0, 3)}) ${onlyNums.slice(3, 7)}`;
   }
-
+  
   return `(${onlyNums.slice(0, 3)}) ${onlyNums.slice(3, 6)}-${onlyNums.slice(6, 10)}`;
 };
 
@@ -302,9 +322,9 @@ export const renderCheckbox = ({input, label, type, defaultValue}) => {
   )
 };
 
-export const ConditionalRender = ({ when, is, children }) => (
-  <Field name={when} subscription={{ value: true }}>
-    {({ input: { value } }) => (value === is ? children : null)}
+export const ConditionalRender = ({when, is, children}) => (
+  <Field name={when} subscription={{value: true}}>
+    {({input: {value}}) => (value === is ? children : null)}
   </Field>
 );
 

@@ -4,7 +4,7 @@ import {
   ConditionalRender,
   renderAntInput,
   renderAntMonthPicker,
-  renderCheckbox,
+  renderCheckbox, renderInput,
   renderTextArea, StyledButton, StyledDivider
 } from '../fields/renderFields';
 import * as validations from '../../utils/validations';
@@ -14,27 +14,27 @@ import React from 'react';
 
 const monthFormat = 'MM-YYYY';
 
-export const EducationForm = ({remove, push}) => (
-  <div style={{vWidth: '70'}}>
-    <Row gutter={[16, 16]}>
+export const EducationForm = () => (
+  <div style={{}}>
+    <Row gutter={[{ xs: 8, sm: 16, md: 24, lg: 32 }, 16]}>
       <Col span={24}>
         <FField
-          name="education.schoolName"
+          name="education.school"
           component={renderAntInput}
           type="text"
           placeholder="School Name*"
-          validate={validations.required}
+          // validate={validations.required}
         />
       </Col>
     </Row>
-    <Row gutter={[16, 16]}>
+    <Row gutter={[{ xs: 8, sm: 16, md: 24, lg: 32 }, 16]}>
       <Col span={8}>
         <FField
           name="education.degreeType"
           component={renderAntInput}
           type="text"
           placeholder="Degree Type*"
-          validate={validations.required}
+          // validate={validations.required}
         />
       </Col>
       <Col span={16}>
@@ -43,18 +43,18 @@ export const EducationForm = ({remove, push}) => (
           component={renderAntInput}
           type="text"
           placeholder="Declared Major*"
-          validate={validations.required}
+          // validate={validations.required}
         />
       </Col>
     </Row>
-    <Row gutter={[16, 16]}>
+    <Row gutter={[{ xs: 8, sm: 16, md: 24, lg: 32 }, 16]}>
       <Col span={8}>
         <FField
           name="education.city"
           component={renderAntInput}
           type="text"
           placeholder="City*"
-          validate={validations.required}
+          // validate={validations.required}
         />
       </Col>
       <Col span={4}>
@@ -63,7 +63,7 @@ export const EducationForm = ({remove, push}) => (
           component={renderAntInput}
           type="text"
           placeholder="State*"
-          validate={validations.required}
+          // validate={validations.required}
         />
       </Col>
       <Col span={6}>
@@ -75,7 +75,7 @@ export const EducationForm = ({remove, push}) => (
           parse={value => value || value.format(monthFormat)}
           format={value => value}
           allowClear={false}
-          validate={validations.required}
+          // validate={validations.required}
         />
       </Col>
       <Col span={6}>
@@ -88,7 +88,7 @@ export const EducationForm = ({remove, push}) => (
             parse={value => value || value.format(monthFormat)}
             format={value => value}
             allowClear={false}
-            validate={validations.required}
+            // validate={validations.required}
           />
         </ConditionalRender>
         
@@ -97,6 +97,16 @@ export const EducationForm = ({remove, push}) => (
           component={renderCheckbox}
           type="checkbox"
           label="Currently Enrolled as a Student?"
+        />
+      </Col>
+    </Row>
+    <Row gutter={[{ xs: 8, sm: 16, md: 24, lg: 32 }, 16]}>
+      <Col span={24}>
+        <FField
+          name="education.links"
+          component={renderInput}
+          type="text"
+          placeholder="Links"
         />
       </Col>
     </Row>
@@ -123,25 +133,23 @@ export const EducationForm = ({remove, push}) => (
         return (
           <Space direction="vertical">
             {fields.map((name, index) => {
-              console.log('field: ', name);
-              console.log('index: ', index);
               return (
                 <div key={name}>
                   <StyledDivider/>
-                  <Row gutter={[16, 16]}>
+                  <Row gutter={[{ xs: 8, sm: 16, md: 24, lg: 32 }, 16]}>
                     <Col flex="none">
                       <MinusCircleOutlined
                         className="dynamic-delete-button"
                         onClick={(e) => {
                           e.preventDefault();
                           e.stopPropagation();
-                          remove('educations', index);
+                          fields.remove(index);
                         }}
                       />
                     </Col>
                     <Col span={24}>
                       <FField
-                        name={`${name}.schoolName`}
+                        name={`${name}.school`}
                         component={renderAntInput}
                         type="text"
                         placeholder="School Name"
@@ -149,7 +157,7 @@ export const EducationForm = ({remove, push}) => (
                       />
                     </Col>
                   </Row>
-                  <Row gutter={[16, 16]}>
+                  <Row gutter={[{ xs: 8, sm: 16, md: 24, lg: 32 }, 16]}>
                     <Col span={8}>
                       <FField
                         name={`${name}.degreeType`}
@@ -169,7 +177,7 @@ export const EducationForm = ({remove, push}) => (
                       />
                     </Col>
                   </Row>
-                  <Row gutter={[16, 16]}>
+                  <Row gutter={[{ xs: 8, sm: 16, md: 24, lg: 32 }, 16]}>
                     <Col span={8}>
                       <FField
                         name={`${name}.city`}
@@ -214,6 +222,16 @@ export const EducationForm = ({remove, push}) => (
                       />
                     </Col>
                   </Row>
+                  <Row gutter={[{ xs: 8, sm: 16, md: 24, lg: 32 }, 16]}>
+                    <Col span={24}>
+                      <FField
+                        name={`${name}.links`}
+                        component={renderInput}
+                        type="text"
+                        placeholder="Links"
+                      />
+                    </Col>
+                  </Row>
                   <Row gutter={[16, 16]}>
                     <Col span={24}>
                       <FField
@@ -228,7 +246,7 @@ export const EducationForm = ({remove, push}) => (
                 </div>
               )
             })}
-            <Row gutter={[16, 16]}>
+            <Row gutter={[{ xs: 8, sm: 16, md: 24, lg: 32 }, 16]}>
               <Col span={4} offset={20}>
                 <Form.Item>
                   <Button
@@ -236,7 +254,7 @@ export const EducationForm = ({remove, push}) => (
                     onClick={(e) => {
                       e.preventDefault();
                       e.stopPropagation();
-                      fields.push()
+                      fields.push();
                     }}
                   >
                     <PlusOutlined/> Add More

@@ -19,7 +19,7 @@ export const HonorsAwardsForm = ({remove, push}) => (
     <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
       <Col span={18}>
         <FField
-          name="honorsAwards.title"
+          name="honorsAward.title"
           component={renderInput}
           type="text"
           placeholder="Title"
@@ -27,27 +27,27 @@ export const HonorsAwardsForm = ({remove, push}) => (
       </Col>
     </Row>
     <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
-      <Col span={9}>
+      <Col span={12}>
         <FField
-          name="honorsAwards.associatedWith"
+          name="honorsAward.associatedWith"
           component={renderInput}
           type="text"
-          placeholder="Company Name/Project Title"
+          placeholder="Associated With"
         />
       </Col>
-      <Col span={9}>
+      <Col span={12}>
         <FField
-          name="honorsAwards.issuer"
+          name="honorsAward.issuer"
           component={renderInput}
           type="text"
-          placeholder="Company Name/Project Title"
+          placeholder="Issuer"
         />
       </Col>
     </Row>
     <Row>
       <Col span={10}>
         <FField
-          name="honorsAwards.awardMonthYear"
+          name="honorsAward.issuedMonthYear"
           component={renderMonthPicker}
           monthFormat={monthFormat}
           parse={value => value || value.format(monthFormat)}
@@ -60,7 +60,7 @@ export const HonorsAwardsForm = ({remove, push}) => (
     <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
       <Col span={18}>
         <FField
-          name="honorsAwards.links"
+          name="honorsAward.links"
           component={renderInput}
           type="text"
           placeholder="Links"
@@ -70,7 +70,7 @@ export const HonorsAwardsForm = ({remove, push}) => (
     <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
       <Col span={18}>
         <FField
-          name="honorsAwards.description"
+          name="honorsAward.description"
           component={renderTextArea}
           type="text"
           placeholder="Description"
@@ -78,7 +78,7 @@ export const HonorsAwardsForm = ({remove, push}) => (
         />
       </Col>
     </Row>
-    <FFieldArray name='educations'>
+    <FFieldArray name='honorsAwards'>
       {({fields, meta}) => {
         console.log('come thru fields: ', fields);
         console.log('come thru meta: ', meta);
@@ -90,8 +90,6 @@ export const HonorsAwardsForm = ({remove, push}) => (
         return (
           <Space direction="vertical">
             {fields.map((name, index) => {
-              console.log('field: ', name);
-              console.log('index: ', index);
               return (
                 <div key={name}>
                   <StyledDivider/>
@@ -102,7 +100,7 @@ export const HonorsAwardsForm = ({remove, push}) => (
                         onClick={(e) => {
                           e.preventDefault();
                           e.stopPropagation();
-                          remove('honorsAwards', index);
+                          fields.remove(index);
                         }}
                       />
                     </Col>
@@ -117,68 +115,45 @@ export const HonorsAwardsForm = ({remove, push}) => (
                       />
                     </Col>
                   </Row>
-                  <Row gutter={[{ xs: 8, sm: 16, md: 24, lg: 32 }, 16]}>
-                    <Col span={8}>
+                  <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
+                    <Col span={12}>
                       <FField
                         name={`${name}.associatedWith`}
-                        component={renderAntInput}
+                        component={renderInput}
                         type="text"
-                        placeholder="Company Name/Project Title"
-                        validate={validations.required}
+                        placeholder="Associated With"
                       />
                     </Col>
-                    <Col span={16}>
+                    <Col span={12}>
                       <FField
-                        name={`${name}.major`}
-                        component={renderAntInput}
+                        name={`${name}.issuer`}
+                        component={renderInput}
                         type="text"
-                        placeholder="Declared Major"
+                        placeholder="Issuer"
+                      />
+                    </Col>
+                  </Row>
+                  <Row gutter={[{ xs: 8, sm: 16, md: 24, lg: 32 }, 16]}>
+                    <Col span={12}>
+                      <FField
+                        name={`${name}.issuedMonthYear`}
+                        placeholder="Issued Date"
+                        component={renderAntMonthPicker}
+                        monthFormat={monthFormat}
+                        parse={value => value || value.format(monthFormat)}
+                        format={value => value}
+                        allowClear={false}
                         validate={validations.required}
                       />
                     </Col>
                   </Row>
                   <Row gutter={[{ xs: 8, sm: 16, md: 24, lg: 32 }, 16]}>
-                    <Col span={8}>
+                    <Col span={24}>
                       <FField
-                        name={`${name}.city`}
-                        component={renderAntInput}
+                        name={`${name}.links`}
+                        component={renderInput}
                         type="text"
-                        placeholder="City"
-                        validate={validations.required}
-                      />
-                    </Col>
-                    <Col span={4}>
-                      <FField
-                        name={`${name}.state`}
-                        component={renderAntInput}
-                        type="text"
-                        placeholder="State"
-                        validate={validations.required}
-                      />
-                    </Col>
-                    <Col span={6}>
-                      <FField
-                        
-                        name={`${name}.startMonthYear`}
-                        placeholder="Start Date MM-YY"
-                        component={renderAntMonthPicker}
-                        monthFormat={monthFormat}
-                        parse={value => value || value.format(monthFormat)}
-                        format={value => value}
-                        allowClear={false}
-                        validate={validations.required}
-                      />
-                    </Col>
-                    <Col span={6}>
-                      <FField
-                        name={`${name}.gradMonthYear`}
-                        placeholder="Graduation Date MM-YY"
-                        component={renderAntMonthPicker}
-                        monthFormat={monthFormat}
-                        parse={value => value || value.format(monthFormat)}
-                        format={value => value}
-                        allowClear={false}
-                        validate={validations.required}
+                        placeholder="Links"
                       />
                     </Col>
                   </Row>
@@ -196,7 +171,7 @@ export const HonorsAwardsForm = ({remove, push}) => (
                 </div>
               )
             })}
-            <Row gutter={[16, 16]}>
+            <Row gutter={[{ xs: 8, sm: 16, md: 24, lg: 32 }, 16]}>
               <Col span={4} offset={20}>
                 <Form.Item>
                   <Button
@@ -204,7 +179,7 @@ export const HonorsAwardsForm = ({remove, push}) => (
                     onClick={(e) => {
                       e.preventDefault();
                       e.stopPropagation();
-                      push('honorsAwards', undefined);
+                      fields.push();
                     }}
                   >
                     <PlusOutlined/> Add More

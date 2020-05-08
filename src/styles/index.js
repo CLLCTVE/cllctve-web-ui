@@ -70,6 +70,8 @@ const GlobalStyles = createGlobalStyle`
     background-color: ${props => {
       return props.theme.background;
     }};
+    --antd-wave-shadow-color: #FF6633 !important;
+    
     margin: 0;
     padding: 0;
     display: flex;
