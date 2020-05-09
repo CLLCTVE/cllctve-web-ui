@@ -1,14 +1,13 @@
 import { Button, Col, Form, Row, Space } from 'antd';
 import moment from 'moment';
 import { Field as FField } from 'react-final-form';
-import createDecorator from 'final-form-calculate';
 import {
   ConditionalRender,
   renderAntInput,
   renderAntMonthPicker,
   disabledDate,
   renderCheckbox, renderInput,
-  renderTextArea, StyledButton, StyledDivider
+  renderTextArea, StyledSpace, StyledDivider
 } from '../fields/renderFields';
 import * as validations from '../../utils/validations';
 import { FieldArray as FFieldArray } from 'react-final-form-arrays';
@@ -105,6 +104,32 @@ export const EducationForm = () => (
       </Col>
     </Row>
     <Row gutter={[{ xs: 8, sm: 16, md: 24, lg: 32 }, 16]}>
+      <Col span={12}>
+        <FField
+          name="education.test"
+          placeholder="Start Date*"
+          component={renderAntMonthPicker}
+          monthFormat={monthFormat}
+          parse={value => value || value.format(monthFormat)}
+          format={value => value}
+          allowClear={false}
+          // validate={validations.required}
+        />
+      </Col>
+      <Col span={12}>
+        <FField
+          name="education.test2"
+          placeholder="Start Date*"
+          component={renderAntMonthPicker}
+          monthFormat={monthFormat}
+          parse={value => value || value.format(monthFormat)}
+          format={value => value}
+          allowClear={false}
+          // validate={validations.required}
+        />
+      </Col>
+    </Row>
+    <Row gutter={[{ xs: 8, sm: 16, md: 24, lg: 32 }, 16]}>
       <Col span={24}>
         <FField
           name="education.links"
@@ -114,7 +139,7 @@ export const EducationForm = () => (
         />
       </Col>
     </Row>
-    <Row gutter={[16, 16]}>
+    <Row gutter={[{ xs: 8, sm: 16, md: 24, lg: 32 }, 16]}>
       <Col span={24}>
         <FField
           name="education.description"
@@ -128,7 +153,7 @@ export const EducationForm = () => (
     <FFieldArray name='educations'>
       {({fields, meta}) => {
         return (
-          <Space direction="vertical">
+          <StyledSpace direction="vertical">
             {fields.map((name, index) => {
               return (
                 <div key={name}>
@@ -260,7 +285,7 @@ export const EducationForm = () => (
                 </Form.Item>
               </Col>
             </Row>
-          </Space>
+          </StyledSpace>
         )
       }}
     </FFieldArray>

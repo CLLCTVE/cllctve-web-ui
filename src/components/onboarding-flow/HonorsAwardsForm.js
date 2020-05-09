@@ -5,7 +5,7 @@ import {
   renderAntInput,
   renderAntMonthPicker,
   renderCheckbox, renderInput, renderMonthPicker,
-  renderTextArea, StyledButton, StyledDivider
+  renderTextArea, StyledSpace, StyledDivider
 } from '../fields/renderFields';
 import * as validations from '../../utils/validations';
 import { FieldArray as FFieldArray } from 'react-final-form-arrays';
@@ -83,7 +83,7 @@ export const HonorsAwardsForm = () => (
       {({fields, meta}) => {
       
         return (
-          <Space direction="vertical">
+          <StyledSpace direction="vertical">
             {fields.map((name, index) => {
               return (
                 <div key={name}>
@@ -182,7 +182,7 @@ export const HonorsAwardsForm = () => (
                 </Form.Item>
               </Col>
             </Row>
-          </Space>
+          </StyledSpace>
         )
       }}
     </FFieldArray>

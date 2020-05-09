@@ -8,10 +8,8 @@ import HomePage from './homepage';
 import LoginPage from './login/loginPage';
 import SignUpPage from './signup/signuppage';
 import ProfilePage from './profile-page';
-import OnBoardingPage from './onboarding';
 import OnBoardingFlowPage from './onboarding-flow';
 import OnBoardingFlowStep from './onboarding-flow/onboarding-flow-step';
-import OnBoardingStep from './onboarding/onboarding-step'
 import NotFoundPage from './pages/notFoundPage';
 import FieldArrayPage from './field-array/fieldArrayExample';
 

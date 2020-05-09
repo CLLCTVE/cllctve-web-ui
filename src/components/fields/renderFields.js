@@ -1,5 +1,5 @@
 import React from 'react';
-import { DatePicker, Form, Input, Select, Checkbox, Button, Divider } from 'antd';
+import { DatePicker, Form, Input, Select, Checkbox, Button, Divider, Space } from 'antd';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { Field } from 'react-final-form';
@@ -8,6 +8,12 @@ import moment from 'moment';
 const {TextArea} = Input;
 
 const {MonthPicker} = DatePicker;
+
+export const StyledSpace = styled(Space)`
+  &.ant-space {
+    display: flex;
+  }
+`;
 
 const StyledInput = styled(Input)`
   background: none;

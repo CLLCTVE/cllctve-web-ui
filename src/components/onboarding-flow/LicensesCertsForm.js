@@ -1,11 +1,14 @@
 import { Button, Col, Form, Row, Space } from 'antd';
 import { Field as FField } from 'react-final-form';
 import {
-  ConditionalRender,
+  ConditionalRender, disabledDate,
   renderAntInput,
   renderAntMonthPicker,
-  renderCheckbox, renderInput, renderMonthPicker,
-  renderTextArea, StyledButton, StyledDivider
+  renderCheckbox,
+  renderInput,
+  renderTextArea,
+  StyledDivider,
+  StyledSpace
 } from '../fields/renderFields';
 import * as validations from '../../utils/validations';
 import { FieldArray as FFieldArray } from 'react-final-form-arrays';
@@ -15,8 +18,8 @@ import React from 'react';
 const monthFormat = 'MM-YYYY';
 
 export const LicensesCertsForm = () => (
-  <>
-    <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
+  <div style={{}}>
+    <Row gutter={[{xs: 8, sm: 16, md: 24, lg: 32}, 16]}>
       <Col span={24}>
         <FField
           name="licensesCert.title"
@@ -26,30 +29,22 @@ export const LicensesCertsForm = () => (
         />
       </Col>
     </Row>
-    <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
-      <Col span={12}>
+    <Row gutter={[{xs: 8, sm: 16, md: 24, lg: 32}, 16]}>
+      <Col span={24}>
         <FField
           name="licensesCert.organization"
           component={renderInput}
           type="text"
-          placeholder="Associated With"
-        />
-      </Col>
-      <Col span={12}>
-        <FField
-          name="licensesCert.organization"
-          component={renderInput}
-          type="text"
-          placeholder="Issuing Organization"
+          placeholder="Licensing Organization"
         />
       </Col>
     </Row>
-    <Row>
+    <Row gutter={[{xs: 8, sm: 16, md: 24, lg: 32}, 16]}>
       <Col span={12}>
         <FField
           name="licensesCert.issuedMonthYear"
-          placeholder="Issued Date"
-          component={renderMonthPicker}
+          placeholder="Start Date*"
+          component={renderAntMonthPicker}
           monthFormat={monthFormat}
           parse={value => value || value.format(monthFormat)}
           format={value => value}
@@ -64,13 +59,17 @@ export const LicensesCertsForm = () => (
             placeholder="Expiration Date*"
             component={renderAntMonthPicker}
             monthFormat={monthFormat}
-            disabledDate={(val, val2) => {console.log('val: ', val); console.log('val2', val2);}}
+            disabledDate={(val, val2) => {
+              console.log('val: ', val);
+              console.log('val2', val2);
+            }}
             parse={value => value || value.format(monthFormat)}
             format={value => value}
             allowClear={false}
             // validate={validations.required}
           />
         </ConditionalRender>
+        
         <FField
           name="licensesCert.canExpire"
           component={renderCheckbox}
@@ -79,7 +78,7 @@ export const LicensesCertsForm = () => (
         />
       </Col>
     </Row>
-    <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
+    <Row gutter={[{xs: 8, sm: 16, md: 24, lg: 32}, 16]}>
       <Col span={24}>
         <FField
           name="licensesCert.links"
@@ -89,13 +88,24 @@ export const LicensesCertsForm = () => (
         />
       </Col>
     </Row>
+    <Row gutter={[16, 16]}>
+      <Col span={24}>
+        <FField
+          name="licensesCert.description"
+          component={renderTextArea}
+          type="text"
+          placeholder="Description"
+          label="Description"
+        />
+      </Col>
+    </Row>
     <FFieldArray name='licensesCerts'>
       {({fields, meta}) => {
         return (
-          <Space direction="vertical">
+          <StyledSpace direction="vertical">
             {fields.map((name, index) => {
               return (
-                <div key={name}>
+                <div key={name} style={{}}>
                   <StyledDivider/>
                   <Row gutter={[{ xs: 8, sm: 16, md: 24, lg: 32 }, 16]}>
                     <Col flex="none">
@@ -108,34 +118,48 @@ export const LicensesCertsForm = () => (
                         }}
                       />
                     </Col>
-                    
                     <Col span={24}>
                       <FField
-                        name={`${name}.title`}
-                        component={renderInput}
+                        name={`${name}.school`}
+                        component={renderAntInput}
                         type="text"
-                        placeholder="Name of Cert"
+                        placeholder="School Name"
                         validate={validations.required}
-                      />
-                    </Col>
-                  </Row>
-                  <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
-                    <Col span={24}>
-                      <FField
-                        name={`${name}.organization`}
-                        component={renderInput}
-                        type="text"
-                        placeholder="Issuing Organization"
                       />
                     </Col>
                   </Row>
                   <Row gutter={[{ xs: 8, sm: 16, md: 24, lg: 32 }, 16]}>
                     <Col span={12}>
                       <FField
-                        name={`${name}.issuedMonthYear`}
-                        placeholder="Issued Date"
+                        name={`${name}.degreeType`}
+                        component={renderAntInput}
+                        type="text"
+                        placeholder="Degree Type"
+                        validate={validations.required}
+                      />
+                    </Col>
+                  </Row>
+                  <Row gutter={[{ xs: 8, sm: 16, md: 24, lg: 32 }, 16]}>
+                    <Col span={12}>
+                      <FField
+                  
+                        name={`${name}.startMonthYear`}
+                        placeholder="Start Date"
                         component={renderAntMonthPicker}
                         monthFormat={monthFormat}
+                        parse={value => value || value.format(monthFormat)}
+                        format={value => value}
+                        allowClear={false}
+                        validate={validations.required}
+                      />
+                    </Col>
+                    <Col span={12}>
+                      <FField
+                        name={`${name}.gradMonthYear`}
+                        placeholder="Grad Date"
+                        component={renderAntMonthPicker}
+                        monthFormat={monthFormat}
+                        disabledDate={disabledDate}
                         parse={value => value || value.format(monthFormat)}
                         format={value => value}
                         allowClear={false}
@@ -150,6 +174,17 @@ export const LicensesCertsForm = () => (
                         component={renderInput}
                         type="text"
                         placeholder="Links"
+                      />
+                    </Col>
+                  </Row>
+                  <Row gutter={[16, 16]}>
+                    <Col span={24}>
+                      <FField
+                        name={`${name}.description`}
+                        component={renderTextArea}
+                        type="text"
+                        placeholder="Description"
+                        label="Description"
                       />
                     </Col>
                   </Row>
@@ -172,9 +207,9 @@ export const LicensesCertsForm = () => (
                 </Form.Item>
               </Col>
             </Row>
-          </Space>
+          </StyledSpace>
         )
       }}
     </FFieldArray>
-  </>
+  </div>
 );

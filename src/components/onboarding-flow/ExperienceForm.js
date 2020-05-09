@@ -7,7 +7,7 @@ import {
   renderCheckbox,
   renderInput,
   disabledDate,
-  renderTextArea, StyledButton, StyledDivider
+  renderTextArea, StyledSpace, StyledDivider
 } from '../fields/renderFields';
 import * as validations from '../../utils/validations';
 import { FieldArray as FFieldArray } from 'react-final-form-arrays';
@@ -108,7 +108,7 @@ export const ExperienceForm = () => (
     <FFieldArray name='experiences'>
       {({fields, meta}) => {
         return (
-          <Space direction="vertical">
+          <StyledSpace direction="vertical">
             {fields.map((name, index) => {
               return (
                 <div key={name}>
@@ -118,7 +118,6 @@ export const ExperienceForm = () => (
                       <MinusCircleOutlined
                         className="dynamic-delete-button"
                         onClick={(e) => {
-                          debugger;
                           e.preventDefault();
                           e.stopPropagation();
                           fields.remove('educations', index);
@@ -231,7 +230,7 @@ export const ExperienceForm = () => (
                 </Form.Item>
               </Col>
             </Row>
-          </Space>
+          </StyledSpace>
         )
       }}
     </FFieldArray>
