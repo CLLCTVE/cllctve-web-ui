@@ -63,7 +63,7 @@ export const AsyncSignUpForm = ({isLoading}) => (
                   component={renderAntInput}
                   validate={validations.composeValidators(
                     validations.required,
-                    validations.minLength(5),
+                    validations.minLength(4),
                     validations.maxLength(25)
                   )}
                   parse={value => value && value.toLowerCase()}
@@ -105,7 +105,8 @@ export const AsyncSignUpForm = ({isLoading}) => (
                   component={renderAntInput}
                   validate={validations.composeValidators(
                     validations.required,
-                    validations.email
+                    validations.email,
+                    validations.edu
                   )}
                   type="text"
                   placeholder="creative@cllctve.edu"
@@ -134,13 +135,12 @@ export const AsyncSignUpForm = ({isLoading}) => (
                 shape="round"
                 type="button"
                 htmlType="submit"
-                disabled={submitting}
+                disabled={isLoading || submitting}
                 loading={isLoading || submitting}
               >
                 Submit
               </StyledButton>
             </form>
-            <pre>{JSON.stringify(values, 0, 2)}</pre>
           </>
         )}
       />
