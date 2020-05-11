@@ -10,14 +10,7 @@ import {SkillsForm} from './SkillsForm';
 import {HonorsAwardsForm} from './HonorsAwardsForm';
 import {LicensesCertsForm} from './LicensesCertsForm';
 import {CenteredContainer as Container} from '../fields/renderFields';
-import {ONBOARDING_REQUEST, ONBOARDING_SUCCESS, ONBOARDING_FAILURE} from '../../modules/signup/redux';
-
-const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
-
-const onSubmit = async values => {
-  await sleep(300);
-  window.alert(JSON.stringify(values, 0, 2));
-};
+import {ONBOARDING_REQUEST, ONBOARDING_SUCCESS, ONBOARDING_FAILURE} from '../../modules/signup/redux/onboarding';
 
 class OnBoardingFlowPage extends Component {
  
@@ -38,7 +31,7 @@ class OnBoardingFlowPage extends Component {
                 isLoading={isLoading}
                 initialValues={{
                   education: {
-                    isEnrolled: false
+                    isEnrolled: true
                   },
                   experience: {
                     currentEmployer: false
@@ -52,18 +45,18 @@ class OnBoardingFlowPage extends Component {
                 <Wizard.Page>
                   <EducationForm />
                 </Wizard.Page>
-                <Wizard.Page>
-                  <SkillsForm />
-                </Wizard.Page>
-                <Wizard.Page>
-                  <ExperienceForm />
-                </Wizard.Page>
-                <Wizard.Page>
-                  <LicensesCertsForm />
-                </Wizard.Page>
-                <Wizard.Page>
-                  <HonorsAwardsForm />
-                </Wizard.Page>
+                {/*<Wizard.Page>*/}
+                {/*  <SkillsForm />*/}
+                {/*</Wizard.Page>*/}
+                {/*<Wizard.Page>*/}
+                {/*  <ExperienceForm />*/}
+                {/*</Wizard.Page>*/}
+                {/*<Wizard.Page>*/}
+                {/*  <LicensesCertsForm />*/}
+                {/*</Wizard.Page>*/}
+                {/*<Wizard.Page>*/}
+                {/*  <HonorsAwardsForm />*/}
+                {/*</Wizard.Page>*/}
               </Wizard>
               )}
             </div>
@@ -76,7 +69,7 @@ class OnBoardingFlowPage extends Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    isLoading: state.auth.isLoading,
+    isLoading: state.onBoarding.isLoading,
   };
 };
 

@@ -227,7 +227,17 @@ export const StyledDivider = styled(Divider)`
   }
 `;
 
-export const renderAntInput = ({input, placeholder, label, meta}) => (
+export const renderAntCheckbox = ({input, label, type}) => {
+  return (
+    <Form.Item>
+      <Checkbox {...input} type={type}>
+        {label}
+      </Checkbox>
+    </Form.Item>
+  )
+};
+
+export const renderAntInput = ({input, placeholder,label, meta}) => (
   <Form.Item name={label}
              validateStatus={(meta.error || meta.submitError) && meta.touched ? 'error' : ''}
              help={(meta.error || meta.submitError) && meta.touched && (

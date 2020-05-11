@@ -4,6 +4,7 @@ import { Field as FField } from 'react-final-form';
 import {
   ConditionalRender,
   renderAntInput,
+  renderAntCheckbox,
   renderAntMonthPicker,
   disabledDate,
   renderCheckbox, renderInput,
@@ -97,35 +98,10 @@ export const EducationForm = () => (
         
         <FField
           name="education.isEnrolled"
-          component={renderCheckbox}
+          component={renderAntCheckbox}
           type="checkbox"
           label="Currently Enrolled as a Student?"
-        />
-      </Col>
-    </Row>
-    <Row gutter={[{ xs: 8, sm: 16, md: 24, lg: 32 }, 16]}>
-      <Col span={12}>
-        <FField
-          name="education.test"
-          placeholder="Start Date*"
-          component={renderAntMonthPicker}
-          monthFormat={monthFormat}
-          parse={value => value || value.format(monthFormat)}
-          format={value => value}
-          allowClear={false}
-          // validate={validations.required}
-        />
-      </Col>
-      <Col span={12}>
-        <FField
-          name="education.test2"
-          placeholder="Start Date*"
-          component={renderAntMonthPicker}
-          monthFormat={monthFormat}
-          parse={value => value || value.format(monthFormat)}
-          format={value => value}
-          allowClear={false}
-          // validate={validations.required}
+          initialValue={false}
         />
       </Col>
     </Row>

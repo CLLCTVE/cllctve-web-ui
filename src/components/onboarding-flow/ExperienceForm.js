@@ -78,7 +78,7 @@ export const ExperienceForm = () => (
             placeholder="End Date*"
             component={renderAntMonthPicker}
             monthFormat={monthFormat}
-            disabledDate={disabledDate}
+            // disabledDate={disabledDate}
             parse={value => value || value.format(monthFormat)}
             format={value => value}
             allowClear={false}
@@ -120,7 +120,7 @@ export const ExperienceForm = () => (
                         onClick={(e) => {
                           e.preventDefault();
                           e.stopPropagation();
-                          fields.remove('educations', index);
+                          fields.remove(index);
                         }}
                       />
                     </Col>
@@ -182,7 +182,6 @@ export const ExperienceForm = () => (
                         placeholder="End Date*"
                         component={renderAntMonthPicker}
                         monthFormat={monthFormat}
-                        disabledDate={disabledDate}
                         parse={value => value || value.format(monthFormat)}
                         format={value => value}
                         allowClear={false}
@@ -222,7 +221,7 @@ export const ExperienceForm = () => (
                     onClick={(e) => {
                       e.preventDefault();
                       e.stopPropagation();
-                      fields.push('experiences', undefined);
+                      fields.push();
                     }}
                   >
                     <PlusOutlined/> Add More

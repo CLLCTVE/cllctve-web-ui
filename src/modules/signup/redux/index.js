@@ -1,4 +1,5 @@
 import {all, call, put, takeLatest} from 'redux-saga/effects';
+import {combineReducers} from 'redux';
 import {push} from 'connected-react-router';
 import request from '../../../lib/request';
 import {FORM_ERROR} from 'final-form';
@@ -7,10 +8,6 @@ import { LOGIN_SUCCESS, setAuthToken, handleAuthenticated, handleLoginSuccess } 
 export const SIGNUP_REQUEST = 'creative/signup/SIGNUP_REQUEST';
 export const SIGNUP_FAILURE = 'creative/signup/SIGNUP_FAILURE';
 export const SIGNUP_SUCCESS = 'creative/signup/SIGNUP_SUCCESS';
-
-export const ONBOARDING_REQUEST = 'creative/onboarding/ONBOARDING_REQUEST';
-export const ONBOARDING_FAILURE = 'creative/onboarding/ONBOARDING_FAILURE';
-export const ONBOARDING_SUCCESS = 'creative/onboarding/ONBOARDING_SUCCESS';
 
 export const handleSignUpRequest = () => ({
   type: SIGNUP_REQUEST,
@@ -24,27 +21,10 @@ export const handleSignUpSuccess = payload => ({
 });
 
 export const handleSignUpFailed = payload => ({
-  type: SIGNUP_SUCCESS,
+  type: SIGNUP_FAILURE,
   payload,
   isLoading: false,
 });
-
-const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
-
-const onSubmit = async values => {
-  await sleep(300);
-  return true;
-};
-
-export function* onHandleOnBoardingRequest(values) {
-  console.log('#onHandleOnBoardingRequest, values: ', values);
-  
-  onSubmit(values);
-  
-  yield all([
-    put(push('/profile')),
-  ]);
-}
 
 export function* onHandleSignUpRequest({
   firstName,
@@ -63,10 +43,17 @@ export function* onHandleSignUpRequest({
     phone,
     password
   );
-
+  
   try {
     console.log('#onHandleSignupRequest, try block');
-    const response = yield call(request.post, '/users/signup', {firstName, lastName, email, gradMonthYear, phone, password});
+    const response = yield call(request.post, '/users/signup', {
+      firstName,
+      lastName,
+      email,
+      gradMonthYear,
+      phone,
+      password
+    });
     
     localStorage.setItem('token', JSON.stringify(response.data.token));
     localStorage.setItem('user', JSON.stringify(response.data.user));
@@ -81,37 +68,40 @@ export function* onHandleSignUpRequest({
   } catch (err) {
     console.error('#onHandleSignupRequest, catch block, err: ', err);
     
-    
-    let payload = {
-      [FORM_ERROR]: 'Errors in form',
-      ...err.response.data.errors
-    };
-    debugger;
-    if (err.response && err.response.status === 422) {
+    if (err.response && (err.response.status === 422 || err.response.status === 404 || err.response.status === 401)) {
       yield put({
         type: SIGNUP_SUCCESS,
-        payload: payload,
+        payload: {
+          [FORM_ERROR]: 'Errors in form',
+          ...err.response.data.errors
+        },
       });
     }
-  
-    if (err.message === 'Network Error') {
+    
+    if (err.message && err.message === 'Network Error') {
       yield put({
         type: SIGNUP_SUCCESS,
         payload: {[FORM_ERROR]: 'Check your connection and please try again later.'},
       });
     }
-  
-    if (err.response.status === 500) {
+    
+    if (err.response && err.response.status === 500) {
       yield put({
         type: SIGNUP_FAILURE,
         payload: {[FORM_ERROR]: 'Its not you, its us....... Please try again later.'},
       });
     }
-    // yield put(handleSignUpFailed(err));
+    
+    yield put(handleSignUpFailed(err));
   }
 }
 
-export default function signUp(state = {}, action) {
+const INITIAL_STATE = {
+  isLoading: false,
+  error: null
+};
+
+export default function signUp(state = INITIAL_STATE, action) {
   switch (action.type) {
     case SIGNUP_REQUEST:
       return {...state, isLoading: true};
@@ -125,7 +115,7 @@ export default function signUp(state = {}, action) {
       return {
         ...state,
         isLoading: false,
-        errors: action.payload.errors
+        error: action.payload.errors
       };
     default:
       return state;

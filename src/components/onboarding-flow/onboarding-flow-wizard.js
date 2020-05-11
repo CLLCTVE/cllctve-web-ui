@@ -1,12 +1,12 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { Form as FForm } from 'react-final-form';
 import arrayMutators from 'final-form-arrays';
-import {withRouter, Redirect} from 'react-router-dom';
-import {StyledButton} from '../fields/renderFields';
+import { withRouter, Redirect } from 'react-router-dom';
+import { StyledButton } from '../fields/renderFields';
 import { ONBOARDING_ENTRY_MAP_BY_NAME } from '../../lib/util';
 
 class OnBoardingFlowWizard extends Component {
-  static Page = ({ children }) => children;
+  static Page = ({children}) => children;
   
   constructor(props) {
     console.log('OnBoardingFlowWizard#constructor, props: ', props);
@@ -44,17 +44,17 @@ class OnBoardingFlowWizard extends Component {
     return activePage.props.validate ? activePage.props.validate(values) : {}
   };
   
-  displayStepText = step  => {
+  displayStepText = step => {
     return ONBOARDING_ENTRY_MAP_BY_NAME[Object.keys(ONBOARDING_ENTRY_MAP_BY_NAME)[step]].text;
   };
   
-  displayStepTitle = step  => {
+  displayStepTitle = step => {
     return ONBOARDING_ENTRY_MAP_BY_NAME[Object.keys(ONBOARDING_ENTRY_MAP_BY_NAME)[step]].title;
   };
   
   handleSubmit = values => {
-    const { children, onSubmit } = this.props;
-    const { page } = this.state;
+    const {children, onSubmit} = this.props;
+    const {page} = this.state;
     const isLastPage = page === React.Children.count(children) - 1;
     if (isLastPage) {
       return onSubmit(values);
@@ -64,8 +64,8 @@ class OnBoardingFlowWizard extends Component {
   };
   
   render() {
-    const { children, match } = this.props;
-    const { page, values } = this.state;
+    const {children, isLoading, match} = this.props;
+    const {page, values} = this.state;
     const activePage = React.Children.toArray(children)[page];
     const isLastPage = page === React.Children.count(children) - 1;
     return (
@@ -78,19 +78,22 @@ class OnBoardingFlowWizard extends Component {
         onSubmit={this.handleSubmit}
       >
         {({
-          handleSubmit,
-          form: {
-            mutators: {push, remove}
-          }, // injected from final-form-arrays above
-          submitting,
-          values
-        }) => {
+            submitError,
+            handleSubmit,
+            form: {
+              mutators: {push, remove}
+            }, // injected from final-form-arrays above
+            submitting,
+            values
+          }) => {
           return (
             <form onSubmit={handleSubmit}>
+              {isLoading && <div>Loading...</div>}
+              {<div className="error">{submitError}</div>}
               {activePage}
               <div className="buttons">
-  
-  
+                
+                
                 {page > 0 && (
                   <StyledButton
                     size="large"
@@ -122,14 +125,14 @@ class OnBoardingFlowWizard extends Component {
                     Submit
                   </StyledButton>
                 )}
-                
-                
+              
+              
               </div>
               <pre>{JSON.stringify(values, 0, 2)}</pre>
             </form>
           )
         }}
-        
+      
       </FForm>
     );
   }

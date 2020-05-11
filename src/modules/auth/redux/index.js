@@ -97,16 +97,7 @@ export function* onHandleLoginRequest({email, password}) {
   } catch (err) {
     console.error('#onHandleLoginRequest, catch block, err: ', err);
     
-    if (err.response && err.response.status === 401) {
-      yield put({
-        type: LOGIN_SUCCESS,
-        payload: {[FORM_ERROR]: err.response.data.message,
-          ...err.response.data.errors
-        },
-      });
-    }
-    
-    if (err.response && err.response.status === 422) {
+    if (err.response && (err.response.status === 401 || err.response.status === 422)) {
       yield put({
         type: LOGIN_SUCCESS,
         payload: {[FORM_ERROR]: err.response.data.message,
@@ -115,14 +106,14 @@ export function* onHandleLoginRequest({email, password}) {
       });
     }
   
-    if (err.message === 'Network Error') {
+    if (err.message && err.message === 'Network Error') {
       yield put({
         type: LOGIN_SUCCESS,
         payload: {[FORM_ERROR]: 'Check your connection and please try again later.'},
       });
     }
   
-    if (err.response.status === 500) {
+    if (err.response && err.response.status === 500) {
       yield put({
         type: LOGIN_SUCCESS,
         payload: {[FORM_ERROR]: 'Its not you, its us....... Please try again later.'},

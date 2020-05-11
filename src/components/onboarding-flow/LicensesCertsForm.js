@@ -59,10 +59,6 @@ export const LicensesCertsForm = () => (
             placeholder="Expiration Date*"
             component={renderAntMonthPicker}
             monthFormat={monthFormat}
-            disabledDate={(val, val2) => {
-              console.log('val: ', val);
-              console.log('val2', val2);
-            }}
             parse={value => value || value.format(monthFormat)}
             format={value => value}
             allowClear={false}
@@ -75,6 +71,7 @@ export const LicensesCertsForm = () => (
           component={renderCheckbox}
           type="checkbox"
           label="This credential will expire"
+          defaultValue={false}
         />
       </Col>
     </Row>
@@ -120,50 +117,58 @@ export const LicensesCertsForm = () => (
                     </Col>
                     <Col span={24}>
                       <FField
-                        name={`${name}.school`}
-                        component={renderAntInput}
+                        name={`${name}.title`}
+                        component={renderInput}
                         type="text"
-                        placeholder="School Name"
-                        validate={validations.required}
+                        placeholder="Name of Cert"
+                        // validate={validations.required}
+                      />
+                    </Col>
+                  </Row>
+                  <Row gutter={[{ xs: 8, sm: 16, md: 24, lg: 32 }, 16]}>
+                    <Col span={24}>
+                      <FField
+                        name={`${name}.organization`}
+                        component={renderInput}
+                        type="text"
+                        placeholder="Licensing Organization"
+                        // validate={validations.required}
                       />
                     </Col>
                   </Row>
                   <Row gutter={[{ xs: 8, sm: 16, md: 24, lg: 32 }, 16]}>
                     <Col span={12}>
                       <FField
-                        name={`${name}.degreeType`}
-                        component={renderAntInput}
-                        type="text"
-                        placeholder="Degree Type"
-                        validate={validations.required}
-                      />
-                    </Col>
-                  </Row>
-                  <Row gutter={[{ xs: 8, sm: 16, md: 24, lg: 32 }, 16]}>
-                    <Col span={12}>
-                      <FField
-                  
-                        name={`${name}.startMonthYear`}
-                        placeholder="Start Date"
+                        name={`${name}.issuedMonthYear`}
+                        placeholder="Start Date*"
                         component={renderAntMonthPicker}
                         monthFormat={monthFormat}
                         parse={value => value || value.format(monthFormat)}
                         format={value => value}
                         allowClear={false}
-                        validate={validations.required}
+                        // validate={validations.required}
                       />
                     </Col>
                     <Col span={12}>
+                      <ConditionalRender when={`${name}.canExpire`} is={true}>
+                        <FField
+                          name={`${name}.expMonthYear`}
+                          placeholder="Expiration Date*"
+                          component={renderAntMonthPicker}
+                          monthFormat={monthFormat}
+                          parse={value => value || value.format(monthFormat)}
+                          format={value => value}
+                          allowClear={false}
+                          // validate={validations.required}
+                        />
+                      </ConditionalRender>
+    
                       <FField
-                        name={`${name}.gradMonthYear`}
-                        placeholder="Grad Date"
-                        component={renderAntMonthPicker}
-                        monthFormat={monthFormat}
-                        disabledDate={disabledDate}
-                        parse={value => value || value.format(monthFormat)}
-                        format={value => value}
-                        allowClear={false}
-                        validate={validations.required}
+                        name={`${name}.canExpire`}
+                        component={renderCheckbox}
+                        type="checkbox"
+                        label="This credential will expire"
+                        defaultValue={false}
                       />
                     </Col>
                   </Row>

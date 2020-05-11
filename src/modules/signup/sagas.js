@@ -1,7 +1,8 @@
 import {all, call, put, fork, take, takeLatest} from 'redux-saga/effects';
 
-import {SIGNUP_REQUEST, SIGNUP_SUCCESS, SIGNUP_FAILURE, ONBOARDING_REQUEST, onHandleSignUpRequest, onHandleOnBoardingRequest} from './redux';
+import {SIGNUP_REQUEST, SIGNUP_SUCCESS, SIGNUP_FAILURE, onHandleSignUpRequest} from './redux';
 
+import {ONBOARDING_REQUEST, onHandleOnBoardingRequest} from './redux/onboarding';
 
 function* watchOnBoardingFlow() {
   console.log('#watchOnBoardingFlow');
