@@ -20,7 +20,7 @@ class Index extends Component {
     return (
       <Layout>
         <NavBar />
-        <Layout.Content style={{padding: '60px', height: '100%', minHeight: '100vh'}}>
+        <Layout.Content style={{height: '100%', minHeight: '100vh'}}>
           <Switch>
             <Route exact path="/" component={HomePage} />
             <Route exact path="/login" component={LoginPage} />
