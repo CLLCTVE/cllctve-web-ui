@@ -30,6 +30,7 @@ const makeRequest = async (url, method, requestData, origin) => {
     },
   };
 
+  debugger;
   if (requestData) {
     config = {
       ...config,

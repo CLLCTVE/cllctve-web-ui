@@ -11,7 +11,7 @@ import ProfilePage from './profile-page';
 import OnBoardingFlowPage from './onboarding-flow';
 import OnBoardingFlowStep from './onboarding-flow/onboarding-flow-step';
 import NotFoundPage from './pages/notFoundPage';
-import FieldArrayPage from './field-array/fieldArrayExample';
+import AdminDashboardPage from './admin/brand-approval-page';
 
 import RequireAuth from './require_auth';
 
@@ -26,7 +26,7 @@ class Index extends Component {
             <Route exact path="/login" component={LoginPage} />
             <Route exact path="/sign-up" component={SignUpPage} />
             <Route exact path="/profile" component={ProfilePage} />
-            <Route exact path="/array-form" component={FieldArrayPage} />
+            <Route exact path="/admin/dashboard" component={AdminDashboardPage} />
             
             <Route path="/on-boarding-flow/:step" render={() => {
               return (

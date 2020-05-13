@@ -57,6 +57,13 @@ class OnBoardingFlowWizard extends Component {
     const {page} = this.state;
     const isLastPage = page === React.Children.count(children) - 1;
     if (isLastPage) {
+      if (!(values['experience'] && values['experience'].position)) {
+        delete values['experience'];
+      }
+      
+      if (!(values['licensesCert'] && values['licensesCert'].title )) {
+        delete values['licensesCert'];
+      }
       return onSubmit(values);
     } else {
       this.next(values);

@@ -45,18 +45,18 @@ class OnBoardingFlowPage extends Component {
                 <Wizard.Page>
                   <EducationForm />
                 </Wizard.Page>
-                {/*<Wizard.Page>*/}
-                {/*  <SkillsForm />*/}
-                {/*</Wizard.Page>*/}
-                {/*<Wizard.Page>*/}
-                {/*  <ExperienceForm />*/}
-                {/*</Wizard.Page>*/}
-                {/*<Wizard.Page>*/}
-                {/*  <LicensesCertsForm />*/}
-                {/*</Wizard.Page>*/}
-                {/*<Wizard.Page>*/}
-                {/*  <HonorsAwardsForm />*/}
-                {/*</Wizard.Page>*/}
+                <Wizard.Page>
+                  <SkillsForm />
+                </Wizard.Page>
+                <Wizard.Page>
+                  <ExperienceForm />
+                </Wizard.Page>
+                <Wizard.Page>
+                  <LicensesCertsForm />
+                </Wizard.Page>
+                <Wizard.Page>
+                  <HonorsAwardsForm />
+                </Wizard.Page>
               </Wizard>
               )}
             </div>

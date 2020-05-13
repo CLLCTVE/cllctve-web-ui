@@ -33,7 +33,7 @@ export const EducationForm = () => (
     <Row gutter={[{ xs: 8, sm: 16, md: 24, lg: 32 }, 16]}>
       <Col span={8}>
         <FField
-          name="education.degreeType"
+          name="education.degree"
           component={renderAntInput}
           type="text"
           placeholder="Degree Type*"
@@ -158,7 +158,7 @@ export const EducationForm = () => (
                   <Row gutter={[{ xs: 8, sm: 16, md: 24, lg: 32 }, 16]}>
                     <Col span={8}>
                       <FField
-                        name={`${name}.degreeType`}
+                        name={`${name}.degree`}
                         component={renderAntInput}
                         type="text"
                         placeholder="Degree Type"

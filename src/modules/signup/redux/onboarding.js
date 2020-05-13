@@ -37,13 +37,15 @@ export function* onHandleOnBoardingRequest({payload: {education, educations=[], 
   
   let payload = {
     education: [education, ...educations],
-    ...(skills && {skills})
+    ...(skills && {skills}),
+    ...(experience && {experience: [experience, ...experiences]}),
+    ...(licensesCert && {licensesCerts: [licensesCert, ...licensesCerts]}),
+    ...(honorsAward && {honorsAwards: [honorsAward, ...honorsAwards]})
   };
   
   try {
-    const response = yield call(request.post, '/users/signup', payload);
+    const response = yield call(request.post, '/users/onboarding', payload);
     
-    debugger;
     localStorage.setItem('user', JSON.stringify(response.data.user));
     yield all([
       put(handleOnBoardingSuccess(response.data.token)),
@@ -51,8 +53,9 @@ export function* onHandleOnBoardingRequest({payload: {education, educations=[], 
       put(push('/profile')),
     ]);
   } catch (err) {
-    console.error('#onHandleOnBoardingRequest, catch block, err: ', err);
     debugger;
+    console.error('#onHandleOnBoardingRequest, catch block, err: ', err);
+    
     if (err.response && (err.response.status === 422 || err.response.status === 404 || err.response.status === 401)) {
       yield put({
         type: ONBOARDING_SUCCESS,
