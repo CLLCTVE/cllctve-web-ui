@@ -1,5 +1,4 @@
 FROM library/node:11.15.0
-MAINTAINER BBAILEY
 
 RUN mkdir -p /usr/src/app
 CMD cd /usr/src/app
