@@ -86,14 +86,22 @@ export function* onHandleLoginRequest({email, password}) {
   try {
     console.log('#onHandleLoginRequest, try block');
     const response = yield call(request.post, '/login', {email, password});
+    const {user, token} = response.data;
     
-    localStorage.setItem('token', JSON.stringify(response.data.token));
-    localStorage.setItem('user', JSON.stringify(response.data.user));
+    localStorage.setItem('token', JSON.stringify(token));
+    localStorage.setItem('user', JSON.stringify(user));
     yield all([
-      put(handleLoginSuccess(response.data.user)),
-      put(setAuthToken(response.data.token)),
-      put(push('/profile')),
+      put(handleLoginSuccess(user)),
+      put(setAuthToken(token)),
+      put(push('/on-boarding-flow/0')),
     ]);
+  
+    if (!user.onboarded) {
+      yield put(push('/on-boarding-flow/0'))
+    } else {
+      yield put(push('/profile'));
+    }
+    
   } catch (err) {
     console.error('#onHandleLoginRequest, catch block, err: ', err);
     

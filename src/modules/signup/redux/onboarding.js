@@ -29,7 +29,7 @@ export const handleOnBoardingFailed = payload => ({
 
 export function* onHandleOnBoardingRequest({payload: {education, educations=[], skills=[], experience, experiences=[], licensesCert, licensesCerts=[], honorsAward, honorsAwards=[]}}) {
   console.log('#onHandleOnBoardingRequest');
-  yield put(handleOnBoardingRequest());
+  // yield put(handleOnBoardingRequest());
   /*
       build the payload to send to the backend,
       only field that is required is education
@@ -46,10 +46,12 @@ export function* onHandleOnBoardingRequest({payload: {education, educations=[], 
   try {
     const response = yield call(request.post, '/users/onboarding', payload);
     
-    localStorage.setItem('user', JSON.stringify(response.data.user));
+    const {user, token} = response.data;
+    
+    localStorage.setItem('user', JSON.stringify(user));
     yield all([
-      put(handleOnBoardingSuccess(response.data.token)),
-      put(setAuthToken(response.data.token)),
+      put(handleOnBoardingSuccess(token)),
+      put(setAuthToken(token)),
       put(push('/profile')),
     ]);
   } catch (err) {

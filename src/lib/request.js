@@ -8,13 +8,14 @@ import * as API from '../api';
 const API_URL = `${env.REACT_APP_CLLCTVE_API_ORIGIN}/api`;
 
 export default {
-  del: (url, data, origin) => makeRequest(url, 'delete', data, origin),
-  get: (url, data, origin) => makeRequest(url, 'get', data, origin),
-  post: (url, data, origin) => makeRequest(url, 'post', data, origin),
-  put: (url, data, origin) => makeRequest(url, 'put', data, origin),
+  del: (url, data, origin) => makeRequest(url, 'DELETE', data, origin),
+  get: (url, data, origin) => makeRequest(url, 'GET', data, origin),
+  post: (url, data, origin) => makeRequest(url, 'POST', data, origin),
+  put: (url, data, origin) => makeRequest(url, 'PUT', data, origin),
 };
 
 const makeRequest = async (url, method, requestData, origin) => {
+  console.log('#makeRequest');
   // Remove leading slash if present
   if (url.startsWith('/')) {
     url = url.substr(1);
@@ -22,15 +23,15 @@ const makeRequest = async (url, method, requestData, origin) => {
 
   let apiUrl = `${origin || API_URL}/${url}`;
   let config = {
-    ...authHeader(),
-    method,
+    headers: authHeader(),
+    method: method,
     url: apiUrl,
     paramsSerializer: params => {
       return qs.stringify(params, {arrayFormat: 'brackets'});
     },
   };
 
-  debugger;
+  console.log('#makeRequest, authHeaders have been set, config: ', config);
   if (requestData) {
     config = {
       ...config,

@@ -14,12 +14,10 @@ export function authHeader() {
   if (token) {
     return Object.assign(headersObj, {
       'Authorization': token,
-      'uid': ' ' + uid,
-      'x-auth-token': authToken
+      'uid': uid,
+      'X-Auth-Token': authToken
     });
   }
-
-  debugger;
   
   return headersObj;
 }
