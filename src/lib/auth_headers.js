@@ -6,7 +6,6 @@ export function authHeader() {
   let authToken = token && token.replace(/Bearer /g, "");
   
   let headersObj = {
-    'x-auth-token': authToken,
     'Content-Type': 'application/json',
     withCredentials: true,
   };
@@ -15,7 +14,7 @@ export function authHeader() {
     return Object.assign(headersObj, {
       'Authorization': token,
       'uid': uid,
-      'X-Auth-Token': authToken
+      'X-AUTH-TOKEN': authToken
     });
   }
   

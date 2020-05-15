@@ -86,6 +86,7 @@ export function* onHandleLoginRequest({email, password}) {
   try {
     console.log('#onHandleLoginRequest, try block');
     const response = yield call(request.post, '/login', {email, password});
+    console.log('response: ', response);
     const {user, token} = response.data;
     
     localStorage.setItem('token', JSON.stringify(token));
