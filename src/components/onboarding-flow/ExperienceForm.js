@@ -21,7 +21,7 @@ export const ExperienceForm = () => (
     <Row gutter={[16, 16]}>
       <Col span={24}>
         <FField
-          name="experience.position"
+          name="experience.title"
           component={renderAntInput}
           type="text"
           placeholder="Position*"
