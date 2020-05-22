@@ -55,7 +55,6 @@ export function* onHandleOnBoardingRequest({payload: {education, educations=[], 
       put(push('/profile')),
     ]);
   } catch (err) {
-    debugger;
     console.error('#onHandleOnBoardingRequest, catch block, err: ', err);
     
     if (err.response && (err.response.status === 422 || err.response.status === 404 || err.response.status === 401)) {
@@ -102,7 +101,6 @@ export default function onBoarding(state = INITIAL_STATE, action) {
         user: action.payload
       };
     case ONBOARDING_FAILURE:
-      debugger;
       return {
         ...state,
         isLoading: false,

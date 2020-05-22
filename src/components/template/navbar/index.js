@@ -119,4 +119,4 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-export default connect(mapStateToProps)(withRouter(NavBar));
+export default withRouter(connect(mapStateToProps)(NavBar));

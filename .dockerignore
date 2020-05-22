@@ -2,8 +2,7 @@ node_modules
 build
 .dockerignore
 Dockerfile
-Dockerfile.prod
-.DS_Store
+**/.DS_Store
 .idea
 .git
 .gitignore

@@ -25,7 +25,7 @@ class RightMenu extends Component {
           <Link to="/notifications">Notifications</Link>
         </Menu.Item>
         <Menu.Item key="logout">
-          <Link to="/home">Logout</Link>
+          <Link to="/">Logout</Link>
         </Menu.Item>
       </Menu>
     );

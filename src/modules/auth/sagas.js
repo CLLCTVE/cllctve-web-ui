@@ -6,7 +6,9 @@ import {
   LOGIN_FAILURE,
   SET_TOKEN,
   UNSET_TOKEN,
+  LOGOUT_REQUEST,
   onHandleLoginRequest,
+  onHandleLogoutRequest
 } from './redux';
 
 function* watchUserAuthentication() {
@@ -20,6 +22,12 @@ function* watchUserAuthentication() {
 
     console.log('maybe a login failure happened, not sure... action: ', action);
   }
+}
+
+function* watchUserLogout() {
+  console.log('#watchUserLogout');
+  yield takeLatest(LOGOUT_REQUEST, onHandleLogoutRequest);
+  
 }
 
 export default function* sagas() {

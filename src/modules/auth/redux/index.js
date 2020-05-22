@@ -53,9 +53,8 @@ export const setAuthToken = payload => ({
   payload,
 });
 
-export const unsetAuthToken = payload => ({
-  type: UNSET_TOKEN,
-  payload,
+export const unsetAuthToken = () => ({
+  type: UNSET_TOKEN
 });
 
 export const handleLoginCancelled = () => ({
@@ -69,6 +68,14 @@ export const handleLoginFailed = payload => ({
 
 export const handleLogoutRequest = () => ({
   type: LOGOUT_REQUEST,
+  isLoading: true,
+  user: null,
+  token: null,
+});
+
+export const handleLogoutSuccess = () => ({
+  type: LOGOUT_SUCCESS,
+  isLoading: false,
   user: null,
   token: null,
 });
@@ -80,6 +87,22 @@ export const handleAuthenticated = () => ({
 export const handleUnAuthenticated = () => ({
   type: UNAUTHENTICATED,
 });
+
+export function* onHandleLogoutRequest() {
+  console.log('#onHandleLogoutRequest');
+  try {
+    console.log('#onHandleLogoutRequest, try block');
+    yield all([
+      put(handleLogoutRequest()),
+      put(handleLogoutSuccess()),
+      put(unsetAuthToken()),
+      put(push('/'))
+    ]);
+    
+  } catch(err) {
+    console.error('Error, #onHandleLogoutRequest, err: ', err);
+  }
+}
 
 export function* onHandleLoginRequest({email, password}) {
   console.log('#onHandleLoginRequest');
@@ -143,7 +166,7 @@ export default function auth(state = INITIAL_STATE, action) {
     case SET_TOKEN:
       return {...state, token: action.payload};
     case UNSET_TOKEN:
-      return {...state, token: action.payload};
+      return {...state, token: null};
     case LOGOUT_REQUEST:
       return {...state, isLoading: true, authenticated: false};
     case LOGOUT_SUCCESS:
