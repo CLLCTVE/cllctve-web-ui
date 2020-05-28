@@ -50,7 +50,7 @@ export function* onHandleOnBoardingRequest({payload: {education, educations=[], 
     
     localStorage.setItem('user', JSON.stringify(user));
     yield all([
-      put(handleOnBoardingSuccess(token)),
+      put(handleOnBoardingSuccess(user)),
       put(setAuthToken(token)),
       put(push('/profile')),
     ]);
