@@ -19,15 +19,15 @@ class ProfilePage extends Component {
             <strong style={{marginBottom: '0em', fontSize: '18px', fontFamily: 'Open Sans Bold'}}>Title</strong>
             <p style={{fontFamily: 'Open Sans', fontSize: '18px'}}>Education</p>
           </div>
-          <div className="buttons" style={{gridArea: 'button'}}>
+          <div className="buttons" style={{gridArea: 'button', position: 'relative'}}>
             <EditButton>
               <h5 style={{marginBottom: '0', fontSize: '.6em'}}>EDIT CONTACT INFO</h5>
             </EditButton>
             <div style={{ float: 'right', display: 'block'}}>
-            <AddSection>
+            <AddSection style={{position: 'absolute', right: '50px', bottom: '0'}}>
               <h5 style={{marginBottom: '0em', fontSize: '.6em', padding: '3px'}}>ADD SECTION</h5>
             </AddSection>
-            <MoreButton>
+            <MoreButton style={{position: 'absolute', right: '0', bottom: '0'}}>
               <p style={{marginBottom: '0em', fontSize: '.6em', padding: '3px', fontFamily: 'Hanson Bold', color: 'black'}}>MORE</p>
             </MoreButton>
             </div>
@@ -57,6 +57,12 @@ class ProfilePage extends Component {
         </AboutContainer>
         <SkillsContainer>
           <h2>SKILLS</h2>
+          <Skill>
+            <div style={{color: '#000', backgroundColor: '#fff', padding: '5px 15px', borderRadius: '50px', display: 'block', marginRight: '10px'}}>SKILL ONE</div>
+            <div style={{color: '#000', backgroundColor: '#fff', padding: '5px 15px', borderRadius: '50px', display: 'block', marginRight: '10px'}}>SKILL TWO</div>
+            <div style={{color: '#000', backgroundColor: '#fff', padding: '5px 15px', borderRadius: '50px', display: 'block', marginRight: '10px'}}>SKILL THREE</div>
+            <div style={{color: '#000', backgroundColor: '#fff', padding: '5px 15px', borderRadius: '50px', display: 'block', marginRight: '10px'}}>SKILL FOUR</div>
+          </Skill>
         </SkillsContainer>
       </div>
     );
@@ -71,6 +77,8 @@ const Header = styled.div`
 `;
 ////////////////////////// USER INFO SECTION ///////////////////////////
 const ProfileImg = styled.div`
+  position: relative;
+  bottom: 50px;
   grid-area: img;
   width: 150px;
   height: 150px;
@@ -79,7 +87,7 @@ const ProfileImg = styled.div`
 `;
 const InfoContainer = styled.div`
   display: grid;
-  grid-template-areas: 'img header header header button button';
+  grid-template-areas: 'img header button';
   grid-gap: 10px;
   padding: 10px;
   margin: 20px auto;
@@ -101,7 +109,6 @@ const AddSection = styled.button`
   width: 100px;
   border-radius: 50px;
   text-align: center;
-  margin-top: 50px;
   border: none;
   margin-right: 10px;
 `;
@@ -137,6 +144,12 @@ const SkillsContainer = styled.div`
   background-color: #222;
   border-radius: 20px;
   padding: 20px;
+`
+const Skill = styled.div`
+  display: flex;
+  font-family: Hanson Bold;
+  padding: 5px;
+  border-radius: 50px;
 `
 
 const mapStateToProps = (state, ownProps) => {
