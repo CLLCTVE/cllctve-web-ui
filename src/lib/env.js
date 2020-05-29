@@ -3,7 +3,7 @@ let errorMsg = '';
 
 const env = {
   REACT_APP_CLLCTVE_API_ORIGIN: processVar('REACT_APP_CLLCTVE_API_ORIGIN'),
-  NODE_ENV: processVar('NODE_ENV'),
+  NODE_ENV: processVar('NODE_ENV')
 };
 
 function processVar(key) {

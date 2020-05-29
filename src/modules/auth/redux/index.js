@@ -92,15 +92,15 @@ export function* onHandleLogoutRequest() {
   console.log('#onHandleLogoutRequest');
   try {
     console.log('#onHandleLogoutRequest, try block');
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
     yield all([
-      put(handleLogoutRequest()),
       put(handleLogoutSuccess()),
       put(unsetAuthToken()),
       put(push('/'))
     ]);
-    
   } catch(err) {
-    console.error('Error, #onHandleLogoutRequest, err: ', err);
+    console.error('Error, Failed to Logout, err: ', err);
   }
 }
 
@@ -117,7 +117,6 @@ export function* onHandleLoginRequest({email, password}) {
     yield all([
       put(handleLoginSuccess(user)),
       put(setAuthToken(token)),
-      put(push('/on-boarding-flow/0')),
     ]);
   
     if (!user.onboarded) {
@@ -167,8 +166,6 @@ export default function auth(state = INITIAL_STATE, action) {
       return {...state, token: action.payload};
     case UNSET_TOKEN:
       return {...state, token: null};
-    case LOGOUT_REQUEST:
-      return {...state, isLoading: true, authenticated: false};
     case LOGOUT_SUCCESS:
       return {...state, isLoading: false, authenticated: false};
     case AUTHENTICATED:

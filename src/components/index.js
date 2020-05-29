@@ -13,8 +13,6 @@ import OnBoardingFlowStep from './onboarding-flow/onboarding-flow-step';
 import NotFoundPage from './pages/notFoundPage';
 import AdminDashboardPage from './admin/brand-approval-page';
 
-import RequireAuth from './require_auth';
-
 class Index extends Component {
   render() {
     return (

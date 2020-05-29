@@ -1,12 +1,15 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import {NavLink as Link} from 'react-router-dom';
-import {Menu} from 'antd';
+import {Menu, Button} from 'antd';
+import {LOGOUT_REQUEST, onHandleLogoutRequest} from '../../../modules/auth/redux';
 
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
 
 class RightMenu extends Component {
   render() {
+    const {logout} = this.props;
     return (
       <Menu mode="horizontal">
         <Menu.Item key="home">
@@ -25,11 +28,16 @@ class RightMenu extends Component {
           <Link to="/notifications">Notifications</Link>
         </Menu.Item>
         <Menu.Item key="logout">
-          <Link to="/">Logout</Link>
+          <Button type="link" onClick={logout}>Logout</Button>
         </Menu.Item>
       </Menu>
     );
   }
 }
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    logout: () => {dispatch({type: LOGOUT_REQUEST})}
+  };
+};
 
-export default RightMenu;
+export default connect(null, mapDispatchToProps)(RightMenu);

@@ -1,16 +1,17 @@
-runtime: nodejs10
+service: cllctve-frontend
+# [START runtime]
+runtime: nodejs
 env: flex
-service: dev-cllctive-frontend
+threadsafe: true
+# [END runtime]
+
+# [START handlers]
 handlers:
-  # Serve all static files with urls ending with a file extension
-  - url: /(.*\..+)$
-    static_files: build/\1
-    upload: build/(.*\..+)$
-  # Catch all handler to index.html
-  - url: /.*
+  - url: /
     static_files: build/index.html
     upload: build/index.html
 
-
-
-# staging.alpha-247519.appspot.com
+  - url: /(.*)
+    static_files: build/\1
+    upload: build/(.*)
+# [END handlers]
