@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
+import {Row, Col, Divider} from 'antd';
 import {connect} from 'react-redux';
 
 class ProfilePage extends Component {
@@ -16,20 +17,32 @@ class ProfilePage extends Component {
             <h1 style={{marginBottom: '0em'}}>
               {user.firstName} {user.lastName}
             </h1>
-            <strong style={{marginBottom: '0em', fontSize: '18px', fontFamily: 'Open Sans Bold'}}>Title</strong>
+            <strong style={{marginBottom: '0em', fontSize: '18px', fontFamily: 'Open Sans Bold'}}>
+              Title
+            </strong>
             <p style={{fontFamily: 'Open Sans', fontSize: '18px'}}>Education</p>
           </div>
           <div className="buttons" style={{gridArea: 'button', position: 'relative'}}>
             <EditButton>
               <h5 style={{marginBottom: '0', fontSize: '.6em'}}>EDIT CONTACT INFO</h5>
             </EditButton>
-            <div style={{ float: 'right', display: 'block'}}>
-            <AddSection style={{position: 'absolute', right: '50px', bottom: '0'}}>
-              <h5 style={{marginBottom: '0em', fontSize: '.6em', padding: '3px'}}>ADD SECTION</h5>
-            </AddSection>
-            <MoreButton style={{position: 'absolute', right: '0', bottom: '0'}}>
-              <p style={{marginBottom: '0em', fontSize: '.6em', padding: '3px', fontFamily: 'Hanson Bold', color: 'black'}}>MORE</p>
-            </MoreButton>
+            <div style={{float: 'right', display: 'block'}}>
+              <AddSection style={{position: 'absolute', right: '50px', bottom: '0'}}>
+                <h5 style={{marginBottom: '0em', fontSize: '.6em', padding: '3px'}}>ADD SECTION</h5>
+              </AddSection>
+              <MoreButton style={{position: 'absolute', right: '0', bottom: '0'}}>
+                <p
+                  style={{
+                    marginBottom: '0em',
+                    fontSize: '.6em',
+                    padding: '3px',
+                    fontFamily: 'Hanson Bold',
+                    color: 'black',
+                  }}
+                >
+                  MORE
+                </p>
+              </MoreButton>
             </div>
           </div>
         </InfoContainer>
@@ -58,12 +71,100 @@ class ProfilePage extends Component {
         <SkillsContainer>
           <h2>SKILLS</h2>
           <Skill>
-            <div style={{color: '#000', backgroundColor: '#fff', padding: '5px 15px', borderRadius: '50px', display: 'block', marginRight: '10px'}}>SKILL ONE</div>
-            <div style={{color: '#000', backgroundColor: '#fff', padding: '5px 15px', borderRadius: '50px', display: 'block', marginRight: '10px'}}>SKILL TWO</div>
-            <div style={{color: '#000', backgroundColor: '#fff', padding: '5px 15px', borderRadius: '50px', display: 'block', marginRight: '10px'}}>SKILL THREE</div>
-            <div style={{color: '#000', backgroundColor: '#fff', padding: '5px 15px', borderRadius: '50px', display: 'block', marginRight: '10px'}}>SKILL FOUR</div>
+            <div
+              style={{
+                color: '#000',
+                backgroundColor: '#fff',
+                padding: '5px 15px',
+                borderRadius: '50px',
+                marginRight: '10px',
+              }}
+            >
+              ADOBE SUITE
+            </div>
+            <div
+              style={{
+                color: '#000',
+                backgroundColor: '#fff',
+                padding: '5px 15px',
+                borderRadius: '50px',
+                marginRight: '10px',
+              }}
+            >
+              PHOTOGRAPHY
+            </div>
+            <div
+              style={{
+                color: '#000',
+                backgroundColor: '#fff',
+                padding: '5px 15px',
+                borderRadius: '50px',
+                marginRight: '10px',
+              }}
+            >
+              COMMUNICATION
+            </div>
           </Skill>
+          <hr style={{margin: '20px'}} />
+          <h2>INTERESTS</h2>
+          <Interest>
+            <h5
+              style={{
+                backgroundColor: '#e22784',
+                padding: '5px 15px',
+                borderRadius: '50px',
+                marginRight: '10px',
+              }}
+            >
+              GOOD UNCLE
+            </h5>
+            <h5
+              style={{
+                backgroundColor: '#e22784',
+                padding: '5px 15px',
+                borderRadius: '50px',
+                marginRight: '10px',
+              }}
+            >
+              TECHNOLOGY
+            </h5>
+            <h5
+              style={{
+                backgroundColor: '#fc673d',
+                padding: '5px 15px',
+                borderRadius: '50px',
+                marginRight: '10px',
+              }}
+            >
+              FOOD
+            </h5>
+            <h5
+              style={{
+                backgroundColor: '#fc673d',
+                padding: '5px 15px',
+                borderRadius: '50px',
+                marginRight: '10px',
+              }}
+            >
+              FASHION
+            </h5>
+          </Interest>
         </SkillsContainer>
+        {/* ----------------- RECENT ACTIVITY SECTION ----------------- */}
+        <Row style={{width: '70%', margin: '20px auto'}}>
+          <Col span={24}>
+            <h2 style={{marginBottom: '0'}}>RECENT ACTIVITY</h2>
+            <strong>Based on activity</strong>
+            <p style={{fontFamily: 'Hanson Bold', fontSize: '.8em', marginTop: '10px', color: '#fc673d'}}>SEE ALL</p>
+          </Col>
+        </Row>
+        <Row justify="space-between" style={{ width: '70%', margin: '20px auto'}}>
+      <Col span={4} style={{border: '1px solid white', borderRadius: '8px', height: '150px'}}>col-4</Col>
+      <Col span={4} style={{border: '1px solid white', borderRadius: '8px', height: '150px'}}>col-4</Col>
+      <Col span={4} style={{border: '1px solid white', borderRadius: '8px', height: '150px'}}>col-4</Col>
+      <Col span={4} style={{border: '1px solid white', borderRadius: '8px', height: '150px'}}>col-4</Col>
+    </Row>
+    <hr style={{width: "70%", margin: '40px auto'}}/>
       </div>
     );
   }
@@ -118,6 +219,15 @@ const MoreButton = styled.button`
   text-align: center;
   border: none;
 `;
+
+const White = styled.div`
+  background-color: #fff;
+  color: #000;
+  padding: 5px 15px;
+  border-radius: 50px;
+  display: block;
+  margin-right: 10px;
+`;
 ////////////////////////// ABOUT SECTION ///////////////////////////
 
 const AboutContainer = styled.div`
@@ -138,19 +248,19 @@ const Resume = styled.div`
 ////////////////////////// SKILLS SECTION ///////////////////////////
 const SkillsContainer = styled.div`
   width: 70%;
-  height: 300px;
   margin: 20px auto;
   clear: both;
   background-color: #222;
   border-radius: 20px;
   padding: 20px;
-`
+`;
 const Skill = styled.div`
   display: flex;
   font-family: Hanson Bold;
-  padding: 5px;
-  border-radius: 50px;
-`
+`;
+const Interest = styled.div`
+  display: flex;
+`;
 
 const mapStateToProps = (state, ownProps) => {
   return {
