@@ -6,7 +6,6 @@ import {StyledButton, renderAntInput, renderAntPasswordInput} from '../fields/re
 import styled from 'styled-components';
 import MakeAsyncFunction from 'react-redux-promise-listener';
 import {promiseListener} from '../../store';
-import LoadingSpinner from '../../lib/components/loadingSpinner';
 import {LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE} from '../../modules/auth/redux';
 import * as validations from '../../utils/validations';
 
@@ -24,7 +23,6 @@ export const AsyncLoginForm = ({isLoading}) => (
           <>
             {isLoading && <div>Loading...</div>}
             {submitError && <div className="error">{submitError}</div>}
-            <form onSubmit={handleSubmit}>
               <Form onFinish={handleSubmit}>
                 <div>
                   <FField
@@ -57,7 +55,6 @@ export const AsyncLoginForm = ({isLoading}) => (
                 </StyledButton>
               </Form>
               <pre>{JSON.stringify(values, 0, 2)}</pre>
-            </form>
           </>
         )}
       />
