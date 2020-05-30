@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import styled from 'styled-components';
 import {Row, Col, Divider} from 'antd';
 import {connect} from 'react-redux';
+import {EditOutlined} from '@ant-design/icons'
 
 class ProfilePage extends Component {
   render() {
@@ -49,16 +50,8 @@ class ProfilePage extends Component {
         <AboutContainer>
           <h2>
             ABOUT
-            <div
-              style={{
-                backgroundColor: 'white',
-                borderRadius: '50%',
-                width: '25px',
-                height: '25px',
-                float: 'right',
-                display: 'inline-block',
-              }}
-            ></div>
+            <EditOutlined style={{ marginLeft: '10px'}} />
+            
           </h2>
           <p>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab a quod voluptates itaque
