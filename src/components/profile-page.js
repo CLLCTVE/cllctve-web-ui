@@ -200,9 +200,9 @@ const ProfileImg = styled.div`
   position: relative;
   bottom: 50px;
   grid-area: img;
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
   background-color: white;
 `;
 const InfoContainer = styled.div`

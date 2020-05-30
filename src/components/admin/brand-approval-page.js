@@ -16,11 +16,18 @@ const StyledCard = styled(Card)`
     height: 50vh;
   }
 `;
+const StyledContainer = styled(Container)`
+  display: block;
+  margin: 20px auto;
+  width: 80%;
+  max-width: 900px;
+  min-width: 580px;
+`
 
 class AdminDashboardPage extends Component {
   render() {
     return (
-      <Container style={{display: 'block', margin: '20px auto', width: '80%'}}>
+      <StyledContainer>
         <Title style={{marginTop: '40px'}}>ADMIN DASHBOARD</Title>
         <h5>DASHBOARD UPDATE:</h5>
         <p>
@@ -66,7 +73,7 @@ class AdminDashboardPage extends Component {
             <StyledCard />
           </Col>
         </Row>
-      </Container>
+      </StyledContainer>
     );
   }
 }
