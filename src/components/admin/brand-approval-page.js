@@ -12,7 +12,7 @@ const {Header, Content, Footer, Sider} = Layout;
 const StyledCard = styled(Card)`
   &.ant-card {
     color: black !important;
-    width: 15vw;
+    width: 10vw;
     height: 50vh;
   }
 `;

@@ -1,8 +1,16 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
-import {Row, Col, Divider} from 'antd';
+import {Col, Row, Typography, Card, Divider, Menu, Layout} from 'antd';
 import {connect} from 'react-redux';
-import {EditOutlined} from '@ant-design/icons'
+import {EditOutlined} from '@ant-design/icons';
+
+const StyledCard = styled(Card)`
+  &.ant-card {
+    color: black !important;
+    width: 10vw;
+    height: 50vh;
+  }
+`;
 
 class ProfilePage extends Component {
   render() {
@@ -16,7 +24,7 @@ class ProfilePage extends Component {
           <ProfileImg />
           <div className="user-info" style={{gridArea: 'header'}}>
             <h1 style={{marginBottom: '0em'}}>
-              {user.firstName} {user.lastName}
+              {user.firstName} {user.lastName} <EditOutlined />
             </h1>
             <strong style={{marginBottom: '0em', fontSize: '18px', fontFamily: 'Open Sans Bold'}}>
               Title
@@ -50,8 +58,7 @@ class ProfilePage extends Component {
         <AboutContainer>
           <h2>
             ABOUT
-            <EditOutlined style={{ marginLeft: '10px'}} />
-            
+            <EditOutlined style={{float: 'right'}} />
           </h2>
           <p>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab a quod voluptates itaque
@@ -144,20 +151,39 @@ class ProfilePage extends Component {
           </Interest>
         </SkillsContainer>
         {/* ----------------- RECENT ACTIVITY SECTION ----------------- */}
-        <Row style={{width: '70%', margin: '20px auto'}}>
-          <Col span={24}>
-            <h2 style={{marginBottom: '0'}}>RECENT ACTIVITY</h2>
-            <strong>Based on activity</strong>
-            <p style={{fontFamily: 'Hanson Bold', fontSize: '.8em', marginTop: '10px', color: '#fc673d'}}>SEE ALL</p>
+        <ActivityContainer>
+          <Row>
+            <Col span={24}>
+              <h2 style={{marginBottom: '0'}}>RECENT ACTIVITY</h2>
+              <strong>Based on activity</strong>
+              <p
+                style={{
+                  fontFamily: 'Hanson Bold',
+                  fontSize: '.8em',
+                  marginTop: '10px',
+                  color: '#fc673d',
+                }}
+              >
+                SEE ALL
+              </p>
+            </Col>
+          </Row>
+          <Row justify="space-between">
+          <Col span={4}>
+            <StyledCard />
           </Col>
-        </Row>
-        <Row justify="space-between" style={{ width: '70%', margin: '20px auto'}}>
-      <Col span={4} style={{border: '1px solid white', borderRadius: '8px', height: '150px'}}>col-4</Col>
-      <Col span={4} style={{border: '1px solid white', borderRadius: '8px', height: '150px'}}>col-4</Col>
-      <Col span={4} style={{border: '1px solid white', borderRadius: '8px', height: '150px'}}>col-4</Col>
-      <Col span={4} style={{border: '1px solid white', borderRadius: '8px', height: '150px'}}>col-4</Col>
-    </Row>
-    <hr style={{width: "70%", margin: '40px auto'}}/>
+          <Col span={4}>
+            <StyledCard />
+          </Col>
+          <Col span={4}>
+            <StyledCard />
+          </Col>
+          <Col span={4}>
+            <StyledCard />
+          </Col>
+          </Row>
+          <hr style={{width: '70%', margin: '40px auto'}} />
+        </ActivityContainer>
       </div>
     );
   }
@@ -186,6 +212,8 @@ const InfoContainer = styled.div`
   padding: 10px;
   margin: 20px auto;
   width: 70%;
+  max-width: 900px;
+  min-width: 580px;
 `;
 const EditButton = styled.button`
   display: block;
@@ -226,6 +254,8 @@ const White = styled.div`
 const AboutContainer = styled.div`
   width: 70%;
   margin: 20px auto;
+  max-width: 900px;
+  min-width: 580px;
 `;
 
 const Resume = styled.div`
@@ -246,6 +276,8 @@ const SkillsContainer = styled.div`
   background-color: #222;
   border-radius: 20px;
   padding: 20px;
+  max-width: 900px;
+  min-width: 580px;
 `;
 const Skill = styled.div`
   display: flex;
@@ -255,6 +287,14 @@ const Interest = styled.div`
   display: flex;
 `;
 
+////////////////////////// RECENT ACTIVITY SECTION ///////////////////////////
+
+const ActivityContainer = styled.div`
+  width: 70%;
+  margin: 20px auto;
+  max-width: 900px;
+  min-width: 580px;
+`;
 const mapStateToProps = (state, ownProps) => {
   return {
     user: state.auth.user,
