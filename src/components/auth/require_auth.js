@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {history} from '../store';
+import {history} from '../../store';
 
 export default function(ComposedComponent) {
   class Authentication extends Component {
@@ -11,6 +11,7 @@ export default function(ComposedComponent) {
     }
 
     UNSAFE_componentWillUpdate(nextProps) {
+      console.log('#UNSAFE_componentWillUpdate, nextProps: ', nextProps);
       if (!nextProps.authenticated) {
         history.push('/login');
       }
