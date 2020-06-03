@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {Col, Row, Typography, Card, Divider, Menu, Layout} from 'antd';
+import {Col, Row, Typography, Card, Divider, Menu, Layout, Button, Avatar} from 'antd';
 
 import {CheckCircleOutlined} from '@ant-design/icons';
 import styled from 'styled-components';
@@ -12,8 +12,9 @@ const {Header, Content, Footer, Sider} = Layout;
 const StyledCard = styled(Card)`
   &.ant-card {
     color: black !important;
-    width: 10vw;
-    height: 50vh;
+    width: 230px;
+    height: 250px;
+    background-image: linear-gradient(black, gray);
   }
 `;
 const StyledContainer = styled(Container)`
@@ -22,6 +23,12 @@ const StyledContainer = styled(Container)`
   width: 80%;
   max-width: 900px;
   min-width: 580px;
+`
+
+const StyledButton = styled(Button)`
+margin: 5px auto;
+border-radius: 4px;
+  padding: 20px;
 `
 
 class AdminDashboardPage extends Component {
@@ -42,16 +49,48 @@ class AdminDashboardPage extends Component {
         <BrandTab>BRAND STATUS</BrandTab>
         <Row justify="space-between" style={{clear: 'both'}}>
           <Col span={4}>
-            <StyledCard />
+            <div>
+            <StyledCard>
+            <Avatar style={{margin: '0 auto', display: 'block', width: '100px', height: '100px'}}/>
+            </StyledCard>
+            <div style={{margin: '10px auto', width: '230px'}}>
+            <StyledButton style={{backgroundColor: '#fc673d', border: 'none', borderTopRightRadius: '0', borderBottomRightRadius: '0'}}>APPROVE</StyledButton>
+            <StyledButton style={{backgroundColor: '#000', border: '1px solid white', borderTopLeftRadius: '0', borderBottomLeft: '0'}}>DECLINE</StyledButton>
+            </div>
+            </div>
           </Col>
           <Col span={4}>
-            <StyledCard />
+          <div>
+            <StyledCard>
+            <Avatar style={{margin: '0 auto', display: 'block', width: '100px', height: '100px'}}/>
+            </StyledCard>
+            <div style={{margin: '10px auto', width: '230px'}}>
+            <StyledButton style={{backgroundColor: '#fc673d', border: 'none', borderTopRightRadius: '0', borderBottomRightRadius: '0'}}>APPROVE</StyledButton>
+            <StyledButton style={{backgroundColor: '#000', border: '1px solid white', borderTopLeftRadius: '0', borderBottomLeft: '0'}}>DECLINE</StyledButton>
+            </div>
+            </div>
           </Col>
           <Col span={4}>
-            <StyledCard />
+          <div>
+            <StyledCard>
+            <Avatar style={{margin: '0 auto', display: 'block', width: '100px', height: '100px'}}/>
+            </StyledCard>
+            <div style={{margin: '10px auto', width: '230px'}}>
+            <StyledButton style={{backgroundColor: '#fc673d', border: 'none', borderTopRightRadius: '0', borderBottomRightRadius: '0'}}>APPROVE</StyledButton>
+            <StyledButton style={{backgroundColor: '#000', border: '1px solid white', borderTopLeftRadius: '0', borderBottomLeft: '0'}}>DECLINE</StyledButton>
+            </div>
+            </div>
           </Col>
           <Col span={4}>
-            <StyledCard />
+          <div>
+            <StyledCard>
+            <Avatar style={{margin: '0 auto', display: 'block', width: '100px', height: '100px'}}/>
+            </StyledCard>
+            <div style={{margin: '10px auto', width: '230px'}}>
+            <StyledButton style={{backgroundColor: '#fc673d', border: 'none', borderTopRightRadius: '0', borderBottomRightRadius: '0'}}>APPROVE</StyledButton>
+            <StyledButton style={{backgroundColor: '#000', border: '1px solid white', borderTopLeftRadius: '0', borderBottomLeft: '0'}}>DECLINE</StyledButton>
+            </div>
+            </div>
           </Col>
         </Row>
         <h5 style={{marginTop: '40px'}}>
@@ -61,16 +100,48 @@ class AdminDashboardPage extends Component {
         <BrandTab>BRAND STATUS</BrandTab>
         <Row justify="space-between" style={{clear: 'both'}}>
           <Col span={4}>
-            <StyledCard />
+          <div>
+            <StyledCard>
+            <Avatar style={{margin: '0 auto', display: 'block', width: '100px', height: '100px'}}/>
+            </StyledCard>
+            <div style={{margin: '10px auto', width: '230px'}}>
+            <StyledButton style={{backgroundColor: '#fc673d', border: 'none', borderTopRightRadius: '0', borderBottomRightRadius: '0'}}>APPROVE</StyledButton>
+            <StyledButton style={{backgroundColor: '#000', border: '1px solid white', borderTopLeftRadius: '0', borderBottomLeft: '0'}}>DECLINE</StyledButton>
+            </div>
+            </div>
           </Col>
           <Col span={4}>
-            <StyledCard />
+          <div>
+            <StyledCard>
+            <Avatar style={{margin: '0 auto', display: 'block', width: '100px', height: '100px'}}/>
+            </StyledCard>
+            <div style={{margin: '10px auto', width: '230px'}}>
+            <StyledButton style={{backgroundColor: '#fc673d', border: 'none', borderTopRightRadius: '0', borderBottomRightRadius: '0'}}>APPROVE</StyledButton>
+            <StyledButton style={{backgroundColor: '#000', border: '1px solid white', borderTopLeftRadius: '0', borderBottomLeft: '0'}}>DECLINE</StyledButton>
+            </div>
+            </div>
           </Col>
           <Col span={4}>
-            <StyledCard />
+          <div>
+            <StyledCard>
+            <Avatar style={{margin: '0 auto', display: 'block', width: '100px', height: '100px'}}/>
+            </StyledCard>
+            <div style={{margin: '10px auto', width: '230px'}}>
+            <StyledButton style={{backgroundColor: '#fc673d', border: 'none', borderTopRightRadius: '0', borderBottomRightRadius: '0'}}>APPROVE</StyledButton>
+            <StyledButton style={{backgroundColor: '#000', border: '1px solid white', borderTopLeftRadius: '0', borderBottomLeft: '0'}}>DECLINE</StyledButton>
+            </div>
+            </div>
           </Col>
           <Col span={4}>
-            <StyledCard />
+          <div>
+            <StyledCard>
+            <Avatar style={{margin: '0 auto', display: 'block', width: '100px', height: '100px'}}/>
+            </StyledCard>
+            <div style={{margin: '10px auto', width: '230px'}}>
+            <StyledButton style={{backgroundColor: '#fc673d', border: 'none', borderTopRightRadius: '0', borderBottomRightRadius: '0'}}>APPROVE</StyledButton>
+            <StyledButton style={{backgroundColor: '#000', border: '1px solid white', borderTopLeftRadius: '0', borderBottomLeft: '0'}}>DECLINE</StyledButton>
+            </div>
+            </div>
           </Col>
         </Row>
       </StyledContainer>

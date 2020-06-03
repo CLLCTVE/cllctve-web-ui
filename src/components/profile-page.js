@@ -1,16 +1,23 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
-import {Col, Row, Typography, Card, Divider, Menu, Layout} from 'antd';
+import {Col, Row, Typography, Card, Divider, Menu, Layout, Button, Avatar} from 'antd';
 import {connect} from 'react-redux';
 import {EditOutlined} from '@ant-design/icons';
 
 const StyledCard = styled(Card)`
   &.ant-card {
     color: black !important;
-    width: 10vw;
-    height: 50vh;
+    width: 230px;
+    height: 250px;
+    background-image: linear-gradient(black, gray);
   }
 `;
+
+const StyledButton = styled(Button)`
+margin: 5px auto;
+border-radius: 4px;
+  padding: 20px;
+`
 
 class ProfilePage extends Component {
   render() {
@@ -170,16 +177,48 @@ class ProfilePage extends Component {
           </Row>
           <Row justify="space-between">
           <Col span={4}>
-            <StyledCard />
+          <div>
+            <StyledCard>
+            <Avatar style={{margin: '0 auto', display: 'block', width: '100px', height: '100px'}}/>
+            </StyledCard>
+            <div style={{margin: '10px auto', width: '230px'}}>
+            {/* <StyledButton style={{backgroundColor: '#fc673d', border: 'none', borderTopRightRadius: '0', borderBottomRightRadius: '0'}}>APPROVE</StyledButton> */}
+            {/* <StyledButton style={{backgroundColor: '#000', border: '1px solid white', borderTopLeftRadius: '0', borderBottomLeft: '0'}}>DECLINE</StyledButton> */}
+            </div>
+            </div>
           </Col>
           <Col span={4}>
-            <StyledCard />
+          <div>
+            <StyledCard>
+            <Avatar style={{margin: '0 auto', display: 'block', width: '100px', height: '100px'}}/>
+            </StyledCard>
+            <div style={{margin: '10px auto', width: '230px'}}>
+            {/* <StyledButton style={{backgroundColor: '#fc673d', border: 'none', borderTopRightRadius: '0', borderBottomRightRadius: '0'}}>APPROVE</StyledButton> */}
+            {/* <StyledButton style={{backgroundColor: '#000', border: '1px solid white', borderTopLeftRadius: '0', borderBottomLeft: '0'}}>DECLINE</StyledButton> */}
+            </div>
+            </div>
           </Col>
           <Col span={4}>
-            <StyledCard />
+          <div>
+            <StyledCard>
+            <Avatar style={{margin: '0 auto', display: 'block', width: '100px', height: '100px'}}/>
+            </StyledCard>
+            <div style={{margin: '10px auto', width: '230px'}}>
+            {/* <StyledButton style={{backgroundColor: '#fc673d', border: 'none', borderTopRightRadius: '0', borderBottomRightRadius: '0'}}>APPROVE</StyledButton> */}
+            {/* <StyledButton style={{backgroundColor: '#000', border: '1px solid white', borderTopLeftRadius: '0', borderBottomLeft: '0'}}>DECLINE</StyledButton> */}
+            </div>
+            </div>
           </Col>
           <Col span={4}>
-            <StyledCard />
+          <div>
+            <StyledCard>
+            <Avatar style={{margin: '0 auto', display: 'block', width: '100px', height: '100px'}}/>
+            </StyledCard>
+            <div style={{margin: '10px auto', width: '230px'}}>
+            {/* <StyledButton style={{backgroundColor: '#fc673d', border: 'none', borderTopRightRadius: '0', borderBottomRightRadius: '0'}}>APPROVE</StyledButton> */}
+            {/* <StyledButton style={{backgroundColor: '#000', border: '1px solid white', borderTopLeftRadius: '0', borderBottomLeft: '0'}}>DECLINE</StyledButton> */}
+            </div>
+            </div>
           </Col>
           </Row>
           <hr style={{width: '70%', margin: '40px auto'}} />
@@ -226,7 +265,7 @@ const EditButton = styled.button`
   float: right;
 `;
 const AddSection = styled.button`
-  background-color: #e22784;
+  background-image: linear-gradient(#e22784, #fc673d);
   font-size: 1em;
   width: 100px;
   border-radius: 50px;
@@ -249,8 +288,8 @@ const White = styled.div`
   display: block;
   margin-right: 10px;
 `;
-////////////////////////// ABOUT SECTION ///////////////////////////
 
+////////////////////////// ABOUT SECTION ///////////////////////////
 const AboutContainer = styled.div`
   width: 70%;
   margin: 20px auto;
