@@ -8,6 +8,8 @@ import logo from '../../../logo.png';
 const FooterContainer = styled.div`
     height: 200px;
     background-image: linear-gradient(to left, #333, #111);
+  min-width: 667px;
+
 `
 
 class Footer extends Component {

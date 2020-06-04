@@ -109,7 +109,7 @@ class NavBar extends Component {
   }
 
   render() {
-    return <nav className="menuBar">{this.renderLinks()}</nav>;
+    return <nav className="menuBar" style={{minWidth: '640px'}}>{this.renderLinks()}</nav>;
   }
 }
 

@@ -24,6 +24,7 @@ const StyledButton = styled(Button)`
 const Header = styled.div`
   height: 310px;
   width: 100%;
+  min-width: 667px;
   background-color: #777;
   border-bottom: 2px solid #fc673d;
 `;
@@ -63,7 +64,7 @@ const OrangeText = styled.div`
   color: #fc673d !important;
 `;
 const AddSection = styled.button`
-  background-image: linear-gradient(#e22784, #fc673d);
+  background-image: linear-gradient(to right, #e22784, #fc673d);
   font-size: 1.5em;
   border-radius: 50px;
   text-align: center;
@@ -130,6 +131,8 @@ const Skill = styled.div`
 
 const InterestContainer = styled.div`
   display: flex;
+  max-width: 900px;
+  min-width: 580px;
 `;
 
 const InterestPink = styled.div`
@@ -209,6 +212,18 @@ const LicenseContainer = styled.div`
   min-width: 580px;
 `;
 
+const HonorsContainer = styled.div`
+width: 70%;
+margin: 20px auto;
+clear: both;
+background-image: linear-gradient(#e22784, #fc673d);
+border-radius: 20px;
+padding: 20px;
+max-width: 900px;
+min-width: 580px;
+margin-bottom: 40px;
+`;
+
 class ProfilePage extends Component {
   render() {
     const {user} = this.props;
@@ -279,7 +294,7 @@ class ProfilePage extends Component {
               <Skill>PHOTOGRAPHY</Skill>
               <Skill>COMMUNICATION</Skill>
             </SkillWrapper>
-            <hr style={{margin: '20px'}} />
+            <Divider/>
             {/* -----------------------------INTERESTS SECTION----------------------------- */}
 
             <h2>INTERESTS</h2>
@@ -366,7 +381,7 @@ class ProfilePage extends Component {
                 </div>
               </Col>
             </Row>
-            <hr style={{margin: '40px auto'}} />
+            <Divider/>
           </ActivityContainer>
           {/* -----------------------------EXPERIENCE SECTION----------------------------- */}
 
@@ -462,7 +477,7 @@ class ProfilePage extends Component {
               </Col>
               <div style={{marginTop: '10px'}}></div>
             </Row>
-            <hr style={{margin: '20px auto', width: '80%'}} />
+            <Divider/>
             <Row>
               <Col>
                 <div>
@@ -510,7 +525,7 @@ class ProfilePage extends Component {
                 </div>
               </Col>
             </Row>
-            <hr style={{margin: '20px auto'}} />
+            <Divider/>
             <Row>
               <Col>
                 <div>
@@ -531,8 +546,44 @@ class ProfilePage extends Component {
                 </div>
               </Col>
             </Row>
-
           </LicenseContainer>
+          {/* -----------------------------HONORS SECTION----------------------------- */}
+          <HonorsContainer>
+          <h2 style={{marginBottom: '0'}}>
+              NOTABLE HONORS <PlusCircleOutlined style={{float: 'right'}} />
+            </h2>
+            <Row>
+              <Col>
+                <div>
+                  <EditOutlined style={{position: 'absolute'}} />
+                </div>
+              </Col>
+              <Col>
+                <div style={{marginLeft: '30px'}}>
+                  <strong>Honors & Awards</strong>
+                  <small style={{display: 'block'}}>
+                    Organization Marshal • Peak-2-Peak • T-Howard Scholar • SB in SV • Leadership Capital
+                  </small>
+                </div>
+              </Col>
+            </Row>
+            <Divider/>
+            <Row>
+              <Col>
+                <div>
+                  <EditOutlined style={{position: 'absolute'}} />
+                </div>
+              </Col>
+              <Col>
+                <div style={{marginLeft: '30px'}}>
+                  <strong>Organizations</strong>
+                  <small style={{display: 'block'}}>
+                    Alpha Kappa Psi Fraternity, Inc. || Empowering Minds • Citrus Racing • WellsLink Peer 
+                  </small>
+                </div>
+              </Col>
+            </Row>
+          </HonorsContainer>
           {/* -----------------------------FOOTER----------------------------- */}
           <Footer />
         </Layout>
