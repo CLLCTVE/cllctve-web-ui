@@ -290,9 +290,9 @@ class ProfilePage extends Component {
               SKILLS <PlusCircleOutlined style={{float: 'right'}} />
             </h2>
             <SkillWrapper>
-              <Skill>ADOBE SUITE</Skill>
-              <Skill>PHOTOGRAPHY</Skill>
-              <Skill>COMMUNICATION</Skill>
+                  <Skill>{profile.skills[0]}</Skill>
+              <Skill>{profile.skills[1]}</Skill>
+              {/* <Skill>{profile.skills[2]}</Skill> */}
             </SkillWrapper>
             <Divider/>
             {/* -----------------------------INTERESTS SECTION----------------------------- */}
