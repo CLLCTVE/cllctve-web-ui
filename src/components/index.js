@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import {Route, Switch} from 'react-router-dom';
-import {Layout, Button} from 'antd';
+import {Layout} from 'antd';
 
-import Header from './template/header';
 import NavBar from './template/navbar';
 import HomePage from './homepage';
 import LoginPage from './login/loginPage';

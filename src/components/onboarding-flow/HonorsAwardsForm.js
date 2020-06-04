@@ -1,10 +1,8 @@
-import { Button, Col, Form, Row, Space } from 'antd';
+import { Button, Col, Form, Row } from 'antd';
 import { Field as FField } from 'react-final-form';
 import {
-  ConditionalRender,
-  renderAntInput,
   renderAntMonthPicker,
-  renderCheckbox, renderInput, renderMonthPicker,
+  renderInput, renderMonthPicker,
   renderTextArea, StyledSpace, StyledDivider
 } from '../fields/renderFields';
 import * as validations from '../../utils/validations';

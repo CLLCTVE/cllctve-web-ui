@@ -1,13 +1,9 @@
 import React from 'react';
-import {Field as FField, Form as FForm} from 'react-final-form';
-import {Form, Button} from 'antd';
+import { Field as FField, Form as FForm } from 'react-final-form';
+import { Button } from 'antd';
 import {
-  renderInput,
   renderAntInput,
-  renderMonthPicker,
   renderAntMonthPicker,
-  renderPasswordInput,
-  renderStyledButton,
   parsePhone,
   formatPhone,
   capitalize, renderAntPasswordInput,

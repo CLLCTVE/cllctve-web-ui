@@ -1,9 +1,8 @@
-import {all, call, put, takeLatest} from 'redux-saga/effects';
+import {all, call, put} from 'redux-saga/effects';
 import {push} from 'connected-react-router';
 import request from '../../../lib/request';
 import {FORM_ERROR} from 'final-form';
-import { LOGIN_SUCCESS, setAuthToken, handleAuthenticated, handleLoginSuccess } from '../../auth/redux';
-import { SIGNUP_FAILURE, SIGNUP_REQUEST, SIGNUP_SUCCESS } from './index';
+import { setAuthToken } from '../../auth/redux';
 
 export const ONBOARDING_REQUEST = 'creative/onboarding/ONBOARDING_REQUEST';
 export const ONBOARDING_FAILURE = 'creative/onboarding/ONBOARDING_FAILURE';
