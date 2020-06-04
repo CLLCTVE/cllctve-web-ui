@@ -13,19 +13,19 @@ class RightMenu extends Component {
     return (
       <Menu mode="horizontal">
         <Menu.Item key="home">
-          <Link to="/">Home</Link>
+          <Link to="/" style={{fontFamily:'Hanson Bold'}}>Home</Link>
         </Menu.Item>
         <Menu.Item key="network">
-          <Link to="/network">Network</Link>
+          <Link to="/network" style={{fontFamily:'Hanson Bold'}}>Network</Link>
         </Menu.Item>
         <Menu.Item key="jobs">
-          <Link to="/jobs">Jobs</Link>
+          <Link to="/jobs" style={{fontFamily:'Hanson Bold'}}>Jobs</Link>
         </Menu.Item>
         <Menu.Item key="messaging">
-          <Link to="/messaging">Messaging</Link>
+          <Link to="/messaging" style={{fontFamily:'Hanson Bold'}}>Messaging</Link>
         </Menu.Item>
         <Menu.Item key="notifications">
-          <Link to="/notifications">Notifications</Link>
+          <Link to="/notifications" style={{fontFamily:'Hanson Bold'}}>Notifications</Link>
         </Menu.Item>
         <Menu.Item key="logout">
           <Button type="link" onClick={logout}>Logout</Button>

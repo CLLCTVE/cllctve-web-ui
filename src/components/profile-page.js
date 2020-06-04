@@ -103,7 +103,6 @@ const Resume = styled.div`
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   background-color: #fc673d;
-  margin-bottom: 40px;
 `;
 ////////////////////////// SKILLS SECTION ///////////////////////////
 const SkillsContainer = styled.div`
@@ -190,10 +189,10 @@ const ImageBox = styled.img`
   border: 1px solid #e22784;
   border-radius: 10px;
   margin-right: 10px;
-`
+`;
 ////////////////////////// EDUCATION SECTION ///////////////////////////
 const EducationContainer = styled.div`
-width: 70%;
+  width: 70%;
   margin: 20px auto;
   clear: both;
   background-color: #222;
@@ -201,7 +200,14 @@ width: 70%;
   padding: 20px;
   max-width: 900px;
   min-width: 580px;
-  `
+`;
+////////////////////////// LICENSES SECTION ///////////////////////////
+const LicenseContainer = styled.div`
+  width: 70%;
+  margin: 20px auto;
+  max-width: 900px;
+  min-width: 580px;
+`;
 
 class ProfilePage extends Component {
   render() {
@@ -265,14 +271,16 @@ class ProfilePage extends Component {
             <Resume />
           </AboutContainer>
           <SkillsContainer>
-            <h2>SKILLS <PlusCircleOutlined style={{float: 'right'}} /></h2>
+            <h2>
+              SKILLS <PlusCircleOutlined style={{float: 'right'}} />
+            </h2>
             <SkillWrapper>
               <Skill>ADOBE SUITE</Skill>
               <Skill>PHOTOGRAPHY</Skill>
               <Skill>COMMUNICATION</Skill>
             </SkillWrapper>
             <hr style={{margin: '20px'}} />
-            {/* ----------------- INTERESTS SECTION ----------------- */}
+            {/* -----------------------------INTERESTS SECTION----------------------------- */}
 
             <h2>INTERESTS</h2>
             <InterestContainer>
@@ -282,7 +290,8 @@ class ProfilePage extends Component {
               <InterestOrange>FASHION</InterestOrange>
             </InterestContainer>
           </SkillsContainer>
-          {/* ----------------- RECENT ACTIVITY SECTION ----------------- */}
+          {/* -----------------------------RECENT ACTIVITY SECTION----------------------------- */}
+
           <ActivityContainer>
             <Row>
               <Col span={24}>
@@ -359,9 +368,12 @@ class ProfilePage extends Component {
             </Row>
             <hr style={{margin: '40px auto'}} />
           </ActivityContainer>
-          {/* ----------------- EXPERIENCE SECTION ----------------- */}
+          {/* -----------------------------EXPERIENCE SECTION----------------------------- */}
+
           <ExperienceContainer>
-            <h2 style={{marginBottom: '20px'}}>EXPERIENCE / PROJECTS <PlusCircleOutlined style={{float: 'right'}} /></h2> 
+            <h2 style={{marginBottom: '20px'}}>
+              EXPERIENCE / PROJECTS <PlusCircleOutlined style={{float: 'right'}} />
+            </h2>
             <Row>
               <Col>
                 <div>
@@ -386,13 +398,13 @@ class ProfilePage extends Component {
                   ipsa dolor praesentium. Eligendi officia nemo exercitationem libero ipsum. Nihil.
                   <OrangeText style={{float: 'right'}}>SEE MORE</OrangeText>
                 </ExperienceText>
-                <ImageBox/>
-                <ImageBox/>
-                <ImageBox/>
+                <ImageBox />
+                <ImageBox />
+                <ImageBox />
               </div>
             </Row>
-              <hr style={{margin: '20px auto'}}/>
-              <Row>
+            <hr style={{margin: '20px auto'}} />
+            <Row>
               <Col>
                 <div>
                   <Avatar style={{width: '60px', height: '60px'}} />
@@ -402,7 +414,7 @@ class ProfilePage extends Component {
               <Col>
                 <div style={{marginLeft: '30px'}}>
                   <h4 style={{margin: '0'}}>Innovation Mentor</h4>
-                  <strong>Blackstone  Launchpad powered by Techstars</strong>
+                  <strong>Blackstone Launchpad powered by Techstars</strong>
                   <small style={{display: 'block'}}>
                     Syracuse, NY • Aug 2019 - Present • 7 Months
                   </small>
@@ -421,30 +433,13 @@ class ProfilePage extends Component {
                 <ImageBox/> */}
               </div>
             </Row>
-
           </ExperienceContainer>
+          {/* -----------------------------EDUCATION SECTION----------------------------- */}
+
           <EducationContainer>
-          <h2 style={{marginBottom: '20px'}}>EDUCATION <PlusCircleOutlined style={{float: 'right'}} /></h2> 
-          <Row>
-              <Col>
-                <div>
-                  <Avatar style={{width: '60px', height: '60px'}} />
-                  <EditOutlined style={{position: 'absolute'}} />
-                </div>
-              </Col>
-              <Col>
-                <div style={{marginLeft: '30px'}}>
-                  <h4 style={{margin: '0'}}>Syracuse University - Martin J. Whitman School of Management</h4>
-                  <strong>Master of Science - MS, Study Entrepreneurship & Emerging Entreprises</strong>
-                  <small style={{display: 'block'}}>
-                    Syracuse, NY • Jan 2018 - Present • 2 Years 2 Months
-                  </small>
-                </div>
-              </Col>
-              <div style={{marginTop: '10px'}}>
-              </div>
-            </Row>
-            <hr style={{margin: '20px auto', width: '80%'}}/>
+            <h2 style={{marginBottom: '20px'}}>
+              EDUCATION <PlusCircleOutlined style={{float: 'right'}} />
+            </h2>
             <Row>
               <Col>
                 <div>
@@ -454,17 +449,90 @@ class ProfilePage extends Component {
               </Col>
               <Col>
                 <div style={{marginLeft: '30px'}}>
-                  <h4 style={{margin: '0'}}>S.I. Newhouse School of Public Communications at Syracuse University</h4>
+                  <h4 style={{margin: '0'}}>
+                    Syracuse University - Martin J. Whitman School of Management
+                  </h4>
+                  <strong>
+                    Master of Science - MS, Study Entrepreneurship & Emerging Entreprises
+                  </strong>
+                  <small style={{display: 'block'}}>
+                    Syracuse, NY • Jan 2018 - Present • 2 Years 2 Months
+                  </small>
+                </div>
+              </Col>
+              <div style={{marginTop: '10px'}}></div>
+            </Row>
+            <hr style={{margin: '20px auto', width: '80%'}} />
+            <Row>
+              <Col>
+                <div>
+                  <Avatar style={{width: '60px', height: '60px'}} />
+                  <EditOutlined style={{position: 'absolute'}} />
+                </div>
+              </Col>
+              <Col>
+                <div style={{marginLeft: '30px'}}>
+                  <h4 style={{margin: '0'}}>
+                    S.I. Newhouse School of Public Communications at Syracuse University
+                  </h4>
                   <strong>Bachelor of Science (BS), Television, Radio and Film</strong>
                   <small style={{display: 'block'}}>
                     {/* Syracuse, NY • Jan 2018 - Present • 2 Years 2 Months */}
                   </small>
                 </div>
               </Col>
-              <div style={{marginTop: '10px'}}>
-              </div>
+              <div style={{marginTop: '10px'}}></div>
             </Row>
           </EducationContainer>
+          {/* -----------------------------LICENSE SECTION----------------------------- */}
+
+          <LicenseContainer>
+            <h2 style={{marginBottom: '20px'}}>
+              LICENSES / CERTIFICATIONS <PlusCircleOutlined style={{float: 'right'}} />
+            </h2>
+            <Row>
+              <Col>
+                <div>
+                  <Avatar style={{width: '60px', height: '60px'}} />
+                  <EditOutlined style={{position: 'absolute'}} />
+                </div>
+              </Col>
+              <Col>
+                <div style={{marginLeft: '30px'}}>
+                  <h4 style={{margin: '0'}}>
+                    S.I. Newhouse School of Public Communications at Syracuse University
+                  </h4>
+                  <strong>Bachelor of Science (BS), Television, Radio and Film</strong>
+                  <small style={{display: 'block'}}>
+                    Syracuse, NY • Jan 2018 - Present • 2 Years 2 Months
+                  </small>
+                  <OrangeText>SEE CREDENTIAL</OrangeText>
+                </div>
+              </Col>
+            </Row>
+            <hr style={{margin: '20px auto'}} />
+            <Row>
+              <Col>
+                <div>
+                  <Avatar style={{width: '60px', height: '60px'}} />
+                  <EditOutlined style={{position: 'absolute'}} />
+                </div>
+              </Col>
+              <Col>
+                <div style={{marginLeft: '30px'}}>
+                  <h4 style={{margin: '0'}}>
+                    S.I. Newhouse School of Public Communications at Syracuse University
+                  </h4>
+                  <strong>Bachelor of Science (BS), Television, Radio and Film</strong>
+                  <small style={{display: 'block'}}>
+                    Syracuse, NY • Jan 2018 - Present • 2 Years 2 Months
+                  </small>
+                  <OrangeText>SEE CREDENTIAL</OrangeText>
+                </div>
+              </Col>
+            </Row>
+
+          </LicenseContainer>
           {/* -----------------------------FOOTER----------------------------- */}
           <Footer />
         </Layout>

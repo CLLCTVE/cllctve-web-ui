@@ -7,7 +7,7 @@ import logo from '../../../logo.png';
 
 const FooterContainer = styled.div`
     height: 200px;
-    background-image: linear-gradient(to right, #444, #222);
+    background-image: linear-gradient(to left, #333, #111);
 `
 
 class Footer extends Component {
