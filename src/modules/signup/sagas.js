@@ -21,5 +21,8 @@ function* watchCreativeSignUp() {
 }
 
 export default function* sagas() {
-  yield all([watchCreativeSignUp()]);
+  yield all([
+    watchCreativeSignUp(),
+    watchOnBoardingFlow(),
+  ]);
 }
