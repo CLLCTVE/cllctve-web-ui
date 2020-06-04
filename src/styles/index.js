@@ -4,6 +4,8 @@ import OpenSansBold from './fonts/OpenSans-Bold.ttf';
 import OpenSans from './fonts/OpenSans-Regular.ttf';
 
 const GlobalStyles = createGlobalStyle`
+
+
     @font-face {
       font-family: 'Hanson Bold';
       src: local('Hanson Bold'), local('HansonBold'), url(${HansonBold}) format('truetype');
@@ -24,6 +26,20 @@ const GlobalStyles = createGlobalStyle`
       font-weight: 200;
       font-style: normal;
     }
+
+    .grid-container {
+      display: grid;
+  }
+  
+  .grid-container--fill {
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
+  
+  .grid-container--fit {
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+  
+  
     
     pre{
       color: #FFFFFF;
