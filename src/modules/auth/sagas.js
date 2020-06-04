@@ -29,15 +29,14 @@ function* watchUserAuthentication() {
   while (true) {
     console.log('#watchUserAuthentication while loop');
     const {action, payload} = yield take([LOGIN_REQUEST, LOGOUT_REQUEST, SIGNUP_SUCCESS]);
-    
     console.log('watchUserAuthentication action: ', action);
-    if (action.type === SIGNUP_SUCCESS) {
+    if (action && action.type === SIGNUP_SUCCESS) {
       yield call(watchUserLogout);
-    } else if (action.type === LOGIN_REQUEST) {
+    } else if (action && action.type === LOGOUT_REQUEST) {
+      yield call(onHandleLogoutRequest);
+    } else {
       const task = yield fork(onHandleLoginRequest, payload);
       yield call(watchUserLogout, task);
-    } else if (action.type === LOGOUT_REQUEST) {
-      yield call(onHandleLogoutRequest);
     }
   }
 }
