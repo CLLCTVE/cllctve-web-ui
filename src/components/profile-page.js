@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
-import {Col, Row, Typography, Card, Divider, Menu, Layout, Button, Avatar} from 'antd';
+import {Col, Row, Typography, Card, Divider, Menu, Layout, Button, Avatar, Modal} from 'antd';
 import {connect} from 'react-redux';
 import {EditOutlined, PlusCircleOutlined} from '@ant-design/icons';
 import Footer from '../components/template/footer/index';
@@ -225,6 +225,28 @@ margin-bottom: 40px;
 `;
 
 class ProfilePage extends Component {
+  state = { visible: false };
+
+  showModal = () => {
+    this.setState({
+      visible: true,
+    });
+  };
+
+  handleOk = e => {
+    console.log(e);
+    this.setState({
+      visible: false,
+    });
+  };
+
+  handleCancel = e => {
+    console.log(e);
+    this.setState({
+      visible: false,
+    });
+  };
+
   render() {
     const {user} = this.props;
     const {profile} = user;
@@ -287,8 +309,20 @@ class ProfilePage extends Component {
           </AboutContainer>
           <SkillsContainer>
             <h2>
-              SKILLS <PlusCircleOutlined style={{float: 'right'}} />
+              SKILLS <PlusCircleOutlined style={{float: 'right'}} onClick={this.showModal} />
             </h2>
+            {/* -----------------------------SKILLS MODAL----------------------------- */}
+
+            <Modal
+          title="Basic Modal"
+          visible={this.state.visible}
+          onOk={this.handleOk}
+          onCancel={this.handleCancel}
+        >
+          <p>Some contents...</p>
+          <p>Some contents...</p>
+          <p>Some contents...</p>
+        </Modal>
             <SkillWrapper>
                   <Skill>{profile.skills[0]}</Skill>
               <Skill>{profile.skills[1]}</Skill>
