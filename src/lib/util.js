@@ -15,12 +15,12 @@ export const ONBOARDING_ENTRY_MAP_BY_NAME = {
     text: 'Experience'
   },
   licensesCerts: {
-    id: 4,
-    title: 'Licenses and Certifications',
+    id: 3,
+    title: 'Licenses and Certs',
     text: 'Certs'
   },
   honorsAwards: {
-    id: 3,
+    id: 4,
     title: 'Honors and Awards',
     text: 'Honors'
   }

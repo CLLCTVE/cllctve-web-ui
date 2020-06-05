@@ -2,13 +2,14 @@ import { Button, Col, Form, Row } from 'antd';
 import { Field as FField } from 'react-final-form';
 import {
   ConditionalRender,
-  renderAntInput,
   renderAntCheckbox,
   renderAntMonthPicker,
   disabledDate,
-  renderInput,
-  renderTextArea, StyledSpace, StyledDivider
+  renderTextArea,
+  StyledSpace,
+  StyledDivider,
 } from '../fields/renderFields';
+import {renderAntInput} from '../fields/InputFields';
 import * as validations from '../../utils/validations';
 import { FieldArray as FFieldArray } from 'react-final-form-arrays';
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
@@ -108,7 +109,7 @@ export const EducationForm = () => (
       <Col span={24}>
         <FField
           name="education.links"
-          component={renderInput}
+          component={renderAntInput}
           type="text"
           placeholder="Links"
         />
@@ -224,7 +225,7 @@ export const EducationForm = () => (
                     <Col span={24}>
                       <FField
                         name={`${name}.links`}
-                        component={renderInput}
+                        component={renderAntInput}
                         type="text"
                         placeholder="Links"
                       />

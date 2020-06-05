@@ -4,11 +4,11 @@ import {
   ConditionalRender,
   renderAntMonthPicker,
   renderCheckbox,
-  renderInput,
   renderTextArea,
   StyledDivider,
   StyledSpace
 } from '../fields/renderFields';
+import {renderAntInput} from '../fields/InputFields';
 import * as validations from '../../utils/validations';
 import { FieldArray as FFieldArray } from 'react-final-form-arrays';
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
@@ -22,7 +22,7 @@ export const LicensesCertsForm = () => (
       <Col span={24}>
         <FField
           name="licensesCert.title"
-          component={renderInput}
+          component={renderAntInput}
           type="text"
           placeholder="Name of Cert"
         />
@@ -32,7 +32,7 @@ export const LicensesCertsForm = () => (
       <Col span={24}>
         <FField
           name="licensesCert.organization"
-          component={renderInput}
+          component={renderAntInput}
           type="text"
           placeholder="Licensing Organization"
         />
@@ -78,7 +78,7 @@ export const LicensesCertsForm = () => (
       <Col span={24}>
         <FField
           name="licensesCert.links"
-          component={renderInput}
+          component={renderAntInput}
           type="text"
           placeholder="Links"
         />
@@ -117,7 +117,7 @@ export const LicensesCertsForm = () => (
                     <Col span={24}>
                       <FField
                         name={`${name}.title`}
-                        component={renderInput}
+                        component={renderAntInput}
                         type="text"
                         placeholder="Name of Cert"
                         // validate={validations.required}
@@ -128,7 +128,7 @@ export const LicensesCertsForm = () => (
                     <Col span={24}>
                       <FField
                         name={`${name}.organization`}
-                        component={renderInput}
+                        component={renderAntInput}
                         type="text"
                         placeholder="Licensing Organization"
                         // validate={validations.required}
@@ -175,7 +175,7 @@ export const LicensesCertsForm = () => (
                     <Col span={24}>
                       <FField
                         name={`${name}.links`}
-                        component={renderInput}
+                        component={renderAntInput}
                         type="text"
                         placeholder="Links"
                       />

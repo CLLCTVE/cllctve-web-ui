@@ -2,13 +2,13 @@ import React from 'react';
 import { Field as FField, Form as FForm } from 'react-final-form';
 import { Button } from 'antd';
 import {
-  renderAntInput,
   renderAntMonthPicker,
   parsePhone,
   formatPhone,
-  capitalize, renderAntPasswordInput, StyledButton
+  capitalize,
+  StyledButton,
 } from '../fields/renderFields';
-import styled from 'styled-components';
+import {renderAntInput, renderAntPasswordInput} from '../fields/InputFields';
 import MakeAsyncFunction from 'react-redux-promise-listener';
 import {promiseListener} from '../../store';
 import {SIGNUP_REQUEST, SIGNUP_SUCCESS, SIGNUP_FAILURE} from '../../modules/signup/redux';

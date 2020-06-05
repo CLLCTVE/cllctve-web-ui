@@ -2,9 +2,12 @@ import { Button, Col, Form, Row } from 'antd';
 import { Field as FField } from 'react-final-form';
 import {
   renderAntMonthPicker,
-  renderInput, renderMonthPicker,
-  renderTextArea, StyledSpace, StyledDivider
+  renderMonthPicker,
+  renderTextArea,
+  StyledSpace,
+  StyledDivider
 } from '../fields/renderFields';
+import {renderAntInput} from '../fields/InputFields';
 import * as validations from '../../utils/validations';
 import { FieldArray as FFieldArray } from 'react-final-form-arrays';
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
@@ -18,7 +21,7 @@ export const HonorsAwardsForm = () => (
       <Col span={24}>
         <FField
           name="honorsAward.title"
-          component={renderInput}
+          component={renderAntInput}
           type="text"
           placeholder="Title"
         />
@@ -28,7 +31,7 @@ export const HonorsAwardsForm = () => (
       <Col span={12}>
         <FField
           name="honorsAward.associatedWith"
-          component={renderInput}
+          component={renderAntInput}
           type="text"
           placeholder="Associated With"
         />
@@ -36,7 +39,7 @@ export const HonorsAwardsForm = () => (
       <Col span={12}>
         <FField
           name="honorsAward.issuer"
-          component={renderInput}
+          component={renderAntInput}
           type="text"
           placeholder="Issuer"
         />
@@ -60,7 +63,7 @@ export const HonorsAwardsForm = () => (
       <Col span={24}>
         <FField
           name="honorsAward.links"
-          component={renderInput}
+          component={renderAntInput}
           type="text"
           placeholder="Links"
         />
@@ -101,7 +104,7 @@ export const HonorsAwardsForm = () => (
                     <Col span={24}>
                       <FField
                         name={`${name}.title`}
-                        component={renderInput}
+                        component={renderAntInput}
                         type="text"
                         placeholder="Title"
                         // validate={validations.required}
@@ -112,7 +115,7 @@ export const HonorsAwardsForm = () => (
                     <Col span={12}>
                       <FField
                         name={`${name}.associatedWith`}
-                        component={renderInput}
+                        component={renderAntInput}
                         type="text"
                         placeholder="Associated With"
                       />
@@ -120,7 +123,7 @@ export const HonorsAwardsForm = () => (
                     <Col span={12}>
                       <FField
                         name={`${name}.issuer`}
-                        component={renderInput}
+                        component={renderAntInput}
                         type="text"
                         placeholder="Issuer"
                       />
@@ -144,7 +147,7 @@ export const HonorsAwardsForm = () => (
                     <Col span={24}>
                       <FField
                         name={`${name}.links`}
-                        component={renderInput}
+                        component={renderAntInput}
                         type="text"
                         placeholder="Links"
                       />

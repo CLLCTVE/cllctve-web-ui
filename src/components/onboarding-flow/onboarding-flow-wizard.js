@@ -100,7 +100,6 @@ class OnBoardingFlowWizard extends Component {
               {activePage}
               <div className="buttons">
                 
-                
                 {page > 0 && (
                   <StyledButton
                     size="large"
