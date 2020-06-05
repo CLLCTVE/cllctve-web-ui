@@ -33,17 +33,21 @@ const StyledInput = styled(Input)`
       border-right-width: 0px !important;
       border-color: #ff6633;
     }
+    
+    &:disabled {
+      color: #333333;
+    }
   }
 `;
 
-export const renderAntInput = ({input, placeholder,label, meta}) => (
+export const renderAntInput = ({input, placeholder,label, meta, disabled}) => (
   <Form.Item name={label}
              validateStatus={(meta.error || meta.submitError) && meta.touched ? 'error' : ''}
              help={(meta.error || meta.submitError) && meta.touched && (
                <span className="error">{meta.error || meta.submitError}</span>
              )}
   >
-    <StyledInput {...input} placeholder={placeholder || label}/>
+    <StyledInput {...input} placeholder={placeholder || label} disabled={disabled}/>
   </Form.Item>
 );
 
@@ -75,15 +79,19 @@ const StyledPasswordInput = styled(Input.Password)`
     border-right-width: 0px;
     margin-bottom: 1em;
   }
+  
+  &.ant-input-affix-wrapper-disabled .ant-input[disabled] {
+    color: #333333;
+  }
 `;
 
-export const renderAntPasswordInput = ({input, placeholder, label, meta}) => (
+export const renderAntPasswordInput = ({input, placeholder, label, meta, disabled}) => (
   <Form.Item name={label}
              validateStatus={(meta.error || meta.submitError) && meta.touched ? 'error' : ''}
              help={(meta.error || meta.submitError) && meta.touched && (
                <span className="error">{meta.error || meta.submitError}</span>
              )}
   >
-    <StyledPasswordInput {...input} placeholder={placeholder} label={label}/>
+    <StyledPasswordInput {...input} placeholder={placeholder} label={label} disabled={disabled}/>
   </Form.Item>
 );
