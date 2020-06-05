@@ -39,7 +39,7 @@ const OnBoardingFlowStep = ({match}) => {
     <Container>
       <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
         <Col span={24}>
-          <Steps current={match.params.step}>
+          <Steps current={parseInt(match.params.step, 10)}>
             {steps.map(item => (
               <Step key={item.title} title={item.title} />
             ))}
