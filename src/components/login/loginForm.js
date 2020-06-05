@@ -31,6 +31,7 @@ export const AsyncLoginForm = ({isLoading}) => (
                     component={renderAntInput}
                     type="text"
                     placeholder="creative@cllctve.edu*"
+                    disabled={submitting}
                     validate={validations.required}
                   />
                 </div>
@@ -40,6 +41,7 @@ export const AsyncLoginForm = ({isLoading}) => (
                     component={renderAntPasswordInput}
                     type="text"
                     placeholder="password*"
+                    disabled={submitting}
                     validate={validations.required}
                   />
                 </div>
