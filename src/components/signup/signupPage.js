@@ -22,7 +22,7 @@ const Container = styled.div`
   justify-content: center;
 `;
 
-class SignUpPage extends Component {
+class SignupPage extends Component {
   render() {
     const {isLoading} = this.props;
     return (
@@ -44,4 +44,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, {})(SignUpPage);
+export default connect(mapStateToProps, {})(SignupPage);

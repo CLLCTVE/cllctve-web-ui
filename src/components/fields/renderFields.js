@@ -154,12 +154,6 @@ const StyledPasswordInput = styled(Input.Password)`
   }
 `;
 
-export const CenteredContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
 export const disabledDate = (current) => {
   // Can not select days before today and today
   return current && current < moment().endOf('day');

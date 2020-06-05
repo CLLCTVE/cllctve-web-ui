@@ -5,7 +5,7 @@ import signup from './signup/sagas';
 export function* logActions() {
   while (true) {
     const action = yield take('*');
-    console.log(action.type);
+    console.log('RootSagas#logActions, action.type:', action.type);
   }
 }
 

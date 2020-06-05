@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { StyledLink, CenteredContainer as Container} from './fields/renderFields';
+import {CenteredContainer as Container} from './fields/ContainerFields';
 
 class HomePage extends Component {
   render() {

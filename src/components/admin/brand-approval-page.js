@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import { Col, Row, Typography, Card } from 'antd';
 import styled from 'styled-components';
-import { StyledLink, CenteredContainer as Container} from '../fields/renderFields';
+import {CenteredContainer as Container} from '../fields/ContainerFields';
 
 const { Title } = Typography;
 

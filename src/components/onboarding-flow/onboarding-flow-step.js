@@ -2,7 +2,7 @@ import React from 'react';
 import {withRouter} from 'react-router-dom';
 import { Typography, Steps, Row, Col } from 'antd';
 import {ONBOARDING_ENTRY_MAP_BY_NAME} from '../../lib/util';
-import { CenteredContainer as Container } from '../fields/renderFields';
+import {CenteredContainer as Container} from '../fields/ContainerFields';
 
 const { Step } = Steps;
 const { Title } = Typography;

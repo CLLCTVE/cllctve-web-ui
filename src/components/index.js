@@ -5,7 +5,7 @@ import {Layout} from 'antd';
 import NavBar from './template/navbar';
 import HomePage from './homepage';
 import LoginPage from './login/loginPage';
-import SignUpPage from './signup/signuppage';
+import SignUpPage from './signup/signupPage';
 import ProfilePage from './profile-page';
 import OnBoardingFlowPage from './onboarding-flow';
 import OnBoardingFlowStep from './onboarding-flow/onboarding-flow-step';
