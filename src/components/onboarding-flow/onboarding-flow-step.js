@@ -31,6 +31,21 @@ const StyledSteps = styled(Steps)`
   &.ant-steps {
     padding: 40px;
     color: white;
+
+    .ant-steps-item-process .ant-steps-item-icon {
+      background: #e22784;
+      border-color: #e22784;
+    }
+
+    .ant-steps-item-finish .ant-steps-item-icon {
+      background-image: linear-gradient(#e22784, #fc673d);
+      border-color: #e22784;
+    }
+
+    .ant-steps-item-finish > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-title::after {
+      background: transparent linear-gradient(101deg, #e41e84 0%, #ff6633 100%) 0% 0% no-repeat
+      padding-box;
+    }
   }
   .ant-steps-item-wait
     > .ant-steps-item-container
