@@ -1,9 +1,8 @@
-import {all, call, put, takeLatest} from 'redux-saga/effects';
-import {combineReducers} from 'redux';
+import {all, call, put} from 'redux-saga/effects';
 import {push} from 'connected-react-router';
 import request from '../../../lib/request';
 import {FORM_ERROR} from 'final-form';
-import { LOGIN_SUCCESS, setAuthToken, handleAuthenticated, handleLoginSuccess } from '../../auth/redux';
+import { setAuthToken, handleAuthenticated, handleLoginSuccess } from '../../auth/redux';
 
 export const SIGNUP_REQUEST = 'creative/signup/SIGNUP_REQUEST';
 export const SIGNUP_FAILURE = 'creative/signup/SIGNUP_FAILURE';

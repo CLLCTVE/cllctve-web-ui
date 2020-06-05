@@ -9,25 +9,25 @@ const MenuItemGroup = Menu.ItemGroup;
 
 class RightMenu extends Component {
   render() {
-    const {logout} = this.props;
+    const {logout, isMobile} = this.props;
     return (
       <Menu mode="horizontal">
-        <Menu.Item key="home">
-          <Link to="/" style={{fontFamily:'Hanson Bold'}}>Home</Link>
+        <Menu.Item key={`home${isMobile ? '-m' : ''}`}>
+          <Link to="/">Home</Link>
         </Menu.Item>
-        <Menu.Item key="network">
-          <Link to="/network" style={{fontFamily:'Hanson Bold'}}>Network</Link>
+        <Menu.Item key={`network${isMobile ? '-m' : ''}`}>
+          <Link to="/network">Network</Link>
         </Menu.Item>
-        <Menu.Item key="jobs">
-          <Link to="/jobs" style={{fontFamily:'Hanson Bold'}}>Jobs</Link>
+        <Menu.Item key={`jobs${isMobile ? '-m' : ''}`}>
+          <Link to="/jobs">Jobs</Link>
         </Menu.Item>
-        <Menu.Item key="messaging">
-          <Link to="/messaging" style={{fontFamily:'Hanson Bold'}}>Messaging</Link>
+        <Menu.Item key={`messaging${isMobile ? '-m' : ''}`}>
+          <Link to="/messaging">Messaging</Link>
         </Menu.Item>
-        <Menu.Item key="notifications">
-          <Link to="/notifications" style={{fontFamily:'Hanson Bold'}}>Notifications</Link>
+        <Menu.Item key={`notifications${isMobile ? '-m' : ''}`}>
+          <Link to="/notifications">Notifications</Link>
         </Menu.Item>
-        <Menu.Item key="logout">
+        <Menu.Item key={`logout${isMobile ? '-m' : ''}`}>
           <Button type="link" onClick={logout}>Logout</Button>
         </Menu.Item>
       </Menu>

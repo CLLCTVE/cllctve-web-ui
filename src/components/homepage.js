@@ -1,16 +1,10 @@
 import React, {Component} from 'react';
 import {Col, Row, Typography, Card, Divider, Menu, Layout, Button, Avatar, Input} from 'antd';
-import { StyledLink, CenteredContainer as Container} from './fields/renderFields';
+import {StyledLink} from './fields/renderFields';
 import styled from 'styled-components'
 const {Header, Content, Footer, Sider} = Layout;
 const {Search} = Input;
-
-
-const ButtonContainer = styled.div`
-  .ant-btn-primary {
-    background-color: #fc673d;
-  }
-`;
+import {CenteredContainer as Container} from './fields/ContainerFields';
 
 class HomePage extends Component {
 

@@ -1,8 +1,7 @@
-import {all, call, put, takeLatest} from 'redux-saga/effects';
+import {all, call, put} from 'redux-saga/effects';
 import {push} from 'connected-react-router';
 import request from '../../../lib/request';
 import {FORM_ERROR} from 'final-form';
-import { SIGNUP_FAILURE, SIGNUP_SUCCESS } from '../../signup/redux';
 
 export const LOGIN_REQUEST = 'auth/login/LOGIN_REQUEST';
 export const LOGIN_FAILURE = 'auth/login/LOGIN_FAILURE';
@@ -120,7 +119,7 @@ export function* onHandleLoginRequest({email, password}) {
     ]);
   
     if (!user.onboarded) {
-      yield put(push('/on-boarding-flow/0'))
+      yield put(push('/on-boarding-flow/0'));
     } else {
       yield put(push('/profile'));
     }

@@ -66,10 +66,10 @@ class NavBar extends Component {
               visible={this.state.visible}
             >
               <Menu mode="horizontal">
-                <Menu.Item key="login-mobile">
+                <Menu.Item key="login-m">
                   <Link to="/login">Login</Link>
                 </Menu.Item>
-                <Menu.Item key="sign-up-mobile">
+                <Menu.Item key="sign-up-m">
                   <Link to="/sign-up">Sign Up</Link>
                 </Menu.Item>
               </Menu>
@@ -100,7 +100,7 @@ class NavBar extends Component {
               onClose={this.onClose}
               visible={this.state.visible}
             >
-              <RightMenu />
+              <RightMenu isMobile={true}/>
             </Drawer>
           </div>
         </>,

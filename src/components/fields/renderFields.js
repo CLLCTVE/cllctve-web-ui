@@ -15,40 +15,6 @@ export const StyledSpace = styled(Space)`
   }
 `;
 
-const StyledInput = styled(Input)`
-  background: none;
-  -webkit-appearance: none;
-  outline-color: transparent;
-  outline-style: none;
-
-  &.ant-input-affix-wrapper:hover,
-  &.ant-input-affix-wrapper-focused {
-    border-top-width: 0px;
-    border-left-width: 0px;
-    border-right-width: 0px !important;
-    border-color: #ff6633;
-  }
-
-  &.ant-input,
-  &.ant-input-focused {
-    color: #ffffff;
-    background: none;
-    border-top-width: 0px;
-    border-left-width: 0px;
-    border-right-width: 0px !important;
-    margin-bottom: 1em;
-
-    &:hover,
-    &:focus {
-      color: #ffffff;
-      border-top-width: 0px;
-      border-left-width: 0px;
-      border-right-width: 0px !important;
-      border-color: #ff6633;
-    }
-  }
-`;
-
 const StyledMultiSelect = styled(Select)`
   &.ant-select {
     color: #ffffff;
@@ -122,42 +88,6 @@ export const StyledLink = styled(Link)`
     color: #e41e84;
     text-decoration: underline;
   }
-`;
-
-const StyledPasswordInput = styled(Input.Password)`
-  color: #ffffff;
-
-  &.ant-input-affix-wrapper:hover,
-  &.ant-input-affix-wrapper-focused {
-    border-top-width: 0px;
-    border-left-width: 0px;
-    border-right-width: 0px !important;
-    border-color: #ff6633;
-  }
-
-  &.ant-input-password {
-    color: #ffffff;
-    border-top-width: 0px;
-    border-left-width: 0px;
-    border-right-width: 0px;
-    margin-bottom: 1em;
-    background: none !important;
-  }
-
-  &.ant-input {
-    color: #ffffff;
-    background: none !important;
-    border-top-width: 0px;
-    border-left-width: 0px;
-    border-right-width: 0px;
-    margin-bottom: 1em;
-  }
-`;
-
-export const CenteredContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
 `;
 
 export const disabledDate = (current) => {
@@ -236,46 +166,6 @@ export const renderAntCheckbox = ({input, label, type}) => {
     </Form.Item>
   )
 };
-
-export const renderAntInput = ({input, placeholder,label, meta}) => (
-  <Form.Item name={label}
-             validateStatus={(meta.error || meta.submitError) && meta.touched ? 'error' : ''}
-             help={(meta.error || meta.submitError) && meta.touched && (
-               <span className="error">{meta.error || meta.submitError}</span>
-             )}
-  >
-    <StyledInput {...input} placeholder={placeholder || label}/>
-  </Form.Item>
-);
-
-export const renderAntPasswordInput = ({input, placeholder, label, meta}) => (
-  <Form.Item name={label}
-             validateStatus={(meta.error || meta.submitError) && meta.touched ? 'error' : ''}
-             help={(meta.error || meta.submitError) && meta.touched && (
-               <span className="error">{meta.error || meta.submitError}</span>
-             )}
-  >
-    <StyledPasswordInput {...input} placeholder={placeholder} label={label}/>
-  </Form.Item>
-);
-
-export const renderInput = ({input, placeholder, label, meta}) => (
-  <>
-    <StyledInput {...input} placeholder={placeholder || label}/>
-    {(meta.error || meta.submitError) && meta.touched && (
-      <span className="error">{meta.error || meta.submitError}</span>
-    )}
-  </>
-);
-
-export const renderPasswordInput = ({input, placeholder, label, meta}) => (
-  <>
-    <StyledPasswordInput {...input} placeholder={placeholder} label={label}/>
-    {(meta.error || meta.submitError) && meta.touched && (
-      <span className="error">{meta.error || meta.submitError}</span>
-    )}
-  </>
-);
 
 export const renderSelect = ({input, options, mode, placeholder, size}) => {
   return (

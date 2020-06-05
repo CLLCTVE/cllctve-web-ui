@@ -1,45 +1,20 @@
 import React from 'react';
-import {Field as FField, Form as FForm} from 'react-final-form';
-import {Form, Button} from 'antd';
+import { Field as FField, Form as FForm } from 'react-final-form';
+import { Button } from 'antd';
 import {
-  renderInput,
-  renderAntInput,
-  renderMonthPicker,
   renderAntMonthPicker,
-  renderPasswordInput,
-  renderStyledButton,
   parsePhone,
   formatPhone,
-  capitalize, renderAntPasswordInput,
+  capitalize,
+  StyledButton,
 } from '../fields/renderFields';
-import styled from 'styled-components';
+import {renderAntInput, renderAntPasswordInput} from '../fields/InputFields';
 import MakeAsyncFunction from 'react-redux-promise-listener';
 import {promiseListener} from '../../store';
 import {SIGNUP_REQUEST, SIGNUP_SUCCESS, SIGNUP_FAILURE} from '../../modules/signup/redux';
 import * as validations from '../../utils/validations';
 
 const monthFormat = 'MM-YYYY';
-
-const StyledButton = styled(Button)`
-  &.ant-btn {
-    border: none;
-    color: #ffffff;
-    opacity: 1;
-    background: transparent linear-gradient(101deg, #e41e84 0%, #ff6633 100%) 0% 0% no-repeat
-      padding-box;
-
-    &:hover {
-      color: #ffffff;
-      opacity: 0.8;
-      background: transparent linear-gradient(101deg, #ff6633 0%, #e41e84 100%) 0% 0% no-repeat
-        padding-box;
-    }
-
-    &:focus {
-      color: #e41e84;
-    }
-  }
-`;
 
 export const AsyncSignUpForm = ({isLoading}) => (
   <MakeAsyncFunction

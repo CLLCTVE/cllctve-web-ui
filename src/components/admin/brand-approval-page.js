@@ -1,10 +1,9 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Col, Row, Typography, Card, Divider, Menu, Layout, Button, Avatar} from 'antd';
-
 import {CheckCircleOutlined} from '@ant-design/icons';
 import styled from 'styled-components';
-import {StyledLink, CenteredContainer as Container} from '../fields/renderFields';
+import {CenteredContainer as Container} from '../fields/ContainerFields';
 
 const {Title} = Typography;
 const {Header, Content, Footer, Sider} = Layout;

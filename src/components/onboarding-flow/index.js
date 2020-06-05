@@ -9,7 +9,7 @@ import {ExperienceForm} from './ExperienceForm';
 import {SkillsForm} from './SkillsForm';
 import {HonorsAwardsForm} from './HonorsAwardsForm';
 import {LicensesCertsForm} from './LicensesCertsForm';
-import {CenteredContainer as Container} from '../fields/renderFields';
+import {CenteredContainer as Container} from '../fields/ContainerFields';
 import {ONBOARDING_REQUEST, ONBOARDING_SUCCESS, ONBOARDING_FAILURE} from '../../modules/signup/redux/onboarding';
 
 class OnBoardingFlowPage extends Component {

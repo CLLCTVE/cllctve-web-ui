@@ -1,6 +1,4 @@
 import mockUsers from './mock_users';
-import {FORM_ERROR} from 'final-form';
-import { renderMonthPicker } from '../components/fields/renderFields';
 
 let users = [...mockUsers];
 

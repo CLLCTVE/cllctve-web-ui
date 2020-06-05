@@ -1,33 +1,25 @@
 import React, {Component} from 'react';
 
 import {connect} from 'react-redux';
-import {Form, Field} from 'react-final-form';
 import {
-  renderInput,
-  renderMonthPicker,
-  renderPasswordInput,
-  renderSelect,
   StyledLink
 } from '../fields/renderFields';
-import styled from 'styled-components';
-import {Row, Button} from 'antd';
-import * as validations from '../../utils/validations';
 import {AsyncSignUpForm} from './signupForm';
+import {CenteredContainer as Container} from '../fields/ContainerFields';
+import { Typography } from 'antd';
 
-// const monthFormat = 'MM-YYYY';
+const { Title } = Typography;
 
-const Container = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
-class SignUpPage extends Component {
+class SignupPage extends Component {
   render() {
     const {isLoading} = this.props;
     return (
       <Container>
         <div style={{padding: 24, textAlign: 'center'}}>
+          <div style={{paddingTop: 12, paddingBottom: 12}}>
+            <Title level={2}>Creative Sign Up</Title>
+            <Title level={4}>Create an Account with Cllctve Today!</Title>
+          </div>
           <AsyncSignUpForm isLoading={isLoading} />
           <div>
             <StyledLink to="/login">Already a member? Click here to Log in!</StyledLink>
@@ -44,4 +36,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, {})(SignUpPage);
+export default connect(mapStateToProps, {})(SignupPage);

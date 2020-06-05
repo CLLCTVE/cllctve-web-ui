@@ -118,6 +118,7 @@ const GlobalStyles = createGlobalStyle`
   
   .error {
     color: #FF0000;
+    padding-bottom: 10px;
   }
 `;
 
