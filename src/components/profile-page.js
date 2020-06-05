@@ -421,8 +421,20 @@ class ProfilePage extends Component {
 
           <ExperienceContainer>
             <h2 style={{marginBottom: '20px'}}>
-              EXPERIENCE / PROJECTS <PlusCircleOutlined style={{float: 'right'}} />
+              EXPERIENCE / PROJECTS <PlusCircleOutlined style={{float: 'right'}} onClick={this.showModal} />
             </h2>
+            {/* -----------------------------EXPERIENCE MODAL----------------------------- */}
+
+            <Modal
+          title="Basic Modal"
+          visible={this.state.visible}
+          onOk={this.handleOk}
+          onCancel={this.handleCancel}
+        >
+          <p>Some contents...</p>
+          <p>Some contents...</p>
+          <p>Some contents...</p>
+        </Modal>
             <Row>
               <Col>
                 <div>
@@ -487,8 +499,20 @@ class ProfilePage extends Component {
 
           <EducationContainer>
             <h2 style={{marginBottom: '20px'}}>
-              EDUCATION <PlusCircleOutlined style={{float: 'right'}} />
+              EDUCATION <PlusCircleOutlined style={{float: 'right'}} onClick={this.showModal} />
             </h2>
+            {/* -----------------------------EDUCATION MODAL----------------------------- */}
+
+            <Modal
+          title="Basic Modal"
+          visible={this.state.visible}
+          onOk={this.handleOk}
+          onCancel={this.handleCancel}
+        >
+          <p>Some contents...</p>
+          <p>Some contents...</p>
+          <p>Some contents...</p>
+        </Modal>
             <Row>
               <Col>
                 <div>
@@ -537,8 +561,20 @@ class ProfilePage extends Component {
 
           <LicenseContainer>
             <h2 style={{marginBottom: '20px'}}>
-              LICENSES / CERTIFICATIONS <PlusCircleOutlined style={{float: 'right'}} />
+              LICENSES / CERTIFICATIONS <PlusCircleOutlined style={{float: 'right'}} onClick={this.showModal} />
             </h2>
+            {/* -----------------------------LICENSE MODAL----------------------------- */}
+
+            <Modal
+          title="Basic Modal"
+          visible={this.state.visible}
+          onOk={this.handleOk}
+          onCancel={this.handleCancel}
+        >
+          <p>Some contents...</p>
+          <p>Some contents...</p>
+          <p>Some contents...</p>
+        </Modal>
             <Row>
               <Col>
                 <div>
@@ -584,8 +620,20 @@ class ProfilePage extends Component {
           {/* -----------------------------HONORS SECTION----------------------------- */}
           <HonorsContainer>
           <h2 style={{marginBottom: '0'}}>
-              NOTABLE HONORS <PlusCircleOutlined style={{float: 'right'}} />
+              NOTABLE HONORS <PlusCircleOutlined style={{float: 'right'}} onClick={this.showModal} />
             </h2>
+            {/* -----------------------------HONORS MODAL----------------------------- */}
+
+            <Modal
+          title="Basic Modal"
+          visible={this.state.visible}
+          onOk={this.handleOk}
+          onCancel={this.handleCancel}
+        >
+          <p>Some contents...</p>
+          <p>Some contents...</p>
+          <p>Some contents...</p>
+        </Modal>
             <Row>
               <Col>
                 <div>
