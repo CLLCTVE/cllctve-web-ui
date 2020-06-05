@@ -3,19 +3,21 @@ import {connect} from 'react-redux';
 import { Layout } from 'antd';
 import {AboutSection} from './AboutSection';
 import {Header} from './ProfileHeaderSection';
-import {SkillSection} from './SkillSection'
+import { InterestOrange, SkillSection } from './SkillSection'
 
 class ProfilePage extends Component {
   render() {
     const {user} = this.props;
     const skills = ['Video Editing', 'Photography'];
+    const interests = ['Good Uncle', 'Technology', 'Food', 'Fashion'];
   
     return (
       <div>
         <Layout style={{backgroundColor: 'black'}}>
           <Header />
           <AboutSection />
-          <SkillSection skills={skills}/>
+          <SkillSection skills={skills} interests={interests}/>
+          
         </Layout>
       </div>
     );

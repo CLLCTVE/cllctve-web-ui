@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Typography } from 'antd';
+import { Typography, Divider } from 'antd';
+import { EditOutlined } from '@ant-design/icons';
 
 const { Title } = Typography;
 
@@ -51,9 +52,12 @@ export const InterestOrange = styled.div`
 `;
 
 
-export const SkillSection = ({skills}) => (
+export const SkillSection = ({skills=[], interests=[]}) => (
   <SkillsContainer>
-    <Title level={4}>SKILLS</Title>
+    <Title level={4}>
+      SKILLS
+      <EditOutlined style={{float: 'right'}} />
+    </Title>
     <SkillWrapper>
       {skills.map((skill, index) => (
         <Skill key={index}>
@@ -61,5 +65,17 @@ export const SkillSection = ({skills}) => (
         </Skill>
       ))}
     </SkillWrapper>
+    <Divider />
+    <Title level={4}>
+      INTERESTS
+      <EditOutlined style={{float: 'right'}} />
+    </Title>
+    <InterestContainer>
+      {interests.map((interest, index) => (
+        <InterestOrange key={index}>
+          {interest}
+        </InterestOrange>
+      ))}
+    </InterestContainer>
   </SkillsContainer>
 );
