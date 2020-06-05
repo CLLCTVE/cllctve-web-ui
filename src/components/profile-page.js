@@ -4,7 +4,7 @@ import {Col, Row, Typography, Card, Divider, Menu, Layout, Button, Avatar, Modal
 import {connect} from 'react-redux';
 import {EditOutlined, PlusCircleOutlined} from '@ant-design/icons';
 import Footer from '../components/template/footer/index';
-import AboutSection from './section/about-section'
+import AboutSection from './section/about-section';
 import {
   InfoContainer,
   Header,
