@@ -4,6 +4,7 @@ import { Layout } from 'antd';
 import {AboutSection} from './AboutSection';
 import {Header} from './ProfileHeaderSection';
 import { InterestOrange, SkillSection } from './SkillSection'
+import ActivitySection from '../../section/activity-section';
 
 class ProfilePage extends Component {
   render() {
@@ -17,7 +18,7 @@ class ProfilePage extends Component {
           <Header />
           <AboutSection />
           <SkillSection skills={skills} interests={interests}/>
-          
+          <ActivitySection/>
         </Layout>
       </div>
     );
