@@ -10,6 +10,7 @@ import EducationSection from './EducationSection';
 import LicenseSecton from './LicenseSection';
 import HonorSection from './HonorSection';
 import InfoSection from './InfoSection';
+import Background from '../../images/paint.jpg';
 
 class ProfilePage extends Component {
   
@@ -22,7 +23,7 @@ class ProfilePage extends Component {
     return (
       <div>
         <Layout style={{backgroundColor: 'black'}}>
-          <Header />
+          <Header style={{backgroundImage: `url(${Background})`}} />
           <InfoSection firstName={user.firstName} lastName={user.lastName} title={user.profile.licenseCerts[0].title} school={user.profile.educations[0].school} />
           <AboutSection />
           <SkillSection skills={user.profile.skills} interests={user.profile.interests}/>

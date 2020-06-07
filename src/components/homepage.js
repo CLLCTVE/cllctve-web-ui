@@ -5,6 +5,8 @@ import styled from 'styled-components';
 import {CenteredContainer as Container} from './fields/ContainerFields';
 import {Field as FField} from 'react-final-form';
 import {CheckCircleOutlined} from '@ant-design/icons';
+import Background from './images/cllctve.png';
+
 
 const {Header, Content, Footer, Sider} = Layout;
 const {Search} = Input;
@@ -33,6 +35,12 @@ const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
+  margin-top: 600px;
+
+  .ant-input-group {
+    background: white;
+    border-radius: 5px;
+}
 `;
 const StyledInput = styled(Input)`
   border: none !important;
@@ -44,10 +52,10 @@ class HomePage extends Component {
   render() {
     return (
       <Layout>
-        <Header style={{width: '100vw', height: '100vh', display: 'flex'}}>
+        <Header style={{backgroundImage: `url(${Background})`, backgroundSize: 'cover', height: '750px'}}>
           <ButtonContainer>
             <Search
-              style={{paddingTop: '600px', width: '50%', margin: '0 auto'}}
+              style={{width: '50%'}}
               placeholder="Email"
               enterButton="Enter"
               size="large"
@@ -55,6 +63,7 @@ class HomePage extends Component {
             />
           </ButtonContainer>
         </Header>
+        
         <Content>
           <Title style={{display: 'flex', justifyContent: 'center', paddingTop: '20px'}}>
             LATEST NEWS STORIES

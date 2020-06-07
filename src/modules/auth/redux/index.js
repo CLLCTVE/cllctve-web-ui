@@ -121,7 +121,7 @@ export function* onHandleLoginRequest({email, password}) {
     if (!user.onboarded) {
       yield put(push('/on-boarding-flow/0'));
     } else {
-      yield put(push('/profile'));
+      yield put(push('/creative/profile'));
     }
     
   } catch (err) {
