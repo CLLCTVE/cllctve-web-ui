@@ -8,6 +8,25 @@ const {Header, Content, Footer, Sider} = Layout;
 const {Search} = Input;
 const {Title} = Typography;
 
+const StyledEmail = styled.div``
+
+
+const StyledDiv = styled.div`
+  width: 300px;
+  height: 250px;
+  border-radius: 10px;
+  background: white;
+  margin: 15px;
+  margin-bottom: 30px;
+  display: block;
+`
+
+const StyledBanner = styled.div`
+background-image: linear-gradient(#e22784, #fc673d);
+padding: 40px;
+
+`
+
 class HomePage extends Component {
   render() {
     return (
@@ -15,7 +34,7 @@ class HomePage extends Component {
         <Header style={{width: '100vw', height: '100vh', display: 'flex'}}>
           {/* <ButtonContainer> */}
         <Search
-        style={{ marginTop: '600px'}}
+        style={{ paddingTop: '600px', width: '50%', margin: '0 auto'}}
       placeholder="Email"
       enterButton="Enter"
       size="large"
@@ -24,19 +43,34 @@ class HomePage extends Component {
           {/* </ButtonContainer> */}
         </Header>
         <Content>
-          <Title level={2}>LATEST NEWS STORIES</Title>
+          <Title style={{display: 'flex', justifyContent: 'center', paddingTop: '20px'}}>LATEST NEWS STORIES</Title>
+          <Container>
           <Row>
             <Col>
-            <Avatar/>
-            <Avatar/>
+            <StyledDiv/>
+            <StyledDiv/>
             </Col>
           </Row>
           <Row>
             <Col>
-            <Avatar/>
-            <Avatar/>
+            <StyledDiv/>
+            <StyledDiv/>
             </Col>
           </Row>
+          </Container>
+            <StyledBanner>
+              <Title style={{width: '50%', margin: '0 auto'}}>A PLATFORM FOR COLLEGE CREATIVES TO CONNECT</Title>
+              <Container>
+              <Row gutter={[16,16]} style={{display: 'flex', justifyContent: 'center', paddingTop: '20px'}}>
+                <Col span={6}>
+               <StyledDiv/>
+                </Col>
+                <Col span={10}>
+                <h5 style={{display: 'inline'}}>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis maxime nobis quo delectus, quaerat repellendus doloribus beatae alias quibusdam placeat? Provident incidunt voluptates tenetur nulla vero? Mollitia maiores consequuntur sint tenetur, nisi beatae ab, ea voluptas ullam blanditiis, autem saepe.</h5>
+                </Col>
+              </Row>
+              </Container>
+            </StyledBanner>
         </Content>
       </Layout>
     );
