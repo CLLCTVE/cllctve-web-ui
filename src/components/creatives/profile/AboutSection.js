@@ -18,11 +18,17 @@ export const Resume = styled.div`
   height: 100px;
   float: left;
   margin-right: 10px;
-  width: 150px;
+  width: 200px;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   background-color: #fc673d;
 `;
+
+const TextOverlapContainer = styled.div`
+position: relative;
+text-align: center;
+color: white;
+`
 
 export const AboutSection = () => (
   <AboutContainer>
@@ -35,7 +41,9 @@ export const AboutSection = () => (
       corporis eius explicabo tempora deleniti eveniet animi ad deserunt, maxime amet
       repellat natus, et sint! Quia, unde.
     </p>
-    <Resume />
-    <Resume />
+    <TextOverlapContainer>
+    <Resume>Resume</Resume>
+    <Resume>Portfolio</Resume>
+    </TextOverlapContainer>
   </AboutContainer>
 );

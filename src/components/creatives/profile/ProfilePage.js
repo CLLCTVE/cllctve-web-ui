@@ -18,7 +18,7 @@ class ProfilePage extends Component {
   render() {
     const {user} = this.props;
     // const skills = ['Video Editing', 'Photography'];
-    const interests = ['Good Uncle', 'Technology', 'Food', 'Fashion'];
+    // const interests = ['Good Uncle', 'Technology', 'Food', 'Fashion'];
   
     return (
       <div>
