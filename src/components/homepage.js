@@ -6,7 +6,7 @@ import {CenteredContainer as Container} from './fields/ContainerFields';
 import {Field as FField} from 'react-final-form';
 import {CheckCircleOutlined} from '@ant-design/icons';
 import Background from './images/cllctve.png';
-
+import ReactPlayer from 'react-player'
 
 const {Header, Content, Footer, Sider} = Layout;
 const {Search} = Input;
@@ -90,10 +90,12 @@ class HomePage extends Component {
                 gutter={[16, 16]}
                 style={{display: 'flex', justifyContent: 'center', paddingTop: '20px'}}
               >
-                <Col span={10}>
-                  <StyledDiv style={{width: '400px'}}/>
+                <Col span={12}>
+                  <div>
+                    <ReactPlayer url='https://youtu.be/KNU8vKGu_Kg' />
+                  </div>
                 </Col>
-                <Col span={10}>
+                <Col span={12}>
                   <Title level={4}>
                     Our vision is to empower the next generation of creatives. We bridge the gap
                     between creatives and brands by providing a platform for college students to
