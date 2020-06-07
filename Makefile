@@ -1,8 +1,7 @@
 SHELL := /bin/bash
 
 GIT_TAG := $(shell git rev-parse --short HEAD 2> /dev/null)
-DEV_GCP_BUCKET := gs://dev.cllctve-test.com
-STG_GCP_BUCKET := gs://stg.cllctve-test.com
+DEV_GCP_BUCKET := gs://www.cllctve-test.com
 
 init: deps
 
@@ -20,10 +19,10 @@ build-dev:
 mb-dev:
 	gsutil mb $(DEV_GCP_BUCKET)
 	gsutil defacl set public-read $(DEV_GCP_BUCKET)
+	gsutil iam ch allUsers:objectViewer gs://$(DEV_GCP_BUCKET)
 
 deploy-dev: build-dev
-	NODE_ENV="development" \
-	gcloud app deploy app.yaml
+	gsutil -m rsync -r -d ./build $(DEV_GCP_BUCKET)/build
 
 build-stg:
 	GIT_TAG=$(GIT_TAG) \

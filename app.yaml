@@ -1,7 +1,7 @@
 service: cllctve-frontend
 # [START runtime]
-runtime: nodejs
-env: flex
+runtime: python27
+api_version: 1
 threadsafe: true
 # [END runtime]
 
