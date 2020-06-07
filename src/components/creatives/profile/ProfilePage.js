@@ -5,20 +5,32 @@ import {AboutSection} from './AboutSection';
 import {Header} from './ProfileHeaderSection';
 import { InterestOrange, SkillSection } from './SkillSection'
 import ActivitySection from '../../section/activity-section';
+import ExperienceSection from './ExperienceSection';
+import EducationSection from './EducationSection';
+import LicenseSecton from './LicenseSection';
+import HonorSection from './HonorSection';
+import InfoSection from './InfoSection';
 
 class ProfilePage extends Component {
+  
+
   render() {
     const {user} = this.props;
-    const skills = ['Video Editing', 'Photography'];
+    // const skills = ['Video Editing', 'Photography'];
     const interests = ['Good Uncle', 'Technology', 'Food', 'Fashion'];
   
     return (
       <div>
         <Layout style={{backgroundColor: 'black'}}>
           <Header />
+          <InfoSection firstName={user.firstName} lastName={user.lastName} title={user.profile.licenseCerts[0].title} school={user.profile.educations[0].school} />
           <AboutSection />
-          <SkillSection skills={skills} interests={interests}/>
+          <SkillSection skills={user.profile.skills} interests={user.profile.interests}/>
           <ActivitySection/>
+          <ExperienceSection experience={user.profile.experience}/>
+          <EducationSection school={user.profile.educations[0].school} major={user.profile.educations[0].major} />
+          <LicenseSecton organization={user.profile.licenseCerts[0].organization} title={user.profile.licenseCerts[0].title}/>
+          <HonorSection/>
         </Layout>
       </div>
     );
@@ -35,6 +47,7 @@ const mapStateToProps = (state) => {
       onboarded: false,
       profile: {
         skills: ['Video Editing', 'Photography'],
+        interests: ['Good Uncle', 'Technology', 'Food', 'Fashion'],
         licenseCerts: [
           {
             id: '5ed800f1bc8f8400412f4a91',

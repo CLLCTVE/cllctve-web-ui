@@ -12,7 +12,7 @@ const StyledCard = styled(Card)`
   &.ant-card {
     color: black !important;
     width: 230px;
-    height: 250px;
+    height: 350px;
     background-image: linear-gradient(black, gray);
   }
 `;
@@ -24,13 +24,44 @@ const StyledContainer = styled(Container)`
   min-width: 580px;
 `
 
-const StyledButton = styled(Button)`
-margin: 5px auto;
-border-radius: 4px;
-  padding: 20px;
-`
+export const StyledButton = styled(Button)`
+  &.ant-btn {
+    
+    position: absolute;
+    bottom: 10px;
+    border: none;
+    color: #ffffff;
+    opacity: 1;
+    background: transparent linear-gradient(101deg, #e41e84 0%, #ff6633 100%) 0% 0% no-repeat
+      padding-box;
+
+    &:hover {
+      color: #ffffff;
+      opacity: 0.8;
+      background: transparent linear-gradient(101deg, #ff6633 0%, #e41e84 100%) 0% 0% no-repeat
+        padding-box;
+    }
+
+    &:focus > span,
+    &:active > span {
+      color: #e41e84 !important;
+    }
+    
+    &:active {
+       span {
+        color: #e41e84 !important;
+       }
+    }
+    
+  }
+`;
 
 class AdminDashboardPage extends Component {
+
+  componentDidMount() {
+    // make api call to get admin dashboard data 
+  }
+
   render() {
     return (
       <StyledContainer>
@@ -51,47 +82,76 @@ class AdminDashboardPage extends Component {
             <div>
             <StyledCard>
             <Avatar style={{margin: '0 auto', display: 'block', width: '100px', height: '100px'}}/>
+            <Container>
+            <Title level={4} style={{paddingTop: '10px'}}>NAME</Title>
+            <StyledButton
+                    size="large"
+                    shape="round"
+                    htmlType="submit"
+                    // disabled={submitting}
+                  >
+                    Submit
+                  </StyledButton>
+            </Container>
             </StyledCard>
             <div style={{margin: '10px auto', width: '230px'}}>
-            <StyledButton style={{backgroundColor: '#fc673d', border: 'none', borderTopRightRadius: '0', borderBottomRightRadius: '0'}}>APPROVE</StyledButton>
-            <StyledButton style={{backgroundColor: '#000', border: '1px solid white', borderTopLeftRadius: '0', borderBottomLeft: '0'}}>DECLINE</StyledButton>
             </div>
             </div>
           </Col>
           <Col span={4}>
-          <div>
+    
             <StyledCard>
             <Avatar style={{margin: '0 auto', display: 'block', width: '100px', height: '100px'}}/>
+            <Container>
+            <Title level={4} style={{paddingTop: '10px'}}>NAME</Title>
+            <StyledButton
+                    size="large"
+                    shape="round"
+                    htmlType="submit"
+                    // disabled={submitting}
+                  >
+                    Submit
+                  </StyledButton>
+            </Container>
             </StyledCard>
-            <div style={{margin: '10px auto', width: '230px'}}>
-            <StyledButton style={{backgroundColor: '#fc673d', border: 'none', borderTopRightRadius: '0', borderBottomRightRadius: '0'}}>APPROVE</StyledButton>
-            <StyledButton style={{backgroundColor: '#000', border: '1px solid white', borderTopLeftRadius: '0', borderBottomLeft: '0'}}>DECLINE</StyledButton>
-            </div>
-            </div>
+            
           </Col>
           <Col span={4}>
-          <div>
             <StyledCard>
             <Avatar style={{margin: '0 auto', display: 'block', width: '100px', height: '100px'}}/>
+            <Container>
+            <Title level={4} style={{paddingTop: '10px'}}>NAME</Title>
+            <StyledButton
+                    size="large"
+                    shape="round"
+                    htmlType="submit"
+                    // disabled={submitting}
+                  >
+                    Submit
+                  </StyledButton>
+            </Container>
             </StyledCard>
-            <div style={{margin: '10px auto', width: '230px'}}>
-            <StyledButton style={{backgroundColor: '#fc673d', border: 'none', borderTopRightRadius: '0', borderBottomRightRadius: '0'}}>APPROVE</StyledButton>
-            <StyledButton style={{backgroundColor: '#000', border: '1px solid white', borderTopLeftRadius: '0', borderBottomLeft: '0'}}>DECLINE</StyledButton>
-            </div>
-            </div>
-          </Col>
+            </Col>
           <Col span={4}>
-          <div>
             <StyledCard>
             <Avatar style={{margin: '0 auto', display: 'block', width: '100px', height: '100px'}}/>
+            <Container>
+            <Title level={4} style={{paddingTop: '10px'}}>NAME</Title>
+            <StyledButton
+                    size="large"
+                    shape="round"
+                    htmlType="submit"
+                    // disabled={submitting}
+                  >
+                    Submit
+                  </StyledButton>
+            </Container>
             </StyledCard>
-            <div style={{margin: '10px auto', width: '230px'}}>
-            <StyledButton style={{backgroundColor: '#fc673d', border: 'none', borderTopRightRadius: '0', borderBottomRightRadius: '0'}}>APPROVE</StyledButton>
-            <StyledButton style={{backgroundColor: '#000', border: '1px solid white', borderTopLeftRadius: '0', borderBottomLeft: '0'}}>DECLINE</StyledButton>
-            </div>
-            </div>
-          </Col>
+             </Col>
         </Row>
+
+{/* ------------------------------VERIFICATION REQUESTS------------------------------ */}
+
         <h5 style={{marginTop: '40px'}}>
           VERIFICATION REQUESTS <CheckCircleOutlined />
         </h5>
@@ -99,48 +159,68 @@ class AdminDashboardPage extends Component {
         <BrandTab>BRAND STATUS</BrandTab>
         <Row justify="space-between" style={{clear: 'both'}}>
           <Col span={4}>
-          <div>
             <StyledCard>
             <Avatar style={{margin: '0 auto', display: 'block', width: '100px', height: '100px'}}/>
+            <Container>
+            <Title level={4} style={{paddingTop: '10px'}}>NAME</Title>
+            <StyledButton
+                    size="large"
+                    shape="round"
+                    htmlType="submit"
+                    // disabled={submitting}
+                  >
+                    Submit
+                  </StyledButton>
+            </Container>
             </StyledCard>
-            <div style={{margin: '10px auto', width: '230px'}}>
-            <StyledButton style={{backgroundColor: '#fc673d', border: 'none', borderTopRightRadius: '0', borderBottomRightRadius: '0'}}>APPROVE</StyledButton>
-            <StyledButton style={{backgroundColor: '#000', border: '1px solid white', borderTopLeftRadius: '0', borderBottomLeft: '0'}}>DECLINE</StyledButton>
-            </div>
-            </div>
+            </Col>
+          <Col span={4}>
+            <StyledCard>
+            <Avatar style={{margin: '0 auto', display: 'block', width: '100px', height: '100px'}}/>
+            <Container>
+            <Title level={4} style={{paddingTop: '10px'}}>NAME</Title>
+            <StyledButton
+                    size="large"
+                    shape="round"
+                    htmlType="submit"
+                    // disabled={submitting}
+                  >
+                    Submit
+                  </StyledButton>
+            </Container>
+            </StyledCard>
           </Col>
           <Col span={4}>
-          <div>
             <StyledCard>
             <Avatar style={{margin: '0 auto', display: 'block', width: '100px', height: '100px'}}/>
+            <Container>
+            <Title level={4} style={{paddingTop: '10px'}}>NAME</Title>
+            <StyledButton
+                    size="large"
+                    shape="round"
+                    htmlType="submit"
+                    // disabled={submitting}
+                  >
+                    Submit
+                  </StyledButton>
+            </Container>
             </StyledCard>
-            <div style={{margin: '10px auto', width: '230px'}}>
-            <StyledButton style={{backgroundColor: '#fc673d', border: 'none', borderTopRightRadius: '0', borderBottomRightRadius: '0'}}>APPROVE</StyledButton>
-            <StyledButton style={{backgroundColor: '#000', border: '1px solid white', borderTopLeftRadius: '0', borderBottomLeft: '0'}}>DECLINE</StyledButton>
-            </div>
-            </div>
           </Col>
           <Col span={4}>
-          <div>
             <StyledCard>
             <Avatar style={{margin: '0 auto', display: 'block', width: '100px', height: '100px'}}/>
+            <Container>
+            <Title level={4} style={{paddingTop: '10px'}}>NAME</Title>
+            <StyledButton
+                    size="large"
+                    shape="round"
+                    htmlType="submit"
+                    // disabled={submitting}
+                  >
+                    Submit
+                  </StyledButton>
+            </Container>
             </StyledCard>
-            <div style={{margin: '10px auto', width: '230px'}}>
-            <StyledButton style={{backgroundColor: '#fc673d', border: 'none', borderTopRightRadius: '0', borderBottomRightRadius: '0'}}>APPROVE</StyledButton>
-            <StyledButton style={{backgroundColor: '#000', border: '1px solid white', borderTopLeftRadius: '0', borderBottomLeft: '0'}}>DECLINE</StyledButton>
-            </div>
-            </div>
-          </Col>
-          <Col span={4}>
-          <div>
-            <StyledCard>
-            <Avatar style={{margin: '0 auto', display: 'block', width: '100px', height: '100px'}}/>
-            </StyledCard>
-            <div style={{margin: '10px auto', width: '230px'}}>
-            <StyledButton style={{backgroundColor: '#fc673d', border: 'none', borderTopRightRadius: '0', borderBottomRightRadius: '0'}}>APPROVE</StyledButton>
-            <StyledButton style={{backgroundColor: '#000', border: '1px solid white', borderTopLeftRadius: '0', borderBottomLeft: '0'}}>DECLINE</StyledButton>
-            </div>
-            </div>
           </Col>
         </Row>
       </StyledContainer>

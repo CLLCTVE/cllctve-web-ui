@@ -60,9 +60,9 @@ export const SkillSection = ({skills=[], interests=[]}) => (
     </Title>
     <SkillWrapper>
       {skills.map((skill, index) => (
-        <Skill key={index}>
+        <InterestPink key={index}>
           {skill}
-        </Skill>
+        </InterestPink>
       ))}
     </SkillWrapper>
     <Divider />
