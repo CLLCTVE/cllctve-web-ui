@@ -26,7 +26,7 @@ class Index extends Component {
             <Route exact path="/login" component={LoginPage} />
             <Route exact path="/sign-up" component={SignUpPage} />
             <Route exact path="/creative/profile" component={ProfilePage} />
-            <PrivateRoute exact role={['admin']} path="/admin/dashboard" component={AdminDashboardPage} />
+            <Route exact path="/admin/dashboard" component={AdminDashboardPage} />
             
             <Route path="/on-boarding-flow/:step" render={() => {
               return (
