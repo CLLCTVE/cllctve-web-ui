@@ -88,6 +88,7 @@ class HomePage extends Component {
               enterButton="Enter"
               size="large"
               type='email'
+              htmlType="submit"
               onSearch={value => console.log(value)}
             />
           </ButtonContainer>
@@ -112,30 +113,7 @@ class HomePage extends Component {
           </Container> */}
 
             <VideoSection/>
-        {/* <Content>
-          <StyledBanner>
-            <Title style={{textAlign: 'center'}}>A PLATFORM FOR COLLEGE CREATIVES TO CONNECT</Title>
-            <Row
-              gutter={[16, 16]}
-              style={{display: 'flex', justifyContent: 'center', paddingTop: '20px'}}
-            >
-              <Col span={12}>
-                <div>
-                  <ReactPlayer url="https://youtu.be/YVB3PrS5HDg" />
-                </div>
-              </Col>
-              <Col span={12}>
-                <Title level={4}>
-                  Our vision is to empower the next generation of creatives. We bridge the gap
-                  between creatives and brands by providing a platform for college students to
-                  develop their portfolio, showcase their skills, and increase their visibility,
-                  while providing brands exclusive access to local Gen-Z consumers and Gen-Z content
-                  creators.
-                </Title>
-              </Col>
-            </Row>
-          </StyledBanner>
-        </Content> */}
+        
 
         <Container style={{backgroundColor: 'black'}}>
           <Row gutter={[{xs: 8, sm: 16, md: 24, lg: 32}, 16]}>

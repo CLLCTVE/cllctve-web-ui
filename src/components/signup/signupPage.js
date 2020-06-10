@@ -16,8 +16,8 @@ class SignupPage extends Component {
     return (
       <Container>
         <div style={{padding: 24, textAlign: 'center', width: '30%'}}>
-          <div style={{paddingTop: 12, paddingBottom: 20}}>
-            <Title level={2}>CREATIVE SIGN UP</Title>
+          <div style={{paddingTop: 12, paddingBottom: 20, marginBottom: 40}}>
+            <Title level={2} style={{marginBottom: 0}}>CREATIVE SIGN UP</Title>
             <strong>Create an Account with CLLCTVE Today!</strong>
           </div>
           <AsyncSignUpForm isLoading={isLoading} />
