@@ -8,6 +8,7 @@ import {CheckCircleOutlined} from '@ant-design/icons';
 import Background from './images/background-img.png';
 import ReactPlayer from 'react-player';
 import VideoSection from './landing/VideoSection';
+import axios from 'axios'
 
 const {Header, Content, Footer, Sider} = Layout;
 const {Search} = Input;
@@ -65,6 +66,36 @@ const StyledInput = styled(Input)`
 `;
 
 class HomePage extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: ''
+    }
+    }
+
+    onEmailChange(event) {
+      this.setState({email: event.target.value})
+      }
+
+      handleSubmit(event) {
+        event.preventDefault();
+        axios({
+          method: 'POST',
+          url: 'http://localhost:3001/emails',
+          data: this.state
+        }).then((response) => {
+          if (response.data.status === 'success') {
+            alert('Email Sent')
+            this.resetForm()
+          } else if (response.data.status === 'fail') {
+            alert('Email failed to send')
+          }
+        })
+      }
+              resetForm(){
+                this.setState({email: ''})
+              }
+
   render() {
     return (
       <Layout>
@@ -73,10 +104,12 @@ class HomePage extends Component {
         >
           <ButtonContainer>
             <Search
+              onSubmit={this.handleSubmit.bind(this)}
               style={{width: '50%'}}
               placeholder="Email"
               enterButton="Enter"
               size="large"
+              type='submit'
               onSearch={value => console.log(value)}
             />
           </ButtonContainer>

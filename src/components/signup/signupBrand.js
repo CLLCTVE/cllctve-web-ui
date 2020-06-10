@@ -15,7 +15,7 @@ class SignupBrand extends Component {
     const {isLoading} = this.props;
     return (
       <Container>
-        {/* <div style={{padding: 24, textAlign: 'center', width: '30%'}}>
+        <div style={{padding: 24, textAlign: 'center', width: '30%'}}>
           <div style={{paddingTop: 12, paddingBottom: 20}}>
             <Title level={2}>BRAND SIGN UP</Title>
             <strong>Create an Account with CLLCTVE Today!</strong>
@@ -24,7 +24,7 @@ class SignupBrand extends Component {
           <div>
             <StyledLink to="/login">Already a member? Click here to Log in!</StyledLink>
           </div>
-        </div> */}
+        </div>
       </Container>
     );
   }

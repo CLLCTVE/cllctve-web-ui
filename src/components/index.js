@@ -14,6 +14,8 @@ import ProfilePage from './creatives/profile/ProfilePage';
 import Footer from './template/footer/index'
 import RequireAuth from './auth/require_auth';
 import PrivateRoute from './auth/PrivateRoute';
+import ChooseSignup from './signup/chooseSignup';
+import signupBrand from './signup/signupBrand';
 
 class Index extends Component {
   render() {
@@ -24,7 +26,9 @@ class Index extends Component {
           <Switch>
             <Route exact path="/" component={HomePage} />
             <Route exact path="/login" component={LoginPage} />
-            <Route exact path="/sign-up" component={SignUpPage} />
+            <Route exact path="/sign-up" component={ChooseSignup} />
+            <Route exact path="/creative/signup" component={SignUpPage} />
+            <Route exact path="/brand/signup" component={signupBrand} />
             <Route exact path="/creative/profile" component={ProfilePage} />
             <PrivateRoute exact path="/admin/dashboard" role={['Admin']} component={AdminDashboardPage} />
             
