@@ -73,28 +73,7 @@ class HomePage extends Component {
     }
     }
 
-    onEmailChange(event) {
-      this.setState({email: event.target.value})
-      }
-
-      handleSubmit(event) {
-        event.preventDefault();
-        axios({
-          method: 'POST',
-          url: 'http://localhost:3001/emails',
-          data: this.state
-        }).then((response) => {
-          if (response.data.status === 'success') {
-            alert('Email Sent')
-            this.resetForm()
-          } else if (response.data.status === 'fail') {
-            alert('Email failed to send')
-          }
-        })
-      }
-              resetForm(){
-                this.setState({email: ''})
-              }
+ 
 
   render() {
     return (
@@ -104,12 +83,11 @@ class HomePage extends Component {
         >
           <ButtonContainer>
             <Search
-              onSubmit={this.handleSubmit.bind(this)}
               style={{width: '50%'}}
               placeholder="Email"
               enterButton="Enter"
               size="large"
-              type='submit'
+              type='email'
               onSearch={value => console.log(value)}
             />
           </ButtonContainer>

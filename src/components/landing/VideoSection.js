@@ -22,7 +22,7 @@ const StyledBanner = styled.div`
   background-image: linear-gradient(#e22784, #fc673d);
   padding: 40px;
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 800px) {
     .container {
       grid-template-columns: 1fr;
       grid-template-rows: 0.4fr 0.4fr 1.2fr;
