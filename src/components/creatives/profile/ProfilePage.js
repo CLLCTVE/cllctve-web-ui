@@ -42,8 +42,8 @@ const mapStateToProps = (state) => {
   return {
     user: {
       id: '5ed7ffbdbc8f8400412f4a8e',
-      firstName: 'Brandon',
-      lastName: 'Bailey',
+      firstName: 'Jane',
+      lastName: 'Doe',
       email: 'bbailey@gmail.edu',
       onboarded: false,
       profile: {

@@ -9,13 +9,13 @@ class HomePage extends Component {
   render() {
     return(
       <Layout>
+        <Header>
         <Search
       placeholder="Email"
       enterButton="Search"
       size="large"
       onSearch={value => console.log(value)}
     />
-        <Header>
         </Header>
         <Content>
           
