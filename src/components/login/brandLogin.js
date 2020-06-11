@@ -1,21 +1,21 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {AsyncLoginForm} from './loginForm';
-import { StyledLink} from '../fields/renderFields';
-import {CenteredContainer as Container} from '../fields/ContainerFields'
-import { Typography } from 'antd';
+import {StyledLink} from '../fields/renderFields';
+import {CenteredContainer as Container} from '../fields/ContainerFields';
+import {Typography} from 'antd';
 
-const { Title } = Typography;
+const {Title} = Typography;
 
-class LoginPage extends Component {
+class BrandLoginPage extends Component {
   render() {
     const {isLoading} = this.props;
     return (
       <Container>
         <div style={{padding: 24, textAlign: 'center'}}>
           <div style={{paddingTop: 12, paddingBottom: 12}}>
-            <Title level={2}>CREATIVE LOGIN</Title>
-            <Title level={4}>Login to your Creative Account </Title>
+            <Title level={2}>BRAND LOGIN</Title>
+            <Title level={4}>Login to your Brand Account </Title>
           </div>
           <AsyncLoginForm isLoading={isLoading} />
           <div>
@@ -35,4 +35,4 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-export default connect(mapStateToProps, {})(LoginPage);
+export default connect(mapStateToProps, {})(BrandLoginPage);
