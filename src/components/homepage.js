@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {isMobile, isBrowser, MobileView, BrowserView} from 'react-device-detect';
 import {Col, Row, Typography, Card, Divider, Menu, Layout, Button, Avatar, Input} from 'antd';
 import {StyledLink, StyledButton} from './fields/renderFields';
 import styled from 'styled-components';
@@ -8,41 +9,13 @@ import {CheckCircleOutlined} from '@ant-design/icons';
 import Background from './images/background-img.png';
 import ReactPlayer from 'react-player';
 import VideoSection from './landing/VideoSection';
-import axios from 'axios'
+import axios from 'axios';
+import LatestNews from './landing/latestNews';
+import WishList from './landing/wishList';
 
 const {Header, Content, Footer, Sider} = Layout;
 const {Search} = Input;
 const {Title} = Typography;
-
-const MainContainer = styled.div`
-  display: grid;
-  width: 100vh;
-  margin: 0 auto;
-  grid-template-rows: 4fr 1fr 0.5fr;
-  grid-template-columns: 0.5fr auto 0.5fr;
-  grid-template-areas:
-    header header header
-    header header header
-    blank1 news blank1
-    blank2 video blank2
-    blank3 email blank3;
-  grid-gap: 2rem;
-`;
-
-const StyledDiv = styled.div`
-  width: 300px;
-  height: 250px;
-  border-radius: 10px;
-  background: white;
-  margin: 15px;
-  margin-bottom: 30px;
-  display: block;
-`;
-
-const StyledBanner = styled.div`
-  background-image: linear-gradient(#e22784, #fc673d);
-  padding: 40px;
-`;
 
 const ButtonContainer = styled.div`
   .ant-input-search-enter-button + .ant-input-group-addon .ant-input-search-button,
@@ -59,80 +32,92 @@ const ButtonContainer = styled.div`
     border-radius: 5px;
   }
 `;
-const StyledInput = styled(Input)`
-  border: none !important;
-  border-bottom: 1px solid #555 !important;
-  padding-top: 20px !important;
+const EducationContainer = styled.div`
+width: 70%;
+margin: 20px auto;
+clear: both;
+background-color: #222;
+border-radius: 20px;
+padding: 20px;
+max-width: 900px;
+min-width: 580px;
 `;
 
 class HomePage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: ''
-    }
-    }
+      email: '',
+      width: window.matchMedia,
+    };
+    this.userEmails = this.userEmails.bind(this);
+  }
 
- 
+  componentWillMount() {
+    window.addEventListener('resize', this.handleWindowSizeChange);
+  }
+
+  // make sure to remove the listener
+  // when the component is not mounted anymore
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleWindowSizeChange);
+  }
+
+  handleWindowSizeChange = () => {
+    this.setState({width: window.matchMedia});
+  };
+
+  userEmails(e) {
+    console.log('userEmail:', e);
+    this.setState({
+      email: this.state.email + e,
+    });
+  }
 
   render() {
-    return (
-      <Layout>
-        <Header
-          style={{backgroundImage: `url(${Background})`, backgroundSize: 'cover', height: '750px'}}
-        >
-          <ButtonContainer>
-            <Search
-              style={{width: '50%'}}
-              placeholder="Email"
-              enterButton="Enter"
-              size="large"
-              type='email'
-              htmlType="submit"
-              onSearch={value => console.log(value)}
-            />
-          </ButtonContainer>
-        </Header>
 
-        {/* <Title style={{display: 'flex', justifyContent: 'center', paddingTop: '20px'}}>
-            LATEST NEWS STORIES
-          </Title>
-          <Container>
-            <Row>
-              <Col>
-                <StyledDiv />
-                <StyledDiv />
-              </Col>
-            </Row>
-            <Row>
-              <Col>
-                <StyledDiv />
-                <StyledDiv />
-              </Col>
-            </Row>
-          </Container> */}
+      return (
+        <div>
+          <BrowserView>
+            <Layout>
 
-            <VideoSection/>
-        
+              <Header
+                style={{
+                  backgroundImage: `url(${Background})`,
+                  backgroundSize: 'cover',
+                  width: '100%',
+                  height: '750px',
+                }}
+              >
+                <ButtonContainer>
+                  <Search
+                    style={{width: '500px'}}
+                    placeholder="Email"
+                    enterButton="Enter"
+                    size="large"
+                    type="email"
+                    htmlType="submit"
+                    onSearch={(value => console.log(value), this.userEmails)}
+                  />
+                </ButtonContainer>
+              </Header>
+            <Layout>
+              <Content>
+                {/* <LatestNews/> */}
+                <VideoSection />
+                <WishList />
+              </Content>
+            </Layout>
+            </Layout>
+          </BrowserView>
+  
+          {/* <MobileView>
+            <Header>OKAY</Header>
+          </MobileView> */}
 
-        <Container style={{backgroundColor: 'black'}}>
-          <Row gutter={[{xs: 8, sm: 16, md: 24, lg: 32}, 16]}>
-            <Col span={8} style={{margin: '0 auto'}}>
-              <CheckCircleOutlined style={{fontSize: '140px', padding: '30px'}} />
-              <Title>STAY UPDATED</Title>
-            </Col>
-            <Col span={8} style={{margin: '0 auto'}}>
-              <StyledInput placeholder="First Name" type="text" />
-              <StyledInput placeholder="Last Name" type="text" />
-              <StyledInput placeholder="Email" type="text" />
-              <StyledInput placeholder="Major" type="text" />
-              <StyledInput placeholder="List your skills (seperated by a comma)" type="text" />
-              <StyledButton style={{marginTop: '20px'}}>JOIN THE WISHLIST</StyledButton>
-            </Col>
-          </Row>
-        </Container>
-      </Layout>
-    );
+        </div>
+      );
+
   }
 }
 
