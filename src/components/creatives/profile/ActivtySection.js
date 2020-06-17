@@ -1,14 +1,75 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 import {Col, Row, Typography, Card, Divider, Menu, Layout, Button, Avatar, Modal} from 'antd';
 
+const {Title} = Typography
 
-export const ActivityContainer = styled.div`
-  width: 70%;
-  margin: 20px auto;
-  max-width: 900px;
-  min-width: 580px;
-`;
+export const ActivitySection = ({activities}) => (
+  <div style={{padding: 30}}>
+      <Title level={2} style={{marginBottom: 0}}>RECENT ACTIVITIES</Title>
+      <strong>Based on activity</strong>
+      <OrangeText>SEE ALL</OrangeText>
+    <Row justify="space-between">
+
+      {/* {activities.map((activity, index) => (
+        <Col span={6} key={index}>
+          {activity}
+        </Col>
+      ))} */}
+
+      <Col span={5}>
+        <StyledCard>
+          <StyledAvatar/>
+          <ActivityText>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab a quod voluptates Lorem
+            ipsum dolor sit amet consectetur, adipisicing elit. Ab a quod voluptates
+          </ActivityText>
+          <small style={{display: 'block', textAlign: 'center', marginTop: '5px'}}>
+            Your post has been reshared
+          </small>
+        </StyledCard>
+      </Col>
+      <Col span={5}>
+        <StyledCard>
+          <StyledAvatar/>
+          <ActivityText>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab a quod voluptates Lorem
+            ipsum dolor sit amet consectetur, adipisicing elit. Ab a quod voluptates
+          </ActivityText>
+          <small style={{display: 'block', textAlign: 'center', marginTop: '5px'}}>
+            Your post has been reshared
+          </small>
+        </StyledCard>
+      </Col>
+      <Col span={5}>
+        <StyledCard>
+          <StyledAvatar/>
+          <ActivityText>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab a quod voluptates Lorem
+            ipsum dolor sit amet consectetur, adipisicing elit. Ab a quod voluptates
+          </ActivityText>
+          <small style={{display: 'block', textAlign: 'center', marginTop: '5px'}}>
+            Your post has been reshared
+          </small>
+        </StyledCard>
+      </Col>
+      <Col span={5}>
+        <StyledCard>
+          <StyledAvatar/>
+          <ActivityText>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab a quod voluptates Lorem
+            ipsum dolor sit amet consectetur, adipisicing elit. Ab a quod voluptates
+          </ActivityText>
+          <small style={{display: 'block', textAlign: 'center', marginTop: '5px'}}>
+            Your post has been reshared
+          </small>
+        </StyledCard>
+      </Col>
+      
+    </Row>
+  </div>
+);
+
 
 export const ActivityText = styled.strong`
   white-space: normal;
@@ -18,6 +79,15 @@ export const ActivityText = styled.strong`
   -webkit-box-orient: vertical;
   overflow: hidden;
 `;
+
+export const StyledAvatar = styled(Avatar)`
+      &.ant-avatar {
+        margin: 10px auto;
+        display: block;
+        width: 100px ;
+        height: 100px;
+      }
+`
 
 export const OrangeText = styled.div`
   font-family: Hanson Bold;
@@ -35,14 +105,4 @@ export const StyledCard = styled(Card)`
   }
 `;
 
-export const ActivitySection = ({activities}) => (
-  <ActivityContainer>
-   <Row>
-              <Col span={24}>
-                <Title level={2}>RECENT ACTIVITY</Title>
-                <strong>Based on activity</strong>
-                <OrangeText>SEE ALL</OrangeText>
-              </Col>
-            </Row>
-  </ActivityContainer>
-);
+export default ActivitySection;

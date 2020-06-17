@@ -18,6 +18,7 @@ import ChooseSignup from './signup/chooseSignup';
 import signupBrand from './signup/signupBrand';
 import ChooseLoginPage from './login/chooseLogin';
 import BrandLoginPage from './login/brandLogin';
+import Home from './creatives/home/Home';
 
 class Index extends Component {
   render() {
@@ -34,6 +35,7 @@ class Index extends Component {
             <Route exact path="/creative/signup" component={SignUpPage} />
             <Route exact path="/brand/signup" component={signupBrand} />
             <Route exact path="/creative/profile" component={ProfilePage} />
+            <Route exact path="/creative/home" component={Home} />
             <PrivateRoute
               exact
               path="/admin/dashboard"

@@ -39,8 +39,8 @@ class EducationSection extends Component {
 
   render(){
       return(
-          <EducationContainer>
-          <h2 style={{marginBottom: '20px'}}>
+          <div style={{padding: 30}}>
+          <h2 style={{marginBottom: 20}}>
             EDUCATION <EditOutlined style={{float: 'right'}} onClick={this.showModal} />
           </h2>
           {/* -----------------------------EDUCATION MODAL----------------------------- */}
@@ -99,7 +99,7 @@ class EducationSection extends Component {
             </Col>
             <div style={{marginTop: '10px'}}></div>
           </Row>
-        </EducationContainer>
+        </div>
       )
 
   }

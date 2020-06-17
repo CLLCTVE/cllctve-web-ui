@@ -1,6 +1,6 @@
 service: cllctve-frontend
 # [START runtime]
-runtime: nodejs
+runtime: custom
 env: flex
 threadsafe: true
 # [END runtime]
