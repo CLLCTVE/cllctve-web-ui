@@ -6,6 +6,7 @@ import WhatsNew from './WhatsNew'
 import ActivitySection from '../profile/ActivtySection'
 import ProfilePic from './ProfilePic'
 import SuggestedContent from './SuggestedContent';
+import UserFeed from './UserFeed';
 
 const {Sider, Header, Content} = Layout;
 const {Title} = Typography;
@@ -29,6 +30,7 @@ class Home extends Component {
             <ActivitySection/>
             <hr style={{width: '80%'}}/>
             <SuggestedContent/>
+            <UserFeed/>
             </Content>
           </Layout>
       
