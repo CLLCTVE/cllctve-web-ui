@@ -4,6 +4,7 @@ import {Col, Row, Typography, Card, Divider, Menu, Layout, Button, Avatar, Modal
 import {EditOutlined, PlusCircleOutlined} from '@ant-design/icons';
 import WhatsNew from './WhatsNew'
 import ActivitySection from '../profile/ActivtySection'
+import ProfilePic from './ProfilePic'
 
 const {Sider, Header, Content} = Layout;
 const {Title} = Typography;
@@ -17,18 +18,20 @@ class Home extends Component {
     return (
       <div>
         <Layout>
-          <Sider>Sider</Sider>
+          <Sider style={{background: 'black'}}>
+              <ProfilePic/>
+          </Sider>
           <Layout>
             
             <Content>
             <WhatsNew/>
             <ActivitySection/>
             <Divider/>
-            
+
             </Content>
           </Layout>
       
-            <Sider>Sider</Sider>
+            <Sider style={{background: 'black'}}>Sider</Sider>
 
         </Layout>
       </div>
