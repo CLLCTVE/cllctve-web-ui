@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import {Typography, Card, Avatar} from 'antd';
 import Background from '../../images/paint.jpg'
 import { StyledButton } from '../../fields/renderFields';
+import { Link } from 'react-router-dom';
 
 const {Title} = Typography;
 const {Meta} = Card;
@@ -22,8 +23,10 @@ class ProfilePic extends Component {
               <img alt="example" src={Background} height={130}/>
             }
         >
-            <div style={{position:'relative', marginTop: -80}}>
+            <div style={{position:'relative', marginTop: -70}}>
+            <Link to='/creative/profile'>
             <StyledAvatar src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"/>
+              </Link>
             </div>
             <strong>YOUR NAME</strong>
           <p style={{margin: 0}}>Creative Name</p>

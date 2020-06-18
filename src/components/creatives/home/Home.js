@@ -5,6 +5,7 @@ import {EditOutlined, PlusCircleOutlined} from '@ant-design/icons';
 import WhatsNew from './WhatsNew'
 import ActivitySection from '../profile/ActivtySection'
 import ProfilePic from './ProfilePic'
+import SuggestedContent from './SuggestedContent';
 
 const {Sider, Header, Content} = Layout;
 const {Title} = Typography;
@@ -26,8 +27,8 @@ class Home extends Component {
             <Content>
             <WhatsNew/>
             <ActivitySection/>
-            <Divider/>
-
+            <hr style={{width: '80%'}}/>
+            <SuggestedContent/>
             </Content>
           </Layout>
       
