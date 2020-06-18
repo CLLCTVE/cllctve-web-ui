@@ -17,7 +17,7 @@ class WhatsNew extends Component {
             <div style={{padding: 30}}>
                 <Title level={2} style={{paddingTop: 30, paddingBottom: 10}}>WHAT'S NEW?</Title>
                 <StyledTextArea size="large" placeholder="SHARE YOUR THOUGHTS WITH @MENTIONS. #CREATIVES" rows={4}/>
-                <StyledButton style={{marginTop: 20, float: 'right'}}>SUMBIT</StyledButton>
+                <StyledButton style={{marginTop: 20, float: 'right'}}>SUBMIT</StyledButton>
             </div>
         )
     }
