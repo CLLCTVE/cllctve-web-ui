@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 import styled from 'styled-components';
 import {Col, Row, Typography, Card, Divider, Menu, Layout, Button, Avatar, Modal} from 'antd';
 import {EditOutlined, PlusCircleOutlined} from '@ant-design/icons';
-import WhatsNew from './WhatsNew'
-import ActivitySection from '../profile/ActivtySection'
-import ProfilePic from './ProfilePic'
+import WhatsNew from './WhatsNew';
+import ActivitySection from '../profile/ActivtySection';
+import ProfilePic from './ProfilePic';
 import SuggestedContent from './SuggestedContent';
 import UserFeed from './UserFeed';
 
@@ -21,21 +21,19 @@ class Home extends Component {
       <div>
         <Layout>
           <Sider style={{background: 'black'}}>
-              <ProfilePic/>
+            <ProfilePic />
           </Sider>
           <Layout>
-            
             <Content>
-            <WhatsNew/>
-            <ActivitySection/>
-            <hr style={{width: '80%'}}/>
-            <SuggestedContent/>
-            <UserFeed/>
+              <WhatsNew />
+              <ActivitySection />
+              <hr style={{width: '80%'}} />
+              <UserFeed />
+              <SuggestedContent />
             </Content>
           </Layout>
-      
-            <Sider style={{background: 'black'}}>Sider</Sider>
 
+          <Sider style={{background: 'black'}}></Sider>
         </Layout>
       </div>
     );
