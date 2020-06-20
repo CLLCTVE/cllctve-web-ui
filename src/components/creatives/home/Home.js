@@ -1,15 +1,12 @@
 import React, {Component} from 'react';
-import styled from 'styled-components';
-import {Col, Row, Typography, Card, Divider, Menu, Layout, Button, Avatar, Modal} from 'antd';
-import {EditOutlined, PlusCircleOutlined} from '@ant-design/icons';
+import {Layout} from 'antd';
 import WhatsNew from './WhatsNew';
 import ActivitySection from '../profile/ActivtySection';
 import ProfilePic from './ProfilePic';
 import SuggestedContent from './SuggestedContent';
 import UserFeed from './UserFeed';
 
-const {Sider, Header, Content} = Layout;
-const {Title} = Typography;
+const {Sider, Content} = Layout;
 
 class Home extends Component {
   constructor(props) {

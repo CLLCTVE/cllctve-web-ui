@@ -35,3 +35,22 @@ export const SKILLS = [
   'Graphic Design',
   'Animation'
 ];
+
+
+export const BRAND_ENTRY_MAP_BY_NAME = {
+  pageOne: {
+    id: 0,
+    title: 'One',
+    text: 'Consumer Analysis'
+  },
+  pageTwo: {
+    id: 1,
+    title: 'Skills',
+    text: 'Consumer Analysis'
+  },
+  pageThree: {
+    id: 2,
+    title: 'Experience',
+    text: 'Consumer Analysis'
+  }
+};

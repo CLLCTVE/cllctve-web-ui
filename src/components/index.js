@@ -19,6 +19,9 @@ import signupBrand from './signup/signupBrand';
 import ChooseLoginPage from './login/chooseLogin';
 import BrandLoginPage from './login/brandLogin';
 import Home from './creatives/home/Home';
+import StartDiscovery from '../components/brand/discovery/startDiscovery'
+import BrandFlowPage from './brand/discovery/DiscoveryWizard';
+import DiscoverySteps from './brand/discovery/DiscoverySteps';
 
 class Index extends Component {
   render() {
@@ -32,6 +35,7 @@ class Index extends Component {
             <Route exact path="/sign-up" component={ChooseSignup} />
             <Route exact path="/creative/login" component={LoginPage} />
             <Route exact path="/brand/login" component={BrandLoginPage} />
+            <Route exact path="/brand/start-discovery" component={StartDiscovery} />
             <Route exact path="/creative/signup" component={SignUpPage} />
             <Route exact path="/brand/signup" component={signupBrand} />
             <Route exact path="/creative/profile" component={ProfilePage} />
@@ -54,6 +58,14 @@ class Index extends Component {
                 );
               }}
             />
+            <Route path="/brand/discovery/:step" render={() => {
+              return(
+                <div>
+                  <DiscoverySteps/>
+                  <BrandFlowPage/>
+                </div>
+              )
+            }} />
             <Route path="*" component={NotFoundPage} />
           </Switch>
         </Layout.Content>

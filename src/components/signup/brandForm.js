@@ -1,4 +1,5 @@
 import React from 'react';
+import {StyledLink} from '../fields/renderFields';
 import { Field as FField, Form as FForm } from 'react-final-form';
 import { Button } from 'antd';
 import {
@@ -83,8 +84,7 @@ export const AsyncBrandForm = ({isLoading}) => (
                     component={renderAntInput}
                     validate={validations.composeValidators(
                       validations.required,
-                      validations.email,
-                      validations.edu
+                      validations.email
                     )}
                     type="text"
                     placeholder="EMAIL*"
@@ -98,7 +98,7 @@ export const AsyncBrandForm = ({isLoading}) => (
                     placeholder="WEBSITE*"
                   />
                 </div>
-                
+                <StyledLink to='/brand/discovery'>
                 <StyledButton
                   size="large"
                   shape="round"
@@ -109,6 +109,7 @@ export const AsyncBrandForm = ({isLoading}) => (
                 >
                   Submit
                 </StyledButton>
+                </StyledLink>
               </form>
             </>
           )}
