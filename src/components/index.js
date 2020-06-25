@@ -11,7 +11,7 @@ import OnBoardingFlowStep from './onboarding-flow/onboarding-flow-step';
 import NotFoundPage from './pages/notFoundPage';
 import AdminDashboardPage from './admin/brand-approval-page';
 import ProfilePage from './creatives/profile/ProfilePage';
-
+import Footer from './template/footer/index'
 import RequireAuth from './auth/require_auth';
 import PrivateRoute from './auth/PrivateRoute';
 
@@ -39,6 +39,7 @@ class Index extends Component {
             <Route path="*" component={NotFoundPage} />
           </Switch>
         </Layout.Content>
+        <Footer/>
       </Layout>
     );
   }

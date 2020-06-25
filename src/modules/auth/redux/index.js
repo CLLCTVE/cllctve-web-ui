@@ -121,7 +121,7 @@ export function* onHandleLoginRequest({email, password}) {
     if (!user.onboarded) {
       yield put(push('/on-boarding-flow/0'));
     } else {
-      yield put(push('/profile'));
+      yield put(push('/creative/profile'));
     }
     
   } catch (err) {
@@ -149,6 +149,14 @@ export function* onHandleLoginRequest({email, password}) {
         payload: {[FORM_ERROR]: 'Its not you, its us....... Please try again later.'},
       });
     }
+  
+  }
+}
+
+export function* onLoadProfilePage() {
+  try {
+  
+  } catch (e) {
   
   }
 }

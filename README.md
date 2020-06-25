@@ -66,3 +66,20 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+### Tech Debt ###
+links:
+https://cloud.google.com/appengine/docs/flexible/nodejs/how-requests-are-routed#console
+https://cloud.google.com/appengine/docs/flexible/nodejs/serving-static-files
+https://cloud.google.com/storage/docs/hosting-static-website#console_1
+https://cloud.google.com/load-balancing/docs/url-map-concepts#url_map_example
+https://cloud.google.com/storage/docs/static-website#examples
+https://medium.com/google-cloud/how-to-deploy-a-static-react-site-to-google-cloud-platform-55ff0bd0f509
+https://cloud.google.com/appengine/docs/flexible/nodejs/mapping-custom-domains
+https://cloud.google.com/appengine/docs/flexible/nodejs/securing-custom-domains-with-ssl
+https://www.howtogeek.com/663056/how-to-use-the-dig-command-on-linux/
+https://kb.pressable.com/article/dns-record-types-explained/#:~:text=A%20Records,should%20point%20and%20a%20TTL.
+https://www.youtube.com/watch?v=y0VgnNbCneU
+https://cloud.google.com/dns/docs/update-name-servers
+https://support.google.com/domains/answer/3290350?hl=en
+https://stackoverflow.com/questions/39544193/adding-hsts-headers-in-app-yaml-google-app-engine
