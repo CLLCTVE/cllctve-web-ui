@@ -60,36 +60,7 @@ class ProfilePage extends Component {
 
 const mapStateToProps = state => {
   return {
-    user: {
-      id: '5ed7ffbdbc8f8400412f4a8e',
-      firstName: 'Jane',
-      lastName: 'Doe',
-      email: 'bbailey@gmail.edu',
-      onboarded: false,
-      profile: {
-        skills: ['Video Editing', 'Photography'],
-        interests: ['Good Uncle', 'Technology', 'Food', 'Fashion'],
-        licenseCerts: [
-          {
-            id: '5ed800f1bc8f8400412f4a91',
-            title: 'Web Development',
-            organization: 'UCLA extension',
-            issuedMonthYear: '2020-01-03T20:58:32.920Z',
-          },
-        ],
-        experiences: [],
-        educations: [
-          {
-            id: '5ed800f1bc8f8400412f4a90',
-            isEnrolled: false,
-            school: 'UCLA',
-            major: 'Design',
-            startMonthYear: '2020-01-03T20:57:44.435Z',
-          },
-        ],
-        honorsAwards: [],
-      },
-    },
+    user: state.auth.user,
   };
 };
 

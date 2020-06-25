@@ -153,6 +153,14 @@ export function* onHandleLoginRequest({email, password}) {
   }
 }
 
+export function* onLoadProfilePage() {
+  try {
+  
+  } catch (e) {
+  
+  }
+}
+
 export default function auth(state = INITIAL_STATE, action) {
   switch (action.type) {
     case LOGIN_REQUEST:

@@ -39,6 +39,8 @@ class Index extends Component {
             <Route exact path="/creative/signup" component={SignUpPage} />
             <Route exact path="/brand/signup" component={signupBrand} />
             <Route exact path="/creative/profile" component={ProfilePage} />
+            <Route exact path="/admin/dashboard" component={AdminDashboardPage} />
+            
             <Route exact path="/creative/home" component={Home} />
             <PrivateRoute
               exact
