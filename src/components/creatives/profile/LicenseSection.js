@@ -53,7 +53,7 @@ class LicenseSecton extends Component {
   };
     render(){
         return(
-            <LicenseContainer>
+            <div style={{padding: 30}}>
             <h2 style={{marginBottom: '20px'}}>
               LICENSES / CERTIFICATIONS{' '}
               <EditOutlined style={{float: 'right'}} onClick={this.showModal} />
@@ -116,7 +116,7 @@ class LicenseSecton extends Component {
                 </div>
               </Col>
             </Row>
-          </LicenseContainer>
+          </div>
         )
     }
 }

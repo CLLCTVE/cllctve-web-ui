@@ -18,6 +18,7 @@ export const Resume = styled.div`
   height: 100px;
   float: left;
   margin-right: 10px;
+  margin-bottom: 40px;
   width: 200px;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
@@ -31,7 +32,7 @@ color: white;
 `
 
 export const AboutSection = () => (
-  <AboutContainer>
+  <div style={{padding: 30}}>
     <Title level={4}>
       ABOUT
       <EditOutlined style={{float: 'right'}} />
@@ -45,5 +46,5 @@ export const AboutSection = () => (
     <Resume>Resume</Resume>
     <Resume>Portfolio</Resume>
     </TextOverlapContainer>
-  </AboutContainer>
+  </div>
 );

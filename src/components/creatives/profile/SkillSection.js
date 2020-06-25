@@ -7,13 +7,10 @@ const { Title } = Typography;
 
 ////////////////////////// SKILLS SECTION ///////////////////////////
 export const SkillsContainer = styled.div`
-  width: 70%;
-  margin: 20px auto;
   clear: both;
   background-color: #222;
   border-radius: 20px;
   padding: 20px;
-  max-width: 900px;
   min-width: 580px;
 `;
 export const SkillWrapper = styled.div`

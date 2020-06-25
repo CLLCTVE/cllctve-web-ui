@@ -22,8 +22,7 @@ export const InfoContainer = styled.div`
   grid-gap: 10px;
   padding: 10px;
   margin: 20px auto;
-  width: 70%;
-  max-width: 900px;
+  width: 100%;
   min-width: 580px;
 `;
 export const EditButton = styled.button`

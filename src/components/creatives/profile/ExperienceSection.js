@@ -29,7 +29,7 @@ class ExperienceSection extends Component {
 
     render() {
         return(
-            <ExperienceContainer>
+            <div style={{padding: 30}}>
             <h2 style={{marginBottom: '20px'}}>
               EXPERIENCE / PROJECTS{' '}
               <EditOutlined style={{float: 'right'}} onClick={this.showModal} />
@@ -105,7 +105,7 @@ class ExperienceSection extends Component {
                 <ImageBox/> */}
               </div>
             </Row>
-          </ExperienceContainer>
+          </div>
         )
     }
 }

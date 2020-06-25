@@ -6,13 +6,10 @@ import {EditOutlined, PlusCircleOutlined} from '@ant-design/icons';
 const {Title} = Typography;
 
 export const HonorsContainer = styled.div`
-width: 70%;
-margin: 20px auto;
 clear: both;
 background-image: linear-gradient(#e22784, #fc673d);
 border-radius: 20px;
 padding: 20px;
-max-width: 900px;
 min-width: 580px;
 margin-bottom: 40px;
 `;
