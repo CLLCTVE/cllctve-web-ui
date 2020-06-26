@@ -6,6 +6,7 @@ import { Overview } from './Overview'
 import { QuickInfo } from './QuickInfo'
 import ActivitySection from '../../creatives/profile/ActivtySection'
 import { CompanyCulture } from './CompanyCulture'
+import { MayKnow} from './MayKnow'
 
 const {Content, Sider} = Layout
 
@@ -28,6 +29,7 @@ class brandProfile extends Component {
                     <ActivitySection/>
                     </div>
                     <CompanyCulture/>
+                    <MayKnow/>
                     </Content>
                     {/* <Sider>
 
