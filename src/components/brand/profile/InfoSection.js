@@ -8,21 +8,21 @@ const {Title} = Typography;
 
 export const InfoSection = () => {
   return (
-    <div style={{width: '70%', margin: '0 auto'}}>
+    <div style={{width: '75%', margin: '20px auto'}}>
       <Layout>
         <Content>
           <Row>
-            <Col span={4}>
-              <Avatar style={{width: '150px', height: '150px', marginTop: -70}} />
+            <Col span={6}>
+              <Avatar style={{width: '150px', height: '150px'}} />
             </Col>
-            <Col span={14} style={{marginTop: 20}}>
+            <Col span={10} style={{marginTop: 20}}>
               <Title level={4}>
                 BRAND NAME <EditOutlined />
               </Title>
               <h5>Field</h5>
               <p>Location • XX,XXX Followers</p>
             </Col>
-            <Col span={6} style={{marginTop: 20}}>
+            <Col span={8} style={{marginTop: 20}}>
               <Button style={{background: 'black', border: '1px solid white', float: "right"}}>
                 GO TO DASHBOARD
               </Button>

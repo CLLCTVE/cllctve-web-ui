@@ -7,6 +7,7 @@ import { QuickInfo } from './QuickInfo'
 import ActivitySection from '../../creatives/profile/ActivtySection'
 import { CompanyCulture } from './CompanyCulture'
 import { MayKnow} from './MayKnow'
+import {SuggestedContent} from './SuggestedContent'
 
 const {Content, Sider} = Layout
 
@@ -25,15 +26,15 @@ class brandProfile extends Component {
                     <InfoSection/>
                     <Overview/>
                     <QuickInfo/>
-                    <div style={{margin: '0 auto',width: '75%'}}>
+                    <div style={{margin: '0 auto',width: '80%'}}>
                     <ActivitySection/>
                     </div>
                     <CompanyCulture/>
                     <MayKnow/>
                     </Content>
-                    {/* <Sider>
-
-                    </Sider> */}
+                    <Sider style={{background: 'black', padding: 20}} width='350'>
+                <SuggestedContent/>
+                    </Sider>
                 </Layout>
             </Layout>
         )

@@ -7,7 +7,7 @@ const {Content} = Layout;
 
 export const MayKnow = () => {
   return (
-    <div style={{margin: '0 auto', width: '70%'}}>
+    <div style={{margin: '0 auto', width: '75%'}}>
       <Layout>
         <Content>
           <Title level={2} style={{marginBottom: 0}}>

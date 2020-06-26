@@ -7,7 +7,7 @@ const {Title} = Typography;
 
 export const QuickInfo = () => {
   return (
-    <div style={{width: '70%', margin: '60px auto'}}>
+    <div style={{width: '75%', margin: '60px auto'}}>
       <Layout>
         <Content>
           <Title level={2} style={{marginBottom: 40}}>
