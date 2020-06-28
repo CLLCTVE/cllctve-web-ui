@@ -7,7 +7,7 @@ const {Content} = Layout;
 
 export const MayKnow = () => {
   return (
-    <div style={{margin: '0 auto', width: '75%'}}>
+    <div style={{margin: '40px auto', width: '75%'}}>
       <Layout>
         <Content>
           <Title level={2} style={{marginBottom: 0}}>
@@ -124,7 +124,6 @@ export const OrangeText = styled.div`
 
 export const StyledCard = styled(Card)`
   &.ant-card {
-    color: black !important;
     min-width: 150px;
     background-image: linear-gradient(black, #777777);
     border-radius: 20px;

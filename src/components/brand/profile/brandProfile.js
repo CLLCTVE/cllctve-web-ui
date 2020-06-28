@@ -8,6 +8,7 @@ import ActivitySection from '../../creatives/profile/ActivtySection'
 import { CompanyCulture } from './CompanyCulture'
 import { MayKnow} from './MayKnow'
 import {SuggestedContent} from './SuggestedContent'
+import { MatchedJob } from './MatchedJobs'
 
 const {Content, Sider} = Layout
 
@@ -32,8 +33,9 @@ class brandProfile extends Component {
                     <CompanyCulture/>
                     <MayKnow/>
                     </Content>
-                    <Sider style={{background: 'black', padding: 20}} width='350'>
+                    <Sider style={{background: 'black', padding: 20}} width='400'>
                 <SuggestedContent/>
+                <MatchedJob/>
                     </Sider>
                 </Layout>
             </Layout>
