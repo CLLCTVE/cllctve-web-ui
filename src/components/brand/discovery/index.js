@@ -29,7 +29,7 @@ class BrandFlowPage extends Component {
                 isLoading={isLoading}
                 initialValues={{
                   pageOne: {
-                    isComplete: false
+                    isComplete: true
                   },
                   pageTwo: {
                     isComplete: false

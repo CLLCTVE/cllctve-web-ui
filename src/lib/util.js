@@ -45,12 +45,12 @@ export const BRAND_ENTRY_MAP_BY_NAME = {
   },
   pageTwo: {
     id: 1,
-    title: 'Skills',
+    title: 'Two',
     text: 'Consumer Analysis'
   },
   pageThree: {
     id: 2,
-    title: 'Experience',
+    title: 'Three',
     text: 'Consumer Analysis'
   }
 };

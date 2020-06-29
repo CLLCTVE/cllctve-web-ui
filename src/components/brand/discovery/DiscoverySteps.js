@@ -87,9 +87,9 @@ const DiscoverySteps = ({match}) => {
             style={{textAlign: 'center'}}
           >
             <Col span={24}>
-              <Title level={2}>Set Up Your Account</Title>
-  
-              <strong>Add Your {displayTitle(match.params.step)}</strong>
+              <Title level={2}>BRAND DISCOVERY FORM</Title>
+                  
+              <strong>Consumer Analysis Page {displayTitle(match.params.step)}</strong>
             </Col>
           </Row>
         </Container>

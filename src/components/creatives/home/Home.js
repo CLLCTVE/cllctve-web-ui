@@ -5,6 +5,7 @@ import ActivitySection from '../profile/ActivtySection';
 import ProfilePic from './ProfilePic';
 import SuggestedContent from './SuggestedContent';
 import UserFeed from './UserFeed';
+import { MatchedJob } from '../../brand/profile/MatchedJobs';
 
 const {Sider, Content} = Layout;
 
@@ -30,7 +31,9 @@ class Home extends Component {
             </Content>
           </Layout>
 
-          <Sider style={{background: 'black'}}></Sider>
+          <Sider style={{background: 'black'}} width={"20%"}>
+            <MatchedJob/>
+          </Sider>
         </Layout>
       </div>
     );

@@ -13,6 +13,8 @@ const StyledDiv = styled.div`
 `;
 
 const StyledContainer = styled.div`
+display: flex;
+flex-wrap: wrap;
 margin: 20px auto;
 width: 80%;
 border: 1px solid white;

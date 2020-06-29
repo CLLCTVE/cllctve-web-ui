@@ -98,7 +98,7 @@ export const AsyncBrandForm = ({isLoading}) => (
                     placeholder="WEBSITE*"
                   />
                 </div>
-                <StyledLink to='/brand/discovery'>
+                <StyledLink to='/brand/start-discovery'>
                 <StyledButton
                   size="large"
                   shape="round"

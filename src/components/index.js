@@ -23,6 +23,7 @@ import StartDiscovery from '../components/brand/discovery/startDiscovery'
 import BrandFlowPage from './brand/discovery/DiscoveryWizard';
 import DiscoverySteps from './brand/discovery/DiscoverySteps';
 import brandProfile from './brand/profile/brandProfile';
+import BrandHome from './brand/home/brandHome';
 
 class Index extends Component {
   render() {
@@ -37,6 +38,8 @@ class Index extends Component {
             <Route exact path="/creative/login" component={LoginPage} />
             <Route exact path="/brand/login" component={BrandLoginPage} />
             <Route exact path="/brand/start-discovery" component={StartDiscovery} />
+            {/* <Route exact path="/brand/discovery" component={BrandFlowPage} /> */}
+            <Route exact path="/brand/home" component={BrandHome} />
             <Route exact path="/creative/signup" component={SignUpPage} />
             <Route exact path="/brand/signup" component={signupBrand} />
             <Route exact path="/creative/profile" component={ProfilePage} />

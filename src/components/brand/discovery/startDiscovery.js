@@ -17,7 +17,7 @@ const StartDiscovery = () => {
             consumer, content, and competitor.
           </p>
           <StyledButton size="large" shape="round" style={{margin: '20px'}}>
-            <Link to="/brand/discovery">CONTINUE</Link>
+            <Link to="/brand/discovery/:step">CONTINUE</Link>
           </StyledButton>
           <br />
           <Link to="/brand/home">SKIP</Link>

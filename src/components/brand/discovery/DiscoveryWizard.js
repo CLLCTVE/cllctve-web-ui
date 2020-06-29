@@ -16,12 +16,12 @@ class DiscoveryWizard extends Component {
       values: props.initialValues || {}
     };
     
-    this.props.history.push(`/on-boarding-flow/${this.state.page}`);
+    this.props.history.push(`/brand/discovery/${this.state.page}`);
   }
   
   next = values => {
     console.log('DiscoveryWizard#next');
-    this.props.history.push(`/on-boarding-flow/${this.state.page + 1}`);
+    this.props.history.push(`/brand/discovery/${this.state.page + 1}`);
     this.setState(state => ({
       page: Math.min(state.page + 1, this.props.children.length - 1),
       values
@@ -33,7 +33,7 @@ class DiscoveryWizard extends Component {
     this.setState(state => ({
       page: Math.max(state.page - 1, 0)
     }));
-    this.props.history.push(`/on-boarding-flow/${this.state.page - 1}`);
+    this.props.history.push(`/brand/discovery/${this.state.page - 1}`);
   };
   
   validate = values => {
