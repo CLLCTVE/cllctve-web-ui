@@ -43,20 +43,27 @@ class VideoSection extends Component {
           <Title level={2} style={{textAlign: 'center', marginBottom: '40px'}}>
             A PLATFORM FOR COLLEGE CREATIVES TO CONNECT
           </Title>
-          <MainContainer className="container">
+          <Row justify="space-around" gutter={[{ xs: 8, sm: 16, md: 24, lg: 32 }, 16]}>
+            <Col span={5} className='ant-col ant-col-xs-24 ant-col-xl-6'>
             <ReactPlayer
               url="https://youtu.be/YVB3PrS5HDg"
-              style={{gridArea: 'auto'}}
               height={250}
               width={450}
+              style={{margin: '0 auto'}}
             />
-
-            <p style={{gridArea: 'auto', fontFamily: 'Open Sans', lineHeight: '2'}}>
+            </Col>
+            <Col span={5} className='ant-col ant-col-xs-24 ant-col-xl-6'>
+            <p style={{lineHeight: '2'}}>
               Our vision is to empower the next generation of creatives. We bridge the gap between
               creatives and brands by providing a platform for college students to develop their
               portfolio, showcase their skills, and increase their visibility, while providing
               brands exclusive access to local Gen-Z consumers and Gen-Z content creators.
             </p>
+
+            </Col>
+          </Row>
+
+                    <MainContainer className="container">
           </MainContainer>
         </StyledBanner>
     );
