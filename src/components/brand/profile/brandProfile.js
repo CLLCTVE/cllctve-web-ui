@@ -33,7 +33,7 @@ class brandProfile extends Component {
                     <CompanyCulture/>
                     <MayKnow/>
                     </Content>
-                    <Sider style={{background: 'black', padding: 20}} width='400'>
+                    <Sider style={{background: 'black'}} width='350'>
                 <SuggestedContent/>
                 <MatchedJob/>
                     </Sider>

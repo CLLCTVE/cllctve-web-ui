@@ -44,7 +44,7 @@ class VideoSection extends Component {
             A PLATFORM FOR COLLEGE CREATIVES TO CONNECT
           </Title>
           <Row justify="space-around" gutter={[{ xs: 8, sm: 16, md: 24, lg: 32 }, 16]}>
-            <Col span={5} className='ant-col ant-col-xs-24 ant-col-xl-6'>
+            <Col span={12} className='ant-col ant-col-xs-24 ant-col-xl-10'>
             <ReactPlayer
               url="https://youtu.be/YVB3PrS5HDg"
               height={250}
@@ -52,13 +52,13 @@ class VideoSection extends Component {
               style={{margin: '0 auto'}}
             />
             </Col>
-            <Col span={5} className='ant-col ant-col-xs-24 ant-col-xl-6'>
-            <p style={{lineHeight: '2'}}>
+            <Col span={12} className='ant-col ant-col-xs-24 ant-col-xl-14'>
+            <strong style={{lineHeight: '2'}}>
               Our vision is to empower the next generation of creatives. We bridge the gap between
               creatives and brands by providing a platform for college students to develop their
               portfolio, showcase their skills, and increase their visibility, while providing
               brands exclusive access to local Gen-Z consumers and Gen-Z content creators.
-            </p>
+            </strong>
 
             </Col>
           </Row>

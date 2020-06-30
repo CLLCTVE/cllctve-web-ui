@@ -16,11 +16,11 @@ export const MayKnow = () => {
           <strong>From this company</strong>
           <OrangeText>SEE ALL</OrangeText>
           {/* FIRST ROW */}
-          <Row justify="space-between" style={{marginTop: 20}}>
-          <Col span={5}>
+          <Row gutter={[{ xs: 8, sm: 16, md: 24, lg: 32 }, 16]}>
+          <Col span={5} className='ant-col ant-col-xs-24 ant-col-xl-6'>
               <StyledCard>
                 <StyledAvatar />
-                <strong>
+                <strong style={{textAlign: 'center', display: 'block'}}>
                   FIRST NAME LAST NAME
                 </strong>
                 <small style={{display: 'block', textAlign: 'center', marginTop: '5px'}}>
@@ -28,10 +28,10 @@ export const MayKnow = () => {
                 </small>
               </StyledCard>
             </Col>
-            <Col span={5}>
+            <Col span={5} className='ant-col ant-col-xs-24 ant-col-xl-6'>
               <StyledCard>
                 <StyledAvatar />
-                <strong>
+                <strong style={{textAlign: 'center', display: 'block'}}>
                   FIRST NAME LAST NAME
                 </strong>
                 <small style={{display: 'block', textAlign: 'center', marginTop: '5px'}}>
@@ -39,10 +39,10 @@ export const MayKnow = () => {
                 </small>
               </StyledCard>
             </Col>
-            <Col span={5}>
+            <Col span={5} className='ant-col ant-col-xs-24 ant-col-xl-6'>
               <StyledCard>
                 <StyledAvatar />
-                <strong>
+                <strong style={{textAlign: 'center', display: 'block'}}>
                   FIRST NAME LAST NAME
                 </strong>
                 <small style={{display: 'block', textAlign: 'center', marginTop: '5px'}}>
@@ -50,10 +50,10 @@ export const MayKnow = () => {
                 </small>
               </StyledCard>
             </Col>
-            <Col span={5}>
+            <Col span={5} className='ant-col ant-col-xs-24 ant-col-xl-6'>
               <StyledCard>
                 <StyledAvatar />
-                <strong>
+                <strong style={{textAlign: 'center', display: 'block'}}>
                   FIRST NAME LAST NAME
                 </strong>
                 <small style={{display: 'block', textAlign: 'center', marginTop: '5px'}}>
@@ -63,11 +63,11 @@ export const MayKnow = () => {
             </Col>
           </Row>
           {/* SECOND ROW */}
-          <Row justify="space-between" style={{marginTop: 20}}>
-          <Col span={5}>
+          <Row gutter={[{ xs: 8, sm: 16, md: 24, lg: 32 }, 16]}>
+          <Col span={5} className='ant-col ant-col-xs-24 ant-col-xl-6'>
               <StyledCard>
                 <StyledAvatar />
-                <strong>
+                <strong style={{textAlign: 'center', display: 'block'}}>
                   FIRST NAME LAST NAME
                 </strong>
                 <small style={{display: 'block', textAlign: 'center', marginTop: '5px'}}>
@@ -75,10 +75,10 @@ export const MayKnow = () => {
                 </small>
               </StyledCard>
             </Col>
-            <Col span={5}>
+            <Col span={5} className='ant-col ant-col-xs-24 ant-col-xl-6'>
               <StyledCard>
                 <StyledAvatar />
-                <strong>
+                <strong style={{textAlign: 'center', display: 'block'}}>
                   FIRST NAME LAST NAME
                 </strong>
                 <small style={{display: 'block', textAlign: 'center', marginTop: '5px'}}>
@@ -86,10 +86,10 @@ export const MayKnow = () => {
                 </small>
               </StyledCard>
             </Col>
-            <Col span={5}>
+            <Col span={5} className='ant-col ant-col-xs-24 ant-col-xl-6'>
               <StyledCard>
                 <StyledAvatar />
-                <strong>
+                <strong style={{textAlign: 'center', display: 'block'}}>
                   FIRST NAME LAST NAME
                 </strong>
                 <small style={{display: 'block', textAlign: 'center', marginTop: '5px'}}>
@@ -97,10 +97,10 @@ export const MayKnow = () => {
                 </small>
               </StyledCard>
             </Col>
-            <Col span={5}>
+            <Col span={5} className='ant-col ant-col-xs-24 ant-col-xl-6'>
               <StyledCard>
                 <StyledAvatar />
-                <strong>
+                <strong style={{textAlign: 'center', display: 'block'}}>
                   FIRST NAME LAST NAME
                 </strong>
                 <small style={{display: 'block', textAlign: 'center', marginTop: '5px'}}>
