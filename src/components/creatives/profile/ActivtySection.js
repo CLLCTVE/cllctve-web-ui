@@ -9,7 +9,7 @@ export const ActivitySection = ({activities}) => (
       <Title level={2} style={{marginBottom: 0}}>RECENT ACTIVITIES</Title>
       <strong>Based on activity</strong>
       <OrangeText>SEE ALL</OrangeText>
-    <Row justify="space-between">
+    <Row gutter={[{ xs: 8, sm: 16, md: 24, lg: 32 }, 16]}>
 
       {/* {activities.map((activity, index) => (
         <Col span={6} key={index}>
@@ -17,7 +17,7 @@ export const ActivitySection = ({activities}) => (
         </Col>
       ))} */}
 
-      <Col span={5}>
+      <Col span={5} className='ant-col ant-col-xs-24 ant-col-xl-6'>
         <StyledCard>
           <StyledAvatar/>
           <ActivityText>
@@ -29,7 +29,7 @@ export const ActivitySection = ({activities}) => (
           </small>
         </StyledCard>
       </Col>
-      <Col span={5}>
+      <Col span={5} className='ant-col ant-col-xs-24 ant-col-xl-6'>
         <StyledCard>
           <StyledAvatar/>
           <ActivityText>
@@ -41,7 +41,7 @@ export const ActivitySection = ({activities}) => (
           </small>
         </StyledCard>
       </Col>
-      <Col span={5}>
+      <Col span={5} className='ant-col ant-col-xs-24 ant-col-xl-6'>
         <StyledCard>
           <StyledAvatar/>
           <ActivityText>
@@ -53,7 +53,7 @@ export const ActivitySection = ({activities}) => (
           </small>
         </StyledCard>
       </Col>
-      <Col span={5}>
+      <Col span={5} className='ant-col ant-col-xs-24 ant-col-xl-6'>
         <StyledCard>
           <StyledAvatar/>
           <ActivityText>

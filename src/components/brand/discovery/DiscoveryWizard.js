@@ -106,7 +106,7 @@ class DiscoveryWizard extends Component {
                     shape="round"
                     onClick={this.previous}
                   >
-                    Back to {this.displayStepText(Number(match.params.step) - 1)}
+                    Back to pg {this.displayStepText(Number(match.params.step) - 1)}
                   </StyledButton>
                 )}
                 {!isLastPage && (
@@ -117,7 +117,8 @@ class DiscoveryWizard extends Component {
                       type="submit"
                       htmlType="submit"
                     >
-                      Add {this.displayStepTitle(match.params.step)}
+                      Next Page 
+                      {/* {this.displayStepTitle(match.params.step)} */}
                     </StyledButton>
                   </>
                 )}

@@ -17,16 +17,16 @@ class SuggestedContent extends Component {
         </Title>
         <strong>Based on activity</strong>
         <OrangeText>SEE ALL</OrangeText>
-        <Row justify="space-around">
-          <Col span={5}>
+        <Row justify="space-between">
+          <Col span={6} className='ant-col ant-col-xs-24 ant-col-xl-6'>
             <StyledDiv>ONE</StyledDiv> <h5 style={{marginTop: 10}}>TITLE</h5>
             <p>MORE DETAILS</p>
           </Col>
-          <Col span={5}>
+          <Col span={6} className='ant-col ant-col-xs-24 ant-col-xl-6'>
             <StyledDiv>TWO</StyledDiv> <h5 style={{marginTop: 10}}>TITLE</h5>
             <p>MORE DETAILS</p>
           </Col>
-          <Col span={5}>
+          <Col span={6} className='ant-col ant-col-xs-24 ant-col-xl-6'>
             <StyledDiv>THREE</StyledDiv> <h5 style={{marginTop: 10}}>TITLE</h5>
             <p>MORE DETAILS</p>
           </Col>

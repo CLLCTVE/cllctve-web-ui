@@ -26,7 +26,7 @@ class NavBar extends Component {
   };
 
   renderLinks() {
-    if (this.props.location.pathname === '/login' || this.props.location.pathname === '/sign-up') {
+    if (this.props.location.pathname === '/login' || this.props.location.pathname === '/signup') {
       return [
         <>
           <div className="logo" style={{float: 'none', margin: 'auto'}}>
@@ -51,7 +51,7 @@ class NavBar extends Component {
                   <Link to="/login">Login</Link>
                 </Menu.Item>
                 <Menu.Item key="sign-up">
-                  <Link to="/sign-up">Sign Up</Link>
+                  <Link to="/signup">Sign Up</Link>
                 </Menu.Item>
               </Menu>
             </div>
@@ -70,7 +70,7 @@ class NavBar extends Component {
                   <Link to="/login">Login</Link>
                 </Menu.Item>
                 <Menu.Item key="sign-up-m">
-                  <Link to="/sign-up">Sign Up</Link>
+                  <Link to="/signup">Sign Up</Link>
                 </Menu.Item>
               </Menu>
             </Drawer>
