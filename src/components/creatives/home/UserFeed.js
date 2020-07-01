@@ -14,11 +14,11 @@ class UserFeed extends Component {
       <div style={{padding: 20}}>
         <StyledContainer>
           <div style={{padding: 20}}>
-            <Row>
+            <Row gutter={[{ xs: 8, sm: 16, md: 24, lg: 32 }, 16]}>
               <Col span={2}>
                 <Avatar style={{width: 70, height: 70}} />
               </Col>
-              <Col span={20}>
+              <Col span={20} className='ant-col ant-col-xs-24 ant-col-xl-20'>
                 <h5 style={{marginBottom: 0}}>First Name</h5>
                 <strong>Product Developer at CLLCTVE • Syracuse University '20</strong>
                 <br />
@@ -57,11 +57,11 @@ class UserFeed extends Component {
             <OrangeText>Most Relevant</OrangeText>
           </div>
           <div style={{padding: 20}}>
-            <Row>
+            <Row gutter={[{ xs: 8, sm: 16, md: 24, lg: 32 }, 16]}>
               <Col span={2}>
                 <Avatar style={{width: 70, height: 70}} />
               </Col>
-              <Col span={22}>
+              <Col span={22} className='ant-col ant-col-xs-24 ant-col-xl-22'>
                 <h5 style={{marginBottom: 0}}>Jordan Rose</h5>
                 <small>Head of Digital Marketing at CLLCTVE • Syracuse University '21</small>
                 <p style={{marginTop: 10}}>
@@ -80,12 +80,12 @@ class UserFeed extends Component {
               </Col>
             </Row>
           <OrangeText>LOAD MORE COMMENTS</OrangeText>
-          <Row gutter={16}>
-              <Col span={22}>
+          <Row gutter={[{ xs: 8, sm: 16, md: 24, lg: 32 }, 16]}>
+              <Col span={22} className='ant-col ant-col-xs-24 ant-col-xl-22'>
             <MessageInput></MessageInput>
 
               </Col>
-              <Col span={2}>
+              <Col span={2} style={{margin: '0 auto'}}>
             <Avatar style={{width: 50, height: 50}} />
 
               </Col>

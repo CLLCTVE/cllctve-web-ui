@@ -1,19 +1,13 @@
 import React, {Component} from 'react';
 import {isMobile, isBrowser, MobileView, BrowserView} from 'react-device-detect';
-import {Col, Row, Typography, Card, Divider, Menu, Layout, Button, Avatar, Input} from 'antd';
-import {StyledLink, StyledButton} from './fields/renderFields';
+import {Typography, Layout, Input} from 'antd';
 import styled from 'styled-components';
-import {CenteredContainer as Container} from './fields/ContainerFields';
-import {Field as FField} from 'react-final-form';
-import {CheckCircleOutlined} from '@ant-design/icons';
 import Background from './images/background-img.png';
-import ReactPlayer from 'react-player';
 import VideoSection from './landing/VideoSection';
-import axios from 'axios';
 import LatestNews from './landing/latestNews';
 import WishList from './landing/wishList';
 
-const {Header, Content, Footer, Sider} = Layout;
+const {Header, Content} = Layout;
 const {Search} = Input;
 const {Title} = Typography;
 
@@ -32,18 +26,8 @@ const ButtonContainer = styled.div`
     border-radius: 5px;
   }
 `;
-const EducationContainer = styled.div`
-width: 70%;
-margin: 20px auto;
-clear: both;
-background-color: #222;
-border-radius: 20px;
-padding: 20px;
-max-width: 900px;
-min-width: 580px;
-`;
 
-class HomePage extends Component {
+class LandingPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -121,4 +105,4 @@ class HomePage extends Component {
   }
 }
 
-export default HomePage;
+export default LandingPage;
