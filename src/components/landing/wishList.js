@@ -37,7 +37,7 @@ class WishList extends Component {
     }
 
     componentDidMount() {
-
+      console.log('WishList#componentDidMount');
     }
 
     joinList(value) {
