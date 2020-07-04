@@ -22,7 +22,7 @@ let user =
 
 const INITIAL_STATE = user
   ? {
-      authenticated: true,
+      authenticated: false,
       user: user,
       token: null,
       isLoading: false,

@@ -26,7 +26,7 @@ class NavBar extends Component {
   };
 
   renderLinks() {
-    if (this.props.location.pathname === '/login' || this.props.location.pathname === '/sign-up') {
+    if (this.props.location.pathname === '/creative/login' || this.props.location.pathname === '/creative/signup') {
       return [
         <>
           <div className="logo" style={{float: 'none', margin: 'auto'}}>

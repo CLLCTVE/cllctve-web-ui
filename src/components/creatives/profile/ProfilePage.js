@@ -35,7 +35,7 @@ class ProfilePage extends Component {
             <InfoSection
               firstName={user.firstName}
               lastName={user.lastName}
-              title={user.profile.licenseCerts[0].title}
+              title={user.profile.licensesCerts[0].title}
               school={user.profile.educations[0].school}
             />
             <AboutSection />
@@ -47,8 +47,8 @@ class ProfilePage extends Component {
               major={user.profile.educations[0].major}
             />
             <LicenseSecton
-              organization={user.profile.licenseCerts[0].organization}
-              title={user.profile.licenseCerts[0].title}
+              organization={user.profile.licensesCerts[0].organization}
+              title={user.profile.licensesCerts[0].title}
             />
             <HonorSection />
           </Content>
