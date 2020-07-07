@@ -50,10 +50,15 @@ export function* onHandleWishListRequest({payload: {firstName, lastName, email, 
     }
 }
 
+// ****************** SETTING INITAL STATE OF REDUCER ******************
+
 const INITIAL_STATE = {
     isLoading: false,
     error: null
   };
+
+  
+// ******************  LANDING PAGE REDUCER ******************
 
 export default function landing(state = INITIAL_STATE, action) {
     switch (action.type) {
