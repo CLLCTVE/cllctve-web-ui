@@ -98,7 +98,15 @@ export const AsyncBrandForm = ({isLoading}) => (
                     placeholder="WEBSITE*"
                   />
                 </div>
-                <StyledLink to='/brand/start-discovery'>
+                <div>
+                <FField
+                  name="password"
+                  component={renderAntPasswordInput}
+                  type="text"
+                  placeholder="PASSWORD*"
+                />
+              </div>
+                {/* <StyledLink to='/brand/start-discovery'> */}
                 <StyledButton
                   size="large"
                   shape="round"
@@ -109,7 +117,7 @@ export const AsyncBrandForm = ({isLoading}) => (
                 >
                   Submit
                 </StyledButton>
-                </StyledLink>
+                {/* </StyledLink> */}
               </form>
             </>
           )}

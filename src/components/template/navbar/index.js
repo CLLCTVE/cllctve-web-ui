@@ -26,7 +26,30 @@ class NavBar extends Component {
   };
 
   renderLinks() {
-    if (this.props.location.pathname === '/creative/login' || this.props.location.pathname === '/creative/signup') {
+    if (
+      this.props.location.pathname === '/creative/login' ||
+      this.props.location.pathname === '/creative/signup' ||
+      this.props.location.pathname === '/sign-up' ||
+      this.props.location.pathname === '/login' ||
+      this.props.location.pathname === '/on-boarding-flow/0' ||
+      this.props.location.pathname === '/on-boarding-flow/1' ||
+      this.props.location.pathname === '/on-boarding-flow/2' ||
+      this.props.location.pathname === '/on-boarding-flow/3' ||
+      this.props.location.pathname === '/on-boarding-flow/4'
+    ) {
+      return [
+        <>
+          <div className="logo" style={{float: 'none', margin: 'auto'}}>
+            <Link to="/">
+              <img src={logo} alt="Logo" />
+            </Link>
+          </div>
+        </>,
+      ];
+    } else if (
+      this.props.location.pathname === '/brand/login' ||
+      this.props.location.pathname === '/brand/signup'
+    ) {
       return [
         <>
           <div className="logo" style={{float: 'none', margin: 'auto'}}>
@@ -100,7 +123,7 @@ class NavBar extends Component {
               onClose={this.onClose}
               visible={this.state.visible}
             >
-              <RightMenu isMobile={true}/>
+              <RightMenu isMobile={true} />
             </Drawer>
           </div>
         </>,
@@ -109,7 +132,11 @@ class NavBar extends Component {
   }
 
   render() {
-    return <nav className="menuBar" style={{minWidth: '640px'}}>{this.renderLinks()}</nav>;
+    return (
+      <nav className="menuBar" style={{minWidth: '640px'}}>
+        {this.renderLinks()}
+      </nav>
+    );
   }
 }
 

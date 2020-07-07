@@ -1,7 +1,9 @@
 import React, {Component} from 'react'
 import styled from 'styled-components'
 import {Col, Row, Typography, Card, Divider, Menu, Layout, Button, Avatar, Modal} from 'antd';
-import {EditOutlined, PlusCircleOutlined} from '@ant-design/icons';
+import {EditOutlined, PlusCircleOutlined, CheckCircleOutlined} from '@ant-design/icons';
+
+const {Title} = Typography;
 
 export const EducationContainer = styled.div`
 width: 70%;
@@ -13,6 +15,20 @@ padding: 20px;
 max-width: 900px;
 min-width: 580px;
 `;
+
+export const StyledModal = styled(Modal)`
+  .ant-modal-content, .ant-modal-header{
+    background: rgba(200, 200, 200, 0.5);
+    border-radius: 8px;
+  }
+  .ant-btn {
+    color: black !important;
+  }
+  .ant-btn-primary {
+    color: white !important;
+  }
+
+`
 
 class EducationSection extends Component {
     state = {visible: false};
@@ -45,16 +61,14 @@ class EducationSection extends Component {
           </h2>
           {/* -----------------------------EDUCATION MODAL----------------------------- */}
   
-          <Modal
-            title="Basic Modal"
+          <StyledModal
+            // title="Basic Modal"
             visible={this.state.visible}
             onOk={this.handleOk}
             onCancel={this.handleCancel}
           >
-            <p>Some contents...</p>
-            <p>Some contents...</p>
-            <p>Some contents...</p>
-          </Modal>
+            <Title level={2}></Title>
+          </StyledModal>
           <Row>
             <Col>
               <div>

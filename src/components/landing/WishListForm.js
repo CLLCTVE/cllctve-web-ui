@@ -9,7 +9,7 @@ import {promiseListener} from '../../store';
 import {WISHLIST_REQUEST, WISHLIST_SUCCESS, WISHLIST_FAILURE} from '../../modules/landing/redux';
 import * as validations from '../../utils/validations';
 
-export const AsyncWishListForm ({isLoading}) => (
+export const AsyncWishListForm = ({isLoading}) => (
     <MakeAsyncFunction
     listener={promiseListener}
     start={WISHLIST_REQUEST}
@@ -61,7 +61,7 @@ export const AsyncWishListForm ({isLoading}) => (
                   <div>
                     <FField
                       name="major"
-                      component={renderAntPasswordInput}
+                      component={renderAntInput}
                       type="text"
                       placeholder="Major*"
                       disabled={submitting}
@@ -71,7 +71,7 @@ export const AsyncWishListForm ({isLoading}) => (
                   <div>
                     <FField
                       name="skillsList"
-                      component={renderAntPasswordInput}
+                      component={renderAntInput}
                       type="text"
                       placeholder="List your skills (Separated by comma)*"
                       disabled={submitting}
@@ -80,6 +80,7 @@ export const AsyncWishListForm ({isLoading}) => (
                   </div>
     
                   <StyledButton
+                  style={{margin: '0 auto', display: 'block'}}
                     size="large"
                     shape="round"
                     type="button"

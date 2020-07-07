@@ -73,7 +73,7 @@ class LandingPage extends Component {
                   height: '750px',
                 }}
               >
-                <ButtonContainer>
+                {/* <ButtonContainer>
                   <Search
                     style={{width: '500px'}}
                     placeholder="Email"
@@ -83,7 +83,7 @@ class LandingPage extends Component {
                     htmlType="submit"
                     onSearch={(value => console.log(value), this.userEmails)}
                   />
-                </ButtonContainer>
+                </ButtonContainer> */}
               </Header>
             <Layout>
               <Content>

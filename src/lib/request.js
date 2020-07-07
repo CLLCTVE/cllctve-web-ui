@@ -10,7 +10,7 @@ const API_URL = `${env.REACT_APP_CLLCTVE_API_ORIGIN}/api`;
 export default {
   del: (url, data, origin) => makeRequest(url, 'DELETE', data, origin),
   get: (url, data, origin) => makeRequest(url, 'GET', data, origin),
-  post: (url, data, origin) => makeRequest(url, 'POST', data, origin),
+  post: (url, data, origin) => mockRequest(url, 'POST', data, origin),
   put: (url, data, origin) => makeRequest(url, 'PUT', data, origin),
 };
 
@@ -78,6 +78,8 @@ const mockRequest = async (url, method, requestData, origin) => {
           email: config.data.email,
           password: config.data.password,
         });
+      case 'landing/wishlist':
+        return await API.okResponse();
       default:
         return await API.okResponse();
     }
