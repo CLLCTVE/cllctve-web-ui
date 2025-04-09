@@ -15,6 +15,9 @@ import store, {history} from './store';
 
 import * as serviceWorker from './serviceWorker';
 
+// Import Firebase configuration
+import './firebase';
+
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
